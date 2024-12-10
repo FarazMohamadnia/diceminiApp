@@ -1,5 +1,6 @@
 .navbar-User-backgroundImage{
     width: 115px;
+    height: 72px;
     background: url('../../../asset/img/NavbarImg/shadow.png');
     background-position: center;
     background-size: cover;
@@ -20,14 +21,12 @@
     height: 63px;
     margin-top: 1px;
     background: url('../../../asset/img/NavbarImg/LINE.png');
-    background-position: right;
     background-repeat: no-repeat;
     background-size: contain;
     padding-inline: 0.3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 1rem;
 }
 
 .Navbar-right-polygon{
