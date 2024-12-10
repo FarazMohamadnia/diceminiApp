@@ -15,6 +15,10 @@
     border-radius: 50%;
 }
 
+.navbar-Notification-boxshadow{
+    box-shadow: 0px 0px 9px 1px #1ae5a1;;
+}
+
 .navbar-botton-section{
     position: relative;
     width: 100vw;

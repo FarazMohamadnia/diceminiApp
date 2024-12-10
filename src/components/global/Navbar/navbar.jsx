@@ -12,8 +12,9 @@ export default function Navbar(){
                 <div className='navbar-User-backgroundImage'>
                     <img src={Pic} className='navbar-User-Image'/>
                 </div>
-                <div>
+                <div className='relative'>
                     <img className='mt-8 w-4 h-4' src={Notification}/>
+                    <span className='navbar-Notification-boxshadow w-[5px] h-[5px] bg-[#1ae5a1] rounded right-0 top-7 absolute shadow-[0_35px_60px_-15px_#1ae5a1]'></span>
                 </div>
             </div>
             <div className='navbar-botton-section'>
