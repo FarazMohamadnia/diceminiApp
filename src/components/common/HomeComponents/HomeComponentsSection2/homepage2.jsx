@@ -5,7 +5,7 @@ import Imagebox from './ImageBox/imagebox'
 export default function Homepagesection2(){
     return(
         <div>
-            <div className='HomepageSection2-backgroundColor w-full shadow h-[42px] flex items-center px-3 justify-between mb-3'>
+            <div className='HomepageSection2-backgroundColor w-full shadow h-[42px] flex items-center px-3 justify-between mb-4'>
                 <div className='flex items-center'>
                     <img className='w-6 h-[27px] mt-[6px]' src={img} alt=''/>
                     <p className='text-[#1ae5a1] text-sm font-bold'>DICE GAMES</p>
