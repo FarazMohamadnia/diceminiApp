@@ -1,11 +1,16 @@
 import Carousel1 from "../../common/HomeComponents/HomeComponentsSection1/carousel";
-import TestCa from "../../common/HomeComponents/HomeComponentsSection1/carousel";
+import HomePageSection2 from "../../common/HomeComponents/HomeComponentsSection2/homepage2";
+
 
 export default function HomeLayout(){
     return(
         <div>
-            {/* <Carousel1 /> */}
-            <TestCa />
+            <div>
+                <Carousel1 />
+            </div>
+            <div>
+                <HomePageSection2 />
+            </div>
         </div>
     )
 }
