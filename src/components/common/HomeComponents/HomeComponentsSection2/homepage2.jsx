@@ -8,7 +8,7 @@ export default function Homepagesection2(){
             <div className='HomepageSection2-backgroundColor w-full shadow h-[42px] flex items-center px-3 justify-between mb-4'>
                 <div className='flex items-center'>
                     <img className='w-6 h-[27px] mt-[6px]' src={img} alt=''/>
-                    <p className='text-[#1ae5a1] text-sm font-bold'>DICE GAMES</p>
+                    <p className='text-[#1ae5a1] text-sm font-bold ml-1'>DICE GAMES</p>
                 </div>
                 <div className='flex items-center'>
                     <p className='text-white text-sm font-normal mr-1'>Go to game list</p>

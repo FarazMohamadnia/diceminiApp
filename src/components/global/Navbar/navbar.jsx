@@ -8,12 +8,12 @@ export default function Navbar(){
     return(
         <div>
             <div className='flex items-center justify-between mx-3'>
-                <img className='w-12 h-12' src={Logo}/>
+                <img alt='' className='w-12 h-12' src={Logo}/>
                 <div className='navbar-User-backgroundImage'>
-                    <img src={Pic} className='navbar-User-Image'/>
+                    <img src={Pic} alt='' className='navbar-User-Image'/>
                 </div>
                 <div className='relative'>
-                    <img className='mt-8 w-4 h-4' src={Notification}/>
+                    <img alt='' className='mt-8 w-4 h-4' src={Notification}/>
                     <span className='navbar-Notification-boxshadow w-[5px] h-[5px] bg-[#1ae5a1] rounded right-0 top-7 absolute shadow-[0_35px_60px_-15px_#1ae5a1]'></span>
                 </div>
             </div>
@@ -22,7 +22,7 @@ export default function Navbar(){
                     <div><p className='text-white text-[9px] font-normal'>18 OUT OF 21 <span className='text-[#00efff]'>DTS</span></p></div>
                     <div className='Navbar-left-polygon'>
                         <p className='text-white text-[12px] pt-1 font-semibold'>3 <span className='text-[#00efff]'>DICES</span> </p>
-                        <span className='Navbar-left-polygon-Icon'><img src={DiceIcon}/></span>
+                        <span className='Navbar-left-polygon-Icon'><img alt='' src={DiceIcon}/></span>
                     </div>
                 </div>
                 <div className='text-center'>
@@ -33,7 +33,7 @@ export default function Navbar(){
                     <div><p className='text-white text-[9px] font-normal'>CASH <span className='text-[#00efff]'>BALANCE</span></p></div>
                     <div className='Navbar-right-polygon'>
                         <p className='text-white text-[12px] mt-[1px] font-semibold'>2000 <span className='text-[#00efff] font-semibold'>USD</span></p>
-                        <span className='Navbar-right-polygon-Icon'><img src={MoneyBagIcon}/></span>
+                        <span className='Navbar-right-polygon-Icon'><img alt='' src={MoneyBagIcon}/></span>
                     </div>
                 </div>
             </div>
