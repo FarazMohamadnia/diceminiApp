@@ -33,7 +33,7 @@ export default function HomePage3(){
     return(
         <div className='mb-5'>
             <div className="mt-4 HomepageSection2-backgroundColor w-full shadow h-[42px] px-4 flex items-center mb-4">
-                <img className='w-[24] h-[28] mb-4' src={fireImage} alt=""/> 
+                <img className='w-[24] h-[28] mb-1' src={fireImage} alt=""/> 
                 <p className='text-[#1ae5a1] text-base font-bold ml-2'>Trending</p>
             </div>
             <div className='HomePage3-card-container'>

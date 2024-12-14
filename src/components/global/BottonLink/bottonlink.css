@@ -1,0 +1,49 @@
+.Bottonlink-container{
+    position: fixed;
+    bottom: 0px;
+    height: 100px;
+    width: 100%;
+    z-index: 11;
+}
+
+.Bottonlink-Selected{
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, rgba(133, 133, 133, 1) 0%, #000000 100%);
+    box-shadow: 0px 0px 10px 1px #1AE5A1;
+    z-index: 13;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 15;
+    right: 9.5px;
+    top: -35px;
+}
+
+.Bottonlink-Selected-Waves{
+    content: "";
+    position: absolute;
+    width: 85px;
+    height: 40px;
+    background-color: rgba(18, 23, 36, 0.9);
+    z-index: 13;
+    border-radius: 50% 50% 400px 400px;
+    top: 29px;
+    
+}
+
+ 
+.Bottonlink-body{
+    position: absolute;
+    height: 70px;
+    width: 100%;
+    bottom: 0px;
+    background-color: rgba(71, 71, 71, 0.9);
+    z-index: 12;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 15px 15px 0px 0px ;
+}
