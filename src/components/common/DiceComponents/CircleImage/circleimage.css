@@ -1,0 +1,21 @@
+.CircleImageComponent-container{
+    position: relative;
+    z-index: 2;
+    background-position: center;
+    background-size: 140%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:60px;
+    height :60px;
+    border-radius: 50%;
+}
+
+.CircleImageComponent-container img{
+    border-radius: 50%;
+    width: 92%;
+    height: 92%;
+    position: absolute;
+    z-index: 1;
+}

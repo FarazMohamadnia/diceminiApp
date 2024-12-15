@@ -1,0 +1,18 @@
+.DicelayoutPage-Body{
+    min-width: 200px;
+    max-width: 400px;
+    width: 85%;
+    height: 170px;
+    background-color: rgba(102, 51, 153, 0);
+    margin-inline: auto;
+    border-radius: 15px;
+    margin-top: 20px;
+    border: 1px solid #1ae5a1;
+    box-shadow: inset 0px 0px 20px 5px #1ae5a1;
+    padding-block: 10px;
+    color: #1ae5a1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-inline: 13px;
+}
