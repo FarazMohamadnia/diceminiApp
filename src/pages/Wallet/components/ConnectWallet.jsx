@@ -11,7 +11,7 @@ const ConnectWalletButton = () => {
       }}
     >
       <WalletIcon />
-      <span className="font-semibold">CONNECT YOUR WALLET</span>
+      <span className="font-extrabold">CONNECT YOUR WALLET</span>
     </button>
   );
 };

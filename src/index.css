@@ -1,25 +1,57 @@
+@font-face {
+  font-family: "BarlowCondensed";
+  src: url("./asset/fonts/BarlowCondensed-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BarlowCondensed";
+  src: url("./asset/fonts/BarlowCondensed-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BarlowCondensed";
+  src: url("./asset/fonts/BarlowCondensed-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BarlowCondensed";
+  src: url("./asset/fonts/BarlowCondensed-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BarlowCondensed";
+  src: url("./asset/fonts/BarlowCondensed-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BarlowCondensed";
+  src: url("./asset/fonts/BarlowCondensed-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "BarlowCondensed", sans-serif !important;
   background-color: rgba(18, 23, 36, 1);
   margin-top: 30px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-
-p{
+p {
   margin: 0px;
   padding: 0px;
 }
