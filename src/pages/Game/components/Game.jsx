@@ -52,7 +52,7 @@ export default Game;
 function LeaderboardCard() {
   return (
     <div
-      className="flex items-center justify-between bg-[#1D222E] border border-[#CAFD7B] rounded-2xl px-6 py-4 w-full max-w-2xl"
+      className="flex items-center justify-between bg-[#1D222E] border border-[#CAFD7B] rounded-2xl px-6 py-4 mx-auto max-w-2xl"
       style={{
         boxShadow: `${"inset 0 0 20px #CAFD7B"}`,
       }}
