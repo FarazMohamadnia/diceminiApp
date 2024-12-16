@@ -1,49 +1,103 @@
-.Bottonlink-container{
-    position: fixed;
-    bottom: 0px;
-    height: 100px;
-    width: 100%;
-    z-index: 11;
+.Bottonlink-container {
+  position: fixed;
+  bottom: 0px;
+  height: 100px;
+  width: 100%;
+  z-index: 11;
 }
 
-.Bottonlink-Selected{
-    position: absolute;
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    background: linear-gradient(180deg, rgba(133, 133, 133, 1) 0%, #000000 100%);
-    box-shadow: 0px 0px 10px 1px #1AE5A1;
-    z-index: 13;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 15;
-    right: 9.5px;
-    top: -35px;
+.Bottonlink-Selected {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(133, 133, 133, 1) 0%, #000000 100%);
+  box-shadow: 0px 0px 10px 1px #1ae5a1;
+  z-index: 13;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 15;
+  right: 9.5px;
+  top: -35px;
 }
 
-.Bottonlink-Selected-Waves{
-    content: "";
-    position: absolute;
-    width: 85px;
-    height: 40px;
-    background-color: rgba(18, 23, 36, 0.9);
-    z-index: 13;
-    border-radius: 50% 50% 400px 400px;
-    top: 29px;
-    
+.Bottonlink-Selected-Waves {
+  content: "";
+  position: absolute;
+  width: 85px;
+  height: 40px;
+  background-color: rgba(18, 23, 36, 0.9);
+  z-index: 13;
+  border-radius: 50% 50% 400px 400px;
+  top: 29px;
 }
 
- 
-.Bottonlink-body{
-    position: absolute;
-    height: 70px;
-    width: 100%;
-    bottom: 0px;
-    background-color: rgba(71, 71, 71, 0.9);
-    z-index: 12;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    border-radius: 15px 15px 0px 0px ;
+.Bottonlink-body {
+  position: absolute;
+  height: 70px;
+  width: 100%;
+  bottom: 0px;
+  background-color: rgba(71, 71, 71, 0.9);
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 15px 15px 0px 0px;
 }
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background: #111;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #fff;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+  font-family: sans-serif;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #bbb;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #0ff;
+}
+
+.icon,
+.icon-profile {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.profile-link .icon-profile {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, #0ff 0%, #222 100%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-link.active {
+  color: #0ff;
+}
+
+.nav-link.active .icon-profile {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px #0ff;
+}
+
+/* Example transitions if you want to highlight the selected route more distinctly */
