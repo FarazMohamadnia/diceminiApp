@@ -1,4 +1,10 @@
-.trans {
+.transaction_shadow {
+  width: 220px;
+  height: 33px;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 20%;
   clip-path: polygon(
     50.02% 98.485%,
     50.02% 98.485%,
@@ -25,5 +31,5 @@
     55.065% 97.5%,
     50.02% 98.485%
   );
-  background-color: red;
+  background-color: #1ae5a1;
 }

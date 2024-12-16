@@ -1,83 +1,128 @@
 import React from "react";
-import styles from "./styles.module.css";
+import "./styles.css";
+import { SucessFullIcon } from "../../../components/icons/successfull";
+import { PendingIcon } from "../../../components/icons/pending";
+import CalenderIcon from "../../../components/icons/calender";
 
 const transactions = [
   {
     status: "Successful",
-    statusIcon: "✅",
-    statusColor: "text-green-400",
+    icon: (
+      <>
+        <SucessFullIcon />
+      </>
+    ),
+    statusColor: "#1AE5A1",
     amount: "-10 USDT",
-    amountColor: "text-red-400",
+    amountColor: "#1AE5A1",
     date: "2024/06/12",
   },
   {
     status: "Processing",
-    statusIcon: "⌛",
-    statusColor: "text-yellow-400",
+    icon: (
+      <>
+        <PendingIcon />
+      </>
+    ),
+    statusColor: "#FFCF60",
     amount: "-10 USDT",
-    amountColor: "text-red-400",
+    amountColor: "#FFCF60",
     date: "2024/06/12",
   },
   {
     status: "Successful",
-    statusIcon: "✅",
-    statusColor: "text-green-400",
+    icon: (
+      <>
+        <SucessFullIcon />
+      </>
+    ),
+    statusColor: "#1AE5A1",
     amount: "+10 USDT",
-    amountColor: "text-green-400",
+    amountColor: "#1AE5A1",
     date: "2024/06/12",
   },
   {
     status: "Successful",
-    statusIcon: "✅",
-    statusColor: "text-green-400",
+    icon: (
+      <>
+        <SucessFullIcon />
+      </>
+    ),
+    statusColor: "#1AE5A1",
     amount: "+10 USDT",
-    amountColor: "text-green-400",
-    date: "2024/06/12",
-  },
-  {
-    status: "Successful",
-    statusIcon: "✅",
-    statusColor: "text-green-400",
-    amount: "-10 USDT",
-    amountColor: "text-red-400",
+    amountColor: "#1AE5A1",
     date: "2024/06/12",
   },
 ];
 
 const TransactionHistory = () => {
   return (
-    <div className="relative border border-green-500 rounded-xl w-full max-w-md bg-gradient-to-b from-[#0E1118] to-[#1D222E] p-4 overflow-hidden">
-      {/* <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
-        <div className="bg-green-500 text-black font-semibold px-4 py-1 rounded-b-full text-center ">
+    <div
+      className="
+    relative
+    border-[0.5px] border-[#1AE5A1]
+    rounded-[10px]
+    w-full max-w-m
+    overflow-hidden
+    bg-[linear-gradient(117deg,_#1AE5A1_-84.8%,_rgba(40,39,70,0)_104.46%)]
+    backdrop-blur-[14.4px]
+  "
+    >
+      {" "}
+      <div className="transaction_shadow">
+        <span className="absolute right-0 left-0 w-full text-xs font-extrabold text-center top-1.5">
           TRANSACTION HISTORY
-        </div>
-      </div> */}
-      <div className="trans"></div>
-
+        </span>
+      </div>
       <div className="mt-8 flex flex-col divide-y divide-green-500">
         {transactions.map((tx, index) => (
-          <div key={index} className="flex items-center justify-between py-3">
-            {/* Left Section: Icon + Status */}
+          <div
+            key={index}
+            className="flex items-center justify-between py-3 px-2"
+          >
             <div className="flex items-center space-x-2">
-              <span className="text-2xl">{tx.statusIcon}</span>
-              <span className={`${tx.statusColor} font-semibold`}>
+              <span className="text-2xl">{tx.icon}</span>
+
+              <span
+                className={`font-semibold`}
+                style={{
+                  color: `${tx.statusColor}`,
+                }}
+              >
                 {tx.status}
               </span>
             </div>
 
-            {/* Middle: Amount and Date */}
             <div className="flex items-center space-x-4">
-              <span className={`${tx.amountColor} font-semibold`}>
+              <span
+                className={`font-semibold`}
+                style={{
+                  color: `${tx.statusColor}`,
+                }}
+              >
                 {tx.amount}
               </span>
               <div className="flex items-center space-x-1">
-                <span className="text-green-400">📅</span>
-                <span className="text-white">{tx.date}</span>
+                <span>
+                  <CalenderIcon color={tx.statusColor} />
+                </span>
+                <span
+                  style={{
+                    color: `${tx.statusColor}`,
+                  }}
+                >
+                  {tx.date}
+                </span>
               </div>
             </div>
 
-            {/* Right Arrow */}
-            <span className="text-cyan-400">{"»"}</span>
+            <span
+              style={{
+                color: `${tx.statusColor}`,
+              }}
+            >
+              {"»"}
+            </span>
           </div>
         ))}
       </div>
