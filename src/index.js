@@ -9,6 +9,7 @@ import WalletPage from "./pages/Wallet/walletPage";
 import ProfilePage from "./pages/Profile/profilePage";
 import { RouteProvider } from "./context/BottomLinkContext/bottomlinkcontext";
 import DetailDice from "./pages/DetailDice";
+import DetailDiceUser from "./pages/DetailUserDices";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,6 +20,7 @@ root.render(
           <Route path="/" element={<App />} />
           <Route path="/Dice" element={<DicePage />} />
           <Route path="/dice-detail" element={<DetailDice />} />
+          <Route path="/dice-detail-user" element={<DetailDiceUser />} />
           <Route path="/Games" element={<GamePage />} />
           <Route path="/Wallet" element={<WalletPage />} />
           <Route path="/Profile" element={<ProfilePage />} />
