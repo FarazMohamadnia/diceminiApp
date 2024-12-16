@@ -1,0 +1,42 @@
+.GameLayout1-Btn-style{
+    width: 90%;
+    height: 50px;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid #1ae5a1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0px 0px 15px 3px #1ae5a1;
+    color: #ffe26f;
+    font-size: 0.8rem ;
+    line-height: 1.5rem ;
+}
+
+.GameLayout1-section2-bodyStyle{
+    width: 90%;
+    height: 240px;
+    margin-inline: auto;
+    box-shadow: inset 0px 0px 50px 10px #1ae5a1b5;
+    border: 1px solid #1ae5a1;
+    border-radius: 15px;
+    margin-top: 20px;
+    display: flex;
+    padding-block: 20px;
+    padding-inline: 10px;
+}
+
+.GameLayout1-section2-BTN{
+    color:#ffe26f;
+    padding: 10px;
+    width: 95%;
+    height: 42px;
+    margin-block: 15px;
+    border :1px solid #cafd7b;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 8px;
+    font-weight: bold;
+}
+

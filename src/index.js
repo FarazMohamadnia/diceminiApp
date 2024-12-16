@@ -20,7 +20,7 @@ root.render(
           <Route path="/Dice" element={<DicePage />} />
           <Route path="/Games" element={<GamePage />} />
           <Route path="/Wallet" element={<WalletPage />} />
-          <Route path="/Profile" element={<ProfilePage />} />
+          <Route path="/profile" element={<ProfilePage />} />
         </Routes>
       </RouteProvider>
     </BrowserRouter>

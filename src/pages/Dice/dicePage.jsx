@@ -2,6 +2,8 @@ import Bottonlink from '../../components/global/BottonLink/bottonlink'
 import Navbar from '../../components/global/Navbar/navbar'
 import DiceLayout1 from '../../components/layout/DiceLayout/DiceLayoutSection1/diceLayoutPage'
 import DiceLayout2 from '../../components/layout/DiceLayout/DiceLayoutSection2/diceLayoutPage2'
+import GameLayout1 from '../../components/layout/GameLayout/gameLayoutSection1/GameLayout'
+import GameLayout2 from '../../components/layout/GameLayout/gameLayoutSection2/GameLayout2'
 import './dicePage.css'
 export default function DicePage(){
     return(
@@ -10,10 +12,10 @@ export default function DicePage(){
                 <Navbar />
             </div>
             <div>
-                <DiceLayout1 />
+                <GameLayout1 />
             </div>
             <div>
-                <DiceLayout2 />
+                <GameLayout2 />
             </div>
             <div>
                 <Bottonlink />
