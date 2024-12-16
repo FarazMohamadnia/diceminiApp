@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DicePage from "./pages/Dice/dicePage";
-import GamePage from "./pages/Game/gamePage";
+import GamePage from "./pages/Game";
 import WalletPage from "./pages/Wallet/walletPage";
 import ProfilePage from "./pages/Profile/profilePage";
 import { RouteProvider } from "./context/BottomLinkContext/bottomlinkcontext";
