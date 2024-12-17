@@ -70,7 +70,7 @@ const WithDrawhistory = () => {
       {" "}
       <div className="Withdraw_shadow">
         <span className="absolute right-0 left-0 w-full text-xs font-extrabold text-center top-1.5">
-          TRANSACTION HISTORY
+          WITHDRAW HISTORY
         </span>
       </div>
       <div className="mt-8 flex flex-col divide-y divide-green-500">
