@@ -8,6 +8,7 @@ import img2 from '../../../../asset/img/DiceImg/Icon2.png'
 import GoldIcon from '../../../../asset/img/DiceImg/goldModal.png';
 import SilverIcon from '../../../../asset/img/DiceImg/SilverModal.png';
 import BronzeImg from '../../../../asset/img/DiceImg/BronzImg.png'
+import { Link } from 'react-router-dom';
 const FakeData = [
     {
         BgImage :img ,
@@ -57,7 +58,7 @@ export default function DiceLayout1(){
                     </div>
                 </div>
                 <div>
-                    <p className='flex justify-center items-center text-neutral-50 text-[13px] font-medium'>View luckyboard <span className='mt-[2px] ml-1'><img src={arrowIcon}/></span></p>
+                    <Link to={'/games/leaderboard'}><p className='flex justify-center items-center text-neutral-50 text-[13px] font-medium'>View luckyboard <span className='mt-[2px] ml-1'><img src={arrowIcon}/></span></p></Link>
                 </div>
             </div>
         </div>

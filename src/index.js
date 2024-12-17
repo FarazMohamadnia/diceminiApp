@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DicePage from "./pages/Dice/dicePage";
-import GamePage from "./pages/Game";
 import ProfilePage from "./pages/Profile/profilePage";
 import { RouteProvider } from "./context/BottomLinkContext/bottomlinkcontext";
 import DetailDice from "./pages/DetailDice";
@@ -14,6 +13,8 @@ import Dicesellpages from "./pages/Wallet/pages/DiceSellPages/diceSell";
 import WithdrawPage from "./pages/Wallet/pages/withdrawPage";
 import Deposite from "./pages/Wallet/pages/deposit/components/Deposite";
 import DiceHistoriPage from "./pages/DiceHistori";
+import LeaderBoard from "./pages/Game/leaderboard";
+import GamePage from "./pages/Game/gamePage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -27,7 +28,8 @@ root.render(
           <Route path="/dice-detail" element={<DetailDice />} />
           <Route path="/dice-detail-user" element={<DetailDiceUser />} />
           <Route path="/wallet/sell" element={<Dicesellpages />} />
-          <Route path="/Games" element={<GamePage />} />
+          <Route path="/games" element={<GamePage />} />
+          <Route path="/games/leaderboard" element={<LeaderBoard />} />
           <Route path="/Wallet" element={<Wallet />} />
           <Route path="/Wallet/withdraw" element={<WithdrawPage />} />
           <Route path="/Wallet/deposite" element={<Deposite />} />

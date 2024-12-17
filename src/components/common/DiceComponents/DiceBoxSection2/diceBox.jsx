@@ -34,9 +34,6 @@ export default function DiceBox({img , status , name}){
                                 </div>
                         }
                     </div>
-                    <div>
-                        btn
-                    </div>
                 </div>
             </div>
         </div>

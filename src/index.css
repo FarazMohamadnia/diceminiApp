@@ -49,9 +49,15 @@ body {
   font-family: "BarlowCondensed", sans-serif !important;
   background-color: rgba(18, 23, 36, 1);
   margin-top: 30px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 p {
   margin: 0px;
   padding: 0px;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

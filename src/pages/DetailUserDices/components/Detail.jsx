@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../../components/global/Navbar/navbar";
 import BackButton from "../../../components/common/shared/BackButton";
 import Button from "../../../components/common/shared/Button";
 import PlusIcon from "../../../components/icons/plus";
 import Bottonlink from "../../../components/global/BottonLink/bottonlink";
 import UserRewardCard from "./Card";
+import { Link , useLocation } from "react-router-dom";
 
 const Detail = () => {
+
+
+
   return (
     <>
       <div>
@@ -38,37 +42,53 @@ const Detail = () => {
 export default Detail;
 
 function Tabs() {
-  const [activeTab, setActiveTab] = useState("daily");
+  const location = useLocation();
+  // const {pathname} = location
+  console.log(location.pathname);
+  const [activeTab, setActiveTab] = useState(location.pathname);
+
+
 
   const tabs = [
     {
       title: "Daily",
       key: "daily",
+      href : '/dice-detail'
     },
     {
       title: "General",
       key: "general",
+      href : '/aasdasd'
     },
     {
       title: "Referral",
       key: "referral",
+      href : '/dice-detail-user'
     },
   ];
+
+  useEffect(()=>{
+    setActiveTab(location.pathname)
+  },[location.pathname])
+
+
   return (
     <div className="flex w-full items-center justify-center mt-8 gap-4">
       {tabs.map((tab) => {
         return (
-          <button
-            key={tab.key}
-            className={`rounded-full border border-[#1AE5A1] h-[45px] font-semibold w-[90px] cursor-pointer ${
-              activeTab === tab.key
-                ? "bg-[#04CCA7] text-black"
-                : "bg-transparent text-white"
-            }`}
-            onClick={() => setActiveTab(tab.key)}
-          >
-            {tab.title}
-          </button>
+          <Link to={tab.href}>
+            <button
+              key={tab.key}
+              className={`rounded-full border border-[#1AE5A1] h-[45px] font-semibold w-[90px] cursor-pointer ${
+                tab.href === location.pathname
+                  ? "bg-[#04CCA7] text-black"
+                  : "bg-transparent text-white"
+              }`}
+              onClick={() => setActiveTab(tab.key)}
+            >
+              {tab.title}
+            </button>
+          </Link>
         );
       })}
     </div>

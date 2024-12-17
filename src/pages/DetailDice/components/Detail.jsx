@@ -5,6 +5,7 @@ import BackButton from "../../../components/common/shared/BackButton";
 import Button from "../../../components/common/shared/Button";
 import PlusIcon from "../../../components/icons/plus";
 import RewardCard from "../components/DetailCard";
+import { Link } from "react-router-dom";
 
 const Detail = () => {
   return (
@@ -41,31 +42,36 @@ function Tabs() {
     {
       title: "Daily",
       key: "daily",
+      href: '/dice-detail'
     },
     {
       title: "General",
       key: "general",
+      href: ''
     },
     {
       title: "Referral",
       key: "referral",
+      href : '/dice-detail-user'
     },
   ];
   return (
     <div className="flex w-full items-center justify-center mt-8 gap-4">
       {tabs.map((tab) => {
         return (
-          <button
-            key={tab.key}
-            className={`rounded-full border border-[#1AE5A1] h-[45px] font-semibold w-[90px] cursor-pointer ${
-              activeTab === tab.key
-                ? "bg-[#04CCA7] text-black"
-                : "bg-transparent text-white"
-            }`}
-            onClick={() => setActiveTab(tab.key)}
-          >
-            {tab.title}
-          </button>
+          <Link to={tab.href}>
+            <button
+              key={tab.key}
+              className={`rounded-full border border-[#1AE5A1] h-[45px] font-semibold w-[90px] cursor-pointer ${
+                activeTab === tab.key
+                  ? "bg-[#04CCA7] text-black"
+                  : "bg-transparent text-white"
+              }`}
+              onClick={() => setActiveTab(tab.key)}
+            >
+              {tab.title}
+            </button>
+          </Link>
         );
       })}
     </div>
