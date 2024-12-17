@@ -1,7 +1,5 @@
 import React from "react";
 import './index.css'
-import {SucessFullIcon} from '../../../components/icons/successfull';
-import {PendingIcon} from '../../../components/icons/pending';
 import CalenderIcon from '../../../components/icons/calender'
 import DiceIcon from "../../../components/icons/dice";
 const transactions = [
