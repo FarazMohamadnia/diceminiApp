@@ -6,7 +6,7 @@ import DiceGroup from "../../../../components/icons/DiceGroup";
 import SellIcon from "../../../../components/icons/sell";
 import SellIcon1 from "../../../../components/icons/sellIcon1";
 import WalletIcon2 from "../../../../components/icons/walletIcon2";
-import Progress from "../components/BaseProgressBar";
+import Progress from "./components/BaseProgressBar";
 import './diceSell.css'
 export default function Dicesellpages(){
     return(
