@@ -1,0 +1,17 @@
+.WithdrawPage-inputs-style{
+    width: 95%;
+    min-width: 230px;
+    height: 50px;
+    background:linear-gradient(to bottom right , rgba(26, 229, 161, 0.350) , rgba(40, 39, 70, 0));
+    border-radius: 15px;
+    margin-inline: auto;
+    border: 1px solid rgba(26, 229, 161, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 15px;
+}
+
+.WithdrawPage-BTN-boxshadow{
+    box-shadow: inset 0px 0px 15px 1px #00F0FF;
+}

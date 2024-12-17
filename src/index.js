@@ -28,7 +28,6 @@ root.render(
           <Route path="/Wallet" element={<Wallet />} />
           <Route path="/Wallet/withdraw" element={<WithdrawPage />} />
           <Route path="/Profile" element={<ProfilePage />} />
-          
         </Routes>
       </RouteProvider>
     </BrowserRouter>
