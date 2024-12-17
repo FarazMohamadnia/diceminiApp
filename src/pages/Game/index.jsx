@@ -1,9 +1,9 @@
-import Game from "./components/Game";
+import GamePage from "./gamePage";
 
 export default function Index() {
   return (
     <div>
-      <Game />
+      <GamePage />
     </div>
   );
 }
