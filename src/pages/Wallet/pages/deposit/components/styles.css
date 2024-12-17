@@ -1,4 +1,4 @@
-.transaction_shadow {
+.deposite_shadow {
   width: 220px;
   height: 33px;
   margin: 0 auto;
@@ -31,5 +31,5 @@
     55.065% 97.5%,
     50.02% 98.485%
   );
-  background-color: #1ae5a1;
+  background-color: #00f0ff;
 }

@@ -1,8 +1,8 @@
 import React from "react";
 import "./styles.css";
-import { SucessFullIcon } from "../../../components/icons/successfull";
-import { PendingIcon } from "../../../components/icons/pending";
-import CalenderIcon from "../../../components/icons/calender";
+import { SucessFullIcon } from "../../../../../components/icons/successfull";
+import { PendingIcon } from "../../../../../components/icons/pending";
+import CalenderIcon from "../../../../../components/icons/calender";
 
 const transactions = [
   {
@@ -55,7 +55,7 @@ const transactions = [
   },
 ];
 
-const TransactionHistory = () => {
+const SellHistory = () => {
   return (
     <div
       className="
@@ -71,7 +71,7 @@ const TransactionHistory = () => {
       {" "}
       <div className="transaction_shadow">
         <span className="absolute right-0 left-0 w-full text-xs font-extrabold text-center top-1.5">
-          TRANSACTION HISTORY
+          SELL HISTORY
         </span>
       </div>
       <div className="mt-8 flex flex-col divide-y divide-green-500">
@@ -130,4 +130,4 @@ const TransactionHistory = () => {
   );
 };
 
-export default TransactionHistory;
+export default SellHistory;

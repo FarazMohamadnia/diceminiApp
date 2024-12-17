@@ -1,8 +1,8 @@
 import React from "react";
 import "./styles.css";
-import { SucessFullIcon } from "../../../components/icons/successfull";
-import { PendingIcon } from "../../../components/icons/pending";
-import CalenderIcon from "../../../components/icons/calender";
+import { SucessFullIcon } from "../../../../../components/icons/successfull";
+import { PendingIcon } from "../../../../../components/icons/pending";
+import CalenderIcon from "../../../../../components/icons/calender";
 
 const transactions = [
   {
@@ -55,26 +55,26 @@ const transactions = [
   },
 ];
 
-const TransactionHistory = () => {
+const HistoryTable = () => {
   return (
     <div
       className="
     relative
-    border-[0.5px] border-[#1ae5a1]
+    border-[0.5px] border-[#00f0ff]
     rounded-[10px]
     w-full max-w-m
     overflow-hidden
-    bg-[linear-gradient(117deg,_#1AE5A1_-84.8%,_rgba(40,39,70,0)_104.46%)]
+bg-[linear-gradient(117deg,#00F0FF_-84.8%,rgba(40,39,70,0)_104.46%)]
     backdrop-blur-[14.4px]
   "
     >
       {" "}
-      <div className="transaction_shadow">
+      <div className="deposite_shadow">
         <span className="absolute right-0 left-0 w-full text-xs font-extrabold text-center top-1.5">
-          TRANSACTION HISTORY
+          Deposit HISTORY
         </span>
       </div>
-      <div className="mt-8 flex flex-col divide-y divide-green-500">
+      <div className="mt-8 flex flex-col divide-y divide-[#cafd7b3b]">
         {transactions.map((tx, index) => (
           <div
             key={index}
@@ -130,4 +130,4 @@ const TransactionHistory = () => {
   );
 };
 
-export default TransactionHistory;
+export default HistoryTable;

@@ -12,6 +12,7 @@ import DetailDiceUser from "./pages/DetailUserDices";
 import Wallet from "./pages/Wallet";
 import Dicesellpages from "./pages/Wallet/pages/DiceSellPages/diceSell";
 import WithdrawPage from "./pages/Wallet/pages/withdrawPage";
+import Deposite from "./pages/Wallet/pages/deposit/components/Deposite";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -27,6 +28,7 @@ root.render(
           <Route path="/Games" element={<GamePage />} />
           <Route path="/Wallet" element={<Wallet />} />
           <Route path="/Wallet/withdraw" element={<WithdrawPage />} />
+          <Route path="/Wallet/deposite" element={<Deposite />} />
           <Route path="/Profile" element={<ProfilePage />} />
         </Routes>
       </RouteProvider>

@@ -5,6 +5,7 @@ import WithdrawIcon from "../../../components/icons/withdraw";
 // Replace these with your actual icon components or SVGs.
 // import { IoWalletOutline } from "react-icons/io5";
 // import { IoCardOutline } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
 
 const PaymentWallet = () => {
   return (
@@ -27,20 +28,26 @@ const PaymentWallet = () => {
       </div>
 
       <div className="flex flex-col space-y-4 ml-6">
-        <button className="flex items-center justify-between space-x-2 border border-[#00F0FF] rounded-2xl px-6 py-3 text-[#07CB8A]">
+        <NavLink
+          to={"/wallet/deposite"}
+          className="flex items-center justify-between space-x-2 border border-[#00F0FF] rounded-2xl px-6 py-3 text-[#07CB8A]"
+        >
           <DepositIcon />
           <span className="font-semibold tracking-wide min-w-[93px] text-start">
             DEPOSIT
           </span>
-        </button>
-        <button className="flex  items-center justify-between space-x-2 border border-[#00F0FF] rounded-2xl px-6 py-3 text-[#07CB8A]">
+        </NavLink>
+        <NavLink
+          to={"/wallet/withdraw"}
+          className="flex  items-center justify-between space-x-2 border border-[#00F0FF] rounded-2xl px-6 py-3 text-[#07CB8A]"
+        >
           <span className="-mt-1.5">
             <WithdrawIcon />
           </span>
           <span className="font-semibold  tracking-wide min-w-[93px] text-start">
             WITHDRAW
           </span>
-        </button>
+        </NavLink>
         {/* <button className="flex items-center justify-between space-x-2 border border-[#00F0FF] rounded-2xl px-6 py-3 text-[#07CB8A]">
           <WithdrawIcon />
           <span className="font-semibold tracking-wide min-w-[93px] text-start">
