@@ -60,7 +60,7 @@ const TransactionHistory = () => {
     <div
       className="
     relative
-    border-[0.5px] border-[#1AE5A1]
+    border-[0.5px] border-[#1ae5a1]
     rounded-[10px]
     w-full max-w-m
     overflow-hidden

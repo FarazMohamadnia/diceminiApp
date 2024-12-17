@@ -3,7 +3,7 @@
   height: 33px;
   margin: 0 auto;
   position: absolute;
-  top: 0;
+  top: -2px;
   left: 20%;
   clip-path: polygon(
     50.02% 98.485%,
