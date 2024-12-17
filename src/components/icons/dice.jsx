@@ -7,6 +7,7 @@ const DiceIcon = (props) => (
     height="15"
     fill="none"
     viewBox="0 0 15 15"
+    {...props}
   >
     <g clipPath="url(#clip0_823_7095)">
       <path
