@@ -1,6 +1,6 @@
 import React from "react";
 
-const CustomButton = ({ title, active = false }) => {
+const CustomButton = ({ title, active = false, value, setActiveTab }) => {
   const baseClasses =
     "inline-flex items-center justify-center rounded-full px-4 py-3 font-medium border transition-colors duration-150";
 
@@ -17,6 +17,7 @@ const CustomButton = ({ title, active = false }) => {
     <button
       style={!active ? inactiveStyle : {}}
       className={`w-full ${baseClasses} ${activeClasses}`}
+      onClick={() => setActiveTab(value)}
     >
       {title}
     </button>
