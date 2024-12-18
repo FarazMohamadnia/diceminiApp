@@ -91,8 +91,8 @@ export default function Bottonlink() {
         </div>
       </div>
       <div className="Bottonlink-body">
-        <Link ref={elementRef1} to={"/"} id="/" onClick={RouteHandler}>
-          <div id="/" className={`flex justify-center items-center flex-col`}>
+        <Link ref={elementRef1} to={"/"} onClick={RouteHandler}>
+          <div className={`flex justify-center items-center flex-col`}>
             <HomeIcon />
             <p
               id="0"
@@ -106,11 +106,10 @@ export default function Bottonlink() {
             </p>
           </div>
         </Link>
-        <Link ref={elementRef2} to={"/Dice"} id="/Dice" onClick={RouteHandler}>
-          <div id="/Dice" className={`flex justify-center items-center flex-col`}>
+        <Link ref={elementRef2} to={"/Dice"} onClick={RouteHandler}>
+          <div className={`flex justify-center items-center flex-col`}>
               <DiceIcon />
             <p
-              id="1"
               className={
                 Route.Path !== "/Dice"
                   ? "text-neutral-50 text-xs font-light"
@@ -121,11 +120,10 @@ export default function Bottonlink() {
             </p>
           </div>
         </Link>
-        <Link ref={elementRef3} to={"/Games"} id="/Games" onClick={RouteHandler}>
-          <div id="/Games" className={`flex justify-center items-center flex-col`}>
+        <Link ref={elementRef3} to={"/Games"} onClick={RouteHandler}>
+          <div className={`flex justify-center items-center flex-col`}>
               <GameIcon />
             <p
-              id="2"
               className={
                 Route.Path !== "/Games"
                   ? "text-neutral-50 text-xs font-light"
@@ -136,11 +134,10 @@ export default function Bottonlink() {
             </p>
           </div>
         </Link>
-        <Link ref={elementRef4} to={"/Wallet"} id="3" onClick={RouteHandler}>
-          <div id="3" className={`flex justify-center items-center flex-col`}>
+        <Link ref={elementRef4} to={"/Wallet"} onClick={RouteHandler}>
+          <div className={`flex justify-center items-center flex-col`}>
               <WalletBtnIcon />
             <p
-              id="3"
               className={
                 Route.Path !== "/wallet"
                   ? "text-neutral-50 text-xs font-light"
@@ -151,11 +148,10 @@ export default function Bottonlink() {
             </p>
           </div>
         </Link>
-        <Link ref={elementRef5} to={"/Profile"} id="4" onClick={RouteHandler}>
-          <div id="4" className={`flex justify-center items-center flex-col`}>
+        <Link ref={elementRef5} to={"/Profile"} onClick={RouteHandler}>
+          <div className={`flex justify-center items-center flex-col`}>
               <ProfileIcon />
             <p
-              id="4"
               className={
                 Route.Path !== "/profile"
                   ? "text-neutral-50 text-xs font-light"
