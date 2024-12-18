@@ -1,7 +1,7 @@
 import './homepage3.css'
 import fireImage from '../../../../asset/img/HomeImg/HomePageSection3Image/FireLogo.png'
 import BtnIcon from '../../../../asset/img/HomeImg/HomePageSection3Image/Button.png'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 const Data = [
     {
         id : 0,
