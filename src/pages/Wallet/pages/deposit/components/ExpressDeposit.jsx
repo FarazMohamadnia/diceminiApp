@@ -1,6 +1,7 @@
 import React from "react";
 import DepositIcon from "../../../../../components/icons/deposit";
 import HistoryTable from "./HistoryTable";
+import Amount from "../../withdrawPage/components/AmountComponent";
 
 const inactiveStyle = {
   background: "radial-gradient(circle at center, #0F2B3E 40%, #000000 90%)",
@@ -10,6 +11,7 @@ const inactiveStyle = {
 const ExpressDeposit = () => {
   return (
     <>
+      <div className="mb-3"><Amount /></div>
       <div className="flex items-center justify-center">
         <button
           style={inactiveStyle}

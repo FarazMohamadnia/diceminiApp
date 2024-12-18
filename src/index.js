@@ -19,6 +19,7 @@ import GamePage from "./pages/Game/gamePage";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+  <div className="pb-28">
     <BrowserRouter>
       <RouteProvider>
         <Routes>
@@ -37,5 +38,6 @@ root.render(
         </Routes>
       </RouteProvider>
     </BrowserRouter>
+    </div>
   </React.StrictMode>
 );

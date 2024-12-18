@@ -47,7 +47,7 @@ export default function GameLayout2(){
                     <p className='text-center w-[130px] border-t border-dashed border-[#3bffff] text-base text-white'>1 <span className='text-[#3bffff]'>Dice</span> = 21 <span className='text-[#3bffff]'>DTS</span></p>
                 </div>
             </div>
-            <div className='flex justify-center items-center flex-wrap mb-[100px]'>
+            <div className='flex justify-center items-center flex-wrap'>
                 {
                     FakeData.map(data=> <Dicesellcard  {...data}/>)
                 }

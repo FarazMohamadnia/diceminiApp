@@ -62,7 +62,7 @@ const fakeData2 = [
 
 export default function DiceLayout2(){
     return(
-        <div className="mt-3 mb-20">
+        <div className="mt-3">
             <div>
                 <p className="text-[#17fbaf] text-xl font-bold flex items-center justify-center">
                 <span className='mr-3'><img alt="" src={Icon}/></span>

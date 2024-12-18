@@ -10,6 +10,7 @@ import Amount from './components/AmountComponent';
 import MaterialIcon from '../../../../components/icons/materialIcon';
 import BlueWallet from '../../../../components/icons/blueWalletIcon';
 import WithDrawhistory from './components/WithdrawHistory';
+import DropDownMenu from '../../components/DropdownMenu';
 const WithdrawPage = () => {
   return (
     <div>
@@ -50,8 +51,9 @@ const WithdrawPage = () => {
                     <p className='text-[#3bffff] text-[15px] font-light'>Change</p>
                 </div>
             </div>
-            <div className=''>
-                BTN
+            <div className='flex px-2 my-2'>
+                <DropDownMenu />
+                <DropDownMenu title="Network" options={["ERC20", "BSC", "TON"]} />
             </div>
             <div>
                 <Amount />
@@ -78,7 +80,7 @@ const WithdrawPage = () => {
                   </span>
                 </button>
             </div>
-            <div className='mt-3 mb-28'>
+            <div className='mt-3'>
                 <WithDrawhistory />
             </div>
         </div>
