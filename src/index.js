@@ -15,6 +15,7 @@ import Deposite from "./pages/Wallet/pages/deposit/components/Deposite";
 import DiceHistoriPage from "./pages/DiceHistori";
 import LeaderBoard from "./pages/Game/leaderboard";
 import GamePage from "./pages/Game/gamePage";
+import Notification from "./pages/notificationpage/notification";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -35,6 +36,7 @@ root.render(
           <Route path="/Wallet/withdraw" element={<WithdrawPage />} />
           <Route path="/Wallet/deposite" element={<Deposite />} />
           <Route path="/Profile" element={<ProfilePage />} />
+          <Route path="/notification" element={<Notification />} />
         </Routes>
       </RouteProvider>
     </BrowserRouter>
