@@ -1,0 +1,30 @@
+.profileNav-polygon-shape{
+    background: url('../../../../asset/img/profileImg/profilename.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 27px;
+    clip-path: polygon(3% 0%, 99% 0%, 100% 100%, 1% 100%);
+    border-top-left-radius: 9px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 11px;
+    position: absolute;
+    top: 2px;
+    left: 70px;
+    color: #000E3F;
+    text-align: center;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.profileNav-progress{
+    position: relative;
+    width: 165.337px;
+    height: 9.999px;
+    background: rgba(255, 255, 255, 0.27);
+    border-radius: 40px;
+    margin-right: 10px;
+}
