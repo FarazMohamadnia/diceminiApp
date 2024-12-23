@@ -1,7 +1,7 @@
 import './GameLayout2.css'
-import DiceImg from '../../../../asset/img/GameImg/Section2/Dice2.png'
 import Dicesellcard from '../../../common/GameComponents/DiceSellCard/dicesellcard'
 import FakeDiceImg from '../../../../asset/img/GameImg/Section2/TestDice.png'
+import TwoWhiteDice from '../../../icons/change/game/twowhiteDice'
 const FakeData =[
     {
         Title : 'BASIC COMBO',
@@ -40,7 +40,7 @@ export default function GameLayout2(){
     return(
         <div>
             <div className='mt-3 GameLayout2-background'>
-                <div className='flex justify-center items-center text-[16px] text-[#1AE5A1]'><img src={DiceImg} alt=''/><span>Get Your Dice</span><img src={DiceImg} alt=''/></div>
+                <div className='flex justify-center items-center text-[16px] text-[#1AE5A1]'><TwoWhiteDice /><span>Get Your Dice</span><TwoWhiteDice /></div>
             </div>
             <div>
                 <div className='flex justify-center items-center mt-3 w-full'>

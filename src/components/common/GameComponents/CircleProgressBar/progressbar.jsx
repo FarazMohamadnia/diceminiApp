@@ -1,26 +1,22 @@
 import React from "react";
-import DiceIcon from '../../../../asset/img/GameImg/WhiteDice.png'
+import WhiteDice from "../../../icons/change/game/whiteDice";
 const CircularProgressBar = ({
-  percentage = 60, // درصد پیشرفت
-  radius = 45, // شعاع دایره
-  strokeWidth = 8, // ضخامت دایره
-  totalDegrees = 240, // مجموع انحنای دایره
-  color = "#1AE5A1", // رنگ پیشرفت
-  bgColor = "#3A3A3A", // رنگ پس‌زمینه
+  percentage = 60, 
+  radius = 45,
+  strokeWidth = 8,
+  totalDegrees = 240, 
+  color = "#1AE5A1", 
+  bgColor = "#3A3A3A",
 }) => {
   const normalizedPercentage = Math.min(Math.max(percentage, 0), 100);
 
-  // محاسبه محیط دایره
   const circumference = 2 * Math.PI * radius;
 
-  // محاسبه مقدار پیشرفت به صورت درصدی در محدوده ۲۸۰ درجه
   const progressOffset =
     circumference - (normalizedPercentage / 100) * (circumference * (totalDegrees / 360));
 
-  // محدود کردن ظاهر دایره پس‌زمینه به ۲۸۰ درجه
   const backgroundOffset = circumference * (1 - totalDegrees / 360);
 
-  // چرخش دایره برای شروع از زاویه 140 درجه (برای تراز شدن ظاهر)
   const rotation = 90 + (360 - totalDegrees) / 2;
 
   return (
@@ -33,7 +29,6 @@ const CircularProgressBar = ({
           overflow: "visible",
         }}
       >
-        {/* دایره پس‌زمینه */}
         <circle
           cx={radius}
           cy={radius}
@@ -45,7 +40,6 @@ const CircularProgressBar = ({
           strokeDashoffset={backgroundOffset}
           strokeLinecap="round"
         />
-        {/* دایره پیشرفت */}
         <circle
           cx={radius}
           cy={radius}
@@ -58,7 +52,6 @@ const CircularProgressBar = ({
           strokeLinecap="round"
         />
       </svg>
-      {/* متن در مرکز */}
       <div
         style={{
           position: "absolute",
@@ -70,7 +63,7 @@ const CircularProgressBar = ({
           fontWeight: "bold",
         }}
       >
-        <img src={DiceIcon} alt="" />
+        <WhiteDice />
       </div>
     </div>
   );
