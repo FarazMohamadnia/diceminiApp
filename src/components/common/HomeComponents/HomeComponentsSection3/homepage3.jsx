@@ -1,7 +1,7 @@
 import './homepage3.css'
-import fireImage from '../../../../asset/img/HomeImg/HomePageSection3Image/FireLogo.png'
-import BtnIcon from '../../../../asset/img/HomeImg/HomePageSection3Image/Button.png'
 import { useState } from 'react'
+import GreenFire from '../../../icons/change/home/greenFire'
+import PlayButton from '../../../icons/change/home/Playbtn'
 const Data = [
     {
         id : 0,
@@ -33,7 +33,7 @@ export default function HomePage3(){
     return(
         <div className='mb-5'>
             <div className="mt-4 HomepageSection2-backgroundColor w-full shadow h-[42px] px-4 flex items-center mb-4">
-                <img className='w-[24] h-[28] mb-1' src={fireImage} alt=""/> 
+                <span  className='mb-1'><GreenFire /> </span>
                 <p className='text-[#1ae5a1] text-base font-bold ml-2'>Trending</p>
             </div>
             <div className='HomePage3-card-container'>
@@ -45,7 +45,7 @@ export default function HomePage3(){
                                 <div className={Selected != Data.id ? 'hidden' : 'flex flex-col relative z-10 mb-10 items-center' }>
                                     <p className='text-[#fff6f5] text-xl font-bold'>{Data.Title}</p>
                                     <p className='text-[#fff6f5] text-[13px] font-medium mt-2'>{Data.Text}</p>
-                                    <img className='w-16 h-16 mt-2' src={BtnIcon} alt=''/>
+                                    <span className='mt-1'><PlayButton /></span>
                                 </div>
                             </div>
                         ))
