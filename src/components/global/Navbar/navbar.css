@@ -1,17 +1,13 @@
 .navbar-User-backgroundImage{
-    width: 115px;
     height: 72px;
-    background: url('../../../asset/img/NavbarImg/shadow.png');
-    background-position: center;
-    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 27px;
 }
 .navbar-User-Image{
-    width: 60px;
-    height: 60px;
+    width: 83px;
+    height: 80px;
     border-radius: 50%;
 }
 
@@ -35,37 +31,26 @@
 
 .Navbar-right-polygon{
     position: relative;
-    background: url('../../../asset/img/NavbarImg/RightSection.png');
-    background-position: right;
-    background-size: cover;
     width: 130px;
-    height: 27px;
     text-align: center;
-    padding: 3px;
-    margin-top: 2px;
+    margin-right: 4px;
 }
 
 .Navbar-right-polygon-Icon{
     position: absolute;
-    width: 26px;
-    height: 35px;
-    right: 5px;
-    top: 0px;
+    width: 40px;
+    right: -10px;
+    top: -7px;
 }
 
 .Navbar-left-polygon{
     position: relative;
-    background: url('../../../asset/img/NavbarImg/leftSection.png');
-    background-position: center;
-    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 4px;
-    padding-right: 8px;
     width: 130px;
-    height: 27px;
-    margin-top: 2px;
+    margin-top: 3px;
+    margin-left: 4px;
 }
 
 .Navbar-left-polygon-Icon{

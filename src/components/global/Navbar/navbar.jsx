@@ -3,9 +3,12 @@ import Logo from '../../../asset/img/NavbarImg/LOGO.png'
 import Pic from '../../../asset/img/NavbarImg/PIC.png'
 import Notification from '../../../asset/img/NavbarImg/NotifactionIcon.png';
 import DiceIcon from '../../../asset/img/NavbarImg/DiceIcon.png'
-import MoneyBagIcon from '../../../asset/img/NavbarImg/moneyBag.png'
+import DTScoin from '../../../asset/img/NavbarImg/DTScoin.png'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import RightLine from '../../icons/change/Navbar/rightline';
+import LeftLine from '../../icons/change/Navbar/leftline';
+import ImgShadow from '../../icons/change/Navbar/imgshadow';
 
 export default function Navbar(){
     const [CheckNotification , setCheckNotification]=useState(true);
@@ -15,9 +18,10 @@ export default function Navbar(){
     }
     return(
         <div>
-            <div className='flex items-center justify-between mx-3'>
+            <div className='flex items-center justify-between mx-3 mb-3'>
                 <img alt='' className='w-12 h-12' src={Logo}/>
                 <div className='navbar-User-backgroundImage'>
+                    <div className='absolute'><ImgShadow /></div>
                     <img src={Pic} alt='' className='navbar-User-Image'/>
                 </div>
                 <Link className='relative' to={'/notification'}>
@@ -34,9 +38,12 @@ export default function Navbar(){
             </div>
             <div className='navbar-botton-section'>
                 <div className='text-center '>
-                    <div><p className='text-white text-[9px] font-normal'>18 OUT OF 21 <span className='text-[#00efff]'>DTS</span></p></div>
+                    <div><p className='text-white text-[14px] font-normal'>READY TO SELL </p></div>
                     <div className='Navbar-left-polygon'>
-                        <p className='text-white text-[12px] pt-1 font-semibold'>3 <span className='text-[#00efff]'>DICES</span> </p>
+                        <div className='absolute'>
+                            <RightLine />
+                        </div>
+                        <p className='text-white text-[14px] font-semibold'>3000 <span className='text-[#00efff]'>DICES</span> </p>
                         <span className='Navbar-left-polygon-Icon'><img alt='' src={DiceIcon}/></span>
                     </div>
                 </div>
@@ -45,10 +52,13 @@ export default function Navbar(){
                     <div><p className=' mt-4 text-center text-white text-[12px] font-light'>Level 1</p></div>
                 </div>
                 <div className='text-center'>
-                    <div><p className='text-white text-[9px] font-normal'>CASH <span className='text-[#00efff]'>BALANCE</span></p></div>
+                    <div><p className='text-white text-[14px] font-normal'>READY TO PLAY</p></div>
                     <div className='Navbar-right-polygon'>
-                        <p className='text-white text-[12px] mt-[1px] font-semibold'>2000 <span className='text-[#00efff] font-semibold'>USD</span></p>
-                        <span className='Navbar-right-polygon-Icon'><img alt='' src={MoneyBagIcon}/></span>
+                        <div className='absolute top-[-4px]'>
+                            <LeftLine />
+                        </div>
+                        <p className='text-white text-[14px] pt-[3px] font-semibold'>100000  <span className='text-[#00efff] font-semibold'>DTS</span></p>
+                        <span className='Navbar-right-polygon-Icon'><img alt='' src={DTScoin}/></span>
                     </div>
                 </div>
             </div>
