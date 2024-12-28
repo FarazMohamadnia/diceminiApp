@@ -18,7 +18,7 @@ export default function ProfileNav(){
                 <div className='relative w-[145px] h-[145px] top-[-50px] left-[-45PX]'>
                     <div className='absolute'>
                         <BorderShadow />
-                        <img className='absolute bg-slate-500 rounded-[50%] w-[70px] h-[68px] top-[27%] right-[28%]' src={img}/>
+                        <img className='absolute rounded-[50%] w-[75px] h-[71px] top-[25%] right-[26%]' src={img}/>
                     </div>
                 </div>
                 <div className='profileNav-polygon-shape'>   
@@ -27,8 +27,8 @@ export default function ProfileNav(){
                 <div className='absolute top-[5px] right-10'>
                     <p className='flex'><span className='mr-[6px]'><Layer1 /></span> <span className='text-[#1ae5a1] text-xl font-bold'>level 1</span></p>
                 </div>
-                <div className='absolute right-10 bottom-[18px] flex items-center'>
-                    <p className='profileNav-progress'><span className='w-[47%] h-[98%] bg-[#1AE5A1] absolute rounded-[45px]'></span></p>
+                <div className='absolute right-7 bottom-[18px] flex items-center'>
+                    <p className='profileNav-progress'><span className='w-[70%] h-[98%] bg-[#1AE5A1] absolute rounded-[45px]'></span></p>
                     <p className='text-[#1ae5a1] text-[8px] font-normal'><span>3000/5500</span>XP</p>
                 </div>
             </div>

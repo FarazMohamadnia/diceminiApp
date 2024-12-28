@@ -16,19 +16,22 @@ const PaymentWallet = () => {
           "linear-gradient(117deg, #00F0FF -100%, rgba(40,39,70,0) 104.46%)",
       }}
     >
-      <div className="absolute top-[-8px] left-1/4">
+      <div className="absolute left-0 top-[-8px] w-full flex justify-center">
         <BlueShadow />
       </div>
 
-      <div className="flex flex-col justify-center">
-        <span className="text-6xl font-bold text-white leading-none text-center">
+      <div className="flex w-1/2 flex-col justify-center">
+        <span className="text-6xl text-white leading-none text-center">
           25
         </span>
-        <span className="mt-2 text-cyan-400 font-semibold">USDT/TON</span>
+        <span className="mt-2 text-center text-cyan-400 font-semibold">USDT/TON</span>
       </div>
 
       <div className="flex flex-col space-y-4 ml-6">
         <NavLink
+          style={{
+            boxShadow : 'inset 0px 0px 10px 1px black'
+          }}
           to={"/wallet/deposite"}
           className="flex items-center justify-between space-x-2 border border-[#00F0FF] rounded-2xl px-6 py-3 text-[#07CB8A]"
         >
@@ -38,6 +41,9 @@ const PaymentWallet = () => {
           </span>
         </NavLink>
         <NavLink
+          style={{
+            boxShadow : 'inset 0px 0px 10px 1px black'
+          }}
           to={"/wallet/withdraw"}
           className="flex  items-center justify-between space-x-2 border border-[#00F0FF] rounded-2xl px-6 py-3 text-[#07CB8A]"
         >
@@ -48,12 +54,6 @@ const PaymentWallet = () => {
             WITHDRAW
           </span>
         </NavLink>
-        {/* <button className="flex items-center justify-between space-x-2 border border-[#00F0FF] rounded-2xl px-6 py-3 text-[#07CB8A]">
-          <WithdrawIcon />
-          <span className="font-semibold tracking-wide min-w-[93px] text-start">
-            WITHDRAW
-          </span>
-        </button> */}
       </div>
     </div>
   );

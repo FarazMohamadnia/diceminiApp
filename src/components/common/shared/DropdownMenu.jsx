@@ -23,19 +23,15 @@ const DropdownMenu = ({ title }) => {
     <div className="relative inline-block" ref={dropdownRef}>
       <button
         onClick={toggleDropdown}
-        className="flex items-center space-x-2 bg-[#1D222E] text-white border border-green-500 rounded-3xl px-2 py-3 cursor-pointer"
+        className="flex w-[75px] justify-center items-center space-x-2 bg-[#1D222E] text-white border border-green-500 rounded-3xl px-2 py-1 cursor-pointer"
       >
         <span className="font-semibold text-xs">{title}</span>
-        <svg
-          className={`w-4 h-4 text-white transform transition-transform duration-300 ${
-            isOpen ? "rotate-180" : "rotate-0"
-          }`}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-        >
-          <path d="M6 9l6 6 6-6"></path>
+        <svg className="mt-[3px]" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="vuesax/bold/arrow-down">
+          <g id="arrow-down">
+          <path id="Vector" d="M8.21334 3.74915H5.35792H2.78667C2.34667 3.74915 2.12667 4.28081 2.43834 4.59248L4.81251 6.96665C5.19292 7.34706 5.81167 7.34706 6.19209 6.96665L7.09501 6.06373L8.56626 4.59248C8.87334 4.28081 8.65334 3.74915 8.21334 3.74915Z" fill="white"/>
+          </g>
+          </g>
         </svg>
       </button>
 

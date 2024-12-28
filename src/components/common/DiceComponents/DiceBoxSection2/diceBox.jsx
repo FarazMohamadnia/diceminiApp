@@ -16,20 +16,20 @@ export default function DiceBox({img , status , name}){
                             status? 
                                 <div>
                                     <div className='flex justify-around'>
-                                        <p className='text-[#1ae5a1] text-[10px] font-medium flex justify-center items-center'><span className='mr-[2px]'><Dice9Icon /></span>UP TO <span className='text-white'>1000</span>x</p>
-                                        <p className='text-[#1ae5a1] text-[10px] font-medium flex justify-center items-center'><HumanIcon />174</p>
+                                        <p className='text-[#1ae5a1] text-[13px] font-medium flex justify-center items-center'><span className='mr-[2px]'><Dice9Icon /></span>UP TO <span className='text-white'>1000</span>x</p>
+                                        <p className='text-[#1ae5a1] text-[13px] font-medium flex justify-center items-center'><HumanIcon />174</p>
                                     </div>
                                     <div>
-                                        <p className='text-neutral-50 mt-2 text-[10px] font-medium flex items-center justify-center'><span className='mr-1'>PLAY NOW </span><ArrowRightIcon/></p>
+                                        <p className='text-neutral-50 mt-1 text-[12px] font-medium flex items-center justify-center'><span className='mr-1'>PLAY NOW </span><ArrowRightIcon/></p>
                                     </div>
                                 </div>
                             :
                                 <div>
                                     <div className='flex justify-around'>
-                                        <p className='text-[#1ae5a1] text-[12px] font-medium flex justify-center items-center'><span className='mr-[2px]'><Dice9Icon /></span>Prize :<span className='text-white'> 40</span>DTS</p>
+                                        <p className='text-[#1ae5a1] text-[14px] font-medium flex justify-center items-center mr-4'><span className='mr-[2px]'><Dice9Icon /></span>Prize :<span className='text-white'> 40</span>DTS</p>
                                     </div>
                                     <div>
-                                        <p className='text-neutral-50 mt-2 text-[10px] font-medium flex items-center justify-center'><span className='mr-1'>ENTER (21 <span className='text-[#1AE5A1]'>DTS</span>)</span><ArrowRightIcon/></p>
+                                        <p className='text-neutral-50 mt-1 text-[12px] font-medium flex items-center justify-center'><span className='mr-1'>ENTER (21 <span className='text-[#1AE5A1]'>DTS</span>)</span><ArrowRightIcon/></p>
                                     </div>
                                 </div>
                         }

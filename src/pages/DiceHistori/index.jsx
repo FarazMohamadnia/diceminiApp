@@ -14,7 +14,7 @@ export default function DiceHistoriPage(){
                     <BackButton title={'Back To Dice'}/>
                 </div>
                 <div>
-                    <div className="flex justify-center items-center mt-5">
+                    <div className="flex justify-center items-center mt-5 font-bold">
                         <Button title={'Dice History'} icon={<Historidice />}/>
                     </div>
                     <div className="mt-5">

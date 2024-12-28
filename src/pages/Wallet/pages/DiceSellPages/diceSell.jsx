@@ -18,48 +18,48 @@ export default function Dicesellpages() {
           <div>
             <BackButton title={"Back to Dice"} />
           </div>
-          <div className="ml-3 mt-3">
-            <Button title={"Sell your Dice"} icon={<SellIcon />} />
-          </div>
+        </div>
+        <div className="flex justify-center items-center font-bold">
+            <Button title={"Sell Your Dice"} icon={<SellIcon />} />
         </div>
         <div>
-          <div className="flex justify-center items-center w-3/5 h-[150px] mt-7 mx-auto mb-3">
+          <div className="flex justify-center items-center min-w-[250px] w-[60%]  h-[150px] mt-7 mx-auto mb-3">
             <div className="w-1/2">
               <DiceGroup />
             </div>
             <div className="w-1/2 text-center">
-              <p className="text-[#F42500] text-[10px]">
+              <p className="text-[#F42500] text-[14px]">
                 Available Dice for sell:
               </p>
-              <p className="mt-3">
+              <p className="mt-3 font-bold">
                 <span className="text-white mr-2">4</span>
                 <span className="text-[#1ae5a1]">DICES</span>
               </p>
-              <div className="flex justify-center text-[7px] mt-3 text-white">
-                <p>CURRENT DICE PRIZE :</p>
-                <p>0.6 USD</p>
+              <div className="flex justify-center text-[11px] mt-3 text-white">
+                <p className="mr-3">CURRENT DICE PRIZE :</p>
+                <p>0.6 <span className="text-[#1ae5a1]">USD</span></p>
               </div>
             </div>
           </div>
-          <div className="flex flex-col justify-center items-center w-[]">
+          <div>
             <Progress />
-            <div className="flex justify-between w-[230px] text-gray-500">
+            <div className="flex justify-between items-center text-white mx-2">
               <span>0</span>
               <span>2</span>
               <span>4</span>
             </div>
           </div>
-          <div className="flex text-white justify-center items-center text-[12px]">
+          <div className="flex text-white justify-center items-center text-[18px] my-2">
             <div className="flex items-center justify-center">
               <WalletIcon2 />
               <p className="ml-1 mr-4">you will receive </p>
             </div>
             <p className="">
-              0.6 <span className="text-[#1AE5A1] text-[13px]">USD</span>
+              0.6 <span className="text-[#1AE5A1] text-[18px] font-bold">USD</span>
             </p>
           </div>
           <button className="diceSell-Btn-Bgcolor mt-4 flex items-center justify-center w-40 h-[43px] bg-white/0 rounded-[15px] border border-[#3bffff] mx-auto">
-            <SellIcon1 /> <span className=" text-[#3bffff] ml-2">Sell</span>
+            <SellIcon1 /> <span className=" text-[#3bffff] ml-2">SELL</span>
           </button>
 
           <div className="mt-8">

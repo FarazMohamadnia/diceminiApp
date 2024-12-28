@@ -16,10 +16,12 @@ const Game = () => {
     <div>
       <Navbar />
       <main className="px-4">
-        <div className="flex items-center gap-5 mt-2">
+        <div className="flex items-center gap-5 mt-3">
           <BackButton title="Back to Games" />
-          <BoardTitle title="Leader Board" icon={<LeaderIcon />} />
         </div>
+        <div className="flex justify-center items-center">
+            <BoardTitle title="Leader Board" icon={<LeaderIcon />} />
+          </div>
         <div className="flex justify-center items-center gap-3">
           <DropdownMenu title="All Game" />
           <DropdownMenu title="All Time" />
@@ -52,23 +54,26 @@ export default Game;
 function LeaderboardCard() {
   return (
     <div
-      className="flex items-center justify-between bg-[#1D222E] border border-[#CAFD7B] rounded-2xl px-6 py-4 mx-auto max-w-2xl"
+      className="flex items-center justify-between bg-[#1D222E] border border-[#CAFD7B] rounded-2xl pl-6 pr-10 py-4 mx-auto max-w-2xl"
       style={{
         boxShadow: `${"inset 0 0 20px #CAFD7B"}`,
       }}
     >
-      <div className="flex items-center space-x-4 flex-grow">
-        <span className="text-[#CAFD7B] font-bold text-lg">#134</span>
+      <div className="flex items-center">
+        <span className="text-[#CAFD7B] font-bold text-2xl">#134</span>
+      </div>
+      <div>
         <span className="text-white font-semibold">Diyar</span>
       </div>
-
-      <div className="flex items-center space-x-6">
+      <div>
         <div className="flex items-center text-white space-x-1">
           <span className="text-white text-lg">
             <DiceIcon />
           </span>
           <span className="text-white">24 DTS</span>
         </div>
+      </div>
+      <div className="flex items-center space-x-6">
         <div className="flex items-center text-white space-x-1">
           <span className="text-white text-lg">
             <FlashIcon />

@@ -87,7 +87,7 @@ const RewardCard = ({ type }) => {
 
       {/* Claim Button */}
       <button
-        className={`cursor-pointer ml-4 px-3 py-1 bg-transparent border ${
+        className={`w-[63px] font-bold cursor-pointer ml-4 px-3 py-1 bg-transparent border ${
           type === "error" ? "border-[#F55059]" : "border-[#3BFFFF]"
         } text-white rounded-xl text-sm`}
       >

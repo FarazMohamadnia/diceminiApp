@@ -9,11 +9,11 @@ import NotificationIcon from '../../../icons/change/game/notificationIcon'
 export default function GameLayout1(){
     return(
         <div>
-            <div className='flex items-center justify-center mt-3'>
+            <div className='flex items-center justify-center mt-7'>
                 <Link className='GameLayout1-Btn-style ' to={'/Wallet'}><button className='text-base font-bold flex items-center'><span className='mr-2'><OpenWalletIcon/></span>OPEN YOUR WALLET</button></Link>
             </div>
             <div className='GameLayout1-section2-bodyStyle'>
-                <div className='w-1/2 flex flex-col justify-center items-center relative'>
+                <div className='w-1/2 flex flex-col justify-center items-center relative mt-5'>
                     <div>
                         <CircularProgressBar percentage={90}/>
                         <div className='relative'>
@@ -26,7 +26,7 @@ export default function GameLayout1(){
                         <p className='text-white text-[9px]'>7 out of 21<span className='text-[#1AE5A1]'>DTS</span></p>
                     </div>
                 </div>
-                <div className='w-1/2 text-center'>
+                <div className='w-1/2 text-center mt-1'>
                     <Link to={'/wallet/sell'}>
                         <button className='GameLayout1-section2-BTN'><span className='mr-3'><SellIcon /></span><span>SELL YOUR DICE</span></button>
                     </Link>

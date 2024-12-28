@@ -2,8 +2,8 @@ import React from "react";
 
 const AddressDisplay = ({ address = "KSDJFGNHBIBUEJDNBF34897FIU", onCopy }) => {
   const style = {
-    background: "radial-gradient(circle at center, #0F2B3E 40%, #000000 90%)",
-    boxShadow: "inset 0 0 20px 0 rgba(26,229,161,0.5)",
+    background: "linear-gradient(to bottom right,#00efff80 ,#28274600 60%)",
+    // boxShadow: "inset 0 0 20px 0 #00F0FF",
   };
 
   const handleCopy = () => {
@@ -20,9 +20,10 @@ const AddressDisplay = ({ address = "KSDJFGNHBIBUEJDNBF34897FIU", onCopy }) => {
     <div
       style={style}
       className="
+        bg-gradient-to-br from-[#00efff] to-[#282746]
         flex items-center justify-between 
         rounded-full px-4 py-2 font-medium 
-        border border-[#1AE5A1] w-full max-w-md
+        border border-[#00efff] w-full max-w-md
       "
     >
       <span className="text-[#3BFFFF]">Address</span>

@@ -16,7 +16,11 @@ const Detail = () => {
       <main className="mx-4 mt-6">
         <div className="flex items-center gap-6">
           <BackButton title="Back to Dice" />
-          <Button title="Earn More" icon={<PlusIcon />} />
+        </div>
+        <div className="w-[100%] flex justify-center items-center font-bold">
+          <div className="mr-5">
+            <Button title="Earn DTS" icon={<PlusIcon />} />
+          </div>
         </div>
         <div className="flex">
           <Tabs />
@@ -64,7 +68,7 @@ function Tabs() {
               key={tab.key}
               className={`rounded-full border border-[#1AE5A1] h-[45px] font-semibold w-[90px] cursor-pointer ${
                 activeTab === tab.key
-                  ? "bg-[#04CCA7] text-black"
+                  ? "bg-[#04CCA7] text-black border font-black border-[#00F0FF] transform scale-110"
                   : "bg-transparent text-white"
               }`}
               onClick={() => setActiveTab(tab.key)}

@@ -16,7 +16,7 @@ const fakeData = [
     {
         Icon : <ProfileBoxIcon1 /> ,
         title : 'Lucky Board',
-        DTS : '200 DTS'
+        DTS : '#20'
     },
     {
         Icon : <ProfileBoxIcon2 /> ,
@@ -32,7 +32,6 @@ const fakeData = [
 
 ]
 
-// const images = [img , fakeimg , img , fakeimg, fakeimg, fakeimg];
 const images = [
     {
         title : 'Dice Game1',
@@ -73,7 +72,7 @@ export default function ProfilePage(){
                 </div>
                 <div className='flex justify-center items-center flex-wrap flex-row-reverse'>
                     {
-                        fakeData.map(data => <ProfileBox {...data}/> )
+                        fakeData.map(data => <div key={data.title}> <ProfileBox {...data}/> </div>)
                     }
 
                 </div>

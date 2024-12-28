@@ -17,7 +17,7 @@ const FakeData = [
     },
     {
         BgImage : img2,
-        scale : 0.8 ,
+        scale : 0.9 ,
         borderImg : borderImg3 ,
     },
     {
@@ -27,7 +27,7 @@ const FakeData = [
     },
     {
         BgImage : img2,
-        scale : 0.7,
+        scale : 0.8,
         borderImg : borderImg3
     }
 ]
@@ -42,7 +42,7 @@ export default function DiceLayout1(){
                     <div className='w-[90px] h-[60px] border-r border-[#1ae5a1] flex justify-center items-center'>
                         <div className='relative'><CircleImageComponent {...FakeData[0]}/><span className='absolute bottom-[-8px] z-10 right-[17px]'>#20</span></div>
                     </div>
-                    <div className='flex justify-between w-2/3'>
+                    <div className='flex justify-between w-[66%]'>
                         <div className='relative'>
                             <CircleImageComponent {...FakeData[1]}/>
                             <span className='absolute top-[44px] left-[22px] z-10'><SilverModal /></span>

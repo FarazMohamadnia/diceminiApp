@@ -49,7 +49,6 @@ const Carousel = ({images}) => {
         }}
       >
         {images.map((image, index) => {
-          console.log(image) 
           const positionIndex =
             (index - currentIndex + images.length) % images.length;
           const position = positions[positionIndex] || {

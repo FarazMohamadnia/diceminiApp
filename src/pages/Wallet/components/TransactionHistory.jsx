@@ -69,10 +69,12 @@ const TransactionHistory = () => {
   "
     >
       {" "}
-      <div className="transaction_shadow">
-        <span className="absolute right-0 left-0 w-full text-xs font-extrabold text-center top-1.5">
-          TRANSACTION HISTORY
-        </span>
+      <div className="flex justify-center">
+        <div className="transaction_shadow">
+          <span className="absolute right-0 left-0 w-full text-xs font-extrabold text-center top-1.5">
+            TRANSACTION HISTORY
+          </span>
+        </div>
       </div>
       <div className="mt-8 flex flex-col divide-y divide-green-500">
         {transactions.map((tx, index) => (

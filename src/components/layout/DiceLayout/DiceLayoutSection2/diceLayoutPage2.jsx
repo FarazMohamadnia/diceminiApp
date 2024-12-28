@@ -74,7 +74,7 @@ export default function DiceLayout2(){
                 <div className='DicelayoutPage2-backgroundColor h-9 py-[5px]'>
                     <p className='flex justify-start items-center pl-2 text-[#1ae5a1] text-base font-bold'><span className='mr-2'><JetIcon /></span>UP TO 1000X</p>
                 </div>
-                <div className='overflow-x-scroll flex flex-nowrap justify-start h-60'>
+                <div className='overflow-x-scroll flex flex-nowrap justify-start my-3 '>
                     {
                         fakeData.map(data => <DiceBox {...data}/>)
                     }
@@ -82,9 +82,9 @@ export default function DiceLayout2(){
             </div>
             <div>
                 <div className='DicelayoutPage2-backgroundColor h-9 py-[5px]'>
-                    <p className='DicelayoutPage2-backgroundColor flex justify-start items-center pl-2 text-[#1ae5a1] text-base font-bold'><span className='mr-2'><PIcon /></span>MULTIPLAYER</p>
+                    <p className='flex justify-start items-center pl-2 text-[#1ae5a1] text-base font-bold'><span className='mr-2'><PIcon /></span>MULTIPLAYER</p>
                 </div>
-                <div className='overflow-x-scroll flex flex-nowrap justify-start h-60'>
+                <div className='overflow-x-scroll flex flex-nowrap justify-start h-60 mt-3'>
                     {
                         fakeData2.map(data => <DiceBox {...data}/>)
                     }

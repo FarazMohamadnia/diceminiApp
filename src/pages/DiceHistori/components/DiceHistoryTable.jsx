@@ -10,7 +10,7 @@ const transactions = [
         <DiceIcon />
       </>
     ),
-    amount: "20 USDT",
+    amount: "20",
     amountColor: "#1AE5A1",
     date: "2024/06/12",
   },
@@ -21,7 +21,7 @@ const transactions = [
          <DiceIcon />
       </>
     ),
-    amount: "30USDT",
+    amount: "30",
     amountColor: "#FFCF60",
     date: "2024/06/12",
   },
@@ -32,7 +32,7 @@ const transactions = [
          <DiceIcon />
       </>
     ),
-    amount: "10 USDT",
+    amount: "10",
     amountColor: "#1AE5A1",
     date: "2024/06/12",
   },
@@ -43,7 +43,7 @@ const transactions = [
         <DiceIcon />
       </>
     ),
-    amount: "15 USDT",
+    amount: "15",
     amountColor: "#1AE5A1",
     date: "2024/06/12",
   },
@@ -58,21 +58,23 @@ const Dicehistory = () => {
     rounded-[10px]
     w-full max-w-m
     overflow-hidden
-    Withdraw_backgroundColor
+     bg-gradient-to-br from-[#1ae5a150] to-[#28274600]
     backdrop-blur-[14.4px]
   "
     >
       {" "}
-      <div className="DiceHistory_shadow">
-        <span className="absolute right-0 left-0 w-full text-xs font-extrabold text-center top-1.5">
-          Dice HISTORY
-        </span>
+      <div className="flex justify-center items-center">
+        <div className="DiceHistory_shadow">
+          <span className="absolute right-0 left-0 w-full text-[15px] font-extrabold text-center top-1">
+            Dice HISTORY
+          </span>
+        </div>
       </div>
       <div className="mt-8 flex flex-col divide-y divide-green-500">
         {transactions.map((tx, index) => (
           <div
             key={index}
-            className="flex items-center justify-between py-3 px-2"
+            className="flex items-center justify-between py-3 px-[10%]"
           >
             <div className="flex items-center space-x-2">
               <span className="text-2xl">{tx.icon}</span>
@@ -88,12 +90,12 @@ const Dicehistory = () => {
             </div>
 
             <div
-                className={`font-semibold text-center`}
+                className={`font-semibold text-center text-[13px]`}
                 style={{
                   color: '#1AE5A1',
                 }}
               >
-                {tx.amount}
+                {tx.amount} <span className="text-white">USD</span>
               </div>
 
             <div className="flex items-center space-x-4">

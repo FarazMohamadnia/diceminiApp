@@ -59,22 +59,24 @@ const SellHistory = () => {
   return (
     <div
       className="
-    relative
-    border-[0.5px] border-[#1ae5a1]
-    rounded-[10px]
-    w-full max-w-m
-    overflow-hidden
-    bg-[linear-gradient(117deg,_#1AE5A1_-84.8%,_rgba(40,39,70,0)_104.46%)]
-    backdrop-blur-[14.4px]
-  "
+        relative
+        border-[0.5px] border-[#1ae5a1]
+        rounded-[10px]
+        w-full max-w-m
+        overflow-hidden
+        bg-[linear-gradient(117deg,_#1AE5A1_-84.8%,_rgba(40,39,70,0)_104.46%)]
+        backdrop-blur-[14.4px]
+      "
     >
       {" "}
-      <div className="transaction_shadow">
-        <span className="absolute right-0 left-0 w-full text-xs font-extrabold text-center top-1.5">
-          SELL HISTORY
-        </span>
+      <div className="flex justify-center">
+        <div className="transaction_shadow2">
+          <span className="absolute right-0 left-0 w-full text-xs font-extrabold text-center top-1.5">
+            Sell History
+          </span>
+        </div>
       </div>
-      <div className="mt-8 flex flex-col divide-y divide-green-500">
+      <div className="mt-8 flex flex-col  divide-y divide-green-500">
         {transactions.map((tx, index) => (
           <div
             key={index}
@@ -102,7 +104,9 @@ const SellHistory = () => {
               >
                 {tx.amount}
               </span>
-              <div className="flex items-center space-x-1">
+            </div>
+
+            <div className="flex items-center space-x-1">
                 <span>
                   <CalenderIcon color={tx.statusColor} />
                 </span>
@@ -114,7 +118,6 @@ const SellHistory = () => {
                   {tx.date}
                 </span>
               </div>
-            </div>
 
             <span
               style={{

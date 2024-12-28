@@ -40,11 +40,11 @@ export default function GameLayout2(){
     return(
         <div>
             <div className='mt-3 GameLayout2-background'>
-                <div className='flex justify-center items-center text-[16px] text-[#1AE5A1]'><TwoWhiteDice /><span>Get Your Dice</span><TwoWhiteDice /></div>
+                <div className='flex justify-center items-center font-bold text-[16px] text-[#1AE5A1]'><TwoWhiteDice /><span>Get Your Dice</span><TwoWhiteDice /></div>
             </div>
             <div>
                 <div className='flex justify-center items-center mt-3 w-full'>
-                    <p className='text-center w-[130px] border-t border-dashed border-[#3bffff] text-base text-white'>1 <span className='text-[#3bffff]'>Dice</span> = 21 <span className='text-[#3bffff]'>DTS</span></p>
+                    <p className='text-center w-[130px]  font-bold text-base text-white'>1 <span className='text-[#3bffff]'>Dice</span> = 21 <span className='text-[#3bffff]'>DTS</span></p>
                 </div>
             </div>
             <div className='flex justify-center items-center flex-wrap'>

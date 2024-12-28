@@ -57,21 +57,23 @@ const transactions = [
 const WithDrawhistory = () => {
   return (
     <div
-      className="
-    relative
-    border-[0.5px] border-[#1AE5A1]
-    rounded-[10px]
-    w-full max-w-m
-    overflow-hidden
-    Withdraw_backgroundColor
-    backdrop-blur-[14.4px]
-  "
+    className="
+      relative
+      border-[0.5px] border-[#1AE5A1]
+      rounded-[10px]
+      w-full max-w-m
+      overflow-hidden
+      Withdraw_backgroundColor
+      backdrop-blur-[14.4px]
+    "
     >
       {" "}
-      <div className="Withdraw_shadow">
-        <span className="absolute right-0 left-0 w-full text-xs font-extrabold text-center top-1.5">
-          WITHDRAW HISTORY
-        </span>
+      <div className="flex justify-center items-center">
+        <div className="Withdraw_shadow">
+          <span className="absolute right-0 left-0 w-full text-[14px] font-extrabold text-center top-1">
+            WITHDRAW HISTORY
+          </span>
+        </div>
       </div>
       <div className="mt-8 flex flex-col divide-y divide-green-500">
         {transactions.map((tx, index) => (
@@ -91,9 +93,7 @@ const WithDrawhistory = () => {
                 {tx.status}
               </span>
             </div>
-
-            <div className="flex items-center space-x-4">
-              <span
+            <span
                 className={`font-semibold`}
                 style={{
                   color: `${tx.statusColor}`,
@@ -101,6 +101,7 @@ const WithDrawhistory = () => {
               >
                 {tx.amount}
               </span>
+            <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-1">
                 <span>
                   <CalenderIcon color={tx.statusColor} />
@@ -112,16 +113,16 @@ const WithDrawhistory = () => {
                 >
                   {tx.date}
                 </span>
+                <span
+                  style={{
+                    color: `${tx.statusColor}`,
+                    marginLeft : '15px'
+                  }}
+                >
+                  {"»"}
+                </span>
               </div>
             </div>
-
-            <span
-              style={{
-                color: `${tx.statusColor}`,
-              }}
-            >
-              {"»"}
-            </span>
           </div>
         ))}
       </div>

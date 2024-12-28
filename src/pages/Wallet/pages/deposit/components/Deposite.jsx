@@ -21,7 +21,7 @@ const Deposite = () => {
         <div className="flex justify-center items-center mt-4 gap-4">
           <WalletIcon />
           <span className="text-[#3BFFFF] text-lg font-extrabold">
-            Manual Deposit
+            Express Deposit 
           </span>
         </div>
         <div className="flex w-full items-center gap-4 mt-5">

@@ -64,15 +64,17 @@ const HistoryTable = () => {
     rounded-[10px]
     w-full max-w-m
     overflow-hidden
-bg-[linear-gradient(117deg,#00F0FF_-84.8%,rgba(40,39,70,0)_104.46%)]
+    bg-[linear-gradient(117deg,#00F0FF_-84.8%,rgba(40,39,70,0)_104.46%)]
     backdrop-blur-[14.4px]
   "
     >
       {" "}
-      <div className="deposite_shadow">
-        <span className="absolute right-0 left-0 w-full text-xs font-extrabold text-center top-1.5">
-          Deposit HISTORY
-        </span>
+      <div className="flex justify-center items-center">
+        <div className="deposite_shadow">
+          <span className="absolute right-0 left-0 w-full text-[15px] font-extrabold text-center top-1">
+            Deposit History
+          </span>
+        </div>
       </div>
       <div className="mt-8 flex flex-col divide-y divide-[#cafd7b3b]">
         {transactions.map((tx, index) => (
@@ -92,16 +94,17 @@ bg-[linear-gradient(117deg,#00F0FF_-84.8%,rgba(40,39,70,0)_104.46%)]
                 {tx.status}
               </span>
             </div>
+            <span
+              className={`font-semibold`}
+              style={{
+                color: `${tx.statusColor}`,
+              }}
+            >
+              {tx.amount}
+            </span>
+
 
             <div className="flex items-center space-x-4">
-              <span
-                className={`font-semibold`}
-                style={{
-                  color: `${tx.statusColor}`,
-                }}
-              >
-                {tx.amount}
-              </span>
               <div className="flex items-center space-x-1">
                 <span>
                   <CalenderIcon color={tx.statusColor} />
@@ -114,15 +117,14 @@ bg-[linear-gradient(117deg,#00F0FF_-84.8%,rgba(40,39,70,0)_104.46%)]
                   {tx.date}
                 </span>
               </div>
-            </div>
-
-            <span
+              <span
               style={{
                 color: `${tx.statusColor}`,
               }}
             >
               {"»"}
             </span>
+            </div>
           </div>
         ))}
       </div>

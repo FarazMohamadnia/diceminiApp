@@ -4,7 +4,6 @@ import HistoryTable from "./HistoryTable";
 import Amount from "../../withdrawPage/components/AmountComponent";
 
 const inactiveStyle = {
-  background: "radial-gradient(circle at center, #0F2B3E 40%, #000000 90%)",
   boxShadow: "inset 0 0 20px 0 rgba(26,229,161,0.5)",
 };
 

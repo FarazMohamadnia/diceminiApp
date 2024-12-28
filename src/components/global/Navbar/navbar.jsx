@@ -48,7 +48,7 @@ export default function Navbar(){
                     </div>
                 </div>
                 <div className='text-center'>
-                    <div><p className='text-white text-[10px] font-medium mt-4'>Diyartt-2000</p></div>
+                    <div><p className='text-white text-[13px] font-medium mt-4'>Diyartt-2000</p></div>
                     <div><p className=' mt-4 text-center text-white text-[12px] font-light'>Level 1</p></div>
                 </div>
                 <div className='text-center'>

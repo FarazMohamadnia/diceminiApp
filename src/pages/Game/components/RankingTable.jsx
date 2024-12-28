@@ -38,27 +38,23 @@ export function LeaderboardList() {
         {items.map((item, index) => (
           <div
             key={index}
-            className="flex items-center justify-between py-3 px-4"
+            className="flex items-center justify-between py-3 px-10"
           >
             <div className={`flex items-center ${item.rankColor || ""}`}>
               <span className="text-2xl">{item.icon}</span>
             </div>
-
-            <div className="flex items-center space-x-6 flex-grow justify-center text-white">
-              <span className="font-semibold">{item.name}</span>
-              <div className="flex items-center space-x-1 text-white">
+            <span className="text-white text-[16px] font-medium">{item.name}</span>
+            <div className="flex items-center space-x-1 text-white">
                 <span>
                   <DiceIcon />
                 </span>
-                <span>{item.dices}</span>
+                <span className="text-[14px]">{item.dices}</span>
               </div>
-            </div>
-
             <div className="flex items-center space-x-1 text-white">
               <span>
                 <FlashIcon />
               </span>
-              <span>{item.level}</span>
+              <span className="text-[12px]">{item.level}</span>
             </div>
           </div>
         ))}

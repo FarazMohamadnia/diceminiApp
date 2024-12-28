@@ -17,24 +17,21 @@ const WithdrawPage = () => {
         <div>
             <Navbar />
         </div>
-        <div className='flex justify-between mt-3'>
-            <div className=''>
-                <BackButton title={'Back to Wallet'}/>
-            </div>
-            <div className='mr-16 mt-4'>
-                <Button title={'Withraw'} icon={<WithdrawTopicon />}/>
-            </div>
-            <div></div>
+        <div className='mt-3 ml-3'>
+            <BackButton title={'Back to Wallet'}/>
+        </div>
+        <div className='flex justify-center items-center mt-4 font-bold'>
+                <Button color={'#00efff'} title={'Withdraw'} icon={<WithdrawTopicon />}/>
         </div>
         <div>
-        <div className="flex justify-center items-center w-3/5 h-[150px] mt-7 mx-auto mb-3">
-            <div className="w-1/2"><CurrencyIcon /></div>
-                <div className="w-1/2 text-left">
-                    <p className="text-white text-[13px]">Your Balance :</p>
-                    <p className="mt-3 text-[20px] text-center"><span className="text-white mr-2">31</span><span className="text-[#1ae5a1]">USD</span></p>
-                    <div className="flex justify-between text-[8px] mt-3 text-white">
-                        <p>MINIMUM WITHDRAW AMOUNT :</p>
-                        <p>0.6 <span className='text-[#1ae5a1]'>USD</span></p>
+        <div className="flex justify-center items-center h-[150px] mt-7 mx-auto mb-3">
+            <div className=""><CurrencyIcon /></div>
+                <div className=" text-left">
+                    <p className="text-white text-[13px] font-bold">Your Balance :</p>
+                    <p className="mt-3 text-[25px] font-bold text-center"><span className="text-white mr-2">31</span><span className="text-[#1ae5a1]">USD</span></p>
+                    <div className="flex justify-between text-[10px] mt-3 text-white">
+                        <p className='mr-2'>MINIMUM WITHDRAW AMOUNT :</p>
+                        <p className='font-bold'>0.6 <span className='text-[#1ae5a1]'>USD</span></p>
                     </div>
                 </div>
             </div>
@@ -58,7 +55,7 @@ const WithdrawPage = () => {
             <div>
                 <Amount />
             </div>
-            <div className='flex justify-center items-center mt-4'>
+            <div className='flex justify-center font-bold italic items-center mt-4'>
                 <div><MaterialIcon /></div>
                 <div className='ml-3'>
                     <p className='text-white text-[8px] font-medium'>
@@ -72,11 +69,11 @@ const WithdrawPage = () => {
                     <p className='text-[13px]'><span className='text-white'>0.6</span> <span className='text-[#1ae5a1]'>USD</span></p>
                 </div>
             </div>
-            <div className='flex justify-center items-center mt-2'>
-                <button className="WithdrawPage-BTN-boxshadow flex items-center justify-center space-x-2 border border-[#00F0FF] rounded-2xl px-12 py-2">
+            <div className='flex justify-center items-center mt-5 mb-7'>
+                <button className="WithdrawPage-BTN-boxshadow flex items-center justify-center space-x-2 border border-[#00F0FF] rounded-2xl px-9 py-2">
                   <BlueWallet />
                   <span className="text-[#00F0FF] font-semibold tracking-wide text-start">
-                    DEPOSIT
+                    Withdraw
                   </span>
                 </button>
             </div>

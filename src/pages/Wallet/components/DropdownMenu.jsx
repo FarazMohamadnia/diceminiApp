@@ -10,8 +10,8 @@ const DropDownMenu = ({
   const containerRef = useRef(null);
 
   const baseClasses = `
-    inline-flex items-center justify-between 
-    rounded-full px-4 py-2 font-medium 
+    inline-flex items-center justify-center
+    rounded-[13px] px-4 py-2 font-medium 
     border transition-colors duration-150 w-full
     focus:outline-none
   `;
@@ -22,8 +22,6 @@ const DropDownMenu = ({
 
   const style = !active
     ? {
-        background:
-          "radial-gradient(circle at center, #0F2B3E 40%, #000000 90%)",
         boxShadow: "inset 0 0 20px 0 rgba(26,229,161,0.5)",
       }
     : {};
@@ -64,15 +62,16 @@ const DropDownMenu = ({
         className={`${baseClasses} ${stateClasses}`}
         onClick={toggleDropdown}
       >
-        <span>{selectedOption}</span>
-        <svg
-          className={`ml-2 h-4 w-4 transform transition-transform duration-200 ${
+        <span className="text-[13px] w-[90%]">{selectedOption}</span>
+        <svg className={`h-4 w-4 transform transition-transform duration-200 ${
             isOpen ? "rotate-180" : "rotate-0"
-          }`}
-          fill="currentColor"
-          viewBox="0 0 20 20"
-        >
-          <path d="M5.23 7.21a.75.75 0 011.06-.02L10 10.27l3.71-3.08a.75.75 0 011.04 1.08l-4.25 3.53a.75.75 0 01-.98 0L5.2 8.27a.75.75 0 01.02-1.06z" />
+          }`} width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+          <g id="vuesax/bold/arrow-down">
+          <g id="arrow-down">
+          <path id="Vector" d="M8.21334 3.74915H5.35792H2.78667C2.34667 3.74915 2.12667 4.28081 2.43834 4.59248L4.81251 6.96665C5.19292 7.34706 5.81167 7.34706 6.19209 6.96665L7.09501 6.06373L8.56626 4.59248C8.87334 4.28081 8.65334 3.74915 8.21334 3.74915Z" fill="white"/>
+          </g>
+          </g>
         </svg>
       </button>
 
