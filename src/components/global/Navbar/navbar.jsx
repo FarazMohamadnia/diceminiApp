@@ -9,6 +9,7 @@ import { useState } from 'react';
 import RightLine from '../../icons/change/Navbar/rightline';
 import LeftLine from '../../icons/change/Navbar/leftline';
 import ImgShadow from '../../icons/change/Navbar/imgshadow';
+import NavbarProgressbar from '../navprogress/NavProgross';
 
 export default function Navbar(){
     const [CheckNotification , setCheckNotification]=useState(true);
@@ -37,7 +38,7 @@ export default function Navbar(){
                 </Link>
             </div>
             <div className='navbar-botton-section'>
-                <div className='text-center '>
+                <div className='text-center relative'>
                     <div><p className='text-white text-[14px] font-normal'>READY TO SELL </p></div>
                     <div className='Navbar-left-polygon'>
                         <div className='absolute'>
@@ -45,6 +46,9 @@ export default function Navbar(){
                         </div>
                         <p className='text-white text-[14px] font-semibold'>3000 <span className='text-[#00efff]'>DICES</span> </p>
                         <span className='Navbar-left-polygon-Icon'><img alt='' src={DiceIcon}/></span>
+                    </div>
+                    <div className='absolute bg-red-500 left-2 w-[120px] bottom-[-19px] h-4 flex justify-center items-center'>
+                        <NavbarProgressbar />
                     </div>
                 </div>
                 <div className='text-center'>
