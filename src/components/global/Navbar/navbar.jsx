@@ -47,7 +47,7 @@ export default function Navbar(){
                         <p className='text-white text-[14px] font-semibold'>3000 <span className='text-[#00efff]'>DICES</span> </p>
                         <span className='Navbar-left-polygon-Icon'><img alt='' src={DiceIcon}/></span>
                     </div>
-                    <div className='absolute bg-red-500 left-2 w-[120px] bottom-[-19px] h-4 flex justify-center items-center'>
+                    <div className='absolute left-3 w-[120px] bottom-[-19px] h-4 flex justify-center items-center'>
                         <NavbarProgressbar />
                     </div>
                 </div>
