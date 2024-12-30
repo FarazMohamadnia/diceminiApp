@@ -64,12 +64,12 @@ const SellHistory = () => {
         rounded-[10px]
         w-full max-w-m
         overflow-hidden
-        bg-[linear-gradient(117deg,_#1AE5A1_-84.8%,_rgba(40,39,70,0)_104.46%)]
+        linear-gradient-table
         backdrop-blur-[14.4px]
       "
     >
       {" "}
-      <div className="flex justify-center">
+      <div className="flex justify-center table-green-shadow">
         <div className="transaction_shadow2">
           <span className="absolute right-0 left-0 w-full text-xs font-extrabold text-center top-1.5">
             Sell History

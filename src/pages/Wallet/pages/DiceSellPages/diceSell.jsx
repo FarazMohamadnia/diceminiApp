@@ -28,7 +28,7 @@ export default function Dicesellpages() {
               <DiceGroup />
             </div>
             <div className="w-1/2 text-center">
-              <p className="text-[#F42500] text-[14px]">
+              <p className="text-[#F42500] text-[14px] italic font-bold">
                 Available Dice for sell:
               </p>
               <p className="mt-3 font-bold">
@@ -44,8 +44,8 @@ export default function Dicesellpages() {
           <div>
             <Progress />
             <div className="flex justify-between items-center text-white mx-2">
-              <span>0</span>
               <span>2</span>
+              <span>3</span>
               <span>4</span>
             </div>
           </div>
@@ -58,7 +58,7 @@ export default function Dicesellpages() {
               0.6 <span className="text-[#1AE5A1] text-[18px] font-bold">USD</span>
             </p>
           </div>
-          <button className="diceSell-Btn-Bgcolor mt-4 flex items-center justify-center w-40 h-[43px] bg-white/0 rounded-[15px] border border-[#3bffff] mx-auto">
+          <button className="diceSell-Btn-Bgcolor mt-6 flex items-center justify-center w-40 h-[43px] bg-white/0 rounded-[15px] border border-[#3bffff] mx-auto">
             <SellIcon1 /> <span className=" text-[#3bffff] ml-2">SELL</span>
           </button>
 

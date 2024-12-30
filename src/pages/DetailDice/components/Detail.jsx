@@ -19,7 +19,7 @@ const Detail = () => {
         </div>
         <div className="w-[100%] flex justify-center items-center font-bold">
           <div className="mr-5">
-            <Button title="Earn DTS" icon={<PlusIcon />} />
+            <Button title="Earn DTS" icon={<div className="mt-[2px]"><PlusIcon /></div>} />
           </div>
         </div>
         <div className="flex">

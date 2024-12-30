@@ -50,7 +50,7 @@ const RewardCard = ({ type }) => {
               >
                 +
               </span>
-              24{" "}
+              {" "}24{" "}
               <span
                 className={`font-semibold ${
                   type === "error" ? "text-[#F55059]" : "text-[#3BFFFF]"
@@ -72,7 +72,7 @@ const RewardCard = ({ type }) => {
               >
                 +
               </span>
-              100{" "}
+              {" "}100{" "}
               <span
                 className={`font-semibold ${
                   type === "error" ? "text-[#F55059]" : "text-[#3BFFFF]"

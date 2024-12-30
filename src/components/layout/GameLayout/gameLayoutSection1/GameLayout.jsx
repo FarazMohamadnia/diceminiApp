@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import OpenWalletIcon from '../../../icons/change/game/walletIcon'
 import SellIcon from '../../../icons/change/game/sellIcon'
 import AddIcon from '../../../icons/change/game/addIcon'
-import NotificationIcon from '../../../icons/change/game/notificationIcon'
+import DisableIcon from '../../../icons/disableBtnIcon'
+import DisableBadge from '../../../icons/disablebadge'
 
 export default function GameLayout1(){
     return(
@@ -31,10 +32,16 @@ export default function GameLayout1(){
                         <button className='GameLayout1-section2-BTN'><span className='mr-3'><SellIcon /></span><span>SELL YOUR DICE</span></button>
                     </Link>
                     <Link to={'/dice-detail'}>
-                        <button className='GameLayout1-section2-BTN'><span className='mr-4'><AddIcon /></span><span>EARN MORE</span></button>
+                        <button className='GameLayout1-section2-BTN'><span className='mr-8'><AddIcon /></span><span>EARN MORE</span></button>
                     </Link>
-                    <Link to={'/dice/histori'}>
-                        <button className='GameLayout1-section2-BTN'><span className='mr-4'><NotificationIcon/></span><span>HISTORY</span></button>
+                    <Link>
+                        <button disabled className='GameLayout1-section3-BTN'><span className='mr-8'><DisableIcon/></span><span>BUY/SWAP</span> 
+                        <span className='absolute top-0 right-0'>
+                            <DisableBadge />
+                            <span className='absolute w-[40px] text-white text-[6px] top-[9px] right-[-5px] transform rotate-[36.3deg] '>
+                                Coming Soon
+                            </span>
+                        </span></button>
                     </Link>
                 </div>
             </div>

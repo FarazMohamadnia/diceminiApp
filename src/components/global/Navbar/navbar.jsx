@@ -47,7 +47,7 @@ export default function Navbar(){
                         <p className='text-white text-[14px] font-semibold'>3000 <span className='text-[#00efff]'>DICES</span> </p>
                         <span className='Navbar-left-polygon-Icon'><img alt='' src={DiceIcon}/></span>
                     </div>
-                    <div className='absolute left-3 w-[120px] bottom-[-19px] h-4 flex justify-center items-center'>
+                    <div className='absolute left-2 w-[120px] bottom-[-19px] h-4 flex justify-center items-center'>
                         <NavbarProgressbar />
                     </div>
                 </div>
@@ -62,7 +62,7 @@ export default function Navbar(){
                             <LeftLine />
                         </div>
                         <p className='text-white text-[14px] pt-[3px] font-semibold'>100000  <span className='text-[#00efff] font-semibold'>DTS</span></p>
-                        <span className='Navbar-right-polygon-Icon'><img alt='' src={DTScoin}/></span>
+                        <span className='Navbar-right-polygon-Icon'><img className='Navbar-left-polygon-Icon-img' alt='' src={DTScoin}/></span>
                     </div>
                 </div>
             </div>

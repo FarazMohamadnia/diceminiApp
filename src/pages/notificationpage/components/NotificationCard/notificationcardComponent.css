@@ -3,7 +3,7 @@
     width: 100%;
     border-radius: 15px;
     padding: 13px;
-    box-shadow: inset 0px 0px 15px 10px #1ae5a1b5;
+    box-shadow: inset 0px 0px 15px 1px #1ae5a1b5;
     margin-block: 15px;
     background:linear-gradient(to bottom right , #1ae5a12a , rgba(255, 255, 255, 0));
     border: 2px solid #1ae5a1;

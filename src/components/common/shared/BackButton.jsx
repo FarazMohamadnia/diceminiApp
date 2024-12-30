@@ -7,7 +7,7 @@ const BackButton = ({ title }) => {
   const navigate  = useNavigate()
 
   return (
-    <div className="flex items-center cursor-pointer" onClick={()=>navigate(-1)}>
+    <div className="flex items-center cursor-pointer mt-2" onClick={()=>navigate(-1)}>
       <span className="mt-0.5">
         <BackIcon />
       </span>{" "}

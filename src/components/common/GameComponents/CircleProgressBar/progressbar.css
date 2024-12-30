@@ -1,0 +1,7 @@
+.CircularProgressBar-img{
+    background-image: url('../../../../asset/img/GameImg/Section2/whiteDice.png');
+    background-position: center;
+    background-size: cover;
+    width: 84px;
+    height: 84px;
+}

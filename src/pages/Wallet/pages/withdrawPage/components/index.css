@@ -1,8 +1,7 @@
 .AmountComponent-inputs-style{
-    width: 95%;
-    min-width: 230px;
+    width: 100%;
     height: 50px;
-    background:linear-gradient(to bottom right , rgba(26, 229, 161, 0.350) , rgba(40, 39, 70, 0));
+    background:linear-gradient(to bottom right , rgba(26, 229, 161, 0.200) , rgba(40, 39, 70, 0));
     border-radius: 15px;
     margin-inline: auto;
     border: 1px solid rgba(26, 229, 161, 1);
@@ -17,7 +16,7 @@
     height: 33px;
     margin: 0 auto;
     position: absolute;
-    top: 0;
+    top: -1px;
     clip-path: polygon(
       50.02% 98.485%,
       50.02% 98.485%,

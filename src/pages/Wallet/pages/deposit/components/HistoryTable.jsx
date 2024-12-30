@@ -64,12 +64,12 @@ const HistoryTable = () => {
     rounded-[10px]
     w-full max-w-m
     overflow-hidden
-    bg-[linear-gradient(117deg,#00F0FF_-84.8%,rgba(40,39,70,0)_104.46%)]
+    linear-gradient-blue-table
     backdrop-blur-[14.4px]
   "
     >
       {" "}
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center table-blue-shadow">
         <div className="deposite_shadow">
           <span className="absolute right-0 left-0 w-full text-[15px] font-extrabold text-center top-1">
             Deposit History

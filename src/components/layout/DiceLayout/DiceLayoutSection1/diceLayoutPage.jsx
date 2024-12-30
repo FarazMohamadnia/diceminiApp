@@ -36,7 +36,7 @@ export default function DiceLayout1(){
         <div className='DicelayoutPage-container'>
             <div className='DicelayoutPage-Body'>
                 <div className='flex justify-center items-center'>
-                    <span className='mr-3'><GroupIcon /></span><p>LUCKY BOARD</p>
+                    <span className='mr-3'><GroupIcon /></span><p className='font-bold'>LUCKY BOARD</p>
                 </div>
                 <div className='h-[100px] flex items-center justify-between'>
                     <div className='w-[90px] h-[60px] border-r border-[#1ae5a1] flex justify-center items-center'>

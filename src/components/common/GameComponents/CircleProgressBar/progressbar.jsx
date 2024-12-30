@@ -1,5 +1,7 @@
 import React from "react";
 import WhiteDice from "../../../icons/change/game/whiteDice";
+// import img from '../../../../asset/img/GameImg/Section2/whiteDice.png'
+import './progressbar.css'
 const CircularProgressBar = ({
   percentage = 60, 
   radius = 45,
@@ -63,7 +65,11 @@ const CircularProgressBar = ({
           fontWeight: "bold",
         }}
       >
-        <WhiteDice />
+        {/* <WhiteDice /> */}
+        {/* <img className="w-[140px] bg-red-600" alt="" src={img}/> */}
+        <div className="CircularProgressBar-img">
+
+        </div>
       </div>
     </div>
   );

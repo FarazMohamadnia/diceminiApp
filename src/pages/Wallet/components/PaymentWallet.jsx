@@ -2,9 +2,6 @@ import React from "react";
 import BlueShadow from "../../../components/shadows/blueShadow";
 import DepositIcon from "../../../components/icons/deposit";
 import WithdrawIcon from "../../../components/icons/withdraw";
-// Replace these with your actual icon components or SVGs.
-// import { IoWalletOutline } from "react-icons/io5";
-// import { IoCardOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 
 const PaymentWallet = () => {
@@ -21,7 +18,7 @@ const PaymentWallet = () => {
       </div>
 
       <div className="flex w-1/2 flex-col justify-center">
-        <span className="text-6xl text-white leading-none text-center">
+        <span className="text-6xl text-white leading-none text-center font-bold">
           25
         </span>
         <span className="mt-2 text-center text-cyan-400 font-semibold">USDT/TON</span>
@@ -35,9 +32,8 @@ const PaymentWallet = () => {
           to={"/wallet/deposite"}
           className="flex items-center justify-between space-x-2 border border-[#00F0FF] rounded-2xl px-6 py-3 text-[#07CB8A]"
         >
-          <DepositIcon />
-          <span className="font-semibold tracking-wide min-w-[93px] text-start">
-            DEPOSIT
+          <span className="font-semibold tracking-wide flex justify-center w-full items-center">
+          <span  className="mr-[10px]"><DepositIcon /></span><span className="mr-5">DEPOSIT</span>
           </span>
         </NavLink>
         <NavLink
@@ -47,11 +43,8 @@ const PaymentWallet = () => {
           to={"/wallet/withdraw"}
           className="flex  items-center justify-between space-x-2 border border-[#00F0FF] rounded-2xl px-6 py-3 text-[#07CB8A]"
         >
-          <span className="-mt-1.5">
-            <WithdrawIcon />
-          </span>
-          <span className="font-semibold  tracking-wide min-w-[93px] text-start">
-            WITHDRAW
+          <span className="font-semibold  tracking-wide w-full flex justify-center ">
+            <span className="mr-3"><WithdrawIcon /></span><span className="mr-2">WITHDRAW</span>
           </span>
         </NavLink>
       </div>

@@ -5,7 +5,7 @@ import {PendingIcon} from '../../../../../components/icons/pending';
 import CalenderIcon from '../../../../../components/icons/calender'
 const transactions = [
   {
-    status: "Successful",
+    status: "succesful",
     icon: (
       <>
         <SucessFullIcon />
@@ -52,6 +52,42 @@ const transactions = [
     amountColor: "#1AE5A1",
     date: "2024/06/12",
   },
+  {
+    status: "Successful",
+    icon: (
+      <>
+        <SucessFullIcon />
+      </>
+    ),
+    statusColor: "#1AE5A1",
+    amount: "+10 USDT",
+    amountColor: "#1AE5A1",
+    date: "2024/06/12",
+  },
+  {
+    status: "Successful",
+    icon: (
+      <>
+        <SucessFullIcon />
+      </>
+    ),
+    statusColor: "#1AE5A1",
+    amount: "+10 USDT",
+    amountColor: "#1AE5A1",
+    date: "2024/06/12",
+  },
+  {
+    status: "Successful",
+    icon: (
+      <>
+        <SucessFullIcon />
+      </>
+    ),
+    statusColor: "#1AE5A1",
+    amount: "+10 USDT",
+    amountColor: "#1AE5A1",
+    date: "2024/06/12",
+  },
 ];
 
 const WithDrawhistory = () => {
@@ -63,12 +99,12 @@ const WithDrawhistory = () => {
       rounded-[10px]
       w-full max-w-m
       overflow-hidden
-      Withdraw_backgroundColor
+      linear-gradient-table
       backdrop-blur-[14.4px]
     "
     >
       {" "}
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center table-green-shadow">
         <div className="Withdraw_shadow">
           <span className="absolute right-0 left-0 w-full text-[14px] font-extrabold text-center top-1">
             WITHDRAW HISTORY

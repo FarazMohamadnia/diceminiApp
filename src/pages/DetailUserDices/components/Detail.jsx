@@ -10,8 +10,6 @@ import Networking from "../../../components/icons/networking";
 
 const Detail = () => {
 
-
-
   return (
     <>
       <div>
@@ -53,7 +51,6 @@ export default Detail;
 
 function Tabs() {
   const location = useLocation();
-  // const {pathname} = location
   console.log(location.pathname);
   const [activeTab, setActiveTab] = useState(location.pathname);
 

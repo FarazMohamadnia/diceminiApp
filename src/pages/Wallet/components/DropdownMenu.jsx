@@ -4,6 +4,7 @@ const DropDownMenu = ({
   title = "Select your Currency",
   active = false,
   options = ["USD", "EUR", "GBP"],
+  pages = true
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(title);

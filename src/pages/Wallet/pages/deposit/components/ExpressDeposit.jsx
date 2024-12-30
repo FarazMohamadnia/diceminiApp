@@ -14,7 +14,7 @@ const ExpressDeposit = () => {
       <div className="flex items-center justify-center">
         <button
           style={inactiveStyle}
-          className="flex items-center justify-between space-x-2 border border-[#1AE5A1] rounded-2xl px-8 py-2 text-[#07CB8A]"
+          className="flex items-center justify-between space-x-2 border border-[#1AE5A1] rounded-2xl px-8 py-2 text-[#07CB8A] mt-3"
         >
           <DepositIcon />
           <span className="font-semibold tracking-wide">DEPOSIT</span>

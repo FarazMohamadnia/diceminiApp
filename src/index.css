@@ -53,6 +53,22 @@ body {
   scrollbar-width: none;
 }
 
+.linear-gradient-table{
+  background: linear-gradient(to bottom right , #1ae5a150 , rgba(0, 0, 0, 0));
+}
+.linear-gradient-blue-table{
+  background: linear-gradient(to bottom right , #00efff50 , rgba(0, 0, 0, 0));
+}
+
+.table-green-shadow{
+  filter: drop-shadow(0px 0px 5px #1ae5a1);
+}
+
+.table-blue-shadow{
+  filter: drop-shadow(0px 0px 5px #00efff);
+}
+
+
 p {
   margin: 0px;
   padding: 0px;

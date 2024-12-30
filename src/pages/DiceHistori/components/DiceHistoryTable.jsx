@@ -58,7 +58,7 @@ const Dicehistory = () => {
     rounded-[10px]
     w-full max-w-m
     overflow-hidden
-     bg-gradient-to-br from-[#1ae5a150] to-[#28274600]
+    linear-gradient-table
     backdrop-blur-[14.4px]
   "
     >

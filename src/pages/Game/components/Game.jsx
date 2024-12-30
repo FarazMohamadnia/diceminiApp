@@ -25,7 +25,6 @@ const Game = () => {
         <div className="flex justify-center items-center gap-3">
           <DropdownMenu title="All Game" />
           <DropdownMenu title="All Time" />
-          <DropdownMenu title="All Total" />
         </div>
 
         <div className="flex justify-center mt-2">
