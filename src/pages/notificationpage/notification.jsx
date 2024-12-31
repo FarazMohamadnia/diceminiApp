@@ -30,7 +30,7 @@ export default function Notification(){
                 <BackButton title={'Back'}/>
             </div>
             <div>
-                <p className="text-[#1ae5a1] text-center text-[20px] font-bold">Notification,s</p>
+                <p className="text-[#1ae5a1] text-center text-[20px] font-bold">Notifications</p>
                 <div>
                     {
                         fakeData.map(data =>  <Notificationcard key={data.title} {...data}/>)
