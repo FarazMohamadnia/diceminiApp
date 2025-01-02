@@ -19,7 +19,7 @@ export default function Navbar(){
     }
     return(
         <div>
-            <div className='flex items-center justify-between mx-3 mb-3'>
+            <div className='flex items-center justify-between mx-3 mb-3 max-w-xl'>
                 <img alt='' className='w-12 h-12' src={Logo}/>
                 <div className='navbar-User-backgroundImage'>
                     <div className='absolute'><ImgShadow /></div>

@@ -1,0 +1,79 @@
+.HomeLayout-container{
+    position: relative;
+    background-image:linear-gradient(to bottom , rgb(18, 24, 37), rgba(255, 255, 255, 0)20%, rgba(255, 255, 255, 0),rgba(255, 255, 255, 0),rgb(18, 24, 37)) , url('../../../asset/img/HomeImg/bgHome.png');
+    background-position: top;
+    background-size: cover;
+    margin-top: 10px;
+    height: 600px;
+}
+  
+.scene {
+  width: 100px;
+  height: 100px;
+  perspective: 1000px;
+  margin: auto;
+}
+
+.cube {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s ease-in-out;
+}
+
+.face {
+  position: absolute;
+  width: 100px;
+  height:100px;
+  background: #d8d8d8;
+  border-radius: 20px;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.face.one { 
+    transform: rotateY(0deg) translateZ(50px); 
+    /* background-image: url('../../../asset/img/HomeImg/3Ddices/six-realistic-dices-with-with-reflections-black-background-illustration\ 1.png'); */
+    background-size: 135%;
+    background-position: center;
+}
+.face.two { 
+    transform: rotateY(90deg) translateZ(50px); 
+    /* background-image: url('../../../asset/img/HomeImg/dices/2.png'); */
+    background-size: 135%;
+    background-position: 18%;
+
+}
+.face.three { 
+    transform: rotateY(180deg) translateZ(50px); 
+    /* background-image: url('../../../asset/img/HomeImg/dices/3.png'); */
+    background-size: 125%;
+    background-position: 18%;
+
+}
+.face.four { 
+    transform: rotateY(-90deg) translateZ(50px); 
+    /* background-image: url('../../../asset/img/HomeImg/dices/4.png'); */
+    background-size: 125%;
+    background-position: 18%;
+
+}
+.face.five { 
+    transform: rotateX(90deg) translateZ(50px); 
+    /* background-image: url('../../../asset/img/HomeImg/dices/5.png'); */
+    background-size: 125%;
+    background-position: 18%;
+
+}
+.face.six { 
+    transform: rotateX(-90deg) translateZ(50px); 
+    /* background-image: url('../../../asset/img/HomeImg/dices/6.png'); */
+    background-size: 125%;
+    background-position: 18%;
+
+}
