@@ -10,8 +10,8 @@ import RullBtnIcon from '../../icons/rullbtnicon'
 import { Link } from 'react-router-dom'
 export default function HomeLayout(){
     const [numbers , setnumbers]=useState({
-        number1 : 1,
-        number2: 1,
+        number1 : 2,
+        number2: 6,
         result : true
     })
     const [Loading , setLoading]=useState(false);
@@ -20,8 +20,8 @@ export default function HomeLayout(){
         setBtnDisabled(true)
         setLoading(true)
         setnumbers({
-            number1 : 6,
-            number2 : 1
+            number1 :3,
+            number2 : 5
         })
         
         setTimeout(() => {
