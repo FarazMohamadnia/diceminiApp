@@ -7,7 +7,7 @@ import Dice3 from '../../../../asset/img/HomeImg/dices/3.png'
 import Dice4 from '../../../../asset/img/HomeImg/dices/4.png'
 import Dice5 from '../../../../asset/img/HomeImg/dices/5.png'
 import Dice6 from '../../../../asset/img/HomeImg/dices/6.png'
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 export default function DiceSelected(){
     const audio = new Audio(notificationSound);
     audio.volume = 0.2
@@ -17,10 +17,7 @@ export default function DiceSelected(){
     });
     const [Dicestatus , setDicestatus] = useState({})
     const [Dicestatus2 , setDicestatus2] = useState({})
-    const [Voicecintroller , setVoicecintroller]=useState({
-        dice1 : true ,
-        dice : true
-    });
+    
     const DiceInfo = [
         {
             number : 1 ,
@@ -47,12 +44,15 @@ export default function DiceSelected(){
             img : Dice6
         }
     ];
-    
-    const DiceNumberhandller = (e)=>{ 
+
+    const vibrateHandller = ()=>{
         navigator.vibrate(40);
         audio.play().catch((error) => {
             console.error(error);
         });
+    }
+    
+    const DiceNumberhandller = (e)=>{ 
         const id = e.target.id
         if(id === '1'){
             const num = DiceNumber.number1+1
@@ -62,6 +62,7 @@ export default function DiceSelected(){
                     number1 : num
                 })
                 setDicestatus(DiceInfo[num - 1]);
+                vibrateHandller()
             }else{
                 setDiceNumber({
                     ...DiceNumber,
@@ -76,6 +77,7 @@ export default function DiceSelected(){
                     number1 : num
                 })
                 setDicestatus(DiceInfo[num - 1]);
+                vibrateHandller()
             }else{
                 setDiceNumber({
                     ...DiceNumber,
@@ -90,6 +92,7 @@ export default function DiceSelected(){
                     number2 : num
                 })
                 setDicestatus2(DiceInfo[num - 1]);
+                vibrateHandller()
             }else{
                 setDiceNumber({
                     ...DiceNumber,
@@ -104,6 +107,7 @@ export default function DiceSelected(){
                     number2 : num
                 })
                 setDicestatus2(DiceInfo[num - 1]);
+                vibrateHandller()
             }else{
                 setDiceNumber({
                     ...DiceNumber,

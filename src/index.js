@@ -20,7 +20,7 @@ import Notification from "./pages/notificationpage/notification";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-  <div className="pb-28 overflow-x-hidden max-w-xl">
+  <div className="pb-28 overflow-x-hidden max-w-lg">
     <BrowserRouter>
       <RouteProvider>
         <Routes>

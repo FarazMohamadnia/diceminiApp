@@ -27,8 +27,7 @@
   width: 100px;
   height:100px;
   background: #d8d8d8;
-  border-radius: 20px;
-  border: 2px solid black;
+  /* border: 1px solid black; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,42 +37,31 @@
 
 .face.one { 
     transform: rotateY(0deg) translateZ(50px); 
-    /* background-image: url('../../../asset/img/HomeImg/3Ddices/six-realistic-dices-with-with-reflections-black-background-illustration\ 1.png'); */
-    background-size: 135%;
-    background-position: center;
+    background-image: url('../../../asset/img/HomeImg/3Ddices/1.png');
+    background-size: cover;
 }
 .face.two { 
     transform: rotateY(90deg) translateZ(50px); 
-    /* background-image: url('../../../asset/img/HomeImg/dices/2.png'); */
-    background-size: 135%;
-    background-position: 18%;
-
+    background-image: url('../../../asset/img/HomeImg/3Ddices/2.png');
+    background-size: cover;
 }
 .face.three { 
     transform: rotateY(180deg) translateZ(50px); 
-    /* background-image: url('../../../asset/img/HomeImg/dices/3.png'); */
-    background-size: 125%;
-    background-position: 18%;
-
+    background-image: url('../../../asset/img/HomeImg/3Ddices/3.png');
+    background-size: cover;
 }
 .face.four { 
     transform: rotateY(-90deg) translateZ(50px); 
-    /* background-image: url('../../../asset/img/HomeImg/dices/4.png'); */
-    background-size: 125%;
-    background-position: 18%;
-
+    background-image: url('../../../asset/img/HomeImg/3Ddices/4.png');
+    background-size: cover;
 }
 .face.five { 
     transform: rotateX(90deg) translateZ(50px); 
-    /* background-image: url('../../../asset/img/HomeImg/dices/5.png'); */
-    background-size: 125%;
-    background-position: 18%;
-
+    background-image: url('../../../asset/img/HomeImg/3Ddices/5.png');
+    background-size: cover;
 }
 .face.six { 
     transform: rotateX(-90deg) translateZ(50px); 
-    /* background-image: url('../../../asset/img/HomeImg/dices/6.png'); */
-    background-size: 125%;
-    background-position: 18%;
-
+    background-image: url('../../../asset/img/HomeImg/3Ddices/6.png');
+    background-size: cover;
 }
