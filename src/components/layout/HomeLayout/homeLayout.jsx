@@ -7,6 +7,7 @@ import { useState } from 'react'
 import AddBtnIcon1 from '../../icons/addbtnicon1'
 import GameBtnIcon from '../../icons/gamebtnicon'
 import RullBtnIcon from '../../icons/rullbtnicon'
+import { Link } from 'react-router-dom'
 export default function HomeLayout(){
     const [numbers , setnumbers]=useState({
         number1 : 1,
@@ -61,11 +62,11 @@ export default function HomeLayout(){
                 </div>
                 <div className='w-11 absolute right-[6px] text-center'>
                     <div className=''>
-                        <button className='flex justify-center items-center w-11 h-11 rounded-[30px] shadow-[0px_0px_8px_0px_rgba(0,240,255,1.00)] border border-[#3bffff]'><AddBtnIcon1 /></button>
+                        <Link to={'/dice-detail'}><button className='flex justify-center items-center w-11 h-11 rounded-[30px] shadow-[0px_0px_8px_0px_rgba(0,240,255,1.00)] border border-[#3bffff]'><AddBtnIcon1 /></button></Link>
                         <p className='text-neutral-50 text-xs font-medium my-2'>Earn DTS</p>
                     </div>
                     <div className=''>
-                        <button className='flex justify-center items-center w-11 h-11 rounded-[30px] shadow-[0px_0px_8px_0px_rgba(0,240,255,1.00)] border border-[#3bffff]'><GameBtnIcon /></button>
+                        <Link to={'/games'}><button className='flex justify-center items-center w-11 h-11 rounded-[30px] shadow-[0px_0px_8px_0px_rgba(0,240,255,1.00)] border border-[#3bffff]'><GameBtnIcon /></button></Link>
                         <p className='text-white text-xs font-medium my-2'>Play Now</p>
                     </div>
                 </div>
