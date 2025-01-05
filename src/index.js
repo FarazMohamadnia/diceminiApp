@@ -16,6 +16,7 @@ import DiceHistoriPage from "./pages/DiceHistori";
 import LeaderBoard from "./pages/Game/leaderboard";
 import GamePage from "./pages/Game/gamePage";
 import Notification from "./pages/notificationpage/notification";
+import { TonConnectUIProvider } from "@tonconnect/ui-react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -23,21 +24,23 @@ root.render(
   <div className="pb-28 overflow-x-hidden max-w-lg">
     <BrowserRouter>
       <RouteProvider>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/Dice" element={<DicePage />} />
-          <Route path="/dice/histori" element={<DiceHistoriPage />} />
-          <Route path="/dice-detail" element={<DetailDice />} />
-          <Route path="/dice-detail-user" element={<DetailDiceUser />} />
-          <Route path="/wallet/sell" element={<Dicesellpages />} />
-          <Route path="/games" element={<GamePage />} />
-          <Route path="/games/leaderboard" element={<LeaderBoard />} />
-          <Route path="/Wallet" element={<Wallet />} />
-          <Route path="/Wallet/withdraw" element={<WithdrawPage />} />
-          <Route path="/Wallet/deposite" element={<Deposite />} />
-          <Route path="/Profile" element={<ProfilePage />} />
-          <Route path="/notification" element={<Notification />} />
-        </Routes>
+        <TonConnectUIProvider manifestUrl="https://static.wikia.nocookie.net/p__/images/f/fd/Batman_%28Prime_Earth%29.jpg/revision/latest?cb=20230718090804&path-prefix=protagonist">
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/Dice" element={<DicePage />} />
+            <Route path="/dice/histori" element={<DiceHistoriPage />} />
+            <Route path="/dice-detail" element={<DetailDice />} />
+            <Route path="/dice-detail-user" element={<DetailDiceUser />} />
+            <Route path="/wallet/sell" element={<Dicesellpages />} />
+            <Route path="/games" element={<GamePage />} />
+            <Route path="/games/leaderboard" element={<LeaderBoard />} />
+            <Route path="/Wallet" element={<Wallet />} />
+            <Route path="/Wallet/withdraw" element={<WithdrawPage />} />
+            <Route path="/Wallet/deposite" element={<Deposite />} />
+            <Route path="/Profile" element={<ProfilePage />} />
+            <Route path="/notification" element={<Notification />} />
+          </Routes>
+        </TonConnectUIProvider>
       </RouteProvider>
     </BrowserRouter>
     </div>
