@@ -1,5 +1,5 @@
 import React from "react";
-import WhiteDice from "../../../icons/change/game/whiteDice";
+
 // import img from '../../../../asset/img/GameImg/Section2/whiteDice.png'
 import './progressbar.css'
 const CircularProgressBar = ({

@@ -35,11 +35,12 @@
     border :1px solid #cafd7b;
     border-radius: 10px;
     display: flex;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: bold;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     box-shadow: 0px 0px 7px 1px #ffe17454;
+    padding-inline:10px;
 }
 
 .GameLayout1-section3-BTN{
@@ -50,13 +51,22 @@
     width: 95%;
     height: 42px;
     margin-bottom: 15px;
-    border :1px solid rgba(202, 253, 123, 0.30);;
+    border:1px solid rgba(202, 253, 123, 0.30);;
     border-radius: 10px;
     display: flex;
-    font-size: 13px;
+    font-size: 18px;
     font-weight: bold;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     box-shadow: 0px 0px 7px 1px rgba(202, 253, 123, 0.59);
+}
+
+.GameLayout1-section2-img-style{
+    min-width: 100px;
+    min-height: 100px;
+    background-image: url('../../../../asset/img/NavbarImg/DTScoin.png');
+    background-size: 130%;
+    background-position: center;
+    filter: drop-shadow(0px 0px 52.400001525878906px rgba(26,229,161,0.59));
 }
 

@@ -1,4 +1,5 @@
 import './GameLayout.css'
+import React, { useState } from "react";
 import CircularProgressBar from '../../../common/GameComponents/CircleProgressBar/progressbar'
 import { Link } from 'react-router-dom'
 import OpenWalletIcon from '../../../icons/change/game/walletIcon'
@@ -6,8 +7,24 @@ import SellIcon from '../../../icons/change/game/sellIcon'
 import AddIcon from '../../../icons/change/game/addIcon'
 import DisableIcon from '../../../icons/disableBtnIcon'
 import DisableBadge from '../../../icons/disablebadge'
+import InfoIcon from '../../../icons/change/game/info'
+import BuyCrypto from '../../../icons/change/game/buyCrypto'
+import ModalExample from '../../../common/GameComponents/modal/modalexample'
+import CircularDots from '../../../common/GameComponents/CircleProgressBar/newprogress/newprogressbar';
 
+const modalfakedata = [
+    {
+        title : 'WHAT IS DTS ? ',
+        text: ['1- dgsdfkdskdl' , '2- lksd;kfdslfk' , '3- jl;ask;sksakl']
+    },
+    {
+        title : 'WHAT IS DICE ? ',
+        text: ['iiiodoifodi' , 'k;lkl;sdf' , 'sssssodp']
+    }
+]
 export default function GameLayout1(){
+    const [IsModalOpen, setIsModalOpen] = useState(false);
+    const [IsModalOpen2, setIsModalOpen2] = useState(false);
     return(
         <div>
             <div className='flex items-center justify-center mt-7'>
@@ -15,11 +32,31 @@ export default function GameLayout1(){
             </div>
             <div className='GameLayout1-section2-bodyStyle'>
                 <div className='w-1/2 flex flex-col justify-center items-center relative mt-5'>
+                    <div className='GameLayout1-section2-img-style'></div>
+                    <p className='text-white text-2xl font-bold mt-3 mb-5'>
+                        3756.25<span className='text-[#00ffa9] ml-[2px]'>DTS</span>
+                    </p>
+                </div>
+                <div className='w-1/2 text-center mt-1'>
                     <div>
-                        <CircularProgressBar percentage={90}/>
+                        <button onClick={() => setIsModalOpen(true)} className='GameLayout1-section2-BTN'><span className='w-[25%]'><InfoIcon /></span><span className='w-[75%]'>WHAT IS DTS ?</span></button>
+                        <ModalExample data={modalfakedata[0]} isOpen={IsModalOpen} onClose={() => setIsModalOpen(false)}/>
+                    </div>
+                    <Link to={'/dice-detail'}>
+                        <button className='GameLayout1-section2-BTN'><span className='w-[25%]'><BuyCrypto /></span><span className='w-[75%]'>BUY DTS</span></button>
+                    </Link>
+                    <Link>
+                        <button className='GameLayout1-section2-BTN'><span className='w-[25%]'><AddIcon /></span><span className='w-[75%]'>EARN DTS</span></button>
+                    </Link>
+                </div>
+            </div>
+            <div className='GameLayout1-section2-bodyStyle'>
+                <div className='w-1/2 flex flex-col justify-center items-center relative mt-5'>
+                    <div>
+                        <CircularDots />
                         <div className='relative'>
-                            <p className='text-white text-[10px] top-[-19px] absolute left-[5px]'>0</p>
-                            <p className='text-white text-[10px] top-[-19px] absolute right-1'>21</p>
+                            <p className='text-white text-[14px] top-[-20px] absolute left-[16px]'>0</p>
+                            <p className='text-white text-[14px] top-[-19px] absolute right-[17px]'>21</p>
                         </div>
                     </div>
                     <div className='relative top-[-13px] text-center mr-1'>
@@ -28,14 +65,15 @@ export default function GameLayout1(){
                     </div>
                 </div>
                 <div className='w-1/2 text-center mt-1'>
-                    <Link to={'/wallet/sell'}>
-                        <button className='GameLayout1-section2-BTN'><span className='mr-3'><SellIcon /></span><span>SELL YOUR DICE</span></button>
-                    </Link>
+                    <div>
+                        <button onClick={() => setIsModalOpen2(true)} className='GameLayout1-section2-BTN'><span className='w-[25%]'><InfoIcon /></span><span className='w-[75%]'>WHAT IS DICE ?</span></button>
+                        <ModalExample data={modalfakedata[1]} isOpen={IsModalOpen2} onClose={() => setIsModalOpen2(false)}/>
+                    </div>                    
                     <Link to={'/dice-detail'}>
-                        <button className='GameLayout1-section2-BTN'><span className='mr-8'><AddIcon /></span><span>EARN MORE</span></button>
+                        <button className='GameLayout1-section2-BTN'><span className='w-[25%]'><SellIcon /></span><span className='w-[75%]'>SELL YOUR DICE</span></button>
                     </Link>
                     <Link>
-                        <button disabled className='GameLayout1-section3-BTN'><span className='mr-8'><DisableIcon/></span><span>BUY/SWAP</span> 
+                        <button disabled className='GameLayout1-section3-BTN'><span className='w-[25%]'><DisableIcon/></span><span className='w-[75%] text-[16px]'>MARKET PLACE</span> 
                         <span className='absolute top-0 right-0'>
                             <DisableBadge />
                             <span className='absolute w-[40px] text-white text-[6px] top-[9px] right-[-5px] transform rotate-[36.3deg] '>
@@ -45,7 +83,6 @@ export default function GameLayout1(){
                     </Link>
                 </div>
             </div>
-
         </div>
         
     )
