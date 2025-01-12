@@ -1,3 +1,27 @@
 .GameLayout2-background{
     background-color: rgba(47, 47, 47, 0.4);
 }
+
+.GameLayout2-DtsCoin{
+    background-image: url('../../../../asset/img/NavbarImg/DTScoin.png');
+    background-position: center;
+    background-size: 135%;
+    width: 56px;
+    height: 56px;
+    margin: 3px;
+    filter: drop-shadow(0px 0px 4px #1ae5a1);
+}
+
+.GameLayout2-input-style{
+    width: 100%;
+    height: 50px;
+    background:linear-gradient(to bottom right , rgba(26, 229, 161, 0.200) , rgba(40, 39, 70, 0));
+    border-radius: 15px;
+    margin-inline: auto;
+    border: 1px solid rgba(26, 229, 161, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 15px;
+    margin-bottom: 25px;
+}
