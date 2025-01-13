@@ -22,7 +22,7 @@ const FakeData =[
         Color : 'Red',
         Dices : '20 + 2',
         DTS : '42',
-        Price : 1.99
+        Price : 3.99
     },
     {
         Title : 'BASIC COMBO',
@@ -30,7 +30,7 @@ const FakeData =[
         Color : 'Yellow',
         Dices : '20 + 2',
         DTS : '42',
-        Price : 1.99
+        Price : 10.99
     },
     {
         Title : 'BASIC COMBO',
@@ -38,7 +38,7 @@ const FakeData =[
         Color : 'Gold',
         Dices : '20 + 2',
         DTS : '42',
-        Price : 1.99
+        Price : 15.99
     }
 ]
 export default function GameLayout2(){
