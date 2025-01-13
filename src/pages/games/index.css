@@ -1,0 +1,7 @@
+.DiceGame1-container{
+    background-image: url('./game1/asset/img/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    min-height: 100vh;
+}
