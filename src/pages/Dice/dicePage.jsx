@@ -5,7 +5,7 @@ import GameLayout2 from '../../components/layout/GameLayout/gameLayoutSection2/G
 import './dicePage.css'
 export default function DicePage(){
     return(
-        <div>
+        <div className='pb-28'>
             <div>
                 <Navbar />
             </div>

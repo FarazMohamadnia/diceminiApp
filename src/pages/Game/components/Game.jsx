@@ -15,7 +15,7 @@ const Game = () => {
   return (
     <div>
       <Navbar />
-      <main className="px-4">
+      <main className="px-4 pb-28">
         <div className="flex items-center gap-5 mt-3">
           <BackButton title="Back to Games" />
         </div>

@@ -22,7 +22,7 @@ import DiceGame1 from "./pages/games/game1/dicegame";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-  <div className="pb-28 overflow-x-hidden max-w-lg">
+  <div className="overflow-x-hidden max-w-lg">
     <BrowserRouter>
       <RouteProvider>
         <TonConnectUIProvider manifestUrl="http://localhost:3000/maniest-example.json">

@@ -45,10 +45,8 @@
 @tailwind utilities;
 
 body {
-  margin: 0;
   font-family: "BarlowCondensed", sans-serif !important;
   background-color: rgba(18, 23, 36, 1);
-  margin-top: 30px;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }

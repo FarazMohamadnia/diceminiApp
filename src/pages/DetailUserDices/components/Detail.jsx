@@ -27,7 +27,7 @@ const Detail = () => {
         <div className="flex">
           <Tabs />
         </div>
-        <div className="flex flex-col gap-4 mt-8">
+        <div className="flex flex-col gap-4 mt-8 max-h-[23rem] overflow-y-scroll">
           <UserRewardCard />
           <UserRewardCard />
           <UserRewardCard />

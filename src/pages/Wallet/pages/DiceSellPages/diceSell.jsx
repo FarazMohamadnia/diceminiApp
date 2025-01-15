@@ -13,7 +13,7 @@ export default function Dicesellpages() {
   return (
     <div>
       <Navbar />
-      <main className="px-4">
+      <main className="px-4 pb-28">
         <div className="flex items-center mt-6">
           <div>
             <BackButton title={"Back to Dice"} />

@@ -66,32 +66,34 @@ export default function ProfilePage(){
             <div>
                 <ProfileNav />
             </div>
-            <div>
-                <div className='profilePage-background-style mt-3 mb-3'>
-                    <p className='flex items-center text-[#1ae5a1] text-[22px] font-bold'><span className='mr-2'><STATISTICSICON /></span>STATISTICS</p>
-                </div>
-                <div className='flex justify-center items-center flex-wrap flex-row-reverse'>
-                    {
-                        fakeData.map(data => <div key={data.title}> <ProfileBox {...data}/> </div>)
-                    }
+            <div className='pb-28'>
+                <div>
+                    <div className='profilePage-background-style mt-3 mb-3'>
+                        <p className='flex items-center text-[#1ae5a1] text-[22px] font-bold'><span className='mr-2'><STATISTICSICON /></span>STATISTICS</p>
+                    </div>
+                    <div className='flex justify-center items-center flex-wrap flex-row-reverse'>
+                        {
+                            fakeData.map(data => <div key={data.title}> <ProfileBox {...data}/> </div>)
+                        }
 
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div className='profilePage-background-style mt-6'>
-                    <p className='flex items-center text-[#1ae5a1] text-[22px] font-bold'><span className='mr-2'><GameIcon1 /></span>Most Played Games</p>
+                <div>
+                    <div className='profilePage-background-style mt-6'>
+                        <p className='flex items-center text-[#1ae5a1] text-[22px] font-bold'><span className='mr-2'><GameIcon1 /></span>Most Played Games</p>
+                    </div>
+                    <div className='flex flex-nowrap items-center justify-start overflow-x-scroll pt-5 pb-5 pl-5'>
+                        <Imagebox /> <Imagebox /> <Imagebox /> <Imagebox /> <Imagebox /> <Imagebox /> <Imagebox />
+                    </div>
                 </div>
-                <div className='flex flex-nowrap items-center justify-start overflow-x-scroll pt-5 pb-5 pl-5'>
-                    <Imagebox /> <Imagebox /> <Imagebox /> <Imagebox /> <Imagebox /> <Imagebox /> <Imagebox />
+                <div>
+                    <div className='profilePage-background-style mb-3'>
+                        <p className='flex items-center text-[#1ae5a1] text-[22px] font-bold'><span className='mr-2'><GameIcon2 /></span>Game History</p>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div className='profilePage-background-style mb-3'>
-                    <p className='flex items-center text-[#1ae5a1] text-[22px] font-bold'><span className='mr-2'><GameIcon2 /></span>Game History</p>
+                <div>
+                    <Carousel images={images} />
                 </div>
-            </div>
-            <div>
-                <Carousel images={images} />
             </div>
             <Bottonlink />
         </div>

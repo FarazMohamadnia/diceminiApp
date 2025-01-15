@@ -36,7 +36,7 @@ const WithdrawPage = () => {
                 </div>
             </div>
         </div>
-        <div className='px-4'>
+        <div className='px-4 pb-28'>
             <div className='WithdrawPage-inputs-style'>
                 <div>
                     <p className='text-[#3bffff] text-[15px] font-light'>Your Wallet</p>

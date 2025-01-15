@@ -5,18 +5,13 @@ import DiceLayout2 from '../../components/layout/DiceLayout/DiceLayoutSection2/d
 export default function GamePage(){
     return(
         <div>
-            <div>
-                <Navbar />
-            </div>
-            <div>
-                <DiceLayout1 />
-            </div>
-            <div>
-                <DiceLayout2 />
-            </div>
-            <div>
-                <Bottonlink />
-            </div>
+          <Navbar />
+          
+         <div className='pb-24'>
+             <DiceLayout1 />
+             <DiceLayout2 />
+         </div>
+            <Bottonlink />
         </div>
 
     )

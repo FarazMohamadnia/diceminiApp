@@ -9,7 +9,7 @@ const Wallet = () => {
   return (
     <div>
       <Navbar />
-      <main className="px-4">
+      <main className="px-4 pb-28">
         <div className="flex justify-center mt-16">
           <ConnectWalletButton />
         </div>

@@ -4,7 +4,7 @@ import HomeLayout from "../components/layout/HomeLayout/homeLayout";
 // V2
 export default function Home(){
     return(
-        <div>     
+        <div className="pb-4">     
             <Navbar />
             <HomeLayout />        
             <Bottonlink />

@@ -14,7 +14,7 @@ const Deposite = () => {
   return (
     <div>
       <Navbar />
-      <main className="px-4">
+      <main className="px-4 pb-28">
         <div className="mt-6">
           <BackButton title="Back to wallet" />
         </div>

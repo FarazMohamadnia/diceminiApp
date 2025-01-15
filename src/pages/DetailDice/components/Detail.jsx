@@ -13,7 +13,7 @@ const Detail = () => {
       <div>
         <Navbar />
       </div>
-      <main className="mx-4 mt-6">
+      <main className="mx-4 mt-6 ">
         <div className="flex items-center gap-6">
           <BackButton title="Back to Dice" />
         </div>
@@ -25,7 +25,7 @@ const Detail = () => {
         <div className="flex">
           <Tabs />
         </div>
-        <div className="mt-8 flex flex-col gap-4">
+        <div className="mt-8 flex flex-col gap-4 min-h-[50vh] overflow-y-scroll">
           <RewardCard type="error" />
           <RewardCard type="success" />
         </div>
