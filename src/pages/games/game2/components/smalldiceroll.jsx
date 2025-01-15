@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../homeLayout.css';
+import '../index.css';
 export default function CrapsGame({ targetNumber, rolling }) {
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
 
@@ -39,19 +39,19 @@ export default function CrapsGame({ targetNumber, rolling }) {
   };
 
   return (
-    <div className="scene">
+    <div className="smalldice-scene">
       <div
-        className="cube"
+        className="smalldice-cube"
         style={{
           transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
         }}
       >
-        <div className="face one"></div>
-        <div className="face two"></div>
-        <div className="face three"></div>
-        <div className="face four"></div>
-        <div className="face five"></div>
-        <div className="face six"></div>
+        <div className="smalldice-face one"></div>
+        <div className="smalldice-face two"></div>
+        <div className="smalldice-face three"></div>
+        <div className="smalldice-face four"></div>
+        <div className="smalldice-face five"></div>
+        <div className="smalldice-face six"></div>
       </div>
     </div>
   );
