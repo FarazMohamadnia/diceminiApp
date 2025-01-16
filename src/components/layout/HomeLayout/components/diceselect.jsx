@@ -130,7 +130,7 @@ export default function DiceSelected(){
                     <span onClick={DiceNumberhandller} id="1" className="w-full h-full absolute top-0"></span>
                 </div>
                 <div className="flex ml-1">
-                    <img className="w-[43.5px] h-[49px]" src={Dicestatus.img} alt=""/>
+                    <img className="w-[43.5px]" src={Dicestatus.img} alt=""/>
                 </div>
                 <div className="relative" >
                     <ArrowBottom />
@@ -143,7 +143,7 @@ export default function DiceSelected(){
                     <span onClick={DiceNumberhandller} id="3" className="w-full h-full absolute top-0"></span>
                 </div>
                 <div className="flex ml-1">
-                    <img className="w-[43.5px] h-[49px]" src={Dicestatus2.img} alt=""/>
+                    <img className="w-[43.5px]" src={Dicestatus2.img} alt=""/>
                 </div>
                 <div className="relative">
                     <ArrowBottom />

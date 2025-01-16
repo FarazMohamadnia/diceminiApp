@@ -18,6 +18,7 @@ import GamePage from "./pages/Game/gamePage";
 import Notification from "./pages/notificationpage/notification";
 import { TonConnectUIProvider } from "@tonconnect/ui-react";
 import DiceGame1 from "./pages/games/game1/dicegame";
+import DiceGame2 from "./pages/games/game2/dicegame2";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -41,6 +42,7 @@ root.render(
             <Route path="/Profile" element={<ProfilePage />} />
             <Route path="/notification" element={<Notification />} />
             <Route path="/games/game1" element={<DiceGame1 />} />
+            <Route path="/games/game2" element={<DiceGame2 />} />
           </Routes>
         </TonConnectUIProvider>
       </RouteProvider>

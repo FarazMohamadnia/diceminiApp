@@ -7,3 +7,15 @@
     padding-top: 5px;
     width: 100vw;
 }
+
+.dicegame2-container{
+    background-image: url('./game1/asset/img/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    width: 100vw;
+    height: 650px;
+    
+}
