@@ -3,12 +3,13 @@ import { useState, useEffect } from 'react';
 /**
  * Custom hook to fetch data from a given URL.
  * @param {string} url - The URL to fetch data from.
- * @returns {Object} An object containing data, error, and loading states.
+ * @returns {Object} An object containing data, error, loading states, and status code.
  */
 const useFetch = (url) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [statusCode, setStatusCode] = useState(null);
 
   useEffect(() => {
     // A flag to track if the component is still mounted
@@ -18,6 +19,8 @@ const useFetch = (url) => {
       try {
         setLoading(true);
         const response = await fetch(url);
+
+        setStatusCode(response.status); // Set the status code
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -48,7 +51,7 @@ const useFetch = (url) => {
     };
   }, [url]);
 
-  return { data, loading, error };
+  return { data, loading, error, statusCode };
 };
 
 export default useFetch;
