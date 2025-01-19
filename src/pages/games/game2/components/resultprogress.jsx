@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 export default function ResultProgress(){
-    const [winer , setwiner]=useState(false);
+    const [winer , setwiner]=useState(true);
     return(
         <div className="w-[145px] rounded-full h-[22px] flex bg-[#d9d9d9]">
             <div className={`${winer ? 'bg-[#d9d9d9]' : 'bg-[#FFC300]'} w-1/2 h-full rounded-full flex justify-between items-center px-[2px]`}>

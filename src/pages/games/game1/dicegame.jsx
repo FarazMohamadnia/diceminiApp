@@ -62,8 +62,8 @@ export default function DiceGame1(){
                             </p>
                         </div>
                         <div className='flex justify-center items-center relative mx-1'>
-                            <GreenBtn />
-                            <p className='absolute'>
+                            <GreenBtn /> 
+                            <p className='absolute'> 
                                 <svg width="17" height="8" viewBox="0 0 17 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="0.850098" y="0.950012" width="15.3" height="6.375" rx="3.1875" fill="white" />
                                 </svg>
@@ -77,7 +77,10 @@ export default function DiceGame1(){
                         <div className='flex justify-center items-center relative mx-1'>
                             <GreenBtn />
                             <p className='absolute'>
-                                2
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <rect y="4.95001" width="15.3" height="5" rx="2.5" fill="white" />
+                                  <rect x="10.1499" width="15.3" height="5" rx="2.5" transform="rotate(90 10.1499 0)" fill="white" />
+                                </svg>
                             </p>
                         </div>
                         <div className='flex justify-center items-center relative'>
