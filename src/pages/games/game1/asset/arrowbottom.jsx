@@ -21,7 +21,7 @@ const ArrowBottom = (props) => (
         d="m16.793 14-2.896 3L11 14"
       ></path>
     </g>
-  </svg>
+  </svg> 
 );
 
 export default ArrowBottom;
