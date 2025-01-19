@@ -5,7 +5,7 @@ import CustomBtn from "../asset/custombtn";
 
 export default function Controller(){
     const [number , setnumber] = useState(2);
-
+    const [active , setactive]=useState(true)
     const numberHandler = (e)=>{
         const id = e.target.id
         if(id == 1 && number < 12){
@@ -17,10 +17,10 @@ export default function Controller(){
     return(
         <div className="w-[70%] h-[80px] mx-auto flex justify-between px-3">
             <div className="w-[90px] flex flex-col justify-center">
-                <button className="w-[89px] h-[29px] text-center text-white text-[15px] font-bold rounded-2xl bg-gradient-to-b from-[#2e6282] to-[#999999]">
+                <button onClick={()=>setactive(true)} className={` ${active ? 'bg-gradient-to-b from-[#2e6282] to-[#999999] font-bold ' : 'bg-white text-black '} w-[89px] h-[29px] text-center text-[15px] rounded-2xl`}>
                     OVER
                 </button>
-                <button className="w-[89px] h-[29px] mt-[6px] rounded-2xl bg-white text-center text-black text-[15px] font-bold ">
+                <button onClick={()=>setactive(false)} className={`${active ? 'bg-white text-black ' : 'bg-gradient-to-b from-[#2e6282] to-[#999999] font-bold '} w-[89px] h-[29px] mt-[6px] rounded-2xl text-center text-[15px]"`}>
                     UNDER
                 </button>
             </div>
