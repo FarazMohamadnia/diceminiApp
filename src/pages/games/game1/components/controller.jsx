@@ -4,23 +4,39 @@ import ArrowTop from "../asset/arrowtop";
 import CustomBtn from "../asset/custombtn";
 
 export default function Controller(){
-    const [number , setnumber] = useState(2);
     const [active , setactive]=useState(true)
+    const [number , setnumber] = useState(2);
     const numberHandler = (e)=>{
         const id = e.target.id
-        if(id == 1 && number < 12){
-            setnumber((prev)=> prev+1)
-        }else if(id == 2 && number > 2){
-            setnumber((prev)=> prev-1)
+        if(active){
+            if(id == 1 && number < 11){
+                setnumber((prev)=> prev+1)
+            }else if(id == 2 && number > 2){
+                setnumber((prev)=> prev-1)
+            }
+        }else{
+            if(id == 1 && number < 12){
+                setnumber((prev)=> prev+1)
+            }else if(id == 2 && number > 3){
+                setnumber((prev)=> prev-1)
+            }
         }
     }
     return(
         <div className="w-[70%] h-[80px] mx-auto flex justify-between px-3">
             <div className="w-[90px] flex flex-col justify-center">
-                <button onClick={()=>setactive(true)} className={` ${active ? 'bg-gradient-to-b from-[#2e6282] to-[#999999] font-bold ' : 'bg-white text-black '} w-[89px] h-[29px] text-center text-[15px] rounded-2xl`}>
+                <button onClick={()=>{
+                    setactive(true)
+                    setnumber(2)}} 
+                    className={` ${active ? 'bg-gradient-to-b from-[#2e6282] to-[#999999] font-bold ' : 'bg-white text-black '} w-[89px] h-[29px] text-center text-[15px] rounded-2xl`}
+                    >
                     OVER
                 </button>
-                <button onClick={()=>setactive(false)} className={`${active ? 'bg-white text-black ' : 'bg-gradient-to-b from-[#2e6282] to-[#999999] font-bold '} w-[89px] h-[29px] mt-[6px] rounded-2xl text-center text-[15px]"`}>
+                <button onClick={()=>{
+                    setactive(false) 
+                    setnumber(3)}} 
+                    className={`${active ? 'bg-white text-black ' : 'bg-gradient-to-b from-[#2e6282] to-[#999999] font-bold '} w-[89px] h-[29px] mt-[6px] rounded-2xl text-center text-[15px]"`}
+                    >
                     UNDER
                 </button>
             </div>
