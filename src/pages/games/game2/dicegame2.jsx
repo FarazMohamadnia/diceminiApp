@@ -165,10 +165,12 @@ export default function DiceGame2() {
           </div>
           <p className="absolute text-black text-[15px] font-semibold">ROLL</p>
         </button>
-        <div className="flex justify-between items-center px-6 absolute bottom-0 w-full">
+        <div className="mt-8 flex justify-between items-center px-6 absolute -bottom-4 w-full">
           <div className="flex">
             <button
-              onClick={() => setdts(2)}
+              onClick={() => {
+                console.log("clicked");
+              }}
               className="flex justify-center items-center relative"
             >
               <BTN />
