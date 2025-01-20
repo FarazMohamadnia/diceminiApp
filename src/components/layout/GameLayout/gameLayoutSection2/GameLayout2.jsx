@@ -49,7 +49,7 @@ export default function GameLayout2(){
                 <div className='flex justify-center items-center font-bold text-[20px] text-[#1AE5A1]'><TwoWhiteDice /><span>Get Your Dice</span><TwoWhiteDice /></div>
             </div>
             <div>
-                <div className='mt-4 flex justify-center items-center w-full px-4 text-white text-[13px] font-medium'>
+                <div id="targetDiv" className='mt-4 flex justify-center items-center w-full px-4 text-white text-[13px] font-medium'>
                     <button onClick={()=>setSelect(true)} className={`w-[175px]  h-[45px] mx-2
                         ${!Select ? `rounded-[15px] shadow-[inset_0px_4px_23.5px_-7px_rgba(26,229,161,1.00)] border border-[#1ae5a1]` : `bg-[#00ffe9]/20 border border-[#00ffe9] rounded-[15px]`}`}>
                         COMOBOS

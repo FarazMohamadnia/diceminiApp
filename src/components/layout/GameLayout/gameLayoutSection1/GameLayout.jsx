@@ -42,10 +42,10 @@ export default function GameLayout1(){
                         <button onClick={() => setIsModalOpen(true)} className='GameLayout1-section2-BTN'><span className='w-[25%]'><InfoIcon /></span><span className='w-[75%]'>WHAT IS DTS ?</span></button>
                         <ModalExample data={modalfakedata[0]} isOpen={IsModalOpen} onClose={() => setIsModalOpen(false)}/>
                     </div>
-                    <Link to={'/dice-detail'}>
+                    <a href={'#targetDiv'}>
                         <button className='GameLayout1-section2-BTN'><span className='w-[25%]'><BuyCrypto /></span><span className='w-[75%]'>BUY DTS</span></button>
-                    </Link>
-                    <Link>
+                    </a>
+                    <Link to={'/dice-detail'}>
                         <button className='GameLayout1-section2-BTN'><span className='w-[25%]'><AddIcon /></span><span className='w-[75%]'>EARN DTS</span></button>
                     </Link>
                 </div>
@@ -69,7 +69,7 @@ export default function GameLayout1(){
                         <button onClick={() => setIsModalOpen2(true)} className='GameLayout1-section2-BTN'><span className='w-[25%]'><InfoIcon /></span><span className='w-[75%]'>WHAT IS DICE ?</span></button>
                         <ModalExample data={modalfakedata[1]} isOpen={IsModalOpen2} onClose={() => setIsModalOpen2(false)}/>
                     </div>                    
-                    <Link to={'/dice-detail'}>
+                    <Link to={'/wallet/sell'}>
                         <button className='GameLayout1-section2-BTN'><span className='w-[25%]'><SellIcon /></span><span className='w-[75%]'>SELL YOUR DICE</span></button>
                     </Link>
                     <Link>
