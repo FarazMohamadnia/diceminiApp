@@ -1,6 +1,5 @@
 import './GameLayout.css'
 import React, {useState} from "react";
-import CircularProgressBar from '../../../common/GameComponents/CircleProgressBar/progressbar'
 import {Link} from 'react-router-dom'
 import OpenWalletIcon from '../../../icons/change/game/walletIcon'
 import SellIcon from '../../../icons/change/game/sellIcon'
@@ -43,8 +42,11 @@ export default function GameLayout1() {
                 </div>
                 <div className='w-1/2 text-center mt-1'>
                     <div>
-                        <button onClick={() => setIsModalOpen(true)} className='GameLayout1-section2-BTN'><span
-                            className='w-[25%]'><InfoIcon/></span><span className='w-[75%]'>WHAT IS DTS ?</span>
+                        <button onClick={() => setIsModalOpen(true)} className='GameLayout1-section2-BTN'>
+                            <span
+                            className='w-[25%]'><InfoIcon/>
+                            </span>
+                            <span className='w-[75%]'>WHAT IS DTS ?</span>
                         </button>
                         <ModalExample data={modalfakedata[0]} isOpen={IsModalOpen}
                                       onClose={() => setIsModalOpen(false)}/>
