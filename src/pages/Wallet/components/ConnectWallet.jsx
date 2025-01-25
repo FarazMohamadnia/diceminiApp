@@ -1,55 +1,31 @@
 import React, { useCallback, useEffect, useState } from "react";
 import WalletIcon from '../../../components/icons/walletIcon'
-import { useTonConnectUI } from "@tonconnect/ui-react";
+import { useTonAddress, useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
+import { useUser } from "../../../context/userContext";
+
 const ConnectWalletButton = () => {
-  const [TonConnectUI] = useTonConnectUI();
-  const [TonWalletAddress, setTonWalletAddress] = useState(null);
-  const [IsLoading, setIsLoading] = useState(true);
+  const wallet = useTonWallet();
+  const [tonConnectUI ] = useTonConnectUI();
+  const { user, setUser } = useUser();
 
-  const handleWalletConnection = useCallback((address) => {
-    setTonWalletAddress(address);
-    console.log("Wallet connected successfully!");
-    setIsLoading(false);
-  }, []);
+  const connectWallet =async()=>{
+      setUser({...user , address : wallet?.account.address});
+      user.address ? console.log(user.address) : tonConnectUI.openModal();
+      console.log(user)
+  }
 
-  const handleWalletDisconnection = useCallback(() => {
-    setTonWalletAddress(null);
-    console.log("Wallet connected successfully!");
-    setIsLoading(false);
-  }, []);
+  const disconnectWallet =()=>{
+    tonConnectUI.disconnect();
+  }
 
-  useEffect(() => {
-    const checkWalletConnection = async () => {
-      if (TonConnectUI.account?.address) {
-        handleWalletConnection(TonConnectUI.account?.address);
-      } else {
-        handleWalletDisconnection();
-      }
-    };
   
-    checkWalletConnection();
-  
-    const unsubscribe = TonConnectUI.onStatusChange((wallet) => {
-      if (wallet) {
-        handleWalletConnection(wallet.account.address);
-      } else {
-        handleWalletDisconnection();
-      }
-    });
-  
-    return () => {
-      unsubscribe();
-    };
-  }, [TonConnectUI, handleWalletConnection, handleWalletDisconnection]);
 
-  const handleWalletAction = async () => {
-    if (TonConnectUI.connected) {
-      setIsLoading(true);
-      await TonConnectUI.disconnect();
-    } else {
-      await TonConnectUI.openModal();
-    }
-  };
+
+  useEffect(()=>{
+    console.log(wallet)
+    setUser({...user , address : wallet?.account.address});
+  },[])
+  // disconnectWallet()
   return (
     <button
       className="w-full flex justify-center items-center space-x-2 border border-[#00F0FF] rounded-xl px-6 py-4 text-[#00F0FF]"
@@ -57,7 +33,7 @@ const ConnectWalletButton = () => {
         background:
           "linear-gradient(117deg, #00F0FF -84.8%, rgba(40,39,70,0) 104.46%)",
       }}
-     onClick={handleWalletAction}
+      onClick={connectWallet}
     >
       <WalletIcon />
       <span className="font-bold">CONNECT YOUR WALLET</span>
