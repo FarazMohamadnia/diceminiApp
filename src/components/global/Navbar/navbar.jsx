@@ -18,7 +18,7 @@ export default function Navbar(){
         console.log(CheckNotification);
     }
     return(
-        <div className='mt-10'>
+        <div>
             <div className='flex items-center justify-between mx-3 mb-3 max-w-xl'>
                 <img alt='' className='w-12 h-12' src={Logo}/>
                 <div className='navbar-User-backgroundImage'>
