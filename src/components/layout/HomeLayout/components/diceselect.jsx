@@ -125,27 +125,27 @@ export default function DiceSelected(){
     return(
         <div className="flex justify-center items-center">
             <div className="flex flex-col justify-center items-center">
-                <div className="mr-[3px] relative" >
+                <div className="relative mb-1" >
                     <ArrowTop/>
                     <span onClick={DiceNumberhandller} id="1" className="w-full h-full absolute top-0"></span>
                 </div>
-                <div className="flex ml-1">
+                <div className="flex justify-center">
                     <img className="w-[43.5px]" src={Dicestatus.img} alt=""/>
                 </div>
-                <div className="relative" >
+                <div className="relative mt-1">
                     <ArrowBottom />
                     <span  onClick={DiceNumberhandller} id="2" className="w-full h-full absolute top-0"></span>
                 </div>
             </div>
-            <div className="flex flex-col justify-center items-center">
-                <div className="mr-[3px] relative">
+            <div className="flex flex-col justify-center items-center ml-2">
+                <div className="relative mb-1">
                     <ArrowTop />
                     <span onClick={DiceNumberhandller} id="3" className="w-full h-full absolute top-0"></span>
                 </div>
-                <div className="flex ml-1">
+                <div className=" flex justify-center">
                     <img className="w-[43.5px]" src={Dicestatus2.img} alt=""/>
                 </div>
-                <div className="relative">
+                <div className="relative mt-1">
                     <ArrowBottom />
                     <span onClick={DiceNumberhandller} id="4" className="w-full h-full absolute top-0"></span>
                 </div>
