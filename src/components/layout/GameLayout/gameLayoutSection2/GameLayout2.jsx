@@ -7,44 +7,53 @@ import DollerCoin from '../../../icons/change/Dcoin'
 import Amount from '../../../../pages/Wallet/pages/withdrawPage/components/AmountComponent'
 import SwapIcon from '../../../icons/swapicon'
 import WalletMoney from '../../../icons/walletmoney'
+import Combo1 from '../../../../asset/img/GameImg/Section2/diceee [Recovered] combo-01 1.png'
+import Combo2 from '../../../../asset/img/GameImg/Section2/diceee [Recovered] combo-02 1.png'
+import Combo3 from '../../../../asset/img/GameImg/Section2/diceee [Recovered] combo-03 1.png'
+import Combo4 from '../../../../asset/img/GameImg/Section2/diceee [Recovered] combo-04 1.png'
+
 const FakeData =[
     {
         Title : 'BASIC COMBO',
-        Img : FakeDiceImg,
+        Img : Combo1,
         Color : 'Green',
         Dices : '20 + 2',
         DTS : '42',
-        Price : 1.99
+        Price : 1.99,
+        className:""
     },
     {
         Title : ' COMBO',
-        Img : FakeDiceImg,
+        Img : Combo2,
         Color : 'Red',
         Dices : '20 + 2',
         DTS : '42',
-        Price : 3.99
+        Price : 3.99,
+        className:""
     },
     {
         Title : 'BASIC COMBO',
-        Img : FakeDiceImg,
+        Img : Combo3,
         Color : 'Yellow',
         Dices : '20 + 2',
         DTS : '42',
-        Price : 10.99
+        Price : 10.99,
+        className:""
     },
     {
         Title : 'BASIC COMBO',
-        Img : FakeDiceImg,
+        Img : Combo4,
         Color : 'Gold',
         Dices : '20 + 2',
         DTS : '42',
-        Price : 15.99
+        Price : 15.99,
+        className:""
     }
 ]
 export default function GameLayout2(){
     const [Select , setSelect]=useState(true);
     return(
-        <div>
+        <div >
             <div className='mt-3 GameLayout2-background'>
                 <div className='flex justify-center items-center font-bold text-[20px] text-[#1AE5A1]'><TwoWhiteDice /><span>Get Your Dice</span><TwoWhiteDice /></div>
             </div>

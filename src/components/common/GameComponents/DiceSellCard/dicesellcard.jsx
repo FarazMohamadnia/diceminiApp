@@ -53,8 +53,8 @@ export default function Dicesellcard({Title , Img , Color , Dices , DTS , Price 
             borderColor : Colors.colorsp
         }} 
         className='Dicesellcard-container'>
-            <div className='mt-8'>
-                <img className='w-[120px] mx-auto' src={Img} alt='' />
+            <div className='mt-8 '>
+                <img className={`w-[120px] mx-auto absolute bg-red-400`} src={Img} alt='' />
             </div>
             <div style={{backgroundColor :'rgba(255, 255, 255, 0.19)' , borderColor : Colors.colorsp}} className='absolute top-[90px] h-8 w-full flex justify-center items-center border-t border-b border-dashed'>
                 <p style={{
