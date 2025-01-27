@@ -1,6 +1,10 @@
 import './GameLayout2.css'
 import Dicesellcard from '../../../common/GameComponents/DiceSellCard/dicesellcard'
-import FakeDiceImg from '../../../../asset/img/GameImg/Section2/TestDice.png'
+// import FakeDiceImg from '../../../../asset/img/GameImg/Section2/TestDice.png'
+import basicImg from '../../../../asset/img/GameImg/Section2/basicCombo.png'
+import silverImg from '../../../../asset/img/GameImg/Section2/silverCombo.png'
+import goldImg from '../../../../asset/img/GameImg/Section2/goldCombo.png'
+import platinumImg from '../../../../asset/img/GameImg/Section2/platinumCombo.png'
 import TwoWhiteDice from '../../../icons/change/game/twowhiteDice'
 import { useState } from 'react'
 import DollerCoin from '../../../icons/change/Dcoin'
@@ -10,34 +14,38 @@ import WalletMoney from '../../../icons/walletmoney'
 const FakeData =[
     {
         Title : 'BASIC COMBO',
-        Img : FakeDiceImg,
+        Img : basicImg,
         Color : 'Green',
         Dices : '20 + 2',
         DTS : '42',
+        className : ' top-[-50px] ',
         Price : 1.99
     },
     {
-        Title : ' COMBO',
-        Img : FakeDiceImg,
+        Title : 'SILVER COMBO',
+        Img : silverImg,
         Color : 'Red',
         Dices : '20 + 2',
         DTS : '42',
+        className : 'top-[-35px]',
         Price : 3.99
     },
     {
-        Title : 'BASIC COMBO',
-        Img : FakeDiceImg,
+        Title : 'GOLD COMBO',
+        Img : goldImg,
         Color : 'Yellow',
         Dices : '20 + 2',
         DTS : '42',
+        className : 'top-[6px]',
         Price : 10.99
     },
     {
-        Title : 'BASIC COMBO',
-        Img : FakeDiceImg,
+        Title : 'PLATINUM COMBO',
+        Img : platinumImg,
         Color : 'Gold',
         Dices : '20 + 2',
         DTS : '42',
+        className : 'top-[-50px]',
         Price : 15.99
     }
 ]
