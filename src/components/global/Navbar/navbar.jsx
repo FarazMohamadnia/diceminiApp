@@ -1,5 +1,4 @@
 import './navbar.css'
-import Logo from '../../../asset/img/NavbarImg/LOGO.png'
 import Pic from '../../../asset/img/NavbarImg/PIC.png'
 import Notification from '../../../asset/img/NavbarImg/NotifactionIcon.png';
 import DiceIcon from '../../../asset/img/NavbarImg/DiceIcon.png'
@@ -10,6 +9,7 @@ import RightLine from '../../icons/change/Navbar/rightline';
 import LeftLine from '../../icons/change/Navbar/leftline';
 import ImgShadow from '../../icons/change/Navbar/imgshadow';
 import NavbarProgressbar from '../navprogress/NavProgross';
+import Logo from '../../icons/logo';
 
 export default function Navbar(){
     const [CheckNotification , setCheckNotification]=useState(true);
@@ -19,8 +19,10 @@ export default function Navbar(){
     }
     return(
         <div>
-            <div className='flex items-center justify-between mx-3 mb-3 max-w-xl'>
-                <img alt='' className='w-12 h-12' src={Logo}/>
+            <div className='flex items-center justify-between mx-3 mb-3 max-w-xl pt-10'>
+                <div className='w-12 h-12'>
+                    <Logo />
+                </div>
                 <div className='navbar-User-backgroundImage'>
                     <div className='absolute'><ImgShadow /></div>
                     <img src={Pic} alt='' className='navbar-User-Image'/>

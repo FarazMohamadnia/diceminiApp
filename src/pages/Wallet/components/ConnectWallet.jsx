@@ -1,12 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import WalletIcon from '../../../components/icons/walletIcon'
 import { useTonAddress, useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
-import { useUser } from "../../../context/userContext";
 
 const ConnectWalletButton = () => {
   const wallet = useTonWallet();
   const [tonConnectUI ] = useTonConnectUI();
-  const { user, setUser } = useUser();
+  const [user , setUser] = useState();
 
   const connectWallet =async()=>{
       setUser({...user , address : wallet?.account.address});

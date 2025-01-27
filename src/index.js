@@ -20,6 +20,7 @@ import { TonConnectUIProvider } from "@tonconnect/ui-react";
 import DiceGame1 from "./pages/games/game1/dicegame";
 import DiceGame2 from "./pages/games/game2/dicegame2";
 
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
