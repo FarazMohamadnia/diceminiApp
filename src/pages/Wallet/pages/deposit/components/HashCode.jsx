@@ -1,9 +1,10 @@
 import React from "react";
+import useUserStore from "../../../../../store/user";
 
-const AddressDisplay = ({ address = "KSDJFGNHBIBUEJDNBF34897FIU", onCopy }) => {
+const AddressDisplay = ({ address, onCopy }) => {
+  const {user} = useUserStore()
   const style = {
     background: "linear-gradient(to bottom right,#00efff80 ,#28274600 60%)",
-    // boxShadow: "inset 0 0 20px 0 #00F0FF",
   };
 
   const handleCopy = () => {
@@ -27,7 +28,7 @@ const AddressDisplay = ({ address = "KSDJFGNHBIBUEJDNBF34897FIU", onCopy }) => {
       "
     >
       <span className="text-[#3BFFFF]">Address</span>
-      <span className="text-[#919191] whitespace-nowrap overflow-hidden text-sm overflow-ellipsis">
+      <span className="text-[#919191] px-4 whitespace-nowrap overflow-hidden text-sm overflow-ellipsis">
         {address}
       </span>
       <button className="text-[#3BFFFF] hover:underline" onClick={handleCopy}>
