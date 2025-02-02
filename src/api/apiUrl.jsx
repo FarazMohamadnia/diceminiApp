@@ -1,3 +1,7 @@
-const url = 'tet'
+const url = ''
 
-export const Api = {} 
+export const Api = [
+    {
+        home : ''
+    }
+]

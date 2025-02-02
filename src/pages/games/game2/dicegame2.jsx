@@ -1,5 +1,5 @@
 import BackButton from "../../../components/common/shared/BackButton";
-import useFetch from "../../../context/usefetch";
+import useFetch from "../../../hooks/usefetch";
 import Table from "./asset/table";
 import SmalliceRoll from "./components/smalldiceroll";
 import "../index.css";
