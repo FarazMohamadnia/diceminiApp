@@ -1,6 +1,5 @@
 import './GameLayout2.css'
 import Dicesellcard from '../../../common/GameComponents/DiceSellCard/dicesellcard'
-// import FakeDiceImg from '../../../../asset/img/GameImg/Section2/TestDice.png'
 import basicImg from '../../../../asset/img/GameImg/Section2/basicCombo.png'
 import silverImg from '../../../../asset/img/GameImg/Section2/silverCombo.png'
 import goldImg from '../../../../asset/img/GameImg/Section2/goldCombo.png'
@@ -49,6 +48,7 @@ const FakeData =[
         Price : 15.99
     }
 ]
+
 export default function GameLayout2(){
     const [Select , setSelect]=useState(true);
     return(
@@ -105,7 +105,7 @@ export default function GameLayout2(){
                         </div>
                     </div>
                     <div className='flex justify-center items-center'>
-                        <button className='py-3 px-6 w-40 h-[43px] bg-white/0 flex justify-around items-center rounded-[15px] shadow-[inset_0px_4px_20.399999618530273px_-7px_rgba(0,240,255,1.00)] border border-[#3bffff] backdrop-blur-[108.30px]'>
+                        <button onClick={''} className='py-3 px-6 w-40 h-[43px] bg-white/0 flex justify-around items-center rounded-[15px] shadow-[inset_0px_4px_20.399999618530273px_-7px_rgba(0,240,255,1.00)] border border-[#3bffff] backdrop-blur-[108.30px]'>
                             <WalletMoney /><p className='text-[#3bffff] text-base font-semibold'>BUY DTS</p>
                         </button>
                     </div>

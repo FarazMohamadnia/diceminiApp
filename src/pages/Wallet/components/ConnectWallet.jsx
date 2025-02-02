@@ -1,16 +1,24 @@
 import React, { useCallback, useEffect, useState } from "react";
 import WalletIcon from '../../../components/icons/walletIcon'
-import { useTonAddress, useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
+import { useTonConnectUI, useTonWallet} from "@tonconnect/ui-react";
+import { toUserFriendlyAddress } from "@tonconnect/sdk";
 
-const ConnectWalletButton = () => {
+const ConnectWalletButton =() => {
   const wallet = useTonWallet();
   const [tonConnectUI ] = useTonConnectUI();
   const [user , setUser] = useState();
 
-  const connectWallet =async()=>{
-      setUser({...user , address : wallet?.account.address});
-      user.address ? console.log(user.address) : tonConnectUI.openModal();
-      console.log(user)
+  const connectWallet =()=>{
+    try{
+      user?.address ? console.log(user?.address) : tonConnectUI.openModal();
+      if(wallet?.account.address){
+        const friendly = toUserFriendlyAddress(wallet?.account?.address);
+        setUser({...user , address : friendly });
+        console.log(user)
+      }
+    }catch(err){
+      console.log(err.message)
+    }
   }
 
   const disconnectWallet =()=>{
@@ -21,7 +29,6 @@ const ConnectWalletButton = () => {
 
 
   useEffect(()=>{
-    console.log(wallet)
     setUser({...user , address : wallet?.account.address});
   },[])
   // disconnectWallet()
