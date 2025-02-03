@@ -12,14 +12,11 @@ const ConnectWalletButton =() => {
 
   const connectWallet =()=>{
     try{
-      // wallet?.account?.address ?  console.log('connected') : tonConnectUI.openModal();
       if(wallet?.account?.address){
-        const friendly = toUserFriendlyAddress(wallet?.account?.address)
-        console.log(friendly)
-        setUser({...user , address : friendly , connected : true});
+        setUser({...user , address : toUserFriendlyAddress(wallet?.account?.address) , connected : true});
         console.log(user)
       }else{
-        tonConnectUI.openModal();
+          tonConnectUI.openModal();
       }
     }catch(err){
       console.log(err.message)
@@ -31,9 +28,8 @@ const ConnectWalletButton =() => {
   }
 
   useEffect(()=>{
-    // setUser({...user , address :toUserFriendlyAddress(wallet?.account?.address) , connected : true});
-    // connectWallet()
-  },[ wallet?.account?.address])
+    setUser({...user , address :wallet?.account?.address? toUserFriendlyAddress(wallet?.account?.address) : '', connected : true});
+  },[ wallet?.account?.address , ])
   // disconnectWallet()
   return (
     <>

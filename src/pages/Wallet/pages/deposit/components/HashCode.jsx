@@ -1,5 +1,6 @@
 import React from "react";
 import useUserStore from "../../../../../store/user";
+import Copy from "../../../../../components/icons/copy";
 
 const AddressDisplay = ({ address, onCopy }) => {
   const {user} = useUserStore()
@@ -23,7 +24,7 @@ const AddressDisplay = ({ address, onCopy }) => {
       className="
         bg-gradient-to-br from-[#00efff] to-[#282746]
         flex items-center justify-between 
-        rounded-full px-4 py-2 font-medium 
+        rounded-xl px-4 py-2 font-medium 
         border border-[#00efff] w-full max-w-md
       "
     >
@@ -32,7 +33,7 @@ const AddressDisplay = ({ address, onCopy }) => {
         {address}
       </span>
       <button className="text-[#3BFFFF] hover:underline" onClick={handleCopy}>
-        Copy
+        <Copy />
       </button>
     </div>
   );

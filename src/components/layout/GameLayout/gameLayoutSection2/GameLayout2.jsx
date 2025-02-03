@@ -5,11 +5,14 @@ import silverImg from '../../../../asset/img/GameImg/Section2/silverCombo.png'
 import goldImg from '../../../../asset/img/GameImg/Section2/goldCombo.png'
 import platinumImg from '../../../../asset/img/GameImg/Section2/platinumCombo.png'
 import TwoWhiteDice from '../../../icons/change/game/twowhiteDice'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import DollerCoin from '../../../icons/change/Dcoin'
 import Amount from '../../../../pages/Wallet/pages/withdrawPage/components/AmountComponent'
 import SwapIcon from '../../../icons/swapicon'
 import WalletMoney from '../../../icons/walletmoney'
+import { useTonConnectUI} from '@tonconnect/ui-react'
+import useUserStore from '../../../../store/user'
+
 const FakeData =[
     {
         Title : 'BASIC COMBO',
@@ -51,6 +54,36 @@ const FakeData =[
 
 export default function GameLayout2(){
     const [Select , setSelect]=useState(true);
+    const [amount , setamount]=useState(0);
+    const [tonConnectUI] = useTonConnectUI();
+    const { user }=useUserStore()
+    const OwnerAddress = 'UQD6G1Ek7PQsXAyRBMTdxfmdsAk2kysNDj6VfeKAk-aSS4cM'
+    
+    const sendTransaction = async() => {
+        if(!user.address){
+            return console.log('Connect Youre Wallet !')
+        }
+        try{
+        const myTransaction = {
+            validUntil: Math.floor(Date.now() / 1000) + 60, // 60 sec
+            messages: [
+              {
+                address: OwnerAddress,
+                amount: amount*1000000000,
+              }
+            ]
+        }
+        console.log(myTransaction)
+        const response = await tonConnectUI.sendTransaction(myTransaction);
+        console.log(response)
+        }catch(err){
+            console.log('error')
+        }
+    };
+    useEffect(()=>{
+
+    },[])
+      
     return(
         <div>
             <div className='mt-3 GameLayout2-background'>
@@ -92,7 +125,7 @@ export default function GameLayout2(){
                     </div>
                 </div>
                 <div className='pb-28 w-[95%] mx-auto mt-5'>
-                    <Amount />
+                    <Amount setamount={setamount}/>
                     <div className='w-full h-[1px] bg-slate-500 my-6 relative flex justify-center items-center'>
                         <div className='bg-[#121724]'>
                             <SwapIcon />
@@ -105,7 +138,7 @@ export default function GameLayout2(){
                         </div>
                     </div>
                     <div className='flex justify-center items-center'>
-                        <button onClick={''} className='py-3 px-6 w-40 h-[43px] bg-white/0 flex justify-around items-center rounded-[15px] shadow-[inset_0px_4px_20.399999618530273px_-7px_rgba(0,240,255,1.00)] border border-[#3bffff] backdrop-blur-[108.30px]'>
+                        <button onClick={sendTransaction} className='py-3 px-6 w-40 h-[43px] bg-white/0 flex justify-around items-center rounded-[15px] shadow-[inset_0px_4px_20.399999618530273px_-7px_rgba(0,240,255,1.00)] border border-[#3bffff] backdrop-blur-[108.30px]'>
                             <WalletMoney /><p className='text-[#3bffff] text-base font-semibold'>BUY DTS</p>
                         </button>
                     </div>
