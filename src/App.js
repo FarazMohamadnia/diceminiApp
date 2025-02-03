@@ -1,12 +1,10 @@
 import './App.css';
 import Home from './home/Home';
-
 function App() {
-  // console.log(window.Telegram)
   console.log(window.Telegram.WebApp)
   return (
     <div >
-      <Home />   
+      <Home />
     </div>
   );
 }

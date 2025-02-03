@@ -12,6 +12,7 @@ import SwapIcon from '../../../icons/swapicon'
 import WalletMoney from '../../../icons/walletmoney'
 import { useTonConnectUI} from '@tonconnect/ui-react'
 import useUserStore from '../../../../store/user'
+import Swal from 'sweetalert2'
 
 const FakeData =[
     {
@@ -56,11 +57,16 @@ export default function GameLayout2(){
     const [Select , setSelect]=useState(true);
     const [amount , setamount]=useState(0);
     const [tonConnectUI] = useTonConnectUI();
-    const { user }=useUserStore()
+    const { user }=useUserStore();
     const OwnerAddress = 'UQD6G1Ek7PQsXAyRBMTdxfmdsAk2kysNDj6VfeKAk-aSS4cM'
-    
+
     const sendTransaction = async() => {
-        if(!user.address){
+        if(!user?.address){
+            Swal.fire({
+                title: "Error",
+                text: "Connect Youre Wallet !",
+                icon: "error"
+            });
             return console.log('Connect Youre Wallet !')
         }
         try{
@@ -77,7 +83,12 @@ export default function GameLayout2(){
         const response = await tonConnectUI.sendTransaction(myTransaction);
         console.log(response)
         }catch(err){
-            console.log('error')
+            Swal.fire({
+                title: `Error !`,
+                text: err.message,
+                icon: "error"
+            });
+            console.log(err)
         }
     };
     useEffect(()=>{
