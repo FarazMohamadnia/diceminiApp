@@ -60,6 +60,10 @@ export default function GameLayout2(){
     const { user }=useUserStore();
     const OwnerAddress = 'UQD6G1Ek7PQsXAyRBMTdxfmdsAk2kysNDj6VfeKAk-aSS4cM'
 
+    const SelectHandler = ()=>{
+        Select ? setSelect(false) : setSelect(true)
+        console.log('sss')
+    }
     const sendTransaction = async() => {
         if(!user?.address){
             Swal.fire({
@@ -90,10 +94,11 @@ export default function GameLayout2(){
             });
             console.log(err)
         }
-    };
+    }
+
     useEffect(()=>{
 
-    },[])
+    },[Select])
       
     return(
         <div>
@@ -102,17 +107,20 @@ export default function GameLayout2(){
             </div>
             <div>
                 <div className='mt-4 flex justify-center items-center w-full px-4 text-white text-[13px] font-medium'>
-                    <button onClick={()=>setSelect(true)} className={`w-[175px]  h-[45px] mx-2
+                    <button className={`w-[175px]  h-[45px] mx-2 relative
                         ${!Select ? `rounded-[15px] shadow-[inset_0px_4px_23.5px_-7px_rgba(26,229,161,1.00)] border border-[#1ae5a1]` : `bg-[#00ffe9]/20 border border-[#00ffe9] rounded-[15px]`}`}>
                         COMOBOS
+                        <span onClick={SelectHandler} className='absolute w-full h-full top-0 right-0 rounded-lg'></span>
                     </button>
-                    <button onClick={()=>setSelect(false)} className={`w-[175px] h-[45px] mx-2
+                    <button className={`w-[175px] h-[45px] mx-2 relative
                         ${Select ? `rounded-[15px] shadow-[inset_0px_4px_23.5px_-7px_rgba(26,229,161,1.00)] border border-[#1ae5a1]` : `bg-[#00ffe9]/20 border border-[#00ffe9] rounded-[15px]`}`}>
                         Manual 
+                        <span onClick={SelectHandler} className='absolute w-full h-full top-0 right-0 rounded-lg'></span>
                     </button>
                 </div>
             </div>
-            <div className={Select ? 'hidden' : 'block mt-4 w-[95%] h-6 mx-auto'}>
+            {!Select ?
+            <div className='block mt-4 w-[95%] h-6 mx-auto'>
                 <div className='flex justify-around items-center'>
                     <div className='w-[45%] h-[70px] flex'>
                         <div className='w-[35%] h-full'>
@@ -154,12 +162,15 @@ export default function GameLayout2(){
                         </button>
                     </div>
                 </div>
+                
             </div>
-            <div className={Select ? 'flex justify-center items-center flex-wrap' : 'hidden'}>
+            :
+            <div className='flex justify-center items-center flex-wrap'>
                 {
                     FakeData.map(data=> <Dicesellcard  {...data}/>)
                 }
             </div>
+            }
         </div>
     )
 }

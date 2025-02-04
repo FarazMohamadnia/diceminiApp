@@ -50,10 +50,8 @@ export default function GameLayout1() {
                         </button>
                         <ModalExample data={modalfakedata[0]} isOpen={IsModalOpen}
                                       onClose={() => setIsModalOpen(false)}/>
-                    </div>
-                    <a href={'#targetDiv'}>
+                    </div>    
                         <button className='GameLayout1-section2-BTN'><span className='w-[25%]'><BuyCrypto /></span><span className='w-[75%]'>BUY DTS</span></button>
-                    </a>
                     <Link to={'/dice-detail'}>
                         <button className='GameLayout1-section2-BTN'><span className='w-[25%]'><AddIcon /></span><span className='w-[75%]'>EARN DTS</span></button>
                     </Link>

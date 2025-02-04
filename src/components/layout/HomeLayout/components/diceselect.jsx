@@ -1,13 +1,20 @@
 import ArrowBottom from "../../../icons/arrowbottom";
 import ArrowTop from "../../../icons/arrowtop";
 import notificationSound from "../../../../asset/sound/dice-142528.mp3";
-import Dice1 from '../../../../asset/img/HomeImg/dices/1.png'
-import Dice2 from '../../../../asset/img/HomeImg/dices/2.png'
-import Dice3 from '../../../../asset/img/HomeImg/dices/3.png'
-import Dice4 from '../../../../asset/img/HomeImg/dices/4.png'
-import Dice5 from '../../../../asset/img/HomeImg/dices/5.png'
-import Dice6 from '../../../../asset/img/HomeImg/dices/6.png'
+// import Dice1 from '../../../../asset/img/HomeImg/dices/1.png'
+// import Dice2 from '../../../../asset/img/HomeImg/dices/2.png'
+// import Dice3 from '../../../../asset/img/HomeImg/dices/3.png'
+// import Dice4 from '../../../../asset/img/HomeImg/dices/4.png'
+// import Dice5 from '../../../../asset/img/HomeImg/dices/5.png'
+// import Dice6 from '../../../../asset/img/HomeImg/dices/6.png'
 import { useEffect, useState } from "react";
+import Dice1 from '../../../../components/icons/change/Dice/dicecontroller/dice1'
+import Dice2 from '../../../../components/icons/change/Dice/dicecontroller/dice2'
+import Dice3 from '../../../../components/icons/change/Dice/dicecontroller/dice3'
+import Dice4 from '../../../../components/icons/change/Dice/dicecontroller/dice4'
+import Dice5 from '../../../../components/icons/change/Dice/dicecontroller/dice5'
+import Dice6 from '../../../../components/icons/change/Dice/dicecontroller/dice6'
+
 export default function DiceSelected(){
     const audio = new Audio(notificationSound);
     audio.volume = 0.2
@@ -21,27 +28,27 @@ export default function DiceSelected(){
     const DiceInfo = [
         {
             number : 1 ,
-            img : Dice1
+            img : <Dice1 />
         },
         {
             number : 2 ,
-            img : Dice2
+            img :<Dice2 />
         },
         {
             number : 3 ,
-            img : Dice3
+            img : <Dice3 />
         },
         {
             number : 4 ,
-            img : Dice4
+            img : <Dice4 />
         },
         {
             number : 5 ,
-            img : Dice5
+            img : <Dice5 />
         },
         {
             number : 6 ,
-            img : Dice6
+            img : <Dice6 />
         }
     ];
 
@@ -129,8 +136,8 @@ export default function DiceSelected(){
                     <ArrowTop/>
                     <span onClick={DiceNumberhandller} id="1" className="w-full h-full absolute top-0"></span>
                 </div>
-                <div className="flex justify-center">
-                    <img className="w-[43.5px]" src={Dicestatus.img} alt=""/>
+                <div className="flex justify-center w-[43.5px] h-[43.5px] ">
+                    {Dicestatus.img}
                 </div>
                 <div className="relative mt-1">
                     <ArrowBottom />
@@ -142,8 +149,8 @@ export default function DiceSelected(){
                     <ArrowTop />
                     <span onClick={DiceNumberhandller} id="3" className="w-full h-full absolute top-0"></span>
                 </div>
-                <div className=" flex justify-center">
-                    <img className="w-[43.5px]" src={Dicestatus2.img} alt=""/>
+                <div className=" flex justify-center w-[43.5px] h-[43.5px] ">
+                    {Dicestatus2.img}
                 </div>
                 <div className="relative mt-1">
                     <ArrowBottom />
