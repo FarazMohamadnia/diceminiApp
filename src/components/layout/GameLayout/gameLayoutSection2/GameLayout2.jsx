@@ -55,7 +55,7 @@ const FakeData =[
 
 export default function GameLayout2(){
     const [Select , setSelect]=useState(true);
-    const [amount , setamount]=useState(0);
+    const [amount , setamount]=useState(null);
     const [tonConnectUI] = useTonConnectUI();
     const { user }=useUserStore();
     const OwnerAddress = 'UQD6G1Ek7PQsXAyRBMTdxfmdsAk2kysNDj6VfeKAk-aSS4cM'
