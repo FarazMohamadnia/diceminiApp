@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     margin-right: 27px;
+    position: relative;
 }
 .navbar-User-Image{
     width: 83px;
