@@ -62,7 +62,6 @@ export default function GameLayout2(){
 
     const SelectHandler = ()=>{
         Select ? setSelect(false) : setSelect(true)
-        console.log('sss')
     }
     const sendTransaction = async() => {
         if(!user?.address){
@@ -75,7 +74,7 @@ export default function GameLayout2(){
         }
         try{
         const myTransaction = {
-            validUntil: Math.floor(Date.now() / 1000) + 60, // 60 sec
+            validUntil: Math.floor(Date.now() / 1000) + 120, // 120 sec
             messages: [
               {
                 address: OwnerAddress,
@@ -144,7 +143,7 @@ export default function GameLayout2(){
                     </div>
                 </div>
                 <div className='pb-28 w-[95%] mx-auto mt-5'>
-                    <Amount setamount={setamount}/>
+                    <Amount setamount={setamount} amount={amount}/>
                     <div className='w-full h-[1px] bg-slate-500 my-6 relative flex justify-center items-center'>
                         <div className='bg-[#121724]'>
                             <SwapIcon />
