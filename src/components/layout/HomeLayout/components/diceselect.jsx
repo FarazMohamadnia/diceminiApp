@@ -15,13 +15,9 @@ import Dice4 from '../../../../components/icons/change/Dice/dicecontroller/dice4
 import Dice5 from '../../../../components/icons/change/Dice/dicecontroller/dice5'
 import Dice6 from '../../../../components/icons/change/Dice/dicecontroller/dice6'
 
-export default function DiceSelected(){
+export default function DiceSelected({DiceNumber , setDiceNumber}){
     const audio = new Audio(notificationSound);
     audio.volume = 0.2
-    const [DiceNumber , setDiceNumber]=useState({
-        number1 : 1,
-        number2 : 1
-    });
     const [Dicestatus , setDicestatus] = useState({})
     const [Dicestatus2 , setDicestatus2] = useState({})
     
@@ -62,63 +58,63 @@ export default function DiceSelected(){
     const DiceNumberhandller = (e)=>{ 
         const id = e.target.id
         if(id === '1'){
-            const num = DiceNumber.number1+1
-            if(DiceNumber.number1 < 6){
+            const num = DiceNumber.dice1+1
+            if(DiceNumber.dice1 < 6){
                 setDiceNumber({
                     ...DiceNumber,
-                    number1 : num
+                    dice1 : num
                 })
                 setDicestatus(DiceInfo[num - 1]);
                 vibrateHandller()
             }else{
                 setDiceNumber({
                     ...DiceNumber,
-                    number1 : 6
+                    dice1 : 6
                 })
             }
         }else if(id === "2"){
-            const num = DiceNumber.number1-1
-            if(DiceNumber.number1 > 1){
+            const num = DiceNumber.dice1-1
+            if(DiceNumber.dice1 > 1){
                 setDiceNumber({
                     ...DiceNumber,
-                    number1 : num
+                    dice1 : num
                 })
                 setDicestatus(DiceInfo[num - 1]);
                 vibrateHandller()
             }else{
                 setDiceNumber({
                     ...DiceNumber,
-                    number1 : 1
+                    dice1 : 1
                 })
             }
         }else if(id === "3"){
-            const num = DiceNumber.number2+1
-            if(DiceNumber.number2 < 6){
+            const num = DiceNumber.dice2+1
+            if(DiceNumber.dice2 < 6){
                 setDiceNumber({
                     ...DiceNumber,
-                    number2 : num
+                    dice2 : num
                 })
                 setDicestatus2(DiceInfo[num - 1]);
                 vibrateHandller()
             }else{
                 setDiceNumber({
                     ...DiceNumber,
-                    number2 : 6
+                    dice2 : 6
                 })
             }
         }else if(id === "4"){
-            const num = DiceNumber.number2-1
-            if(DiceNumber.number2 > 1){
+            const num = DiceNumber.dice2-1
+            if(DiceNumber.dice2 > 1){
                 setDiceNumber({
                     ...DiceNumber,
-                    number2 : num
+                    dice2 : num
                 })
                 setDicestatus2(DiceInfo[num - 1]);
                 vibrateHandller()
             }else{
                 setDiceNumber({
                     ...DiceNumber,
-                    number2 : 1
+                    dice2 : 1
                 })
             }
         }

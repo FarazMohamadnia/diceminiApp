@@ -3,32 +3,76 @@ import img from '../../../asset/img/NavbarImg/DTScoin.png'
 import HomeProgress from './components/homeProgress'
 import DiceSelected from './components/diceselect'
 import CrapsGame from './components/rolldice'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import AddBtnIcon1 from '../../icons/addbtnicon1'
 import GameBtnIcon from '../../icons/gamebtnicon'
 import RullBtnIcon from '../../icons/rullbtnicon'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { Api } from '../../../api/apiUrl'
+import Swal from 'sweetalert2'
 export default function HomeLayout(){
     const [numbers , setnumbers]=useState({
         number1 : 2,
         number2: 6,
         result : true
     })
+    const [DiceNumber , setDiceNumber]=useState({
+        dice1 : 1,
+        dice2 : 1
+    });
+
     const [Loading , setLoading]=useState(false);
     const [BtnDisabled , setBtnDisabled]=useState(false)
-    const RollHandler =()=>{
-        setBtnDisabled(true)
-        setLoading(true)
-        setnumbers({
-            number1 :3,
-            number2 : 5
-        })
-        
-        setTimeout(() => {
+    const RollHandler =async()=>{
+        try{
+            console.log(DiceNumber)
+            setBtnDisabled(true)
+            setLoading(true)
+            const response = await axios.post(Api[3].PostDiceNumber , DiceNumber , {
+                headers :{
+                    Authorization: "token 3"
+                }
+            } )
+            setnumbers({
+                number1 :response.data.dice1,
+                number2 : response.data.dice2
+            })
+            setTimeout(() => {
+                setBtnDisabled(false)
+                setLoading(false)
+                if(response.data.is_win){
+                    Swal.fire({
+                        icon:"success",
+                        text : "Win"
+                    })
+                }
+            }, 4000);
+
+            console.log(response)
+        }catch(err){
+            console.log(err)
+            setLoading(false)
             setBtnDisabled(false)
-            setLoading(false);
-        }, 4000);
+        }
     }
+
+    const UserHandler =async()=>{
+        try{
+        const response  = await axios.get(Api[0].HomePage , {
+            headers:{
+               "Authorization" : "token 3"
+            }
+          } );
+        console.log(response)
+        }catch(err){
+            console.log(err)
+        }
+    } 
+
+    useEffect(()=>{
+        UserHandler()
+    },[])
     return(
         <div className="HomeLayout-container">
             <div className='flex justify-center items-center mr-3 pt-16'>
@@ -45,7 +89,7 @@ export default function HomeLayout(){
                     <HomeProgress />
                 </div>
                 <div>
-                    <DiceSelected />
+                    <DiceSelected DiceNumber={DiceNumber} setDiceNumber={setDiceNumber}/>
                 </div>
             </div>
             <div className='flex justify-around items-center mt-10'>
