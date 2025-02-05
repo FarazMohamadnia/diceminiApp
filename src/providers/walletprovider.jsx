@@ -6,7 +6,7 @@ import { Api } from "../api/apiUrl";
 export default function WalletProvider(){
     const wallet = useTonWallet();
     const { user, setUser } = useUserStore();
-    const walletAddressHandler =async(address)=>{
+    const walletAddressHandler =async()=>{
         try{
             if(wallet?.account?.address){
                 const response = await axios.post(Api[2].PostConnectWallet ,{ "wallet_address" :  toUserFriendlyAddress(wallet?.account?.address)} , {
@@ -23,7 +23,7 @@ export default function WalletProvider(){
     useEffect(()=>{
         if(wallet?.account?.address){
             setUser({...user , address :wallet?.account?.address ? toUserFriendlyAddress(wallet?.account?.address) : '', connected : true});
-            walletAddressHandler(user.address)
+            walletAddressHandler()
         }
         console.log(user)
     },[wallet?.account?.address])
