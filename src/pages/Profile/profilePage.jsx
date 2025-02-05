@@ -12,6 +12,9 @@ import ProfileNav from './components/profileNavbar/profileNav'
 import './profilePage.css'
 import img from '../../asset/img/HomeImg/carouselImage/image1.png'
 import fakeimg from '../../asset/img/HomeImg/carouselImage/image2.png'
+import axios from 'axios'
+import { Api } from '../../api/apiUrl'
+import { useEffect } from 'react'
 const fakeData = [
     {
         Icon : <ProfileBoxIcon1 /> ,
@@ -61,6 +64,22 @@ const images = [
 ]
 
 export default function ProfilePage(){
+    const profileDataHandller =async()=>{
+        try{
+            const response = await axios.get(Api[0].Profile ,{
+                headers:{
+                   "Authorization" : "token 3"
+                }
+              })
+              console.log(response)
+        }catch(err){
+            console.log(err)
+        }
+    }
+
+    useEffect(()=>{
+        profileDataHandller();
+    },[])
     return(
         <div>
             <div>
