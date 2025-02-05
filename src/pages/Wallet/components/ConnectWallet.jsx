@@ -12,17 +12,10 @@ const ConnectWalletButton =() => {
   const [tonConnectUI ] = useTonConnectUI();
   const { user, setUser } = useUserStore();
 
-  const connectWallet =async()=>{
+  const connectWallet =()=>{
     try{
       if(wallet?.account?.address){
         setUser({...user , address : toUserFriendlyAddress(wallet?.account?.address) , connected : true});
-        console.log(user)
-        const response = await axios.post(Api[2].PostConnectWallet ,{ "wallet_address" : user.address} , {
-          headers:{
-             "Authorization" : "token 3"
-          }
-        })
-        console.log(response)
       }else{
           tonConnectUI.openModal();
       }
@@ -37,7 +30,6 @@ const ConnectWalletButton =() => {
 
   useEffect(()=>{
     setUser({...user , address :wallet?.account?.address? toUserFriendlyAddress(wallet?.account?.address) : '', connected : true});
-    connectWallet()
   },[ wallet?.account?.address])
   return (
     <>
