@@ -10,6 +10,7 @@ import InfoIcon from '../../../icons/change/game/info'
 import BuyCrypto from '../../../icons/change/game/buyCrypto'
 import ModalExample from '../../../common/GameComponents/modal/modalexample'
 import CircularDots from '../../../common/GameComponents/CircleProgressBar/newprogress/newprogressbar';
+import useUserStore from '../../../../store/user';
 
 const modalfakedata = [
     {
@@ -22,6 +23,7 @@ const modalfakedata = [
     }
 ]
 export default function GameLayout1() {
+    const { user } = useUserStore();
     const [IsModalOpen, setIsModalOpen] = useState(false);
     const [IsModalOpen2, setIsModalOpen2] = useState(false);
     return (
@@ -37,7 +39,7 @@ export default function GameLayout1() {
                 <div className='w-1/2 flex flex-col justify-center items-center relative mt-5'>
                     <div className='GameLayout1-section2-img-style'></div>
                     <p className='text-white text-2xl font-bold mt-3 mb-5'>
-                        3756.25<span className='text-[#00ffa9] ml-[2px]'>DTS</span>
+                        {user.active_dots_balance}<span className='text-[#00ffa9] ml-[2px]'>DTS</span>
                     </p>
                 </div>
                 <div className='w-1/2 text-center mt-1'>
@@ -67,7 +69,7 @@ export default function GameLayout1() {
                         </div>
                     </div>
                     <div className='relative top-[-13px] text-center mr-1'>
-                        <p className='text-white'>4 <span className='text-[#1AE5A1]'>DICES</span></p>
+                        <p className='text-white'>{user.dice_balance} <span className='text-[#1AE5A1]'>DICES</span></p>
                         <p className='text-white text-[9px]'>7 out of 21<span className='text-[#1AE5A1]'>DTS</span></p>
                     </div>
                 </div>

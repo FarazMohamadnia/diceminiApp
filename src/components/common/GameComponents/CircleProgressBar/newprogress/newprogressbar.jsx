@@ -1,6 +1,8 @@
 import React from "react";
 import img from '../../../../../asset/img/NavbarImg/DTScoin.png'
 import '../progressbar.css'
+import useUserStore from "../../../../../store/user";
+
 const ActiveDot = ({ size = 12, x, y }) => {
   return (
     <div
@@ -37,17 +39,19 @@ const InactiveDot = ({ size = 12, x, y }) => {
   );
 };
 
-const CircularDots = ({
-  totalDots = 21, // تعداد نقاط
-  radius = 60, // شعاع دایره (نصف مقدار قبلی)
-  activeDots = 19, // تعداد نقاط فعال (پر شده)
-}) => {
-  const angleStep = 260 / (totalDots - 1); // فاصله زاویه‌ای بین نقاط در ۲۸۰ درجه
-  const center = radius; // مرکز دایره
+const CircularDots = () => {
+  const { user } = useUserStore()
+  const totalDots = 21// points
+  const radius = 60 // circle size
+  const activeDots = user.active_dots_balance // active Points
+  
+  const angleStep = 260 / (totalDots - 1);
+  const center = radius; // center of circle
 
   const generateDots = () => {
+    
     return Array.from({ length: totalDots }).map((_, index) => {
-      const angle = (angleStep * index + 141) * (Math.PI / 180); // تغییر زاویه برای شروع از پایین
+      const angle = (angleStep * index + 141) * (Math.PI / 180); // change circle 
       const x = center + radius * Math.cos(angle);
       const y = center + radius * Math.sin(angle);
 
