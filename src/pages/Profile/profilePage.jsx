@@ -14,26 +14,7 @@ import img from '../../asset/img/HomeImg/carouselImage/image1.png'
 import fakeimg from '../../asset/img/HomeImg/carouselImage/image2.png'
 import axios from 'axios'
 import { Api } from '../../api/apiUrl'
-import { useEffect } from 'react'
-const fakeData = [
-    {
-        Icon : <ProfileBoxIcon1 /> ,
-        title : 'Lucky Board',
-        DTS : '#20'
-    },
-    {
-        Icon : <ProfileBoxIcon2 /> ,
-        title : 'Total Profit',
-        DTS : '141 DTS'
-    },
-
-    {
-        Icon : <ProfileBoxIcon3 /> ,
-        title : 'Total bets this week',
-        DTS : '200 DTS'
-    },
-
-]
+import { useEffect, useState } from 'react'
 
 const images = [
     {
@@ -64,6 +45,24 @@ const images = [
 ]
 
 export default function ProfilePage(){
+    const [data , setdata]=useState([
+        {
+            Icon : <ProfileBoxIcon1 /> ,
+            title : 'Lucky Board',
+            DTS : '#20'
+        },
+        {
+            Icon : <ProfileBoxIcon2 /> ,
+            title : 'Total Profit',
+            DTS : '141 DTS'
+        },
+    
+        {
+            Icon : <ProfileBoxIcon3 /> ,
+            title : 'Total bets this week',
+            DTS : '200 DTS'
+        },
+    ])
     const profileDataHandller =async()=>{
         try{
             const response = await axios.get(Api[0].Profile ,{
@@ -71,7 +70,24 @@ export default function ProfilePage(){
                    "Authorization" : "token 3"
                 }
               })
-              console.log(response)
+              setdata([
+                {
+                    Icon : <ProfileBoxIcon1 /> ,
+                    title : 'Lucky Board',
+                    DTS : `#${response.data.statistics.luck_board_rank}`
+                },
+                {
+                    Icon : <ProfileBoxIcon2 /> ,
+                    title : 'Total Profit',
+                    DTS : `${response.data.statistics.total_bet_this_week} DTS`
+                },
+            
+                {
+                    Icon : <ProfileBoxIcon3 /> ,
+                    title : 'Total bets this week',
+                    DTS : `${response.data.statistics.total_win_this_week} DTS`
+                },
+              ])
         }catch(err){
             console.log(err)
         }
@@ -92,7 +108,7 @@ export default function ProfilePage(){
                     </div>
                     <div className='flex justify-center items-center flex-wrap flex-row-reverse'>
                         {
-                            fakeData.map(data => <div key={data.title}> <ProfileBox {...data}/> </div>)
+                            data.map(data => <div key={data.title}> <ProfileBox {...data}/> </div>)
                         }
 
                     </div>
