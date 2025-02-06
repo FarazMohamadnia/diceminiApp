@@ -11,7 +11,9 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { Api } from '../../../api/apiUrl'
 import Swal from 'sweetalert2'
+import useUserStore from '../../../store/user'
 export default function HomeLayout(){
+    const { user, setUser } = useUserStore();
     const [numbers , setnumbers]=useState({
         number1 : 2,
         number2: 6,
@@ -64,7 +66,21 @@ export default function HomeLayout(){
                "Authorization" : "token 3"
             }
           } );
-        console.log(response)
+          const {active_dots_balance , dice_balance , inactive_dots_balance ,level,
+            max_xp,telegram_id,telegram_username ,xp
+            }=response.data.player;
+          setUser({
+            ...user,
+            active_dots_balance : active_dots_balance,
+            dice_balance : dice_balance,
+            inactive_dots_balance:inactive_dots_balance,
+            level:level,
+            max_xp : max_xp,
+            telegram_id : telegram_id,
+            telegram_username:telegram_username,
+            xp:xp
+          })
+        console.log(user)
         }catch(err){
             console.log(err)
         }
@@ -78,8 +94,8 @@ export default function HomeLayout(){
             <div className='flex justify-center items-center mr-3 pt-16'>
                 <p className='flex items-center'><span><img className='w-[60px] h-[60px]' src={img} alt=''/></span>
                     <span>
-                        <span className='text-white text-[32px] font-bold'>3756.</span>
-                        <span className='text-white text-2xl font-normal'>25</span>
+                        <span className='text-white text-[32px] font-bold'>{user.active_dots_balance}</span>
+                        {/* <span className='text-white text-2xl font-normal'>25</span> */}
                     </span>
                     <span className='text-[32px] font-bold text-[#00ffa9] ml-1'>DTS</span>
                 </p>
