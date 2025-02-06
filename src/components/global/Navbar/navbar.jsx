@@ -10,8 +10,10 @@ import LeftLine from '../../icons/change/Navbar/leftline';
 import ImgShadow from '../../icons/change/Navbar/imgshadow';
 import NavbarProgressbar from '../navprogress/NavProgross';
 import Logo from '../../icons/logo';
+import useUserStore from '../../../store/user';
 
 export default function Navbar(){
+    const { user } = useUserStore();
     const [CheckNotification , setCheckNotification]=useState(true);
     const NotificationCheckHandler =()=>{
         setCheckNotification(false);
@@ -46,7 +48,7 @@ export default function Navbar(){
                         <div className='absolute'>
                             <RightLine />
                         </div>
-                        <p className='text-white text-[14px] font-semibold'>3000 <span className='text-[#00efff]'>DICES</span> </p>
+                        <p className='text-white text-[14px] font-semibold'>{user.dice_balance} <span className='text-[#00efff]'>DICES</span> </p>
                         <span className='Navbar-left-polygon-Icon'><img alt='' src={DiceIcon}/></span>
                     </div>
                     <div className='absolute left-2 w-[120px] bottom-[-19px] h-4 flex justify-center items-center'>
@@ -54,8 +56,8 @@ export default function Navbar(){
                     </div>
                 </div>
                 <div className='text-center'>
-                    <div><p className='text-white text-[13px] font-medium mt-4'>Diyartt-2000</p></div>
-                    <div><p className=' mt-4 text-center text-white text-[12px] font-light'>Level 1</p></div>
+                    <div><p className='text-white text-[13px] font-medium mt-4'>{user.telegram_id}</p></div>
+                    <div><p className=' mt-4 text-center text-white text-[12px] font-light'>{user.level}</p></div>
                 </div>
                 <div className='text-center'>
                     <div><p className='text-white text-[14px] font-normal'>READY TO PLAY</p></div>
@@ -63,7 +65,7 @@ export default function Navbar(){
                         <div className='absolute top-[-4px]'>
                             <LeftLine />
                         </div>
-                        <p className='text-white text-[14px] pt-[3px] font-semibold'>100000  <span className='text-[#00efff] font-semibold'>DTS</span></p>
+                        <p className='text-white text-[14px] pt-[3px] font-semibold'>{user.active_dots_balance}  <span className='text-[#00efff] font-semibold'>DTS</span></p>
                         <span className='Navbar-right-polygon-Icon'><img className='Navbar-left-polygon-Icon-img' alt='' src={DTScoin}/></span>
                     </div>
                 </div>
