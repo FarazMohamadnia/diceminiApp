@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../../components/global/Navbar/navbar";
 import Bottonlink from "../../../components/global/BottonLink/bottonlink";
 import BoardTitle from "../../../components/common/shared/BoardTitle";
@@ -10,6 +10,8 @@ import DiceIcon from "../../../components/icons/dice";
 import FlashIcon from "../../../components/icons/flash";
 import WinnerIcon from "../../../components/icons/winner";
 import { LeaderboardList } from "./RankingTable";
+import axios from "axios";
+import { Api } from "../../../api/apiUrl";
 
 const Game = () => {
   return (
@@ -51,6 +53,22 @@ const Game = () => {
 export default Game;
 
 function LeaderboardCard() {
+  const[player , setplayer]=useState({})
+  const playerRankhandler = async()=>{
+    try{
+        const response = await axios.get(Api[3].GamePage, {
+            headers :{
+                Authorization: "token 3"
+            }
+        });
+        setplayer(response.data.lucky_board.player)
+    }catch(err){
+        console.log(err)
+    }
+}
+useEffect(()=>{
+    playerRankhandler()
+},[])
   return (
     <div
       className="flex items-center justify-between bg-[#1D222E] border border-[#CAFD7B] rounded-2xl pl-6 pr-10 py-4 mx-auto max-w-2xl"
@@ -62,14 +80,14 @@ function LeaderboardCard() {
         <span className="text-[#CAFD7B] font-bold text-2xl">#134</span>
       </div>
       <div>
-        <span className="text-white font-semibold">Diyar</span>
+        <span className="text-white font-semibold">{player.telegram_id}</span>
       </div>
       <div>
         <div className="flex items-center text-white space-x-1">
           <span className="text-white text-lg">
             <DiceIcon />
           </span>
-          <span className="text-white">24 DTS</span>
+          <span className="text-white">{player.dice_balance} Dice</span>
         </div>
       </div>
       <div className="flex items-center space-x-6">
@@ -77,7 +95,7 @@ function LeaderboardCard() {
           <span className="text-white text-lg">
             <FlashIcon />
           </span>
-          <span className="text-white">Level 35</span>
+          <span className="text-white">Level {player.level}</span>
         </div>
       </div>
     </div>
