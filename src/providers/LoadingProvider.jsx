@@ -11,6 +11,8 @@ const ApiLoader = () => {
   const { user, setUser } = useUserStore();
   const loadAllAPIs = async () => {
     try {
+        // telegram Auth
+        const tg = window.Telegram.WebApp.initDataUnsafe.user;
         // USER API !
         const response  = await axios.get(Api[0].HomePage , {
            headers:{
