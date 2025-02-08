@@ -13,6 +13,7 @@ import WalletMoney from '../../../icons/walletmoney'
 import { useTonConnectUI} from '@tonconnect/ui-react'
 import useUserStore from '../../../../store/user'
 import Swal from 'sweetalert2'
+import useCounterStore from '../../../../store/amount'
 
 const FakeData =[
     {
@@ -55,7 +56,7 @@ const FakeData =[
 
 export default function GameLayout2(){
     const [Select , setSelect]=useState(true);
-    const [amount , setamount]=useState(null);
+    const { amount, setamount } = useCounterStore();
     const [tonConnectUI] = useTonConnectUI();
     const { user }=useUserStore();
     const OwnerAddress = 'UQD6G1Ek7PQsXAyRBMTdxfmdsAk2kysNDj6VfeKAk-aSS4cM'
@@ -143,7 +144,7 @@ export default function GameLayout2(){
                     </div>
                 </div>
                 <div className='pb-28 w-[95%] mx-auto mt-5'>
-                    <Amount setamount={setamount} amount={amount}/>
+                    <Amount />
                     <div className='w-full h-[1px] bg-slate-500 my-6 relative flex justify-center items-center'>
                         <div className='bg-[#121724]'>
                             <SwapIcon />

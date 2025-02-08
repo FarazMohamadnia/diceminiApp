@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import './index.css'
 import useUserStore from '../../../../../store/user';
-export default function Amount({setamount , amount}){
+import useCounterStore from '../../../../../store/amount';
+export default function Amount(){
+    const { amount, setamount } = useCounterStore();
     const { user }=useUserStore();
     async function getWalletBalance(e){
         const id = e.target.id
