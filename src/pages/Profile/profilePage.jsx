@@ -49,18 +49,18 @@ export default function ProfilePage(){
         {
             Icon : <ProfileBoxIcon1 /> ,
             title : 'Lucky Board',
-            DTS : '#20'
+            DTS : '#'
         },
         {
             Icon : <ProfileBoxIcon2 /> ,
             title : 'Total Profit',
-            DTS : '141 DTS'
+            DTS : 'DTS'
         },
     
         {
             Icon : <ProfileBoxIcon3 /> ,
             title : 'Total bets this week',
-            DTS : '200 DTS'
+            DTS : 'DTS'
         },
     ])
     const profileDataHandller =async()=>{

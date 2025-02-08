@@ -13,7 +13,7 @@ import { Api } from '../../../api/apiUrl'
 import Swal from 'sweetalert2'
 import useUserStore from '../../../store/user'
 export default function HomeLayout(){
-    const { user, setUser } = useUserStore();
+    const { user } = useUserStore();
     const [numbers , setnumbers]=useState({
         number1 : 2,
         number2: 6,
@@ -59,36 +59,6 @@ export default function HomeLayout(){
         }
     }
 
-    const UserHandler =async()=>{
-        try{
-        const response  = await axios.get(Api[0].HomePage , {
-            headers:{
-               "Authorization" : "token 3"
-            }
-          } );
-          const {active_dots_balance , dice_balance , inactive_dots_balance ,level,
-            max_xp,telegram_id,telegram_username ,xp
-            }=response.data.player;
-          setUser({
-            ...user,
-            active_dots_balance : active_dots_balance,
-            dice_balance : dice_balance,
-            inactive_dots_balance:inactive_dots_balance,
-            level:level,
-            max_xp : max_xp,
-            telegram_id : telegram_id,
-            telegram_username:telegram_username,
-            xp:xp
-          })
-        console.log(user)
-        }catch(err){
-            console.log(err)
-        }
-    } 
-
-    useEffect(()=>{
-        UserHandler()
-    },[])
     return(
         <div className="HomeLayout-container">
             <div className='flex justify-center items-center mr-3 pt-16'>

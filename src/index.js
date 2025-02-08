@@ -20,6 +20,7 @@ import { TonConnectUIProvider } from "@tonconnect/ui-react";
 import DiceGame1 from "./pages/games/game1/dicegame";
 import DiceGame2 from "./pages/games/game2/dicegame2";
 import WalletProvider from "./providers/walletprovider";
+import ApiLoader from "./providers/LoadingProvider";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -30,6 +31,7 @@ root.render(
       <RouteProvider>
         <TonConnectUIProvider manifestUrl="http://localhost:3000/maniest-example.json">
         <WalletProvider />   
+        <ApiLoader />
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="/Dice" element={<DicePage />} />

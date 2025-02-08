@@ -1,0 +1,48 @@
+// ApiLoader.js
+import { useEffect } from 'react';
+import useLoadingStore from '../store/loading';
+import { Api } from '../api/apiUrl';
+import axios from 'axios';
+import useUserStore from '../store/user';
+
+
+const ApiLoader = () => {
+  const { setLoading } = useLoadingStore();
+  const { user, setUser } = useUserStore();
+  const loadAllAPIs = async () => {
+    try {
+        // USER API !
+        const response  = await axios.get(Api[0].HomePage , {
+           headers:{
+              "Authorization" : "token 3"
+           }
+         } );
+         const {active_dots_balance , dice_balance , inactive_dots_balance ,level,
+           max_xp,telegram_id,telegram_username ,xp
+           }=response.data.player;
+         setUser({
+           ...user,
+           active_dots_balance : active_dots_balance,
+           dice_balance : dice_balance,
+           inactive_dots_balance:inactive_dots_balance,
+           level:level,
+           max_xp : max_xp,
+           telegram_id : telegram_id,
+           telegram_username:telegram_username,
+           xp:xp
+         })
+        setLoading(false);
+    } catch (error) {
+        console.error('Error loading APIs:', error);
+        setLoading(false); 
+    }
+  };
+
+  useEffect(() => {
+    loadAllAPIs();
+  }, []);
+
+  return null;
+};
+
+export default ApiLoader;

@@ -28,7 +28,6 @@ export function LeaderboardList() {
     level: "",
   },
   ])
-  const [player, setplayer]=useState({})
 
   const playerRankhandler = async()=>{
       try{
@@ -56,7 +55,6 @@ export function LeaderboardList() {
             level:response.data.lucky_board.rank3.telegram_id,
           },
           ])
-          setplayer(response.data.lucky_board.player)
       }catch(err){
           console.log(err)
       }
