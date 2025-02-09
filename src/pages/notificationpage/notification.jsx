@@ -1,5 +1,8 @@
+import { useEffect, useState } from "react";
 import BackButton from "../../components/common/shared/BackButton";
 import Notificationcard from "./components/NotificationCard/notificationcardComponent";
+import { Api } from "../../api/apiUrl";
+import axios from "axios";
 
 const fakeData =[
     {
@@ -24,6 +27,24 @@ const fakeData =[
     }
 ]
 export default function Notification(){
+    const [items , setitems]=useState([]);
+    const notificationHandler = async()=>{
+        try{
+            const response = await axios.get(Api[2].notification, {
+                headers :{
+                    Authorization: "token 3"
+                }
+            });
+            setitems(response.data)
+        }catch(err){
+            console.log(err)
+        }
+    }
+
+    useEffect(()=>{
+        notificationHandler()
+    },[])
+
     return(
         <div className="px-4">
             <div>
@@ -33,7 +54,7 @@ export default function Notification(){
                 <p className="text-[#1ae5a1] text-center text-[20px] font-bold">Notifications</p>
                 <div>
                     {
-                        fakeData.map(data =>  <Notificationcard key={data.title} {...data}/>)
+                        items.map(data =>  <Notificationcard key={data.title} {...data}/>)
                     }
 
                 </div>
