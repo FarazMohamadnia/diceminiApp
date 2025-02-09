@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react'
 import './index.css'
 import useUserStore from '../../../../../store/user';
 import useCounterStore from '../../../../../store/amount';
+import axios from 'axios';
+import { Api } from '../../../../../api/apiUrl';
 export default function Amount(){
+    const [tonPrice , settonPrice]=useState(0)
     const { amount, setamount } = useCounterStore();
     const { user }=useUserStore();
     async function getWalletBalance(e){
@@ -28,13 +31,30 @@ export default function Amount(){
             return null;
         }
     }
-    useEffect(()=>{
 
+    const tonPriceHandler =async ()=>{
+        try{
+            const response =await axios.get(Api[3].tonusd ,{
+                headers :{
+                    Authorization: "token 3"
+                }
+            })
+            settonPrice(response.data.ton_to_usd)
+            }catch(err){
+                console.log(err)
+            }
+    }
+    useEffect(()=>{
+        tonPriceHandler();
     },[])
     return(
         <>
-        <div className='relative'>
-            <input onChange={(e)=> setamount(e.target.value)} value={amount} placeholder='10 TON' className='AmountComponent-inputs-style' type='number'/>
+        <div className='relative '>
+            <input onChange={(e)=>{
+                if(/^\d*\.?\d*$/.test(e.target.value)){
+                    setamount(e.target.value)
+                }
+                }} value={amount} placeholder='10 TON' className='AmountComponent-inputs-style' type='number'/>
             <p className='text-[#3bffff] text-[15px] font-light absolute top-[15px] left-5'>TON AMOUNT:</p>
             <div className='absolute top-[12px] right-2'>
                 <button id='1' onClick={getWalletBalance} className='text-white/70 text-[15px] font-light h-6 w-11 px-1 py-[3px] bg-[#1ae5a1]/2 rounded-[7px] border border-[#1ae5a1] justify-center items-center gap-2.5 inline-flex mr-1'>%50</button>
@@ -43,7 +63,7 @@ export default function Amount(){
         </div>
         <div className='flex mt-1'>
             <p className='text-white ms-4'>USD AMOUNT :</p>
-            <p className='text-[#3bffff] ms-1'>{amount * 3.80} $</p>
+            <p className='text-[#3bffff] ms-1'>{(amount * tonPrice).toFixed(2)} $</p>
         </div>
         </>
     )

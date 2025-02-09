@@ -14,6 +14,8 @@ import { useTonConnectUI} from '@tonconnect/ui-react'
 import useUserStore from '../../../../store/user'
 import Swal from 'sweetalert2'
 import useCounterStore from '../../../../store/amount'
+import axios from 'axios'
+import { Api } from '../../../../api/apiUrl'
 
 const FakeData =[
     {
@@ -56,14 +58,16 @@ const FakeData =[
 
 export default function GameLayout2(){
     const [Select , setSelect]=useState(true);
-    const { amount, setamount } = useCounterStore();
+    const { amount } = useCounterStore();
     const [tonConnectUI] = useTonConnectUI();
     const { user }=useUserStore();
+    const [dtsAmount , setdtsAmount]=useState(0)
     const OwnerAddress = 'UQD6G1Ek7PQsXAyRBMTdxfmdsAk2kysNDj6VfeKAk-aSS4cM'
 
     const SelectHandler = ()=>{
         Select ? setSelect(false) : setSelect(true)
     }
+
     const sendTransaction = async() => {
         if(!user?.address){
             Swal.fire({
@@ -72,6 +76,14 @@ export default function GameLayout2(){
                 icon: "error"
             });
             return console.log('Connect Youre Wallet !')
+        }
+        if(dtsAmount > amount){
+            Swal.fire({
+                title: "Error",
+                text: "you should buy at least 1 DTS",
+                icon: "error"
+            });
+            return console.log('you should buy 1 DTS')
         }
         try{
         const myTransaction = {
@@ -96,8 +108,20 @@ export default function GameLayout2(){
         }
     }
 
+    const dtsamounthandler = async()=>{
+        try{
+        const response =await axios.get(Api[3].tondts ,{
+            headers :{
+                Authorization: "token 3"
+            }
+        })
+        setdtsAmount(response.data.dots_to_ton)
+        }catch(err){
+            console.log(err)
+        }
+    }
     useEffect(()=>{
-
+        dtsamounthandler()
     },[Select])
       
     return(
@@ -144,7 +168,7 @@ export default function GameLayout2(){
                     </div>
                 </div>
                 <div className='pb-28 w-[95%] mx-auto mt-5'>
-                    <Amount />
+                    <Amount dtsAmount={dtsAmount}/>
                     <div className='w-full h-[1px] bg-slate-500 my-6 relative flex justify-center items-center'>
                         <div className='bg-[#121724]'>
                             <SwapIcon />
@@ -153,7 +177,7 @@ export default function GameLayout2(){
                     <div className='GameLayout2-input-style'>
                         <div className='flex items-center'>
                             <p className='text-[#3bffff] text-[15px] font-light'>AMOUNT OF DTS : </p>
-                            <p className='text-neutral-50 text-[15px] font-light ml-1'>1121212121212</p>
+                            <p className='text-neutral-50 text-[15px] font-light ml-1'>{(amount/dtsAmount).toFixed(3)}</p>
                         </div>
                     </div>
                     <div className='flex justify-center items-center'>

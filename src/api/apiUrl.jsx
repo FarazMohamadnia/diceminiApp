@@ -1,4 +1,4 @@
-const url = 'http://5.75.237.202:8000/api/'
+const url = 'http://192.168.40.51:8000/api/'
 
 export const Api = [
     {
@@ -14,6 +14,9 @@ export const Api = [
     },
     {
         GamePage : url+'games/',
-        PostDiceNumber : url+'roll-dice/'
+        PostDiceNumber : url+'roll-dice/' ,
+        notification : url+'notification/',
+        tonusd : url+'ton-usd/',
+        tondts : url+'dts-ton/'
     }
 ]
