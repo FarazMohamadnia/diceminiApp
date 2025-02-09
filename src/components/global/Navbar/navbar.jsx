@@ -56,8 +56,8 @@ export default function Navbar(){
                     </div>
                 </div>
                 <div className='text-center'>
-                    <div><p className='text-white text-[13px] font-medium mt-4'>{user.telegram_id}</p></div>
-                    <div><p className=' mt-4 text-center text-white text-[12px] font-light'>{user.level}</p></div>
+                    <div><p className='text-white text-[13px] font-medium mt-4'>{user.telegram_username}</p></div>
+                    <div><p className=' mt-4 text-center text-white text-[12px] font-light'>Level {user.level}</p></div>
                 </div>
                 <div className='text-center'>
                     <div><p className='text-white text-[14px] font-normal'>READY TO PLAY</p></div>
