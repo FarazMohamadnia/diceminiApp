@@ -4,7 +4,9 @@ import useUserStore from '../../../../../store/user';
 import useCounterStore from '../../../../../store/amount';
 import axios from 'axios';
 import { Api } from '../../../../../api/apiUrl';
+import useTokenStore from '../../../../../store/token';
 export default function Amount(){
+    const {token } = useTokenStore();
     const [tonPrice , settonPrice]=useState(0)
     const { amount, setamount } = useCounterStore();
     const { user }=useUserStore();
@@ -36,7 +38,7 @@ export default function Amount(){
         try{
             const response =await axios.get(Api[3].tonusd ,{
                 headers :{
-                    Authorization: "token 3"
+                    Authorization: `token ${token}`
                 }
             })
             settonPrice(response.data.ton_to_usd)

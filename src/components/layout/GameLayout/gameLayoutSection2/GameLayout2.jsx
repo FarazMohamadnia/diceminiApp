@@ -16,6 +16,7 @@ import Swal from 'sweetalert2'
 import useCounterStore from '../../../../store/amount'
 import axios from 'axios'
 import { Api } from '../../../../api/apiUrl'
+import useTokenStore from '../../../../store/token'
 
 const FakeData =[
     {
@@ -61,7 +62,8 @@ export default function GameLayout2(){
     const { amount } = useCounterStore();
     const [tonConnectUI] = useTonConnectUI();
     const { user }=useUserStore();
-    const [dtsAmount , setdtsAmount]=useState(0)
+    const [dtsAmount , setdtsAmount]=useState(0);
+    const {token } = useTokenStore();
     const OwnerAddress = 'UQD6G1Ek7PQsXAyRBMTdxfmdsAk2kysNDj6VfeKAk-aSS4cM'
 
     const SelectHandler = ()=>{
@@ -112,7 +114,7 @@ export default function GameLayout2(){
         try{
         const response =await axios.get(Api[3].tondts ,{
             headers :{
-                Authorization: "token 3"
+                Authorization: `token ${token}`
             }
         })
         setdtsAmount(response.data.dots_to_ton)

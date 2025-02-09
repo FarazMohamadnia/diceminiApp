@@ -7,8 +7,10 @@ import BronzeIcon from "../../../components/icons/bronzeCoin";
 import axios from "axios";
 import { Api } from "../../../api/apiUrl";
 import useUserStore from "../../../store/user";
+import useTokenStore from "../../../store/token";
 
 export function LeaderboardList() {
+  const {token } = useTokenStore();
   const [item , setitem]=useState([{
     icon: <GoldCoin />,
     name: "",
@@ -33,7 +35,7 @@ export function LeaderboardList() {
       try{
           const response = await axios.get(Api[3].GamePage, {
               headers :{
-                  Authorization: "token 3"
+                  Authorization: `token ${token}`
               }
           });
           setitem([{

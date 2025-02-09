@@ -12,7 +12,9 @@ import axios from 'axios'
 import { Api } from '../../../api/apiUrl'
 import Swal from 'sweetalert2'
 import useUserStore from '../../../store/user'
+import useTokenStore from '../../../store/token'
 export default function HomeLayout(){
+    const {token } = useTokenStore();
     const { user } = useUserStore();
     const [numbers , setnumbers]=useState({
         number1 : 2,
@@ -33,7 +35,7 @@ export default function HomeLayout(){
             setLoading(true)
             const response = await axios.post(Api[3].PostDiceNumber , DiceNumber , {
                 headers :{
-                    Authorization: "token 3"
+                    Authorization: `token ${token}`
                 }
             } )
             setnumbers({

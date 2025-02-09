@@ -4,24 +4,33 @@ import useLoadingStore from '../store/loading';
 import { Api } from '../api/apiUrl';
 import axios from 'axios';
 import useUserStore from '../store/user';
+import useTokenStore from '../store/token';
 
 
 const ApiLoader = () => {
   const { setLoading } = useLoadingStore();
   const { user, setUser } = useUserStore();
+  const {token ,settoken } = useTokenStore();
   const loadAllAPIs = async () => {
     try {
         // telegram Auth
         const tg =window.Telegram.WebApp.initDataUnsafe.user;
         const response1  = await axios.post(Api[2].PostAuth , {
-            telegram_data : tg
+            // telegram_data : tg
+            // For test 
+            telegram_data : {
+                id : 2,
+                first_name : 'mmd',
+                last_name : 'javadiani',
+                username : 'lalalalalal'
+            }
         });
-        console.log(response1);
-     
+        settoken(response1.data.player_id);
         // USER API !
+        try{
         const response  = await axios.get(Api[0].HomePage , {
            headers:{
-              "Authorization" : "token 3"
+              "Authorization" : `token ${token}`
            }
          } );
          const {active_dots_balance , dice_balance , inactive_dots_balance ,level,
@@ -38,6 +47,9 @@ const ApiLoader = () => {
            telegram_username:telegram_username,
            xp:xp
          })
+        }catch(err){
+            console.log(err)
+        }
 
         setLoading(false);
     } catch (error) {
@@ -48,7 +60,7 @@ const ApiLoader = () => {
 
   useEffect(() => {
     loadAllAPIs();
-  }, []);
+  }, [token]);
 
   return null;
 };

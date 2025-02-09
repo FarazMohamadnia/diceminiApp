@@ -15,6 +15,7 @@ import fakeimg from '../../asset/img/HomeImg/carouselImage/image2.png'
 import axios from 'axios'
 import { Api } from '../../api/apiUrl'
 import { useEffect, useState } from 'react'
+import useTokenStore from '../../store/token'
 
 const images = [
     {
@@ -45,6 +46,7 @@ const images = [
 ]
 
 export default function ProfilePage(){
+    const {token } = useTokenStore();
     const [data , setdata]=useState([
         {
             Icon : <ProfileBoxIcon1 /> ,
@@ -67,7 +69,7 @@ export default function ProfilePage(){
         try{
             const response = await axios.get(Api[0].Profile ,{
                 headers:{
-                   "Authorization" : "token 3"
+                   "Authorization" : `token ${token}`
                 }
               })
               setdata([

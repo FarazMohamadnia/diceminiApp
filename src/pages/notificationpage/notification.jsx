@@ -3,36 +3,16 @@ import BackButton from "../../components/common/shared/BackButton";
 import Notificationcard from "./components/NotificationCard/notificationcardComponent";
 import { Api } from "../../api/apiUrl";
 import axios from "axios";
+import useTokenStore from "../../store/token";
 
-const fakeData =[
-    {
-        title : 'New Dice',
-        text : 'You can Buy a new Dice Right now'
-    },
-    {
-        title : 'New Game',
-        text : 'You can Buy a new Dice Right now'
-    },
-    {
-        title : 'Create Game',
-        text : 'You can Buy a new Dice Right now'
-    },
-    {
-        title : 'Play for gift',
-        text : 'You can Buy a new Dice Right now'
-    },
-    {
-        title : 'New challenge',
-        text : 'You can Buy a new Dice Right now'
-    }
-]
 export default function Notification(){
+    const {token } = useTokenStore();
     const [items , setitems]=useState([]);
     const notificationHandler = async()=>{
         try{
             const response = await axios.get(Api[2].notification, {
                 headers :{
-                    Authorization: "token 3"
+                    Authorization: `token ${token}`
                 }
             });
             setitems(response.data)

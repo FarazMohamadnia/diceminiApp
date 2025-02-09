@@ -12,6 +12,7 @@ import WinnerIcon from "../../../components/icons/winner";
 import { LeaderboardList } from "./RankingTable";
 import axios from "axios";
 import { Api } from "../../../api/apiUrl";
+import useTokenStore from "../../../store/token";
 
 const Game = () => {
   return (
@@ -53,12 +54,13 @@ const Game = () => {
 export default Game;
 
 function LeaderboardCard() {
+  const {token } = useTokenStore();
   const[player , setplayer]=useState({})
   const playerRankhandler = async()=>{
     try{
         const response = await axios.get(Api[3].GamePage, {
             headers :{
-                Authorization: "token 3"
+                Authorization: `token ${token}`
             }
         });
         setplayer(response.data.lucky_board.player)
