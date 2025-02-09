@@ -10,13 +10,15 @@ export const Api = [
         EarnDtsList : url+'earn-dts/'
     },
     {
-        PostConnectWallet : url+'connect-wallet/'
+        PostConnectWallet : url+'connect-wallet/',
+        notification : url+'notification/',
+        PostAuth : url+'auth/'
     },
     {
         GamePage : url+'games/',
         PostDiceNumber : url+'roll-dice/' ,
-        notification : url+'notification/',
         tonusd : url+'ton-usd/',
-        tondts : url+'dts-ton/'
+        tondts : url+'dts-ton/',
+        PostTransactions : url
     }
 ]

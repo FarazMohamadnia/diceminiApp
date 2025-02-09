@@ -11,8 +11,6 @@ const ApiLoader = () => {
   const { user, setUser } = useUserStore();
   const loadAllAPIs = async () => {
     try {
-        // telegram Auth
-        const tg = window.Telegram.WebApp.initDataUnsafe.user;
         // USER API !
         const response  = await axios.get(Api[0].HomePage , {
            headers:{
@@ -33,6 +31,16 @@ const ApiLoader = () => {
            telegram_username:telegram_username,
            xp:xp
          })
+
+
+        // telegram Auth
+        const tg =window.Telegram.WebApp.initDataUnsafe.user;
+        const response1  = await axios.post(Api[2].PostAuth , {
+            telegram_data : tg
+        });
+        console.log(response1);
+
+
         setLoading(false);
     } catch (error) {
         console.error('Error loading APIs:', error);
