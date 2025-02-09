@@ -12,6 +12,7 @@ const ApiLoader = () => {
   const { user, setUser } = useUserStore();
   const {token ,settoken } = useTokenStore();
   const loadAllAPIs = async () => {
+    setLoading(true)
     try {
         // telegram Auth
         const tg =window.Telegram.WebApp.initDataUnsafe.user;
@@ -50,11 +51,12 @@ const ApiLoader = () => {
         }catch(err){
             console.log(err)
         }
-
-        setLoading(false);
+        setTimeout(() => {
+            setLoading(false);
+        }, 1500)
     } catch (error) {
         console.error('Error loading APIs:', error);
-        setLoading(false); 
+        
     }
   };
 
