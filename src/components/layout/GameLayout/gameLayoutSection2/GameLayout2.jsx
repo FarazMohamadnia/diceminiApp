@@ -10,6 +10,7 @@ import DollerCoin from '../../../icons/change/Dcoin'
 import Amount from '../../../../pages/Wallet/pages/withdrawPage/components/AmountComponent'
 import SwapIcon from '../../../icons/swapicon'
 import WalletMoney from '../../../icons/walletmoney'
+import { useTonConnectUI} from '@tonconnect/ui-react'
 import useUserStore from '../../../../store/user'
 import Swal from 'sweetalert2'
 import useCounterStore from '../../../../store/amount'
@@ -61,13 +62,61 @@ export default function GameLayout2(){
     const { amount } = useCounterStore();
     const { user }=useUserStore();
     const [dtsAmount , setdtsAmount]=useState(0);
+    const {token } = useTokenStore();
 
     const SelectHandler = ()=>{
         Select ? setSelect(false) : setSelect(true)
     }
 
+    const sendTransaction = async() => {
+        if(dtsAmount > amount){
+            Swal.fire({
+                title: "Error",
+                text: "you should buy at least 1 DTS",
+                icon: "error"
+            });
+            return console.log('you should buy 1 DTS')
+        }
+        try{
+            const response = await axios.post(Api[3].PostBuyDts ,  {
+                dots_amount : amount/dtsAmount
+              }, 
+              {
+                headers:{
+                   "Authorization" : `token ${token}`
+                }
+              })
+
+              Swal.fire({
+                title: `The transaction was successful`,
+                icon: "successful"
+                });
+
+              console.log(response)
+        }catch(err){
+            Swal.fire({
+                title: `Error !`,
+                text: err.response.data.error,
+                icon: "error"
+            });
+            console.log(err)
+        }
+    }
+
+    const dtsamounthandler = async()=>{
+        try{
+        const response =await axios.get(Api[3].tondts ,{
+            headers :{
+                Authorization: `token ${token}`
+            }
+        })
+        setdtsAmount(response.data.dots_to_ton)
+        }catch(err){
+            console.log(err)
+        }
+    }
     useEffect(()=>{
-        
+        dtsamounthandler()
     },[Select])
       
     return(
@@ -100,7 +149,7 @@ export default function GameLayout2(){
                         </div>
                         <div className='w-[65%] h-full'>
                             <p className='text-white text-[13px] font-bold'>Cash Balance :</p>
-                            <p className='text-white text-[5.5vw] font-bold text-end'>31 <span className='text-[#1ae5a1]'>USD</span></p>
+                            <p className='text-white text-[5.5vw] font-bold text-end'>{user.ton_balance !== 0 ?user.ton_balance.toFixed(4) : 0} <span className='text-[#1ae5a1]'>TON</span></p>
                         </div>
                     </div>
                     <div className='w-[45%] h-[70px] flex'>
@@ -127,7 +176,7 @@ export default function GameLayout2(){
                         </div>
                     </div>
                     <div className='flex justify-center items-center'>
-                        <button onClick={''} className='py-3 px-6 w-40 h-[43px] bg-white/0 flex justify-around items-center rounded-[15px] shadow-[inset_0px_4px_20.399999618530273px_-7px_rgba(0,240,255,1.00)] border border-[#3bffff] backdrop-blur-[108.30px]'>
+                        <button onClick={sendTransaction} className='py-3 px-6 w-40 h-[43px] bg-white/0 flex justify-around items-center rounded-[15px] shadow-[inset_0px_4px_20.399999618530273px_-7px_rgba(0,240,255,1.00)] border border-[#3bffff] backdrop-blur-[108.30px]'>
                             <WalletMoney /><p className='text-[#3bffff] text-base font-semibold'>BUY DTS</p>
                         </button>
                     </div>

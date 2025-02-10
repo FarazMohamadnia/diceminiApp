@@ -35,7 +35,7 @@ const ApiLoader = () => {
            }
          } );
          const {active_dots_balance , dice_balance , inactive_dots_balance ,level,
-           max_xp,telegram_id,telegram_username ,xp , picture
+           max_xp,telegram_id,telegram_username ,xp , picture , ton_balance
            }=response.data.player;
          setUser({
            ...user,
@@ -47,7 +47,8 @@ const ApiLoader = () => {
            telegram_id : telegram_id,
            telegram_username:telegram_username,
            xp:xp,
-           picture : picture
+           picture : picture,
+           ton_balance : ton_balance
          })
         }catch(err){
             console.log(err)
