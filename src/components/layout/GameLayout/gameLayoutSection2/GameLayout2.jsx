@@ -10,7 +10,6 @@ import DollerCoin from '../../../icons/change/Dcoin'
 import Amount from '../../../../pages/Wallet/pages/withdrawPage/components/AmountComponent'
 import SwapIcon from '../../../icons/swapicon'
 import WalletMoney from '../../../icons/walletmoney'
-import { useTonConnectUI} from '@tonconnect/ui-react'
 import useUserStore from '../../../../store/user'
 import Swal from 'sweetalert2'
 import useCounterStore from '../../../../store/amount'
@@ -60,70 +59,15 @@ const FakeData =[
 export default function GameLayout2(){
     const [Select , setSelect]=useState(true);
     const { amount } = useCounterStore();
-    const [tonConnectUI] = useTonConnectUI();
     const { user }=useUserStore();
     const [dtsAmount , setdtsAmount]=useState(0);
-    const {token } = useTokenStore();
-    const OwnerAddress = 'UQD6G1Ek7PQsXAyRBMTdxfmdsAk2kysNDj6VfeKAk-aSS4cM'
 
     const SelectHandler = ()=>{
         Select ? setSelect(false) : setSelect(true)
     }
 
-    const sendTransaction = async() => {
-        if(!user?.address){
-            Swal.fire({
-                title: "Error",
-                text: "Connect Youre Wallet !",
-                icon: "error"
-            });
-            return console.log('Connect Youre Wallet !')
-        }
-        if(dtsAmount > amount){
-            Swal.fire({
-                title: "Error",
-                text: "you should buy at least 1 DTS",
-                icon: "error"
-            });
-            return console.log('you should buy 1 DTS')
-        }
-        try{
-        const myTransaction = {
-            validUntil: Math.floor(Date.now() / 1000) + 120, // 120 sec
-            messages: [
-              {
-                address: OwnerAddress,
-                amount: amount*1000000000,
-              }
-            ]
-        }
-        console.log(myTransaction)
-        const response = await tonConnectUI.sendTransaction(myTransaction);
-        console.log(response)
-        }catch(err){
-            Swal.fire({
-                title: `Error !`,
-                text: err.message,
-                icon: "error"
-            });
-            console.log(err)
-        }
-    }
-
-    const dtsamounthandler = async()=>{
-        try{
-        const response =await axios.get(Api[3].tondts ,{
-            headers :{
-                Authorization: `token ${token}`
-            }
-        })
-        setdtsAmount(response.data.dots_to_ton)
-        }catch(err){
-            console.log(err)
-        }
-    }
     useEffect(()=>{
-        dtsamounthandler()
+        
     },[Select])
       
     return(
@@ -183,7 +127,7 @@ export default function GameLayout2(){
                         </div>
                     </div>
                     <div className='flex justify-center items-center'>
-                        <button onClick={sendTransaction} className='py-3 px-6 w-40 h-[43px] bg-white/0 flex justify-around items-center rounded-[15px] shadow-[inset_0px_4px_20.399999618530273px_-7px_rgba(0,240,255,1.00)] border border-[#3bffff] backdrop-blur-[108.30px]'>
+                        <button onClick={''} className='py-3 px-6 w-40 h-[43px] bg-white/0 flex justify-around items-center rounded-[15px] shadow-[inset_0px_4px_20.399999618530273px_-7px_rgba(0,240,255,1.00)] border border-[#3bffff] backdrop-blur-[108.30px]'>
                             <WalletMoney /><p className='text-[#3bffff] text-base font-semibold'>BUY DTS</p>
                         </button>
                     </div>

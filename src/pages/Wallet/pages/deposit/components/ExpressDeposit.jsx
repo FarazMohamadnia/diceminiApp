@@ -26,14 +26,6 @@ const ExpressDeposit = () => {
             });
             return console.log('Connect Youre Wallet !')
         }
-        // if(dtsAmount > amount){
-        //     Swal.fire({
-        //         title: "Error",
-        //         text: "you should buy at least 1 DTS",
-        //         icon: "error"
-        //     });
-        //     return console.log('you should buy 1 DTS')
-        // }
         try{
         const myTransaction = {
             validUntil: Math.floor(Date.now() / 1000) + 120, // 120 sec
