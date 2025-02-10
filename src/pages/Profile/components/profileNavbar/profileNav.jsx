@@ -29,7 +29,7 @@ export default function ProfileNav() {
                 <div className='relative w-[145px] h-[145px] top-[-50px] left-[-45PX]'>
                     <div className='absolute'>
                         <BorderShadow/>
-                        <img className='absolute rounded-[50%] w-[75px] h-[71px] top-[25%] right-[26%]' src={img}/>
+                        <img className='absolute rounded-[50%] w-[75px] h-[71px] top-[25%] right-[26%]' src={user.picture}/>
                     </div>
                 </div>
                 <div className='profileNav-polygon-shape'>

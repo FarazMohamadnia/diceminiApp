@@ -27,7 +27,7 @@ export default function Navbar(){
                 </div>
                 <div className='navbar-User-backgroundImage'>
                     <div className='absolute'><ImgShadow /></div>
-                    <img src={Pic} alt='' className='navbar-User-Image'/>
+                    <img src={user.picture} alt='' className='navbar-User-Image'/>
                 </div>
                 <Link className='relative' to={'/notification'}>
                     <div onClick={NotificationCheckHandler}>
