@@ -163,7 +163,7 @@ export default function GameLayout2(){
                     </div>
                 </div>
                 <div className='pb-28 w-[95%] mx-auto mt-5'>
-                    <Amount dtsAmount={dtsAmount}/>
+                    <Amount type={'dts'}/>
                     <div className='w-full h-[1px] bg-slate-500 my-6 relative flex justify-center items-center'>
                         <div className='bg-[#121724]'>
                             <SwapIcon />

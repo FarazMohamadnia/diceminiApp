@@ -5,32 +5,43 @@ import useCounterStore from '../../../../../store/amount';
 import axios from 'axios';
 import { Api } from '../../../../../api/apiUrl';
 import useTokenStore from '../../../../../store/token';
-export default function Amount(){
+export default function Amount({type}){
     const {token } = useTokenStore();
     const [tonPrice , settonPrice]=useState(0)
     const { amount, setamount } = useCounterStore();
     const { user }=useUserStore();
     async function getWalletBalance(e){
         const id = e.target.id
-        try {
-            const response = await fetch(`https://tonapi.io/v2/accounts/${user.address}`);
-            const data = await response.json();
+        if(type === 'ton'){
+            try {
+                const response = await fetch(`https://tonapi.io/v2/accounts/${user.address}`);
+                const data = await response.json();
 
-            if (data && data.balance) {
-                const balanceInTON = (data.balance / 1000000000).toFixed(4); 
-                const halfBalance = (balanceInTON/2).toFixed(4);
-                if(id == 1){
-                    setamount(halfBalance);
-                }else if(id == 2){
-                    setamount(balanceInTON);
+                    if (data && data.balance) {
+                    const balanceInTON = (data.balance / 1000000000).toFixed(4); 
+                    const halfBalance = (balanceInTON/2).toFixed(4);
+                    if(id == 1){
+                        setamount(halfBalance);
+                    }else if(id == 2){
+                        setamount(balanceInTON);
+                    }
+                } else {
+                    console.log("Wallet not found or balance unavailable.");
+                    return null;
                 }
-            } else {
-                console.log("Wallet not found or balance unavailable.");
+            } catch (error) {
+                console.error("Error fetching wallet balance:", error);
                 return null;
             }
-        } catch (error) {
-            console.error("Error fetching wallet balance:", error);
-            return null;
+        }else if (type === 'dts'){
+            const wallet = user.ton_balance
+            const halfvalue = user.ton_balance/2
+            if(id == 1){
+                setamount(halfvalue);
+            }else if(id == 2){
+                setamount(wallet);
+            }
+            
         }
     }
 

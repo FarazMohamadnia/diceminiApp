@@ -11,7 +11,9 @@ import MaterialIcon from '../../../../components/icons/materialIcon';
 import BlueWallet from '../../../../components/icons/blueWalletIcon';
 import WithDrawhistory from './components/WithdrawHistory';
 import DropDownMenu from '../../components/DropdownMenu';
+import useUserStore from '../../../../store/user';
 const WithdrawPage = () => {
+    const { user }=useUserStore();
   return (
     <div>
         <div>
@@ -28,7 +30,7 @@ const WithdrawPage = () => {
             <div className=""><CurrencyIcon /></div>
                 <div className=" text-left">
                     <p className="text-white text-[13px] font-bold italic">Your Balance :</p>
-                    <p className="mt-3 text-[25px] font-bold text-center"><span className="text-white mr-2">31</span><span className="text-[#1ae5a1]">USD</span></p>
+                    <p className="mt-3 text-[25px] font-bold text-center"><span className="text-white mr-2">{user.ton_balance}</span><span className="text-[#1ae5a1]">TON</span></p>
                     <div className="flex justify-between text-[10px] mt-3 text-white">
                         <p className='mr-2'>MINIMUM WITHDRAW AMOUNT :</p>
                         <p className='font-bold'>0.6 <span className='text-[#1ae5a1]'>USD</span></p>
@@ -57,7 +59,7 @@ const WithdrawPage = () => {
                 </div>
             </div>
             <div className='px-[10px]'>
-                <Amount />
+                <Amount type={'dts'}/>
             </div>
             <div className='flex justify-center font-bold italic items-center mt-4'>
                 <div><MaterialIcon /></div>

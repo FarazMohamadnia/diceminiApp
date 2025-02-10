@@ -71,7 +71,7 @@ const ExpressDeposit = () => {
       }
   return (
     <>
-      <div className="mb-3"><Amount/></div>
+      <div className="mb-3"><Amount type={'ton'}/></div>
       <div className="flex items-center justify-center">
         <button
           style={inactiveStyle}
