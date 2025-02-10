@@ -6,6 +6,9 @@ import useCounterStore from "../../../../../store/amount";
 import { useTonConnectUI } from "@tonconnect/ui-react";
 import useUserStore from "../../../../../store/user";
 import Swal from "sweetalert2";
+import axios from "axios";
+import { Api } from "../../../../../api/apiUrl";
+import useTokenStore from "../../../../../store/token";
 
 const inactiveStyle = {
   boxShadow: "inset 0 0 20px 0 rgba(26,229,161,0.5)",
@@ -15,8 +18,10 @@ const ExpressDeposit = () => {
     const { amount } = useCounterStore();
     const [tonConnectUI] = useTonConnectUI();
     const { user }=useUserStore();
+    const {token } = useTokenStore();
     const OwnerAddress = 'UQD6G1Ek7PQsXAyRBMTdxfmdsAk2kysNDj6VfeKAk-aSS4cM'
     const TonWeb = new window.TonWeb(new window.TonWeb.HttpProvider("https://toncenter.com/api/v2/jsonRPC"));
+
     const sendTransaction = async() => {
         if(!user?.address){
             Swal.fire({
@@ -35,19 +40,26 @@ const ExpressDeposit = () => {
                 amount: amount*1000000000,
               }
             ]
-        }
-        console.log(myTransaction)
-        const response = await tonConnectUI.sendTransaction(myTransaction , {
-          modals: ['before', 'success', 'error'],
-          notifications: ['before', 'success', 'error']
-      });
+          }
+          console.log(myTransaction.messages[0].amount)
+          const response = await tonConnectUI.sendTransaction(myTransaction , {
+            modals: ['before', 'success', 'error'],
+            notifications: ['before', 'success', 'error']
+          });
+        
+          const bocCellBytes = await TonWeb.boc.Cell.oneFromBoc(TonWeb.utils.base64ToBytes(response.boc)).hash();
+        
+          const hashBase64 = TonWeb.utils.bytesToBase64(bocCellBytes);
 
-      const bocCellBytes = await TonWeb.boc.Cell.oneFromBoc(TonWeb.utils.base64ToBytes(response.boc)).hash();
-
-      const hashBase64 = TonWeb.utils.bytesToBase64(bocCellBytes);
-
-      
-        console.log(hashBase64)
+          const TonResponse = await axios.post(Api[3].PostDeposit , {
+            ton_amount : myTransaction.messages[0].amount/1000000000 ,
+            transaction_hash : hashBase64
+          }, 
+          {
+            headers:{
+               "Authorization" : `token ${token}`
+            }
+          })
         }catch(err){
             Swal.fire({
                 title: `Error !`,
