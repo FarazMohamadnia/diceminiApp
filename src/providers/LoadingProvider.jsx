@@ -53,7 +53,7 @@ const ApiLoader = () => {
         }
         setTimeout(() => {
             setLoading(false);
-        }, 1500)
+        }, 1000)
     } catch (error) {
         console.error('Error loading APIs:', error);
         

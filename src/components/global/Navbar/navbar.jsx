@@ -65,7 +65,7 @@ export default function Navbar(){
                         <div className='absolute top-[-4px]'>
                             <LeftLine />
                         </div>
-                        <p className='text-white text-[14px] pt-[3px] font-semibold'>{user.active_dots_balance}  <span className='text-[#00efff] font-semibold'>DTS</span></p>
+                        <p className='text-white text-[14px] pt-[3px] font-semibold'>{user.inactive_dots_balance}  <span className='text-[#00efff] font-semibold'>DTS</span></p>
                         <span className='Navbar-right-polygon-Icon'><img className='Navbar-left-polygon-Icon-img' alt='' src={DTScoin}/></span>
                     </div>
                 </div>

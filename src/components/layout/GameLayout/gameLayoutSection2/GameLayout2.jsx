@@ -165,7 +165,7 @@ export default function GameLayout2(){
                         </div>
                         <div className='w-[65%]'>
                             <p className='text-white text-[13px] font-bold'>DTS Balance :</p>
-                            <p className='text-white text-[5.5vw] w-full font-bold text-end'>{user.active_dots_balance}<span className='text-[#00ffa9] ms-1'>DTS</span> </p>
+                            <p className='text-white text-[5.5vw] w-full font-bold text-end'>{user.inactive_dots_balance}<span className='text-[#00ffa9] ms-1'>DTS</span> </p>
                         </div>
                     </div>
                 </div>

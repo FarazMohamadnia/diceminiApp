@@ -39,7 +39,7 @@ export default function GameLayout1() {
                 <div className='w-1/2 flex flex-col justify-center items-center relative mt-5'>
                     <div className='GameLayout1-section2-img-style'></div>
                     <p className='text-white text-2xl font-bold mt-3 mb-5'>
-                        {user.active_dots_balance}<span className='text-[#00ffa9] ml-[2px]'>DTS</span>
+                        {user.inactive_dots_balance}<span className='text-[#00ffa9] ml-[2px]'>DTS</span>
                     </p>
                 </div>
                 <div className='w-1/2 text-center mt-1'>
