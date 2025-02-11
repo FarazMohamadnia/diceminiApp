@@ -3,7 +3,8 @@ const url = 'http://192.168.40.51:8000/api/'
 export const Api = [
     {
         HomePage:url+'homepage/',
-        Profile : url+'profile/'
+        Profile : url+'profile/',
+        luckyBoard : url+'lucky-board/'
     },
     {
         PostSellDice : url+'sell-dice/',

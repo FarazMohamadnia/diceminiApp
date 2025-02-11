@@ -9,29 +9,57 @@ import SilverModal from '../../../icons/change/Dice/DiceModal/silverModal';
 import GoldModal1 from '../../../icons/change/Dice/DiceModal/GoldModal';
 import ArrowRightIcon from '../../../icons/change/Dice/DiceModal/arrowRight';
 import GroupIcon from '../../../icons/change/Dice/DiceModal/groupeIcon';
-const FakeData = [
-    {
-        BgImage :img ,
-        scale : 1,
-        borderImg : borderImg3
-    },
-    {
-        BgImage : img2,
-        scale : 0.9 ,
-        borderImg : borderImg3 ,
-    },
-    {
-        BgImage : img2,
-        scale : 1,
-        borderImg : borderImg3
-    },
-    {
-        BgImage : img2,
-        scale : 0.8,
-        borderImg : borderImg3
-    }
-]
+import { Api } from '../../../../api/apiUrl';
+import useTokenStore from '../../../../store/token';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 export default function DiceLayout1(){
+    const {token}= useTokenStore()
+    const [data , setdata]=useState([])
+    const [rank , setrank]=useState(0);
+    const luckyBoardHandler = async()=>{
+        try{
+            const response = await axios.get(Api[3].GamePage , 
+              {
+                headers:{
+                   "Authorization" : `token ${token}`
+                }
+              })
+              setdata([
+                {
+                    BgImage :response.data.lucky_board.player.picture ,
+                    scale : 1,
+                    borderImg : borderImg3
+                },
+                {
+                    BgImage : response.data.lucky_board.rank2.picture,
+                    scale : 0.9 ,
+                    borderImg : borderImg3 ,
+                },
+                {
+                    BgImage : response.data.lucky_board.rank1.picture,
+                    scale : 1,
+                    borderImg : borderImg3
+                },
+                {
+                    BgImage : response.data.lucky_board.rank3.picture,
+                    scale : 0.8,
+                    borderImg : borderImg3
+                }
+              ])
+              setrank(response.data.lucky_board.player.rank)
+              console.log(data)
+              console.log(response.data.lucky_board.player.picture)
+
+
+        }catch(err){
+            console.log(err)
+        }
+    }
+
+    useEffect(()=>{
+        luckyBoardHandler()
+    },[])
     return(
         <div className='DicelayoutPage-container'>
             <div className='DicelayoutPage-Body'>
@@ -40,19 +68,19 @@ export default function DiceLayout1(){
                 </div>
                 <div className='h-[100px] flex items-center justify-between'>
                     <div className='w-[90px] h-[60px] border-r border-[#1ae5a1] flex justify-center items-center'>
-                        <div className='relative'><CircleImageComponent {...FakeData[0]}/><span className='absolute bottom-[-8px] z-10 right-[17px]'>#20</span></div>
+                        <div className='relative'><CircleImageComponent {...data[0]}/><span className='absolute bottom-[-8px] z-10 right-[17px]'>#{rank}</span></div>
                     </div>
                     <div className='flex justify-between w-[66%]'>
                         <div className='relative'>
-                            <CircleImageComponent {...FakeData[1]}/>
+                            <CircleImageComponent {...data[1]}/>
                             <span className='absolute top-[44px] left-[22px] z-10'><SilverModal /></span>
                         </div>
                         <div className='relative'>
-                            <CircleImageComponent {...FakeData[2]}/>
+                            <CircleImageComponent {...data[2]}/>
                             <span className='absolute top-[50px] left-[22px] z-10'><GoldModal1 /></span>
                         </div>
                         <div className='relative'>
-                            <CircleImageComponent {...FakeData[3]} />
+                            <CircleImageComponent {...data[3]} />
                             <span className='absolute top-[42px] left-[22px] z-10' ><BronzModal /></span>
                         </div>
                     </div>

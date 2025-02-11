@@ -14,8 +14,8 @@
 
 .CircleImageComponent-container img{
     border-radius: 50%;
-    width: 92%;
-    height: 92%;
+    width: 90%;
+    height: 90%;
     position: absolute;
     z-index: 1;
 }
