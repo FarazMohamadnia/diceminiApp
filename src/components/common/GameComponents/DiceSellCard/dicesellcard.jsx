@@ -76,7 +76,7 @@ export default function Dicesellcard({Title , Img , Color , Dices , DTS , Price 
                     <span className='text-white mr-1'>
                         {Price}
                     </span>
-                    <span className={`text-[${Colors.colorsp}] font-bold`}>USD</span>
+                    <span className={`text-[${Colors.colorsp}] font-bold`}>TON</span>
                 </p>
             </div>
         </div>

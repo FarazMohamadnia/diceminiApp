@@ -3,8 +3,10 @@ import BlueShadow from "../../../components/shadows/blueShadow";
 import DepositIcon from "../../../components/icons/deposit";
 import WithdrawIcon from "../../../components/icons/withdraw";
 import { NavLink } from "react-router-dom";
+import useUserStore from "../../../store/user";
 
 const PaymentWallet = () => {
+  const {user} = useUserStore()
   return (
     <div
       className="relative border border-[#00F0FF] rounded-xl p-6 w-full max-w-md flex items-center justify-between"
@@ -19,9 +21,9 @@ const PaymentWallet = () => {
 
       <div className="flex w-1/2 flex-col justify-center">
         <span className="text-6xl text-white leading-none text-center font-bold">
-          25
+          {user.ton_balance}
         </span>
-        <span className="mt-2 text-center text-cyan-400 font-semibold">USDT/TON</span>
+        <span className="mt-2 text-center text-cyan-400 font-semibold">TON</span>
       </div>
 
       <div className="flex flex-col space-y-4 ml-6">

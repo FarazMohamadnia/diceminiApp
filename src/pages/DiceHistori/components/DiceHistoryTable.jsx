@@ -95,7 +95,7 @@ const Dicehistory = () => {
                   color: '#1AE5A1',
                 }}
               >
-                {tx.amount} <span className="text-white">USD</span>
+                {tx.amount} <span className="text-white">TON</span>
               </div>
 
             <div className="flex items-center space-x-4">

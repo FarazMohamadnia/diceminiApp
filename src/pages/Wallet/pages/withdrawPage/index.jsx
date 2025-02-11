@@ -33,7 +33,7 @@ const WithdrawPage = () => {
                     <p className="mt-3 text-[25px] font-bold text-center"><span className="text-white mr-2">{user.ton_balance}</span><span className="text-[#1ae5a1]">TON</span></p>
                     <div className="flex justify-between text-[10px] mt-3 text-white">
                         <p className='mr-2'>MINIMUM WITHDRAW AMOUNT :</p>
-                        <p className='font-bold'>0.6 <span className='text-[#1ae5a1]'>USD</span></p>
+                        <p className='font-bold'>0.6 <span className='text-[#1ae5a1]'>TON</span></p>
                     </div>
                 </div>
             </div>
@@ -68,11 +68,11 @@ const WithdrawPage = () => {
                         you will receive 
                     </p>
                     <p className='text-[#f15a2b] text-[8px] font-medium'>
-                        TRANFER FEE -0.12 USD
+                        TRANFER FEE -0.12 TON
                     </p>
                 </div>
                 <div className='ml-3'>
-                    <p className='text-[13px]'><span className='text-white'>0.6</span> <span className='text-[#1ae5a1]'>USD</span></p>
+                    <p className='text-[13px]'><span className='text-white'>0.6</span> <span className='text-[#1ae5a1]'>TON</span></p>
                 </div>
             </div>
             <div className='flex justify-center items-center mt-5 mb-7'>

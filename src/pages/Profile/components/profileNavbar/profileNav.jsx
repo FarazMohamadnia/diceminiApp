@@ -41,7 +41,7 @@ export default function ProfileNav() {
                 </div>
                 <div className='absolute right-7 bottom-[18px] flex items-center'>
                     <p className='profileNav-progress'><span
-                        className={`w-[${calculateProgress(user.xp , 0 , user.max_xp)}] h-[98%] bg-[#1AE5A1] absolute rounded-[45px]`}></span></p>
+                        className={`w-[${Math.floor(calculateProgress(user.xp , 0 , user.max_xp))}%] h-[98%] bg-[#1AE5A1] absolute rounded-[45px]`}></span></p>
                     <p className='text-[#1ae5a1] text-[8px] font-normal'><span>{user.xp}/{user.max_xp}</span>XP</p>
                 </div>
             </div>
