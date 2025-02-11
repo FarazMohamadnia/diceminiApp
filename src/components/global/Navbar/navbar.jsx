@@ -11,13 +11,14 @@ import ImgShadow from '../../icons/change/Navbar/imgshadow';
 import NavbarProgressbar from '../navprogress/NavProgross';
 import Logo from '../../icons/logo';
 import useUserStore from '../../../store/user';
+import useNotificationStore from '../../../store/notification';
 
 export default function Navbar(){
+    const { isToggled, setFalse } = useNotificationStore();
     const { user } = useUserStore();
-    const [CheckNotification , setCheckNotification]=useState(true);
     const NotificationCheckHandler =()=>{
-        setCheckNotification(false);
-        console.log(CheckNotification);
+        setFalse()
+        console.log(isToggled);
     }
     return(
         <div>
@@ -33,7 +34,7 @@ export default function Navbar(){
                     <div onClick={NotificationCheckHandler}>
                         <img alt='' className='mt-8 w-4 h-4' src={Notification}/>
                         {
-                            CheckNotification? 
+                            isToggled? 
                             <span className= 'navbar-Notification-boxshadow w-[5px] h-[5px] bg-[#1ae5a1] rounded right-0 top-7 absolute shadow-[0_35px_60px_-15px_#1ae5a1]'></span>
                             :
                             <div></div>
