@@ -13,7 +13,9 @@ import { Api } from '../../../api/apiUrl'
 import Swal from 'sweetalert2'
 import useUserStore from '../../../store/user'
 import useTokenStore from '../../../store/token'
+import diceAudio from '../../../asset/sound/dice-142528.mp3'
 export default function HomeLayout(){
+    let audio = new Audio(diceAudio);
     const {token } = useTokenStore();
     const { user } = useUserStore();
     const [numbers , setnumbers]=useState({
@@ -28,6 +30,18 @@ export default function HomeLayout(){
 
     const [Loading , setLoading]=useState(false);
     const [BtnDisabled , setBtnDisabled]=useState(false)
+
+    function vibratePhone() {
+        setTimeout(() => {
+            audio.play()
+            if ("vibrate" in navigator) {
+                navigator.vibrate(50)
+            } else {
+                console.log("Device does not support vibration.");
+            }
+        }, 700);
+    }
+    
     const RollHandler =async()=>{
         try{
             console.log(DiceNumber)
@@ -42,6 +56,7 @@ export default function HomeLayout(){
                 number1 :response.data.dice1,
                 number2 : response.data.dice2
             })
+
             setTimeout(() => {
                 setBtnDisabled(false)
                 setLoading(false)
@@ -51,6 +66,7 @@ export default function HomeLayout(){
                         text : "Win"
                     })
                 }
+                vibratePhone();
             }, 4000);
 
             console.log(response)
