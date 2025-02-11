@@ -1,6 +1,5 @@
 import BorderShadow from '../../../../components/icons/change/profileNavbar/border'
 import './profileNav.css'
-import img from '../../../../asset/img/NavbarImg/PIC.png'
 import Layer1 from '../../../../components/icons/change/profileNavbar/layer1'
 import ProfileShadow from '../../../../components/icons/change/profileNavbar/profileshadow'
 import BackgroundImg from '../../../../components/icons/change/profileNavbar/background'
@@ -9,12 +8,14 @@ import useUserStore from '../../../../store/user'
 
 export default function ProfileNav() {
     const { user } = useUserStore();
-    function calculateProgress(value, min, max) {
-        if (value < min || value > max) {
+    function calculateProgress() {
+        const xp = user.xp
+        const maxXp = user.max_xp
+        if (xp < 0 || xp > maxXp) {
             return 
         }
-        let percentage = ((value - min) / (max - min)) * 100;
-        return `${percentage}%`;
+        let percentage = ((xp - 0) / (maxXp - 0)) * 100;
+        return `${Math.round(percentage)}%`;
     }
     return (
         <div className=''>
@@ -41,7 +42,10 @@ export default function ProfileNav() {
                 </div>
                 <div className='absolute right-7 bottom-[18px] flex items-center'>
                     <p className='profileNav-progress'><span
-                        className={`w-[${Math.floor(calculateProgress(user.xp , 0 , user.max_xp))}%] h-[98%] bg-[#1AE5A1] absolute rounded-[45px]`}></span></p>
+                        style={{
+                            width: calculateProgress()
+                        }}
+                        className={`h-[98%] bg-[#1AE5A1] absolute rounded-[45px]`}></span></p>
                     <p className='text-[#1ae5a1] text-[8px] font-normal'><span>{user.xp}/{user.max_xp}</span>XP</p>
                 </div>
             </div>
