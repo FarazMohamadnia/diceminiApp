@@ -19,7 +19,9 @@ export const Api = [
         PostDiceNumber : url+'roll-dice/' ,
         tonusd : url+'ton-usd/',
         tondts : url+'dts-ton/',
+        diceTon : url+'dice-ton/',
         PostDeposit : url+'deposit/',
-        PostBuyDts : url+'buy-dts/'
+        PostBuyDts : url+'buy-dts/',
+        PostSellDice : url+'sell-dice/'
     }
 ]

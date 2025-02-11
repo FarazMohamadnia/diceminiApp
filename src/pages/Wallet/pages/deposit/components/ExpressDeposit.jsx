@@ -41,7 +41,6 @@ const ExpressDeposit = () => {
               }
             ]
           }
-          console.log(myTransaction.messages[0].amount)
           const response = await tonConnectUI.sendTransaction(myTransaction , {
             modals: ['before', 'success', 'error'],
             notifications: ['before', 'success', 'error']
