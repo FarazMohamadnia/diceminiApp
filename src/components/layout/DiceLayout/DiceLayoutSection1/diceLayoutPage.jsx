@@ -48,8 +48,6 @@ export default function DiceLayout1(){
                 }
               ])
               setrank(response.data.lucky_board.player.rank)
-              console.log(data)
-              console.log(response.data.lucky_board.player.picture)
 
 
         }catch(err){

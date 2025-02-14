@@ -63,10 +63,67 @@ export default function GameLayout2(){
     const { user }=useUserStore();
     const [dtsAmount , setdtsAmount]=useState(0);
     const {token } = useTokenStore();
+    const [data, setdata]=useState([])
 
     const SelectHandler = ()=>{
         Select ? setSelect(false) : setSelect(true)
     }
+
+    const getCombos = async()=>{
+        try{
+            const response = await axios.get(Api[0].combos , 
+            {
+              headers:{
+                 "Authorization" : `token ${token}`
+              }
+            })
+            console.log(response.data[0].name)
+            setdata([
+                {
+                    Title : response.data[0].name,
+                    Img : basicImg,
+                    Color : 'Green',
+                    Dices : '',
+                    DTS : response.data[0].dts_amount,
+                    className : ' top-[-50px] ',
+                    Price : response.data[0].ton_amount.toFixed(3)
+                },
+                {
+                    Title : response.data[1].name,
+                    Img : silverImg,
+                    Color : 'Red',
+                    Dices : '20 + 2',
+                    DTS : response.data[1].dts_amount,
+                    className : 'top-[-35px]',
+                    Price : response.data[1].ton_amount.toFixed(3)
+                },
+                {
+                    Title : response.data[2].name,
+                    Img : goldImg,
+                    Color : 'Yellow',
+                    Dices : '20 + 2',
+                    DTS : response.data[2].dts_amount,
+                    className : 'top-[6px]',
+                    Price : response.data[2].ton_amount.toFixed(3)
+                },
+                {
+                    Title :  response.data[3].name,
+                    Img : platinumImg,
+                    Color : 'Gold',
+                    Dices : '20 + 2',
+                    DTS : response.data[3].dts_amount,
+                    className : 'top-[-50px]',
+                    Price : response.data[3].ton_amount.toFixed(3)
+                }
+            ]
+            )
+
+        }catch(err){
+            console.log(err)
+        }
+    }
+
+
 
     const sendTransaction = async() => {
         if(dtsAmount > amount){
@@ -116,7 +173,8 @@ export default function GameLayout2(){
         }
     }
     useEffect(()=>{
-        dtsamounthandler()
+        dtsamounthandler();
+        getCombos()
     },[Select])
       
     return(
@@ -186,7 +244,7 @@ export default function GameLayout2(){
             :
             <div className='flex justify-center items-center flex-wrap'>
                 {
-                    FakeData.map(data=> <Dicesellcard  {...data}/>)
+                    data.map(data=> <Dicesellcard  {...data}/>)
                 }
             </div>
             }

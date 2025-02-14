@@ -61,9 +61,8 @@ export default function Dicesellcard({Title , Img , Color , Dices , DTS , Price 
                     textShadow : `0px 0px 2px ${Colors.colorsp} , 0px 0px 2px ${Colors.colorsp} , 0px 0px 2px ${Colors.colorsp} ,0px 0px 2px ${Colors.colorsp}`
                 }} className='text-white font-semibold'>{Title}</p>
             </div>
-            <div className='mt-7 text-center text-sm'>
-                <p className='text-[17px] font-bold'><span className='text-white'>{Dices}</span> <span className={`text-[${Colors.colorsp}]`}>DICES</span></p>
-                <p className='text-[16px]'><span className='text-white'>include {DTS} </span><span className={`text-[${Colors.colorsp}]`}>DTS</span></p>
+            <div className='mt-8 mb-9 text-center text-sm'>
+                <p className='text-[17px] font-bold'><span className='text-white'>include {DTS} </span><span className={`text-[${Colors.colorsp}]`}>DTS</span></p>
             </div>
             <div style={{backgroundColor : `${Colors.BgColor}`}} className='mt-[20px] w-full h-7 rounded-b-[11px]'>
                 <p className='flex justify-center items-center'>
