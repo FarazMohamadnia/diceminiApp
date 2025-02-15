@@ -8,57 +8,6 @@ import { Api } from "../../../api/apiUrl";
 import useTokenStore from "../../../store/token";
 import CancelledIcon from "../../../components/icons/cancelled";
 
-const transactions = [
-  {
-    status: "Successful",
-    icon: (
-      <>
-        <SucessFullIcon />
-      </>
-    ),
-    statusColor: "#1AE5A1",
-    amount: "-10 USDT",
-    amountColor: "#1AE5A1",
-    date: "2024/06/12",
-  },
-  {
-    status: "Processing",
-    icon: (
-      <>
-        <PendingIcon />
-      </>
-    ),
-    statusColor: "#FFCF60",
-    amount: "-10 USDT",
-    amountColor: "#FFCF60",
-    date: "2024/06/12",
-  },
-  {
-    status: "Successful",
-    icon: (
-      <>
-        <SucessFullIcon />
-      </>
-    ),
-    statusColor: "#1AE5A1",
-    amount: "+10 USDT",
-    amountColor: "#1AE5A1",
-    date: "2024/06/12",
-  },
-  {
-    status: "Successful",
-    icon: (
-      <>
-        <SucessFullIcon />
-      </>
-    ),
-    statusColor: "#1AE5A1",
-    amount: "+10 USDT",
-    amountColor: "#1AE5A1",
-    date: "2024/06/12",
-  }, 
-];
-
 const TransactionHistory = () => {
   const [transitionData ,settransitionData]=useState([]);
   const [renderHandler , setrenderHandler]=useState(true);
@@ -96,7 +45,7 @@ const TransactionHistory = () => {
           const date = new Date(data.insert_dt);
           const year = date.getFullYear();
           const month = date.getMonth() + 1
-          const day = date.getDay()
+          const day = date.getDate()
           setrenderHandler(false)
           console.log(data)
           const obg={
