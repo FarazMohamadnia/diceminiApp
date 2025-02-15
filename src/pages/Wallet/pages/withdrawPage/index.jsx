@@ -30,7 +30,7 @@ const WithdrawPage = () => {
             <div className=""><CurrencyIcon /></div>
                 <div className=" text-left">
                     <p className="text-white text-[13px] font-bold italic">Your Balance :</p>
-                    <p className="mt-3 text-[25px] font-bold text-center"><span className="text-white mr-2">{user.ton_balance}</span><span className="text-[#1ae5a1]">TON</span></p>
+                    <p className="mt-3 text-[25px] font-bold text-center"><span className="text-white mr-2">{user.ton_balance.toFixed(3)}</span><span className="text-[#1ae5a1]">TON</span></p>
                     <div className="flex justify-between text-[10px] mt-3 text-white">
                         <p className='mr-2'>MINIMUM WITHDRAW AMOUNT :</p>
                         <p className='font-bold'>0.6 <span className='text-[#1ae5a1]'>TON</span></p>

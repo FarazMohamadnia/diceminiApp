@@ -25,5 +25,10 @@ export const Api = [
         PostDeposit : url+'deposit/',
         PostBuyDts : url+'buy-dts/',
         PostSellDice : url+'sell-dice/'
+    },
+    {
+        withdrawsTable : url+'withdraws-table/',
+        depositsTable : url+'deposits-table/',
+        transactions : url+'transactions/'
     }
 ]
