@@ -18,44 +18,7 @@ import axios from 'axios'
 import { Api } from '../../../../api/apiUrl'
 import useTokenStore from '../../../../store/token'
 
-const FakeData =[
-    {
-        Title : 'BASIC COMBO',
-        Img : basicImg,
-        Color : 'Green',
-        Dices : '20 + 2',
-        DTS : '42',
-        className : ' top-[-50px] ',
-        Price : 1.99
-    },
-    {
-        Title : 'SILVER COMBO',
-        Img : silverImg,
-        Color : 'Red',
-        Dices : '20 + 2',
-        DTS : '42',
-        className : 'top-[-35px]',
-        Price : 3.99
-    },
-    {
-        Title : 'GOLD COMBO',
-        Img : goldImg,
-        Color : 'Yellow',
-        Dices : '20 + 2',
-        DTS : '42',
-        className : 'top-[6px]',
-        Price : 10.99
-    },
-    {
-        Title : 'PLATINUM COMBO',
-        Img : platinumImg,
-        Color : 'Gold',
-        Dices : '20 + 2',
-        DTS : '42',
-        className : 'top-[-50px]',
-        Price : 15.99
-    }
-]
+
 
 export default function GameLayout2(){
     const [Select , setSelect]=useState(true);
@@ -80,6 +43,7 @@ export default function GameLayout2(){
             console.log(response.data[0].name)
             setdata([
                 {
+                    id:1,
                     Title : response.data[0].name,
                     Img : basicImg,
                     Color : 'Green',
@@ -89,6 +53,7 @@ export default function GameLayout2(){
                     Price : response.data[0].ton_amount.toFixed(3)
                 },
                 {
+                    id:2,
                     Title : response.data[1].name,
                     Img : silverImg,
                     Color : 'Red',
@@ -98,6 +63,7 @@ export default function GameLayout2(){
                     Price : response.data[1].ton_amount.toFixed(3)
                 },
                 {
+                    id:3,
                     Title : response.data[2].name,
                     Img : goldImg,
                     Color : 'Yellow',
@@ -107,6 +73,7 @@ export default function GameLayout2(){
                     Price : response.data[2].ton_amount.toFixed(3)
                 },
                 {
+                    id:4,
                     Title :  response.data[3].name,
                     Img : platinumImg,
                     Color : 'Gold',
@@ -172,6 +139,7 @@ export default function GameLayout2(){
             console.log(err)
         }
     }
+
     useEffect(()=>{
         dtsamounthandler();
         getCombos()
@@ -244,7 +212,11 @@ export default function GameLayout2(){
             :
             <div className='flex justify-center items-center flex-wrap'>
                 {
-                    data.map(data=> <Dicesellcard  {...data}/>)
+                    data.map(data=> 
+                    <div key={data.id} >
+                        <div><Dicesellcard  {...data}/></div>
+                    </div>
+                    )
                 }
             </div>
             }

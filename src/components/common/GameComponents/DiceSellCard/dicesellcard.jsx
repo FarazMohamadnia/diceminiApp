@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react'
 import './dicesellcard.css'
-export default function Dicesellcard({Title , Img , Color , Dices , DTS , Price , className}){
+import axios from 'axios';
+import { Api } from '../../../../api/apiUrl';
+import useTokenStore from '../../../../store/token';
+import Swal from 'sweetalert2';
+
+export default function Dicesellcard({Title , Img , Color , id , DTS , Price , className}){
+    const {token} = useTokenStore();
+    const [disabled ,setdisabled]=useState(false)
     const [Colors , setColors]= useState({
         colorsp:'',
         BgColor : ''
@@ -42,6 +49,43 @@ export default function Dicesellcard({Title , Img , Color , Dices , DTS , Price 
         }
     }
 
+    const buyCombo = async()=>{
+        const dots_amount = DTS
+        try{
+            if(!disabled){
+                setdisabled(true)
+                Swal.fire({
+                    icon: 'success',
+                    title : 'Your purchase request has been registered'
+                })
+                const response = await axios.post(Api[3].PostBuyDts , {dots_amount : dots_amount} ,             {
+                  headers:{
+                     "Authorization" : `token ${token}`
+                  }
+                })
+                console.log(response)
+                Swal.fire({
+                  icon: 'success',
+                  title : 'Buy dts successfull'
+                })
+                setdisabled(false)
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    text : 'You have registered a purchase. Please wait...'
+                })
+            }
+        }catch(err){
+            setdisabled(false)
+            console.log(err)
+            Swal.fire({
+                icon: 'error',
+                title : err.response.data.error
+              })
+        }
+
+    }
+
     useEffect(()=>{
         ColorHandller()
     },[Color])
@@ -53,6 +97,10 @@ export default function Dicesellcard({Title , Img , Color , Dices , DTS , Price 
             borderColor : Colors.colorsp
         }} 
         className='Dicesellcard-container'>
+            <span 
+            className='absolute w-full h-full z-20'
+            onClick={buyCombo}
+            ></span>
             <div className='mt-8 h-20'>
                 <img className={` ${className} mx-auto absolute z-10`} src={Img} alt='' />
             </div>
