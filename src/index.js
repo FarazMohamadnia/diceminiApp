@@ -29,7 +29,7 @@ root.render(
   <div className="overflow-x-hidden max-w-lg">
     <BrowserRouter>
       <RouteProvider>
-        <TonConnectUIProvider manifestUrl="http://localhost:3000/maniest-example.json">
+        <TonConnectUIProvider manifestUrl="https://mainapp.dicemaniacs.com/maniest-example.json">
         <WalletProvider />   
         <ApiLoader />
           <Routes>

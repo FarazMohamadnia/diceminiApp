@@ -11,7 +11,7 @@ export default function Home(){
         {isLoading ?
             <Loading />
             :
-            <div className="pb-4">     
+            <div className="pb-4">  
                 <Navbar />
                 <HomeLayout />        
                 <Bottonlink />

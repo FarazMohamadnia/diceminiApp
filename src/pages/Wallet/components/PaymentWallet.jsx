@@ -21,7 +21,7 @@ const PaymentWallet = () => {
 
       <div className="flex w-1/2 flex-col justify-center">
         <span className="text-[12vw] text-white leading-none text-center font-bold">
-          {user.ton_balance.toFixed(3)}
+          {user.ton_balance ? user.ton_balance.toFixed(3) : ''}
         </span>
         <span className="mt-2 text-center text-cyan-400 font-semibold">TON</span>
       </div>
