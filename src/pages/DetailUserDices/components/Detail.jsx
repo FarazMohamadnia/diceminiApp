@@ -7,9 +7,33 @@ import Bottonlink from "../../../components/global/BottonLink/bottonlink";
 import UserRewardCard from "./Card";
 import { Link , useLocation } from "react-router-dom";
 import Networking from "../../../components/icons/networking";
+import axios from "axios";
+import { Api } from "../../../api/apiUrl";
+import Swal from "sweetalert2";
+import useTokenStore from "../../../store/token";
 
 const Detail = () => {
-
+  const [data , setdata]=useState([]);
+  const [loading , setloading]= useState(true)
+  const {token} = useTokenStore()
+  const referralHandler = async()=>{
+    try{
+      const response = await axios.get(Api[1].referrals ,{
+        headers:{
+           "Authorization" : `token ${token}`
+        }
+      })
+      setloading(false)
+      setdata(response.data.referral)
+      console.log(response.data.referral)
+    }catch(err){
+      console.log(err)
+      setloading(false)
+    }
+  }
+  useEffect(()=>{
+    referralHandler()
+  },[])
   return (
     <>
       <div>
@@ -28,10 +52,9 @@ const Detail = () => {
           <Tabs />
         </div>
         <div className="flex flex-col gap-4 mt-8 max-h-[23rem] overflow-y-scroll">
-          <UserRewardCard />
-          <UserRewardCard />
-          <UserRewardCard />
-          <UserRewardCard />
+          {
+            data.map((item , index) => <UserRewardCard key={index} {...item}/>)
+          }
         </div>
       </main>
       <div className="w-[272px] h-[51px] flex justify-center items-center mx-auto my-6 bg-white/10 rounded-[10px] shadow-[0px_0px_8.899999618530273px_0px_rgba(26,229,161,1.00)] border border-[#00efff] px-4 py-2">
