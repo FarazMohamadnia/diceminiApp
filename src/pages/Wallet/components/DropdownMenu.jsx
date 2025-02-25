@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 const DropDownMenu = ({
   title = "Select your Currency",
   active = false,
-  options = ["USD", "EUR", "GBP"],
+  options = ["TON"],
   pages = true
 }) => {
   const [isOpen, setIsOpen] = useState(false);

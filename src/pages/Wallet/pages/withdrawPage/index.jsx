@@ -12,6 +12,7 @@ import BlueWallet from '../../../../components/icons/blueWalletIcon';
 import WithDrawhistory from './components/WithdrawHistory';
 import DropDownMenu from '../../components/DropdownMenu';
 import useUserStore from '../../../../store/user';
+import ConnectWalletButton from '../../components/ConnectWallet';
 const WithdrawPage = () => {
     const { user }=useUserStore();
   return (
@@ -33,29 +34,21 @@ const WithdrawPage = () => {
                     <p className="mt-3 text-[25px] font-bold text-center"><span className="text-white mr-2">{user.ton_balance.toFixed(3)}</span><span className="text-[#1ae5a1]">TON</span></p>
                     <div className="flex justify-between text-[10px] mt-3 text-white">
                         <p className='mr-2'>MINIMUM WITHDRAW AMOUNT :</p>
-                        <p className='font-bold'>0.6 <span className='text-[#1ae5a1]'>TON</span></p>
+                        <p className='font-bold'>0.3 <span className='text-[#1ae5a1]'>TON</span></p>
                     </div>
                 </div>
             </div>
         </div>
         <div className='px-4 pb-28'>
-            <div className='WithdrawPage-inputs-style'>
-                <div>
-                    <p className='text-[#3bffff] text-[15px] font-light'>Your Wallet</p>
-                </div>
-                <div>
-                    <p className='text-white text-[10px]'>KSDJFGNHBIUEJDNBF34897FIU</p>
-                </div>
-                <div>
-                    <p className='text-[#3bffff] text-[15px] font-light'>Change</p>
-                </div>
+            <div className='w-[93%] mx-auto'>
+                <ConnectWalletButton />
             </div>
             <div className='flex px-[10px] my-2'>
                 <div className='w-[90%]'>
                     <DropDownMenu />
                 </div>
                 <div className='ml-2 w-[90%]'>
-                    <DropDownMenu title="Network" options={["ERC20", "BSC", "TON"]} />
+                    <DropDownMenu title="Network" options={["TON"]} />
                 </div>
             </div>
             <div className='px-[10px]'>

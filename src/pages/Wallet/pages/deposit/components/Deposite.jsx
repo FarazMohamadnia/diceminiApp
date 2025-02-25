@@ -42,7 +42,7 @@ const Deposite = () => {
         </div>
         <div className="mt-4 flex w-full gap-4">
           <DropDownMenu />
-          <DropDownMenu title="Network" options={["ERC20", "BSC", "TON"]} />
+          <DropDownMenu title="Network" options={["TON"]} />
         </div>
         <div className="w-full mt-6">
           {activeTab === "manual" ? <ManualDeposit /> : <ExpressDeposit />}
