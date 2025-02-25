@@ -58,12 +58,13 @@ function LeaderboardCard() {
   const[player , setplayer]=useState({})
   const playerRankhandler = async()=>{
     try{
-        const response = await axios.get(Api[3].GamePage, {
+        const response = await axios.get(Api[0].luckyBoard, {
             headers :{
                 Authorization: `token ${token}`
             }
         });
-        setplayer(response.data.lucky_board.player)
+        setplayer(response.data.player)
+        console.log(response)
     }catch(err){
         console.log(err)
     }
@@ -71,6 +72,7 @@ function LeaderboardCard() {
 useEffect(()=>{
     playerRankhandler()
 },[])
+
   return (
     <div
       className="flex items-center justify-between bg-[#1D222E] border border-[#CAFD7B] rounded-2xl pl-6 pr-10 py-4 mx-auto max-w-2xl"
@@ -79,7 +81,7 @@ useEffect(()=>{
       }}
     >
       <div className="flex items-center">
-        <span className="text-[#CAFD7B] font-bold text-2xl">#134</span>
+        <span className="text-[#CAFD7B] font-bold text-2xl">#{player.rank}</span>
       </div>
       <div>
         <span className="text-white font-semibold">{player.telegram_id}</span>

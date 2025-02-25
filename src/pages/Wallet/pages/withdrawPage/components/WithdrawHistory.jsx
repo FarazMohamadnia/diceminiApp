@@ -7,6 +7,9 @@ import { Api } from "../../../../../api/apiUrl";
 import useTokenStore from "../../../../../store/token";
 import CancelledIcon from "../../../../../components/icons/cancelled";
 import axios from "axios";
+import { spiral } from 'ldrs'
+spiral.register()
+
 const transactions = [
   {
     status: "succesful",
@@ -97,6 +100,7 @@ const transactions = [
 const WithDrawhistory = () => {
   const [transitionData ,settransitionData]=useState([]);
   const [renderHandler , setrenderHandler]=useState(true);
+  const [loading , setloading]=useState(true)
   const{token}=useTokenStore();
   const iconMap = {
     1: <SucessFullIcon />,
@@ -145,8 +149,9 @@ const WithDrawhistory = () => {
           transitionData.push(obg)
         })   
       }
-      console.log(transitionData)   
+      setloading(false)
     }catch(err){
+      setloading(false)
       console.log(err)
     }
   }
@@ -176,6 +181,16 @@ const WithDrawhistory = () => {
           </span>
         </div>
       </div>
+      {
+        loading ? 
+        <div className="flex justify-center items-center h-full w-full">
+        <l-spiral
+          size="70"
+          speed="0.9"
+          color="white" 
+        ></l-spiral>
+      </div> 
+      :
       <div className="mt-8 flex flex-col divide-y divide-green-500">
         {transitionData.map((tx, index) => (
           <div
@@ -227,6 +242,7 @@ const WithDrawhistory = () => {
           </div>
         ))}
       </div>
+    }
     </div>
   );
 };

@@ -17,6 +17,8 @@ import useCounterStore from '../../../../store/amount'
 import axios from 'axios'
 import { Api } from '../../../../api/apiUrl'
 import useTokenStore from '../../../../store/token'
+import { spiral } from 'ldrs'
+spiral.register()
 
 
 
@@ -27,6 +29,7 @@ export default function GameLayout2(){
     const [dtsAmount , setdtsAmount]=useState(0);
     const {token } = useTokenStore();
     const [data, setdata]=useState([])
+    const [loading , setloading]=useState(true)
 
     const SelectHandler = ()=>{
         Select ? setSelect(false) : setSelect(true)
@@ -84,8 +87,10 @@ export default function GameLayout2(){
                 }
             ]
             )
+            setloading(false)
 
         }catch(err){
+            setloading(false)
             console.log(err)
         }
     }
@@ -212,6 +217,15 @@ export default function GameLayout2(){
             :
             <div className='flex justify-center items-center flex-wrap'>
                 {
+                    loading ? 
+                    <div className='my-10'>
+                        <l-spiral
+                            size="120"
+                            speed="0.9"
+                            color="white" 
+                        ></l-spiral> 
+                    </div>
+                    :
                     data.map(data=> 
                     <div key={data.id} >
                         <div><Dicesellcard  {...data}/></div>

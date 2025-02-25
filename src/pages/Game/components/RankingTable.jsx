@@ -30,33 +30,36 @@ export function LeaderboardList() {
     level: "",
   },
   ])
+  const [items , setitems]=useState([])
 
   const playerRankhandler = async()=>{
       try{
-          const response = await axios.get(Api[3].GamePage, {
+          const response = await axios.get(Api[0].luckyBoard, {
               headers :{
                   Authorization: `token ${token}`
               }
           });
           setitem([{
             icon: <GoldCoin />,
-            name: response.data.lucky_board.rank1.telegram_id,
-            dices: response.data.lucky_board.rank1.dice_balance,
-            level: response.data.lucky_board.rank1.level,
+            name: response.data.lucky_board[0].first_name,
+            dices: response.data.lucky_board[0].dice_balance,
+            level: response.data.lucky_board[0].level,
           },
           {
             icon: <SilverCoin />,
-            name: response.data.lucky_board.rank2.telegram_id,
-            dices: response.data.lucky_board.rank2.telegram_id,
-            level: response.data.lucky_board.rank2.telegram_id,
+            name: response.data.lucky_board[1].first_name,
+            dices: response.data.lucky_board[1].dice_balance,
+            level: response.data.lucky_board[1].level,
           },
           {
             icon: <BronzeIcon />,
-            name: response.data.lucky_board.rank3.telegram_id,
-            dices:response.data.lucky_board.rank3.telegram_id,
-            level:response.data.lucky_board.rank3.telegram_id,
-          },
+            name: response.data.lucky_board[2].first_name,
+            dices:response.data.lucky_board[2].dice_balance,
+            level:response.data.lucky_board[2].level,
+          }
           ])
+          setitems(response.data.lucky_board.slice(3));
+          console.log(response.data.lucky_board[1].first_name)
       }catch(err){
           console.log(err)
       }
@@ -86,7 +89,7 @@ export function LeaderboardList() {
                 <span>
                   <DiceIcon />
                 </span>
-                <span className="text-[14px]">{item.dices}</span>
+                <span className="text-[14px]">{item.dices} Dice</span>
               </div>
             <div className="flex items-center space-x-1 text-white">
               <span>
@@ -97,6 +100,29 @@ export function LeaderboardList() {
           </div>
         ))}
       </div>
+      {items.map((item, index) => (
+          <div
+            key={index}
+            className="flex items-center justify-between py-3 px-10 border border-[#1AE5A1] rounded-lg"
+          >
+            <div className={`flex items-center ${item.rankColor || ""}`}>
+              <span className="text-2xl text-[#1AE5A1]">#{item.rank}</span>
+            </div>
+            <span className="text-white text-[16px] font-medium">{item.first_name}</span>
+            <div className="flex items-center space-x-1 text-white">
+                <span>
+                  <DiceIcon />
+                </span>
+                <span className="text-[14px]">{item.dice_balance} Dice</span>
+              </div>
+            <div className="flex items-center space-x-1 text-white">
+              <span>
+                <FlashIcon />
+              </span>
+              <span className="text-[12px]">{item.level}</span>
+            </div>
+          </div>
+        ))}
     </div>
   );
 }

@@ -7,11 +7,14 @@ import CancelledIcon from "../../../../../components/icons/cancelled";
 import useTokenStore from "../../../../../store/token";
 import { Api } from "../../../../../api/apiUrl";
 import axios from "axios";
+import { spiral } from 'ldrs'
+spiral.register()
 
 
 const HistoryTable = () => {
     const [transitionData ,settransitionData]=useState([]);
     const [renderHandler , setrenderHandler]=useState(true);
+    const [loading , setloading]=useState(true)
     const{token}=useTokenStore();
     const iconMap = {
       1: <SucessFullIcon />,
@@ -59,9 +62,10 @@ const HistoryTable = () => {
             transitionData.push(obg)
           })   
         }
-        console.log(transitionData)   
+        setloading(false)
       }catch(err){
         console.log(err)
+        setloading(false)
       }
     }
   
@@ -90,6 +94,16 @@ const HistoryTable = () => {
           </span>
         </div>
       </div>
+      {
+      loading? 
+      <div className="flex justify-center items-center h-full w-full">
+        <l-spiral
+          size="70"
+          speed="0.9"
+          color="white" 
+        ></l-spiral>
+      </div> 
+      :
       <div className="mt-8 flex flex-col divide-y divide-[#cafd7b3b]">
         {transitionData.map((tx, index) => (
           <div
@@ -142,6 +156,7 @@ const HistoryTable = () => {
           </div>
         ))}
       </div>
+      }
     </div>
   );
 };

@@ -1,5 +1,5 @@
 // const url = 'https://main.dicemaniacs.com/api/'
-const url = 'http://5.75.237.202:8000/api/'
+const url = 'http://192.168.40.20:8000/api/'
 
 export const Api = [
     {
@@ -25,11 +25,11 @@ export const Api = [
         diceTon : url+'dice-ton/',
         PostDeposit : url+'deposit/',
         PostBuyDts : url+'buy-dts/',
-        PostSellDice : url+'sell-dice/'
+        PostSellDice : url+'sell-dice/',
     },
     {
         withdrawsTable : url+'withdraws-table/',
         depositsTable : url+'deposits-table/',
-        transactions : url+'transactions/'
+        transactions : url+'transactions/',
     }
 ]
