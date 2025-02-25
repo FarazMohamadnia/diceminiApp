@@ -13,8 +13,42 @@ import WithDrawhistory from './components/WithdrawHistory';
 import DropDownMenu from '../../components/DropdownMenu';
 import useUserStore from '../../../../store/user';
 import ConnectWalletButton from '../../components/ConnectWallet';
+import useTokenStore from '../../../../store/token';
+import axios from 'axios';
+import { Api } from '../../../../api/apiUrl';
+import Swal from 'sweetalert2';
+import useCounterStore from '../../../../store/amount';
 const WithdrawPage = () => {
+    const { amount} = useCounterStore();
     const { user }=useUserStore();
+    const {token} =useTokenStore()
+    const sendTonAmount =async()=>{
+        try{
+            const response = await axios.post(Api[4].PostWithdraw , {ton_amount : amount} ,             {
+                headers:{
+                   "Authorization" : `token ${token}`
+                }
+            })
+            if(response.status === 200){
+                Swal.fire({
+                    icon: 'success',
+                    title : 'transaction confirmed '
+                })
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title : 'transaction failed '
+                })
+            }
+            
+        }catch(err){
+            Swal.fire({
+                icon: 'error',
+                title : 'transaction failed '
+            })
+            console.log(err)
+        }
+    }
   return (
     <div>
         <div>
@@ -34,13 +68,13 @@ const WithdrawPage = () => {
                     <p className="mt-3 text-[25px] font-bold text-center"><span className="text-white mr-2">{user.ton_balance.toFixed(3)}</span><span className="text-[#1ae5a1]">TON</span></p>
                     <div className="flex justify-between text-[10px] mt-3 text-white">
                         <p className='mr-2'>MINIMUM WITHDRAW AMOUNT :</p>
-                        <p className='font-bold'>0.3 <span className='text-[#1ae5a1]'>TON</span></p>
+                        <p className='font-bold'>1 <span className='text-[#1ae5a1]'>TON</span></p>
                     </div>
                 </div>
             </div>
         </div>
         <div className='px-4 pb-28'>
-            <div className='w-[93%] mx-auto'>
+            <div className='w-[95%] mx-auto'>
                 <ConnectWalletButton />
             </div>
             <div className='flex px-[10px] my-2'>
@@ -69,7 +103,7 @@ const WithdrawPage = () => {
                 </div>
             </div>
             <div className='flex justify-center items-center mt-5 mb-7'>
-                <button className="WithdrawPage-BTN-boxshadow flex items-center justify-center space-x-2 border border-[#00F0FF] rounded-2xl px-9 py-2">
+                <button onClick={sendTonAmount} className="WithdrawPage-BTN-boxshadow flex items-center justify-center space-x-2 border border-[#00F0FF] rounded-2xl px-9 py-2">
                   <BlueWallet />
                   <span className="text-[#00F0FF] font-semibold tracking-wide text-start">
                     Withdraw

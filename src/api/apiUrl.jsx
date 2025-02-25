@@ -10,7 +10,8 @@ export const Api = [
     },
     {
         PostSellDice : url+'sell-dice/',
-        EarnDtsList : url+'earn-dts/'
+        EarnDtsList : url+'earn-dts/',
+        referrals : url+'referrals/'
     },
     {
         PostConnectWallet : url+'connect-wallet/',
@@ -31,5 +32,6 @@ export const Api = [
         withdrawsTable : url+'withdraws-table/',
         depositsTable : url+'deposits-table/',
         transactions : url+'transactions/',
+        PostWithdraw : url+'withdraw/'
     }
 ]
