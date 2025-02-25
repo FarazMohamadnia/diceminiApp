@@ -11,7 +11,8 @@ export const Api = [
     {
         PostSellDice : url+'sell-dice/',
         EarnDtsList : url+'earn-dts/',
-        referrals : url+'referrals/'
+        referrals : url+'referrals/',
+        referralCode : url+'referral-code/'
     },
     {
         PostConnectWallet : url+'connect-wallet/',

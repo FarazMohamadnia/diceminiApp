@@ -14,7 +14,8 @@ import useTokenStore from "../../../store/token";
 
 const Detail = () => {
   const [data , setdata]=useState([]);
-  const [loading , setloading]= useState(true)
+  const [loading , setloading]= useState(true);
+  const[code , setcode]=useState('')
   const {token} = useTokenStore()
   const referralHandler = async()=>{
     try{
@@ -31,8 +32,31 @@ const Detail = () => {
       setloading(false)
     }
   }
+
+  const referralCodeHandler =async()=>{
+    try{
+      const response = await axios.get(Api[1].referralCode ,{
+        headers:{
+           "Authorization" : `token ${token}`
+        }
+      })
+      setcode(response.data.referral_link)
+    }catch(err){
+      console.log(err)
+    }
+  }
+
+  const ShareText = (link) => {
+    return `🔥 Predict the Dice Combo & Share $100 Daily! 🔥\n\n🎯 Guess the perfect combo and win your share of $100 every day!\n\n🙌 Invite your friends to submit more combos & boost your chances to win!\n\n💰 More entries = More wins! 🚀\n\n👉 Start predicting now! 🎲\n\n${link}`;
+  };
+
+  const fallbackUrl = `https://t.me/share/url?url=&text=${encodeURIComponent(
+    ShareText(code)
+  )}`;
+
   useEffect(()=>{
     referralHandler()
+    referralCodeHandler()
   },[])
   return (
     <>
@@ -61,7 +85,7 @@ const Detail = () => {
         <p className="mr-3">
           <Networking />
         </p>
-        <p className="text-[#3bffff] text-[13px] font-medium">INVITE YOUR FIRENDS TO EARN MORE</p>
+        <a href={fallbackUrl}><p className="text-[#3bffff] text-[13px] font-medium">INVITE YOUR FIRENDS TO EARN MORE</p></a>
       </div>
       <div>
         <Bottonlink />
