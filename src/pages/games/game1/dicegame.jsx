@@ -67,7 +67,7 @@ export default function DiceGame1() {
           <Table history={history}/>
         </div>
         <div className="mt-5">
-          <Controller />
+          <Controller multiplier={multiplier}/>
         </div>
         <div className="flex justify-center items-center ml-5 mt-14 mb-8">
           <div className="mr-[52px]">

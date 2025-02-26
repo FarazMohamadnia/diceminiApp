@@ -1,12 +1,5 @@
-import React, { useEffect, useState } from "react";
 
 const TableWithDiv = (history) => {
-  
-  console.log(history.history)
-
-  useEffect(()=>{
-    
-  },[])
   return (
     <div className=" text-white w-[70%] mx-auto text-[13px] font-light box-border">
       {/* Header */}
