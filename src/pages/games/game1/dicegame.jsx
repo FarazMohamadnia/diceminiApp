@@ -13,7 +13,7 @@ import useTokenStore from "../../../store/token";
 
 export default function DiceGame1() {
   const {token}=useTokenStore()
-  const [dts, setdts] = useState(2);
+  const [dts, setdts] = useState(null);
   const [history ,sethistory]=useState([]);
   const [multiplier , setmultiplier]=useState({});
   const [userDts , setuserDts]=useState({})
@@ -23,8 +23,7 @@ export default function DiceGame1() {
     number2: 3,
   });
   const [userData1, setuserData1] = useState({
-    username: "alireza",
-    dts: 1507,
+    dts: 0,
   });
 
   const rollHnadler = () => {
@@ -49,6 +48,7 @@ export default function DiceGame1() {
       sethistory(response.data.game_history)
       setmultiplier(response.data.multipliers)
       setuserDts(response.data.user_dts)
+      console.log(response.data.user_dts.max_dts)
     }catch(err){
 
     }
@@ -92,7 +92,7 @@ export default function DiceGame1() {
         <div className="flex justify-between items-center mx-3 mt-8">
           <div className="flex">
             <button
-              onClick={() => setdts(2)}
+              onClick={() => setdts(userDts.min_dts)}
               className="flex justify-center items-center relative"
             >
               <WhiteBtn />
@@ -124,15 +124,16 @@ export default function DiceGame1() {
             </button>
           </div>
           <div>
-            <p className="text-white text-[20px] font-bold">
+            {/* <p className="text-white text-[20px] font-bold">
               {dts}
               <span className="text-[#1ae5a1] ms-1">DTS</span>
-            </p>
+            </p> */}
+            <input placeholder="100 DTS" className="bg-white/0 text-white text-[20px] font-bold text-center max-w-[100px]" type="number" value={dts} onChange={(e)=>{setdts(e.target.value)}}/>
           </div>
           <div className="flex">
             <button
               onClick={() =>
-                dts < userData1.dts ? setdts((prev) => prev + 1) : userData1.dts
+                dts < userDts.max_dts ? setdts((prev) => Number(prev) + 1) : userDts.max_dts
               }
               className="flex justify-center items-center relative mx-1"
             >
@@ -164,7 +165,7 @@ export default function DiceGame1() {
               </p>
             </button>
             <button
-              onClick={() => setdts(userData1.dts)}
+              onClick={() => setdts(userDts.max_dts)}
               className="flex justify-center items-center relative"
             >
               <WhiteBtn />

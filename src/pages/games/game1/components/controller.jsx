@@ -8,18 +8,15 @@ export default function Controller(multiplier){
     const [active , setactive]=useState(true)
     const [number , setnumber] = useState(2);
     const [multiplierNum , setmultiplierNum]=useState(1.01);
-    console.log(multiplier) 
     const numberHandler = (e)=>{
         const id = e.target.id
         if(active){
             if(id == 1 && number < 11){
                 setnumber((prev)=> prev+1)
                 setmultiplierNum(multiplier.multiplier.over[number+1])
-                console.log(multiplier.multiplier.over[number])
             }else if(id == 2 && number > 2){
                 setnumber((prev)=> prev-1)
                 setmultiplierNum(multiplier.multiplier.over[number-1])
-                console.log(multiplier.multiplier.over[number])
             }
         }else{
             if(id == 1 && number < 12){
