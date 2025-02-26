@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const TableWithDiv = () => {
-  const data = [
-    { bet: "5.00", multiplier: "35.3x", game: "over11", roll: 6, profit: 5.0 },
-    { bet: "5.00", multiplier: "35.3x", game: "over11", roll: 6, profit: -5.0 },
-    { bet: "5.00", multiplier: "35.3x", game: "over11", roll: 6, profit: 5.0 },
-    { bet: "5.00", multiplier: "35.3x", game: "over11", roll: 6, profit: -5.0 },
-  ];
+const TableWithDiv = (history) => {
+  
+  console.log(history.history)
 
+  useEffect(()=>{
+    
+  },[])
   return (
     <div className=" text-white w-[70%] mx-auto text-[13px] font-light box-border">
       {/* Header */}
@@ -23,25 +22,25 @@ const TableWithDiv = () => {
       </div>
 
       {/* Rows */}
-      {data.map((row, index) => (
+      {history.history.map((row, index) => (
         <div
           key={index}
           className={`grid grid-cols-5 items-center text-center`}
         >
-          <div className="text-left pl-3">{row.bet}</div>
-          <div className="">{row.multiplier}</div>
+          <div className="text-left pl-3">{row.play_dots_amount}</div>
+          <div className="">{row.details.multiplier}x</div>
           <div className="">{row.game}</div>
           <div
             className=''
           >
-            {row.roll}
+            {row.details.roll}
           </div>
           <div
             className={` px-3 my-1 rounded-2xl ${
               row.profit < 0 ? "bg-red-500 text-white" : "bg-green-500"
             }`}
           >
-            {row.profit.toFixed(2)}
+            {row.win_dots_amount ? row.win_dots_amount.toFixed(2) : 0}
           </div>
         </div>
       ))}

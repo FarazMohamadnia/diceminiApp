@@ -9,7 +9,6 @@ import { Link , useLocation } from "react-router-dom";
 import Networking from "../../../components/icons/networking";
 import axios from "axios";
 import { Api } from "../../../api/apiUrl";
-import Swal from "sweetalert2";
 import useTokenStore from "../../../store/token";
 
 const Detail = () => {

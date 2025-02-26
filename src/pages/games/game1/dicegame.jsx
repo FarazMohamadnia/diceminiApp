@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CrapsGame from "../../../components/layout/HomeLayout/components/rolldice";
 import "../index.css";
 import Controller from "./components/controller";
@@ -7,9 +7,16 @@ import RollBtn from "./asset/rollbtn";
 import GreenBtn from "./asset/greenbtn";
 import WhiteBtn from "./asset/whitebtn";
 import BackButton from "../../../components/common/shared/BackButton";
+import axios from "axios";
+import { Api } from "../../../api/apiUrl";
+import useTokenStore from "../../../store/token";
 
 export default function DiceGame1() {
+  const {token}=useTokenStore()
   const [dts, setdts] = useState(2);
+  const [history ,sethistory]=useState([]);
+  const [multiplier , setmultiplier]=useState({});
+  const [userDts , setuserDts]=useState({})
   const [loading, setloading] = useState(false);
   const [numbers, setnumbers] = useState({
     number1: 2,
@@ -31,6 +38,25 @@ export default function DiceGame1() {
       setloading(false);
     }, 4000);
   };
+
+  const LoadedData = async()=>{
+    try{
+      const response = await axios.get('http://192.168.40.20:8000/api/rocket-dice/' , {
+        headers:{
+           "Authorization" : `token ${token}`
+        }
+      })
+      sethistory(response.data.game_history)
+      setmultiplier(response.data.multipliers)
+      setuserDts(response.data.user_dts)
+    }catch(err){
+
+    }
+  }
+
+  useEffect(()=>{
+    if(token)LoadedData()
+  },[token])
   return (
     <div className="min-h-[100vh] w-full flex justify-center items-center">
       <div className="DiceGame1-container">
@@ -38,12 +64,12 @@ export default function DiceGame1() {
           <BackButton color={true} title={"Back To Home"} />
         </div>
         <div>
-          <Table />
+          <Table history={history}/>
         </div>
-        <div className="mt-5 ">
+        <div className="mt-5">
           <Controller />
         </div>
-        <div className="flex justify-center items-center ml-5 my-10">
+        <div className="flex justify-center items-center ml-5 mt-14 mb-8">
           <div className="mr-[52px]">
             <CrapsGame targetNumber={numbers.number1} rolling={loading} />
           </div>

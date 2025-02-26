@@ -2,6 +2,7 @@ import { useState } from "react";
 import ArrowBottom from "../asset/arrowbottom";
 import ArrowTop from "../asset/arrowtop";
 import CustomBtn from "../asset/custombtn";
+import SelectNum from "../asset/icons/selectNum";
 
 export default function Controller(){
     const [active , setactive]=useState(true)
@@ -40,10 +41,16 @@ export default function Controller(){
                     UNDER
                 </button>
             </div>
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center relative">
                 <div className="relative top-[5px] flex justify-center items-center">
                     <CustomBtn />
                     <span className="absolute top-6 text-black text-[32px] font-bold">{number}</span>
+                </div>
+                <div className='absolute bottom-[-35px] text-center'>
+                    <div>
+                        <SelectNum />
+                    </div>
+                    <p className="text-white">1.13</p>
                 </div>
             </div>
             <div className="flex flex-col justify-around">
