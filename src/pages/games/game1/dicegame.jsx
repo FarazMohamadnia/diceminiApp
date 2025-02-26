@@ -10,6 +10,7 @@ import BackButton from "../../../components/common/shared/BackButton";
 import axios from "axios";
 import { Api } from "../../../api/apiUrl";
 import useTokenStore from "../../../store/token";
+import Swal from "sweetalert2";
 
 export default function DiceGame1() {
   const {token}=useTokenStore()
@@ -22,25 +23,70 @@ export default function DiceGame1() {
     number1: 2,
     number2: 3,
   });
-  const [userData1, setuserData1] = useState({
-    dts: 0,
-  });
+  const [data , setdata]=useState({
+    roll : 0,
+    guess : 'Over',
+    dts:0,
+    multiplier :0
+  })
+  const [refresh , setrefresh]=useState(true)
+  const rollHnadler = async() => {
+    setdata({
+      ...data ,
+      dts : dts
+    })
+    try{
+      setloading(true);
+      const response = await axios.post(Api[5].RocketGame , {
+        roll : data.roll,
+        guess : data.guess,
+        dts : dts ,
+        multiplier : data.multiplier
+      } ,{
+        headers:{ 
+           "Authorization" : `token ${token}`
+        }
+      })
+      setnumbers({
+        number1: response.data.dices[0],
+        number2: response.data.dices[1],
+      });
+      setTimeout(() => {
+        setloading(false);
+        setTimeout(() => {
+          if(response.data.is_win){
+            Swal.fire({
+              icon:'success',
+              title : 'You Win'
+            })
+          }else{
+            Swal.fire({
+              icon:'error',
+              title : 'You Lost'
+            })
+          }
+          setrefresh(refresh ? false : true)
+        }, 700);
+      }, 4000);
 
-  const rollHnadler = () => {
-    console.log("roll");
-    setloading(true);
-    setnumbers({
-      number1: 2,
-      number2: 5,
-    });
-    setTimeout(() => {
-      setloading(false);
-    }, 4000);
+      console.log(response)
+    }catch(err){
+      setTimeout(() => {
+        setloading(false);
+        setTimeout(() => {
+          Swal.fire({
+            icon:'error',
+            title : 'Error'
+          })
+        }, 700);
+      }, 4000);
+      console.log(err)
+    }
   };
 
   const LoadedData = async()=>{
     try{
-      const response = await axios.get('http://192.168.40.20:8000/api/rocket-dice/' , {
+      const response = await axios.get(Api[5].RocketGame , {
         headers:{
            "Authorization" : `token ${token}`
         }
@@ -50,13 +96,13 @@ export default function DiceGame1() {
       setuserDts(response.data.user_dts)
       console.log(response.data.user_dts.max_dts)
     }catch(err){
-
+      console.log(err)
     }
   }
 
   useEffect(()=>{
     if(token)LoadedData()
-  },[token])
+  },[token ,refresh ])
   return (
     <div className="min-h-[100vh] w-full flex justify-center items-center">
       <div className="DiceGame1-container">
@@ -67,7 +113,7 @@ export default function DiceGame1() {
           <Table history={history}/>
         </div>
         <div className="mt-5">
-          <Controller multiplier={multiplier}/>
+          <Controller multiplier={multiplier} setdata={setdata} data={data}/>
         </div>
         <div className="flex justify-center items-center ml-5 mt-14 mb-8">
           <div className="mr-[52px]">
@@ -124,10 +170,6 @@ export default function DiceGame1() {
             </button>
           </div>
           <div>
-            {/* <p className="text-white text-[20px] font-bold">
-              {dts}
-              <span className="text-[#1ae5a1] ms-1">DTS</span>
-            </p> */}
             <input placeholder="100 DTS" className="bg-white/0 text-white text-[20px] font-bold text-center max-w-[100px]" type="number" value={dts} onChange={(e)=>{setdts(e.target.value)}}/>
           </div>
           <div className="flex">

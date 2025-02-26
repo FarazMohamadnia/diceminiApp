@@ -20,7 +20,7 @@ const TableWithDiv = (history) => {
           key={index}
           className={`grid grid-cols-5 items-center text-center`}
         >
-          <div className="text-left pl-3">{row.play_dots_amount}</div>
+          <div className="text-left pl-3">{row.play_dots_amount.toFixed(2)}</div>
           <div className="">{row.details.multiplier}x</div>
           <div className="">{row.details.detail}</div>
           <div
@@ -30,7 +30,7 @@ const TableWithDiv = (history) => {
           </div>
           <div
             className={` px-3 my-1 rounded-2xl ${
-              row.profit < 0 ? "bg-red-500 text-white" : "bg-green-500"
+              row.win_dots_amount <= 0 ? "bg-red-500 text-white" : "bg-green-500"
             }`}
           >
             {row.win_dots_amount ? row.win_dots_amount.toFixed(2) : 0}

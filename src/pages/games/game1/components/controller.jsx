@@ -4,7 +4,7 @@ import ArrowTop from "../asset/arrowtop";
 import CustomBtn from "../asset/custombtn";
 import SelectNum from "../asset/icons/selectNum";
 
-export default function Controller(multiplier){
+export default function Controller({multiplier,setdata , data}){
     const [active , setactive]=useState(true)
     const [number , setnumber] = useState(2);
     const [multiplierNum , setmultiplierNum]=useState(1.01);
@@ -13,18 +13,44 @@ export default function Controller(multiplier){
         if(active){
             if(id == 1 && number < 11){
                 setnumber((prev)=> prev+1)
-                setmultiplierNum(multiplier.multiplier.over[number+1])
+                setdata({
+                    ...data ,
+                    roll : number+1,
+                    guess : 'Over',
+                    multiplier :multiplier.over[number+1]
+                })
+                setmultiplierNum(multiplier.over[number+1])
             }else if(id == 2 && number > 2){
                 setnumber((prev)=> prev-1)
-                setmultiplierNum(multiplier.multiplier.over[number-1])
+                setdata({
+                    ...data ,
+                    roll : number-1,
+                    guess : 'Over',
+                    multiplier :multiplier.over[number-1]
+
+                })
+                setmultiplierNum(multiplier.over[number-1])
             }
         }else{
             if(id == 1 && number < 12){
                 setnumber((prev)=> prev+1)
-                setmultiplierNum(multiplier.multiplier.under[number+1])
+                setmultiplierNum(multiplier.under[number+1])
+                setdata({
+                    ...data ,
+                    roll : number+1,
+                    guess : 'Under',
+                    multiplier :multiplier.under[number+1]
+                })
             }else if(id == 2 && number > 3){
                 setnumber((prev)=> prev-1)
-                setmultiplierNum(multiplier.multiplier.under[number-1])
+                setdata({
+                    ...data ,
+                    roll : number-1 ,
+                    guess : 'Under',
+                    multiplier :multiplier.under[number-1]
+
+                })
+                setmultiplierNum(multiplier.under[number-1])
             }
         }
     }
@@ -34,7 +60,7 @@ export default function Controller(multiplier){
                 <button onClick={()=>{
                     setactive(true)
                     setnumber(2)
-                    setmultiplierNum(multiplier.multiplier.over[2])
+                    setmultiplierNum(multiplier.over[2])
                 }} 
                     className={` ${active ? 'bg-gradient-to-b from-[#2e6282] to-[#999999] font-bold ' : 'bg-white text-black '} w-[89px] h-[29px] text-center text-[15px] rounded-2xl`}
                     >
@@ -43,7 +69,7 @@ export default function Controller(multiplier){
                 <button onClick={()=>{
                     setactive(false) 
                     setnumber(3)
-                    setmultiplierNum(multiplier.multiplier.under[3])
+                    setmultiplierNum(multiplier.under[3])
                 }} 
                     className={`${active ? 'bg-white text-black ' : 'bg-gradient-to-b from-[#2e6282] to-[#999999] font-bold '} w-[89px] h-[29px] mt-[6px] rounded-2xl text-center text-[15px]"`}
                     >
