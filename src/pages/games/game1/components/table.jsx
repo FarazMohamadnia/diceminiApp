@@ -29,7 +29,7 @@ const TableWithDiv = (history) => {
         >
           <div className="text-left pl-3">{row.play_dots_amount}</div>
           <div className="">{row.details.multiplier}x</div>
-          <div className="">{row.game}</div>
+          <div className="">{row.details.detail}</div>
           <div
             className=''
           >
