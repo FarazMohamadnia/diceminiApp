@@ -46,8 +46,8 @@ root.render(
             <Route path="/Wallet/deposite" element={<Deposite />} />
             <Route path="/Profile" element={<ProfilePage />} />
             <Route path="/notification" element={<Notification />} />
-            <Route path="/games/game1" element={<DiceGame1 />} />
-            <Route path="/games/game2" element={<DiceGame2 />} />
+            <Route path="/games/rocket-dice" element={<DiceGame1 />} />
+            <Route path="/games/dice-clash" element={<DiceGame2 />} />
           </Routes>
         </TonConnectUIProvider>
       </RouteProvider>

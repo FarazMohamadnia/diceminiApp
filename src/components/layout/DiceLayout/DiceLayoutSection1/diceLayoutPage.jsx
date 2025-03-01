@@ -48,7 +48,7 @@ export default function DiceLayout1(){
                 }
               ])
               setrank(response.data.lucky_board.player.rank)
-
+            console.log(response)
 
         }catch(err){
             console.log(err)
@@ -57,7 +57,7 @@ export default function DiceLayout1(){
 
     useEffect(()=>{
         luckyBoardHandler()
-    },[])
+    },[token])
     return(
         <div className='DicelayoutPage-container'>
             <div className='DicelayoutPage-Body'>
