@@ -15,6 +15,7 @@ import axios from "axios";
 import { Api } from "../../../api/apiUrl";
 import useTokenStore from "../../../store/token";
 import Modal from "./components/modal";
+import Swal from "sweetalert2";
 
 export default function DiceGame2() {
     const [disableBtn, setdisableBtn] = useState(false);
@@ -107,10 +108,12 @@ export default function DiceGame2() {
             console.log(response)
         }catch(err){
             console.log(err)
-            setTimeout(() => {
-                setrollTime(false);
-                setdisableBtn(false);
-            }, 4000);
+            Swal.fire({
+                icon : 'error',
+                title : 'Try Again !!'
+            })
+            setrollTime(false);
+            setdisableBtn(false);
         }
     };
 
@@ -134,7 +137,7 @@ export default function DiceGame2() {
 
     useEffect(()=>{
         if(token)Loadedhandler() 
-    },[token , ])
+    },[token , resultDice])
     return (
 
         <div className=" min-h-[100vh] w-full flex justify-center items-center">
