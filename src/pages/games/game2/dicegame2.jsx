@@ -16,7 +16,7 @@ import { Api } from "../../../api/apiUrl";
 import useTokenStore from "../../../store/token";
 import Modal from "./components/modal";
 import Swal from "sweetalert2";
-
+import Loading  from '../../../pages/loading'
 export default function DiceGame2() {
     const [disableBtn, setdisableBtn] = useState(false);
     const {token} = useTokenStore();
@@ -45,7 +45,6 @@ export default function DiceGame2() {
     const [IsTableOpen, setIsTableOpen] = useState(false);
     const [history , sethistory]=useState([])
     const [dtsAmount , setdtsAmount]=useState({})
-
     const [ModalStatus, setModalStatus]=useState({
         0 : {
             title : 'YOU WON',
@@ -60,9 +59,9 @@ export default function DiceGame2() {
             color : '#FFFFFF99'
         }
     })
-
     const [openModal , setopenModal]=useState(null)
     const [amount , setamount]=useState(0)
+    const [loading , setloading]=useState(true)
     const rollHandler = async() => {
         try{
             setdisableBtn(true);
@@ -130,7 +129,9 @@ export default function DiceGame2() {
                 username : response.data.player.first_name ,
                 img : response.data.player.picture
             })
+            setloading(false)
         }catch(err){
+            setloading(false)
             console.log(err)
         }
     }
@@ -139,9 +140,11 @@ export default function DiceGame2() {
         if(token)Loadedhandler() 
     },[token , resultDice])
     return (
-
+        <>
+        {
+            loading ?  <Loading />
+            :
         <div className=" min-h-[100vh] w-full flex justify-center items-center">
-
             <div className="dicegame2-container relative">
                 <div className="mt-4 mx-7 flex justify-between items-center">
                     <BackButton title={"back to home"} color={true}/>
@@ -342,5 +345,7 @@ export default function DiceGame2() {
                 </div>
             </div>
         </div>
+        }
+        </>
     );
 }
