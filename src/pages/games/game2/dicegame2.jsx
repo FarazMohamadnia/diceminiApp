@@ -14,6 +14,7 @@ import InfoTable from "./components/InfoTable";
 import axios from "axios";
 import { Api } from "../../../api/apiUrl";
 import useTokenStore from "../../../store/token";
+import Modal from "./components/modal";
 
 export default function DiceGame2() {
     const [disableBtn, setdisableBtn] = useState(false);
@@ -41,10 +42,26 @@ export default function DiceGame2() {
     });
     const [userResult, setuserResult] = useState([0, 0]);
     const [IsTableOpen, setIsTableOpen] = useState(false);
-
     const [history , sethistory]=useState([])
     const [dtsAmount , setdtsAmount]=useState({})
 
+    const [ModalStatus, setModalStatus]=useState({
+        0 : {
+            title : 'YOU WON',
+            color : '#42ec5e'
+        },
+        1 : {
+            title : 'YOU LOSE',
+            color : '#FF000099'
+        },
+        2 : {
+            title : 'TIE',
+            color : '#FFFFFF99'
+        }
+    })
+
+    const [openModal , setopenModal]=useState(null)
+    const [amount , setamount]=useState(0)
     const rollHandler = async() => {
         try{
             setdisableBtn(true);
@@ -56,6 +73,7 @@ export default function DiceGame2() {
                    "Authorization" : `token ${token}`
                 }
             })
+
             setresultDice([
                 {
                     number1: response.data.opponent_dices[0],
@@ -79,8 +97,11 @@ export default function DiceGame2() {
                 } else {
                     setwiner(false);
                 }
+                setopenModal(response.data.game_record.result)
+                setamount(response.data.game_record.win_dots_amount)
                 setrollTime(false);
                 setdisableBtn(false);
+
             }, 4000);
 
             console.log(response)
@@ -113,7 +134,7 @@ export default function DiceGame2() {
 
     useEffect(()=>{
         if(token)Loadedhandler() 
-    },[token])
+    },[token , ])
     return (
 
         <div className=" min-h-[100vh] w-full flex justify-center items-center">
@@ -130,17 +151,11 @@ export default function DiceGame2() {
                         </div>
                     </div>
                 </div>
-                <div>
-
+                <div className="min-h-16">
+                    {openModal === 1 &&  <Modal {...ModalStatus[0]} amount={amount}/>}
+                    {openModal === 2 &&  <Modal {...ModalStatus[1]} amount={amount}/>}
+                    {openModal === 3 &&  <Modal {...ModalStatus[2]} amount={amount}/>}
                 </div>
-                <div
-                    class="w-[165px] py-1 h-[60px] bg-white/5 rounded-[10px] shadow-[0px_0px_4px_1px_rgba(0,255,43,1.00)] border border-[#42ec5e]/60 backdrop-blur-[24.40px] overflow-hidden mx-auto mt-9">
-                    <p class="dicegame2-custom-text">YOU WON</p>
-                    <p class="text-center text-white text-xs font-normal">+ 20.05 DTS</p>
-                    <p class="text-center text-[#ffcf60] text-[10px] font-bold">3x BET</p>
-                </div>
-
-
                 <div className="mt-10">
 
                     <div className="flex justify-center items-center relative h-[132px]">
@@ -255,23 +270,23 @@ export default function DiceGame2() {
                         >
                             <BTN/>
                             <span className="absolute">
-                <svg
-                    width="17"
-                    height="8"
-                    viewBox="0 0 17 8"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                      x="0.850098"
-                      y="0.950012"
-                      width="15.3"
-                      height="6.375"
-                      rx="3.1875"
-                      fill="white"
-                  />
-                </svg>
-              </span>
+                              <svg
+                                  width="17"
+                                  height="8"
+                                  viewBox="0 0 17 8"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <rect
+                                    x="0.850098"
+                                    y="0.950012"
+                                    width="15.3"
+                                    height="6.375"
+                                    rx="3.1875"
+                                    fill="white"
+                                />
+                              </svg>
+                            </span>
                         </button>
                     </div>
                     <div>
@@ -286,30 +301,30 @@ export default function DiceGame2() {
                         >
                             <BTN/>
                             <span className="absolute">
-                <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                      y="4.95001"
-                      width="15.3"
-                      height="5"
-                      rx="2.5"
-                      fill="white"
-                  />
-                  <rect
-                      x="10.1499"
-                      width="15.3"
-                      height="5"
-                      rx="2.5"
-                      transform="rotate(90 10.1499 0)"
-                      fill="white"
-                  />
-                </svg>
-              </span>
+                          <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect
+                                y="4.95001"
+                                width="15.3"
+                                height="5"
+                                rx="2.5"
+                                fill="white"
+                            />
+                            <rect
+                                x="10.1499"
+                                width="15.3"
+                                height="5"
+                                rx="2.5"
+                                transform="rotate(90 10.1499 0)"
+                                fill="white"
+                            />
+                          </svg>
+                        </span>
                         </button>
                         <button
                             onClick={() => setdts(dtsAmount.max_dts)}

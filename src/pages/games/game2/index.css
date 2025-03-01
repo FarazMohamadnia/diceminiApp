@@ -1,11 +1,10 @@
 .dicegame2-custom-text{
-    color: rgba(255, 255, 255, 0.27);
+    color: rgba(255, 255, 255, 0.47);
     text-align: center;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #3CFF00;
     font-size: 16px;
     font-style: normal;
-    font-weight: 800;
+    font-weight: 900;
     line-height: normal;
 }
 

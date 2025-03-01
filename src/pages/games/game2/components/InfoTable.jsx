@@ -26,14 +26,14 @@ export default function InfoTable({ history, isTableOpen, onClose }) {
                         {tableData.map((row, index) => (
                             <div key={index} className="flex items-center justify-center">
                                 <div className="grid grid-cols-3 text-center w-full">
-                                    <div className="flex justify-center items-center">{row.play_dots_amount}</div>
+                                    <div className="flex justify-center items-center">{row.play_dots_amount && row.play_dots_amount.toFixed(4)}</div>
                                     <div className="flex justify-center items-center">{row.details.roll}</div>
                                     <div className="flex justify-center">
                                         <div
                                             className="flex justify-center items-center w-[43.43px] rounded-[7px]"
                                             style={{ backgroundColor: row.profitColor }}
                                         >
-                                            {row.win_dots_amount}
+                                            {row.win_dots_amount && row.win_dots_amount.toFixed(2)}
                                         </div>
                                     </div>
                                 </div>
