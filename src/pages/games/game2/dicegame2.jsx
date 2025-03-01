@@ -1,5 +1,4 @@
 import BackButton from "../../../components/common/shared/BackButton";
-import useFetch from "../../../hooks/usefetch";
 import Table from "./asset/table";
 import SmalliceRoll from "./components/smalldiceroll";
 import "../index.css";
@@ -9,15 +8,16 @@ import BTN from "./asset/btn";
 import ShowList from "./asset/showList";
 import ShowListArrow from "./asset/showListArrow";
 import Question from "./asset/question";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import MuteSound from "./asset/muteSound";
 import InfoTable from "./components/InfoTable";
+import axios from "axios";
+import { Api } from "../../../api/apiUrl";
+import useTokenStore from "../../../store/token";
 
 export default function DiceGame2() {
-    const {data, loading, error, statusCode} = useFetch(
-        "https://jsonplaceholder.typicode.com/posts"
-    );
     const [disableBtn, setdisableBtn] = useState(false);
+    const {token} = useTokenStore();
     const [resultDice, setresultDice] = useState([
         {
             number1: 6,
@@ -30,71 +30,90 @@ export default function DiceGame2() {
     ]);
     const [winer, setwiner] = useState(true);
     const [rollTime, setrollTime] = useState(false);
-    const [dts, setdts] = useState(2.0);
+    const [dts, setdts] = useState(null);
     const [userData1, setuserData1] = useState({
-        username: "alireza",
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRseRj5MjxLYtgPrmGHS01YBytPjIkGKk8Zaw&s",
-        dts: 1507,
+        username: "",
+        img: "",
     });
     const [userData2, setuserData2] = useState({
-        username: "mohammad",
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuNE37Tut2H4DkjwdUaSupJh1cy7a7x2bBTQ&s",
-        dts: 2194,
+        username: "Bot",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRseRj5MjxLYtgPrmGHS01YBytPjIkGKk8Zaw&s",
     });
     const [userResult, setuserResult] = useState([0, 0]);
     const [IsTableOpen, setIsTableOpen] = useState(false);
 
-    const fakeData = [
+    const [history , sethistory]=useState([])
+    const [dtsAmount , setdtsAmount]=useState({})
 
-        {
-            Bet: 12,
-            Multiplier: 3,
-            Game: "over11",
-            Roll: 3,
-            Profit: 5
-        },
-        {
-            Bet: 12,
-            Multiplier: 3,
-            Game: "over11",
-            Roll: 3,
-            Profit: 5
+    const rollHandler = async() => {
+        try{
+            setdisableBtn(true);
+            setrollTime(true);
+            const response = await axios.post(Api[5].DiceClash ,{
+                dts : dts
+            }, {
+                headers:{
+                   "Authorization" : `token ${token}`
+                }
+            })
+            setresultDice([
+                {
+                    number1: response.data.opponent_dices[0],
+                    number2: response.data.opponent_dices[1],
+                },
+                {
+                    number1: response.data.dices[0],
+                    number2: response.data.dices[1],
+                },
+            ]);
+
+
+            setTimeout(() => {
+                setuserResult([
+                    response.data.dices[0] + response.data.dices[1],
+                    response.data.opponent_dices[0] + response.data.opponent_dices[1],
+                ]);
+    
+                if(response.data.dices[0] + response.data.dices[1] < response.data.opponent_dices[0] + response.data.opponent_dices[1]) {
+                    setwiner(true);
+                } else {
+                    setwiner(false);
+                }
+                setrollTime(false);
+                setdisableBtn(false);
+            }, 4000);
+
+            console.log(response)
+        }catch(err){
+            console.log(err)
+            setTimeout(() => {
+                setrollTime(false);
+                setdisableBtn(false);
+            }, 4000);
         }
-    ]
-
-    const rollHandler = () => {
-        setdisableBtn(true);
-        setrollTime(true);
-        setresultDice([
-            {
-                number1: 5,
-                number2: 2,
-            },
-            {
-                number1: 6,
-                number2: 5,
-            },
-        ]);
-
-        setuserResult([
-            resultDice[0].number1 + resultDice[0].number2,
-            resultDice[1].number1 + resultDice[1].number2,
-        ]);
-        if (userResult[0] < userResult[1]) {
-            setwiner(true);
-        } else {
-            setwiner(false);
-        }
-
-        setTimeout(() => {
-            setrollTime(false);
-            setdisableBtn(false);
-        }, 4000);
     };
 
-    const loging = () => {
-        console.log("salam");
+    const Loadedhandler =async()=>{
+        try{
+            const response = await axios.get(Api[5].DiceClash , {
+                headers:{
+                   "Authorization" : `token ${token}`
+                }
+            })
+            setdtsAmount(response.data.user_dts)
+            sethistory(response.data.game_history)
+            setuserData1({
+                username : response.data.player.first_name ,
+                img : response.data.player.picture
+            })
+        }catch(err){
+            console.log(err)
+        }
     }
+
+    useEffect(()=>{
+        if(token)Loadedhandler() 
+    },[token])
     return (
 
         <div className=" min-h-[100vh] w-full flex justify-center items-center">
@@ -204,7 +223,7 @@ export default function DiceGame2() {
                             <ShowListArrow/>
                         </div>
                     </button>
-                    <InfoTable data={fakeData} isTableOpen={IsTableOpen} onClose={() => setIsTableOpen(false)}/>
+                    <InfoTable history={history} isTableOpen={IsTableOpen} onClose={() => setIsTableOpen(false)}/>
                 </div>
 
                 <button
@@ -221,17 +240,17 @@ export default function DiceGame2() {
                     <div className="flex">
                         <button
                             onClick={() => {
-                                console.log("clicked");
+                                setdts(dtsAmount.min_dts)
                             }}
                             className="flex justify-center items-center relative"
                         >
                             <BTN/>
                             <span className="absolute text-white text-xs font-extrabold">
-                MIN
-              </span>
+                              MIN
+                            </span>
                         </button>
                         <button
-                            onClick={() => setdts((prv) => (prv > 2 ? prv - 1 : prv))}
+                            onClick={() =>setdts((prv) => (prv >= 1 ? Number(prv)-1 : prv))}
                             className="flex justify-center items-center relative"
                         >
                             <BTN/>
@@ -256,14 +275,12 @@ export default function DiceGame2() {
                         </button>
                     </div>
                     <div>
-                        <p className="text-white text-[20px] font-bold">
-                            {dts} <span className="text-[#ffcf60]">DTS</span>
-                        </p>
+                        <input onChange={(e)=>{setdts(e.target.value)}} className="text-[20px] font-bold w-[100%] text-center text-white bg-white/0" type="number" value={dts} placeholder="100 DTS"/>
                     </div>
                     <div className="flex">
                         <button
                             onClick={() =>
-                                setdts((prv) => (prv < userData1.dts ? prv + 1 : prv))
+                                setdts((prv) => (prv < dtsAmount.max_dts ? Number(prv)+1 : prv))
                             }
                             className="flex justify-center items-center relative"
                         >
@@ -295,13 +312,13 @@ export default function DiceGame2() {
               </span>
                         </button>
                         <button
-                            onClick={() => setdts(userData1.dts)}
+                            onClick={() => setdts(dtsAmount.max_dts)}
                             className="flex justify-center items-center relative"
                         >
                             <BTN/>
                             <span className="absolute text-white text-xs font-extrabold">
-                MAX
-              </span>
+                              MAX
+                            </span>
                         </button>
                     </div>
                 </div>

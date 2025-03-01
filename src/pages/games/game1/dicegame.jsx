@@ -94,7 +94,6 @@ export default function DiceGame1() {
       sethistory(response.data.game_history)
       setmultiplier(response.data.multipliers)
       setuserDts(response.data.user_dts)
-      console.log(response.data.user_dts.max_dts)
     }catch(err){
       console.log(err)
     }

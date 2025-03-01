@@ -53,7 +53,7 @@ const ApiLoader = () => {
            xp:xp,
            picture : picture,
            ton_balance : ton_balance
-         })
+         }) 
         }catch(err){
             console.log(err)
         }

@@ -37,6 +37,6 @@ export const Api = [
     },
     {
         RocketGame : url+'rocket-dice/',
-
+        DiceClash : url+'dice-clash/'
     }
 ]
