@@ -84,7 +84,7 @@ useEffect(()=>{
         <span className="text-[#CAFD7B] font-bold text-2xl">#{player.rank}</span>
       </div>
       <div>
-        <span className="text-white font-semibold">{player.telegram_id}</span>
+        <span className="text-white font-semibold">{player.first_name}</span>
       </div>
       <div>
         <div className="flex items-center text-white space-x-1">

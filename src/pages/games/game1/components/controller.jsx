@@ -11,35 +11,36 @@ export default function Controller({multiplier,setdata , data}){
     const numberHandler = (e)=>{
         const id = e.target.id
         if(active){
+            console.log(number)
             if(id == 1 && number < 11){
                 setnumber((prev)=> prev+1)
                 setdata({
                     ...data ,
                     roll : number+1,
                     guess : 'Over',
-                    multiplier :multiplier.over[number+1]
+                    multiplier :multiplier.Over[number+1]
                 })
-                setmultiplierNum(multiplier.over[number+1])
+                setmultiplierNum(multiplier.Over[number+1])
             }else if(id == 2 && number > 2){
                 setnumber((prev)=> prev-1)
                 setdata({
                     ...data ,
                     roll : number-1,
                     guess : 'Over',
-                    multiplier :multiplier.over[number-1]
+                    multiplier :multiplier.Over[number-1]
 
                 })
-                setmultiplierNum(multiplier.over[number-1])
+                setmultiplierNum(multiplier.Over[number-1])
             }
         }else{
             if(id == 1 && number < 12){
                 setnumber((prev)=> prev+1)
-                setmultiplierNum(multiplier.under[number+1])
+                setmultiplierNum(multiplier.Under[number+1])
                 setdata({
                     ...data ,
                     roll : number+1,
                     guess : 'Under',
-                    multiplier :multiplier.under[number+1]
+                    multiplier :multiplier.Under[number+1]
                 })
             }else if(id == 2 && number > 3){
                 setnumber((prev)=> prev-1)
@@ -47,10 +48,10 @@ export default function Controller({multiplier,setdata , data}){
                     ...data ,
                     roll : number-1 ,
                     guess : 'Under',
-                    multiplier :multiplier.under[number-1]
+                    multiplier :multiplier.Under[number-1]
 
                 })
-                setmultiplierNum(multiplier.under[number-1])
+                setmultiplierNum(multiplier.Under[number-1])
             }
         }
     }
@@ -60,12 +61,12 @@ export default function Controller({multiplier,setdata , data}){
                 <button onClick={()=>{
                     setactive(true)
                     setnumber(2)
-                    setmultiplierNum(multiplier.over[2])
+                    setmultiplierNum(multiplier.Over[2])
                     setdata({
                         ...data ,
                         roll : 2,
                         guess : 'Over',
-                        multiplier :multiplier.under[2]
+                        multiplier :multiplier.Under[2]
                     })
     
                 }} 
@@ -76,12 +77,12 @@ export default function Controller({multiplier,setdata , data}){
                 <button onClick={()=>{
                     setactive(false) 
                     setnumber(3)
-                    setmultiplierNum(multiplier.under[3])
+                    setmultiplierNum(multiplier.Under[3])
                     setdata({
                         ...data ,
                         roll : 3,
                         guess : 'Under',
-                        multiplier :multiplier.under[3]
+                        multiplier :multiplier.Under[3]
                     })
                 }} 
                     className={`${active ? 'bg-white text-black ' : 'bg-gradient-to-b from-[#2e6282] to-[#999999] font-bold '} w-[89px] h-[29px] mt-[6px] rounded-2xl text-center text-[15px]"`}

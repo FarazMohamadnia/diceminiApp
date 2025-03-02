@@ -13,22 +13,26 @@ const fakeData2 = [
     {
         name:'Dice Game3',
         img :fakeImage ,
-        status : false
+        status : false,
+        comingSoon : true
     },
     {
         name:'Dice Game 23',
         img :fakeImage ,
-        status : false
+        status : false,
+        comingSoon : true
     },
     {
         name:'Dice Game 2',
         img :fakeImage ,
-        status : false
+        status : false,
+        comingSoon : true
     },
     {
         name:'new Dice Game',
         img :fakeImage ,
-        status : false
+        status : false,
+        comingSoon : true
     }
 ]
 
@@ -77,9 +81,9 @@ export default function DiceLayout2(){
                     <p className='flex justify-start items-center pl-2 text-[#1ae5a1] text-base font-bold'><span className='mr-2'><PIcon /></span>MULTIPLAYER</p>
                 </div>
                 <div className='overflow-x-scroll flex flex-nowrap justify-start h-60 mt-3'>
-                    {/* {
+                    {
                         fakeData2.map(data => <DiceBox {...data}/>)
-                    } */}
+                    }
                 </div>
             </div>
         </div>
