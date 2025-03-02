@@ -1,6 +1,9 @@
 import './diceLayoutPage2.css'
 import DiceBox from '../../../common/DiceComponents/DiceBoxSection2/diceBox'
 import fakeImage from '../../../../asset/img/DiceImg/Section2/testImage.png'
+import fakeImage1 from '../../../../asset/img/DiceImg/Section2/Group1000001898.png'
+import fakeImage2 from '../../../../asset/img/DiceImg/Section2/Rectangle.png'
+import fakeImage3 from '../../../../asset/img/DiceImg/Section2/dices.png'
 import JetIcon from '../../../icons/change/Dice/DiceModal/jetIcon'
 import PIcon from '../../../icons/change/Dice/DiceModal/pepoleIcon'
 import TwoDiceIcon from '../../../icons/change/Dice/DiceModal/twodiceIcon'
@@ -8,31 +11,20 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Api } from '../../../../api/apiUrl'
 import useTokenStore from '../../../../store/token'
+import ComingSoonBox from '../../../common/DiceComponents/comingSoon/ComingSoon'
 
 const fakeData2 = [
     {
-        name:'Dice Game3',
-        img :fakeImage ,
-        status : false,
-        comingSoon : true
+        picture :fakeImage ,
     },
     {
-        name:'Dice Game 23',
-        img :fakeImage ,
-        status : false,
-        comingSoon : true
+        picture :fakeImage1 ,
     },
     {
-        name:'Dice Game 2',
-        img :fakeImage ,
-        status : false,
-        comingSoon : true
+        picture :fakeImage2 ,
     },
     {
-        name:'new Dice Game',
-        img :fakeImage ,
-        status : false,
-        comingSoon : true
+        picture :fakeImage3 ,
     }
 ]
 
@@ -82,7 +74,7 @@ export default function DiceLayout2(){
                 </div>
                 <div className='overflow-x-scroll flex flex-nowrap justify-start h-60 mt-3'>
                     {
-                        fakeData2.map(data => <DiceBox {...data}/>)
+                        fakeData2.map(data => <ComingSoonBox {...data}/>)
                     }
                 </div>
             </div>
