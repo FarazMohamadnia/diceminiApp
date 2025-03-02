@@ -24,7 +24,7 @@ export default function DiceGame1() {
     number2: 3,
   });
   const [data , setdata]=useState({
-    roll : 0,
+    roll : 2,
     guess : 'Over',
     dts:0,
     multiplier :0
@@ -41,7 +41,7 @@ export default function DiceGame1() {
         roll : data.roll,
         guess : data.guess,
         dts : dts ,
-        multiplier : data.multiplier
+        // multiplier : data.multiplier
       } ,{
         headers:{ 
            "Authorization" : `token ${token}`

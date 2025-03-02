@@ -1,5 +1,5 @@
-const url = 'https://main.dicemaniacs.com/api/'
-// const url = 'http://192.168.40.20:8000/api/'
+// const url = 'https://main.dicemaniacs.com/api/'
+const url = 'http://192.168.40.20:8000/api/'
 
 export const Api = [
     {

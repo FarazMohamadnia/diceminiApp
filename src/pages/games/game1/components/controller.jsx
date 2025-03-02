@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ArrowBottom from "../asset/arrowbottom";
 import ArrowTop from "../asset/arrowtop";
 import CustomBtn from "../asset/custombtn";
@@ -61,6 +61,13 @@ export default function Controller({multiplier,setdata , data}){
                     setactive(true)
                     setnumber(2)
                     setmultiplierNum(multiplier.over[2])
+                    setdata({
+                        ...data ,
+                        roll : 2,
+                        guess : 'Over',
+                        multiplier :multiplier.under[2]
+                    })
+    
                 }} 
                     className={` ${active ? 'bg-gradient-to-b from-[#2e6282] to-[#999999] font-bold ' : 'bg-white text-black '} w-[89px] h-[29px] text-center text-[15px] rounded-2xl`}
                     >
@@ -70,6 +77,12 @@ export default function Controller({multiplier,setdata , data}){
                     setactive(false) 
                     setnumber(3)
                     setmultiplierNum(multiplier.under[3])
+                    setdata({
+                        ...data ,
+                        roll : 3,
+                        guess : 'Under',
+                        multiplier :multiplier.under[3]
+                    })
                 }} 
                     className={`${active ? 'bg-white text-black ' : 'bg-gradient-to-b from-[#2e6282] to-[#999999] font-bold '} w-[89px] h-[29px] mt-[6px] rounded-2xl text-center text-[15px]"`}
                     >
