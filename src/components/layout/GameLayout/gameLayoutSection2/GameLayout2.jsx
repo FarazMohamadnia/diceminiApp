@@ -18,13 +18,15 @@ import axios from 'axios'
 import { Api } from '../../../../api/apiUrl'
 import useTokenStore from '../../../../store/token'
 import { spiral } from 'ldrs'
+import useUpgradeData from '../../../../store/updateData'
 spiral.register()
 
 
 
 export default function GameLayout2(){
+    const {toggleUpgrade } = useUpgradeData();
     const [Select , setSelect]=useState(true);
-    const { amount } = useCounterStore();
+    const { amount , setamount} = useCounterStore();
     const { user }=useUserStore();
     const [dtsAmount , setdtsAmount]=useState(0);
     const {token } = useTokenStore();
@@ -120,8 +122,8 @@ export default function GameLayout2(){
                 title: `The transaction was successful`,
                 icon: "successful"
                 });
-
-              console.log(response)
+                toggleUpgrade(prv => prv ? false : true)
+                setamount(0)
         }catch(err){
             Swal.fire({
                 title: `Error !`,

@@ -5,12 +5,14 @@ import { Api } from '../api/apiUrl';
 import axios from 'axios';
 import useUserStore from '../store/user';
 import useTokenStore from '../store/token';
+import useUpgradeData from '../store/updateData';
 
 
 const ApiLoader = () => {
   const { setLoading } = useLoadingStore();
   const { user, setUser } = useUserStore();
   const {token ,settoken } = useTokenStore();
+  const { isUpgraded} = useUpgradeData();
   const loadAllAPIs = async () => {
     if(!user.address){
       setLoading(true)
@@ -18,17 +20,18 @@ const ApiLoader = () => {
       setLoading(false)
     }
     try {
+        console.log('start')
         // telegram Auth
         const tg =window.Telegram.WebApp.initDataUnsafe.user;
         const response1  = await axios.post(Api[2].PostAuth , {
-            // telegram_data : tg
+            telegram_data : tg
             // For test 
-            telegram_data : {
-                id : 2,
-                first_name : 'mmd',
-                last_name : 'javadiani',
-                username : 'lalalalalal'
-            }
+            // telegram_data : {
+            //     id : 2,
+            //     first_name : 'nnnnn',
+            //     last_name : 'marcho',
+            //     username : 'dmdmdmdks'
+            // }
         });
         settoken(response1.data.player_id);
         // USER API !
@@ -67,7 +70,7 @@ const ApiLoader = () => {
 
   useEffect(() => {
     loadAllAPIs();
-  }, [token]);
+  }, [token ,isUpgraded ]);
 
   return null;
 };

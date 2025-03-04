@@ -14,7 +14,9 @@ import { Api } from "../../../../api/apiUrl";
 import useTokenStore from "../../../../store/token";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import useUpgradeData from "../../../../store/updateData";
 export default function Dicesellpages() {
+  const {toggleUpgrade } = useUpgradeData();
   const { token } = useTokenStore()
   const { user }=useUserStore();
   const [dice , setdice]=useState(0)
@@ -43,6 +45,7 @@ export default function Dicesellpages() {
 
   const sendTransaction = async()=>{
     try{
+      setdice(0)
       const response = await axios.post(Api[3].PostSellDice , {
         dice_amount: dice
       } ,{
@@ -54,8 +57,10 @@ export default function Dicesellpages() {
         icon:'success',
         title:'Dice sold successfully!'
       })
+      toggleUpgrade(prv => prv ? false : true)
       console.log(response)
     }catch(err){
+      setdice(0)
       Swal.fire({
         icon:'error',
         title:err.response.data.error
@@ -93,7 +98,7 @@ export default function Dicesellpages() {
               </p>
               <div className="flex justify-center text-[11px] mt-3 text-white">
                 <p className="mr-3">CURRENT DICE PRIZE :</p>
-                <p>{dicePrice ? dicePrice : 0}<span className="text-[#1ae5a1]">TON</span></p>
+                <p>{dicePrice ? dicePrice.toFixed(2) : 0}<span className="text-[#1ae5a1]">TON</span></p>
               </div>
             </div>
           </div>

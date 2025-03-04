@@ -4,9 +4,11 @@ import axios from 'axios';
 import { Api } from '../../../../api/apiUrl';
 import useTokenStore from '../../../../store/token';
 import Swal from 'sweetalert2';
+import useUpgradeData from '../../../../store/updateData';
 
 export default function Dicesellcard({Title , Img , Color , id , DTS , Price , className}){
     const {token} = useTokenStore();
+    const {toggleUpgrade } = useUpgradeData();
     const [disabled ,setdisabled]=useState(false)
     const [Colors , setColors]= useState({
         colorsp:'',
@@ -63,7 +65,7 @@ export default function Dicesellcard({Title , Img , Color , id , DTS , Price , c
                      "Authorization" : `token ${token}`
                   }
                 })
-                console.log(response)
+                toggleUpgrade(prv => prv ? false : true)
                 Swal.fire({
                   icon: 'success',
                   title : 'Buy dts successfull'

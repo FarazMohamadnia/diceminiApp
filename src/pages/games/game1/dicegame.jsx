@@ -11,8 +11,10 @@ import axios from "axios";
 import { Api } from "../../../api/apiUrl";
 import useTokenStore from "../../../store/token";
 import Swal from "sweetalert2";
+import useUpgradeData from "../../../store/updateData";
 
 export default function DiceGame1() {
+  const {toggleUpgrade } = useUpgradeData();
   const {token}=useTokenStore()
   const [dts, setdts] = useState(null);
   const [history ,sethistory]=useState([]);
@@ -51,6 +53,7 @@ export default function DiceGame1() {
         number1: response.data.dices[0],
         number2: response.data.dices[1],
       });
+      setdts(0)
       setTimeout(() => {
         setloading(false);
         setTimeout(() => {
@@ -65,6 +68,7 @@ export default function DiceGame1() {
               title : 'You Lost'
             })
           }
+          toggleUpgrade(prv => prv ? false : true)
           setrefresh(refresh ? false : true)
         }, 700);
       }, 4000);

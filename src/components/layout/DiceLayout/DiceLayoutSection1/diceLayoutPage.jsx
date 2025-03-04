@@ -1,8 +1,6 @@
 import './diceLayoutPage.css';
 import CircleImageComponent from '../../../common/DiceComponents/CircleImage/circleimage';
 import borderImg3 from '../../../../asset/img/DiceImg/BorderLeft.png';
-import img from '../../../../asset/img/DiceImg/testImage.png'
-import img2 from '../../../../asset/img/DiceImg/Icon2.png'
 import { Link } from 'react-router-dom';
 import BronzModal from '../../../icons/change/Dice/DiceModal/bronzModal';
 import SilverModal from '../../../icons/change/Dice/DiceModal/silverModal';
@@ -13,7 +11,10 @@ import { Api } from '../../../../api/apiUrl';
 import useTokenStore from '../../../../store/token';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import useUserStore from '../../../../store/user';
+import ApiLoader from '../../../../providers/LoadingProvider';
 export default function DiceLayout1(){
+    const {user}=useUserStore()
     const {token}= useTokenStore()
     const [data , setdata]=useState([])
     const [rank , setrank]=useState(0);
@@ -48,7 +49,6 @@ export default function DiceLayout1(){
                 }
               ])
               setrank(response.data.lucky_board.player.rank)
-            console.log(response)
 
         }catch(err){
             console.log(err)
@@ -60,6 +60,7 @@ export default function DiceLayout1(){
     },[token])
     return(
         <div className='DicelayoutPage-container'>
+            {!user.telegram_id && <ApiLoader />}
             <div className='DicelayoutPage-Body'>
                 <div className='flex justify-center items-center'>
                     <span className='mr-3'><GroupIcon /></span><p className='font-bold'>LUCKY BOARD</p>

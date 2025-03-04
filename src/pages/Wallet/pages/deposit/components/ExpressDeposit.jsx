@@ -9,12 +9,14 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { Api } from "../../../../../api/apiUrl";
 import useTokenStore from "../../../../../store/token";
+import useUpgradeData from "../../../../../store/updateData";
 
 const inactiveStyle = {
   boxShadow: "inset 0 0 20px 0 rgba(26,229,161,0.5)",
 };
 
 const ExpressDeposit = () => {
+  const {toggleUpgrade } = useUpgradeData();
     const { amount } = useCounterStore();
     const [tonConnectUI] = useTonConnectUI();
     const { user }=useUserStore();
@@ -59,6 +61,11 @@ const ExpressDeposit = () => {
                "Authorization" : `token ${token}`
             }
           })
+          Swal.fire({
+            title: `send transition successfull `,
+            icon: 'success'
+        });
+          toggleUpgrade(prv => prv ? false : true)
         }catch(err){
             Swal.fire({
                 title: `Error !`,

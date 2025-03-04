@@ -14,8 +14,12 @@ import Swal from 'sweetalert2'
 import useUserStore from '../../../store/user'
 import useTokenStore from '../../../store/token'
 import diceAudio from '../../../asset/sound/dice-142528.mp3'
+import useLoadingStore from '../../../store/loading'
+import useUpgradeData from '../../../store/updateData'
+import ApiLoader from '../../../providers/LoadingProvider'
 export default function HomeLayout(){
     let audio = new Audio(diceAudio);
+    const {toggleUpgrade } = useUpgradeData();
     const {token } = useTokenStore();
     const { user } = useUserStore();
     const [numbers , setnumbers]=useState({
@@ -28,7 +32,7 @@ export default function HomeLayout(){
         dice2 : 1
     });
 
-    const [Loading , setLoading]=useState(false);
+    const [loading , setloading]=useState(false);
     const [BtnDisabled , setBtnDisabled]=useState(false)
 
     function vibratePhone() {
@@ -44,9 +48,8 @@ export default function HomeLayout(){
     
     const RollHandler =async()=>{
         try{
-            console.log(DiceNumber)
             setBtnDisabled(true)
-            setLoading(true)
+            setloading(true)
             const response = await axios.post(Api[3].PostDiceNumber , DiceNumber , {
                 headers :{
                     Authorization: `token ${token}`
@@ -56,11 +59,11 @@ export default function HomeLayout(){
                 number1 :response.data.dice1,
                 number2 : response.data.dice2
             })
-
             setTimeout(() => {
                 setBtnDisabled(false)
-                setLoading(false)
+                setloading(false)
                 if(response.data.is_win){
+                    toggleUpgrade(prv => prv ? false : true)
                     Swal.fire({
                         icon:"success",
                         text : "Win"
@@ -69,14 +72,12 @@ export default function HomeLayout(){
                 vibratePhone();
             }, 4000);
 
-            console.log(response)
         }catch(err){
             console.log(err)
-            setLoading(false)
+            setloading(false)
             setBtnDisabled(false)
         }
     }
-
     return(
         <div className="HomeLayout-container">
             <div className='flex justify-center items-center mr-3 pt-16'>
@@ -98,10 +99,10 @@ export default function HomeLayout(){
             </div>
             <div className='flex justify-around items-center mt-10'>
                 <div className=''>
-                    <CrapsGame targetNumber={numbers.number1} rolling={Loading}/>
+                    <CrapsGame targetNumber={numbers.number1} rolling={loading}/>
                 </div>
                 <div className=''>
-                    <CrapsGame targetNumber={numbers.number2} rolling={Loading}/>
+                    <CrapsGame targetNumber={numbers.number2} rolling={loading}/>
                 </div>
             </div>
             <div className='flex mt-4'>

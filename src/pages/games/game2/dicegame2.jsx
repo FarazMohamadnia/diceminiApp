@@ -17,8 +17,10 @@ import useTokenStore from "../../../store/token";
 import Modal from "./components/modal";
 import Swal from "sweetalert2";
 import Loading  from '../../../pages/loading'
+import useUpgradeData from "../../../store/updateData";
 export default function DiceGame2() {
     const [disableBtn, setdisableBtn] = useState(false);
+    const {toggleUpgrade } = useUpgradeData();
     const {token} = useTokenStore();
     const [resultDice, setresultDice] = useState([
         {
@@ -85,7 +87,7 @@ export default function DiceGame2() {
                 },
             ]);
 
-
+            setdts(0)
             setTimeout(() => {
                 setuserResult([
                     response.data.dices[0] + response.data.dices[1],
@@ -101,7 +103,7 @@ export default function DiceGame2() {
                 setamount(response.data.game_record.win_dots_amount)
                 setrollTime(false);
                 setdisableBtn(false);
-
+                toggleUpgrade(prv => prv ? false : true)
             }, 4000);
 
             console.log(response)
