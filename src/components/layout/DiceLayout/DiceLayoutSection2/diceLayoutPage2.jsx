@@ -12,7 +12,8 @@ import axios from 'axios'
 import { Api } from '../../../../api/apiUrl'
 import useTokenStore from '../../../../store/token'
 import ComingSoonBox from '../../../common/DiceComponents/comingSoon/ComingSoon'
-
+import { bouncy } from 'ldrs'
+bouncy.register()
 const fakeData2 = [
     {
         picture :fakeImage ,
@@ -30,6 +31,7 @@ const fakeData2 = [
 
 export default function DiceLayout2(){
     const {token} = useTokenStore()
+    const [loading , setloading]=useState(true)
     const [gameData , setgameData]=useState([])
     const getGames = async()=>{
         try{
@@ -40,8 +42,9 @@ export default function DiceLayout2(){
               }
             })
             setgameData(response.data.categorized_games[1])
-
+            setloading(false)
         }catch(err){
+            setloading(false)
             console.log(err)
         }
     }
@@ -63,7 +66,15 @@ export default function DiceLayout2(){
                     <p className='flex justify-start items-center pl-2 text-[#1ae5a1] text-base font-bold'><span className='mr-2'><JetIcon /></span>UP TO 1000X</p>
                 </div>
                 <div className='overflow-x-scroll flex flex-nowrap justify-start my-3 '>
-                    {
+                    {loading ? 
+                    <div className='w-full h-20 flex justify-center items-center'>
+                        <l-bouncy
+                          size="80"
+                          speed="1" 
+                          color="#1ae5a1" 
+                        ></l-bouncy>
+                    </div> 
+                    : 
                         gameData.map(data => <DiceBox {...data}/>)
                     }
                 </div>

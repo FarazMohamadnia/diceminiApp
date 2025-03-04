@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import './index.css'
 import ProfilePlayIcon1 from "../../../../components/icons/change/profileNavbar/profiePlayIcon";
-const Carousel = ({images}) => {
+import { Link } from "react-router-dom";
+const Carousel = ({gameData , images}) => {
+  console.log('dddddd ::::: '+gameData)
   const [currentIndex, setCurrentIndex] = useState(0);
  
   const handleDragEnd = (event, info) => {
@@ -12,7 +14,7 @@ const Carousel = ({images}) => {
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % gameData.length);
   };
 
   const positions = [
@@ -48,9 +50,9 @@ const Carousel = ({images}) => {
           height: "100%",
         }}
       >
-        {images.map((image, index) => {
+        {gameData.map((image, index) => {
           const positionIndex =
-            (index - currentIndex + images.length) % images.length;
+            (index - currentIndex + gameData.length) % gameData.length;
           const position = positions[positionIndex] || {
             translateX: 500,
             translateY: 200,
@@ -71,7 +73,7 @@ const Carousel = ({images}) => {
                 height: `${366 * position.scale}px`,
                 borderRadius: "30px",
                 boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
-                backgroundImage: `url(${image.images})`,
+                backgroundImage: `url(${image.picture})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 cursor: positionIndex === 0 ? "grab" : "default",
@@ -82,13 +84,15 @@ const Carousel = ({images}) => {
                 border: position.border ?'1px solid #1AE5A1' : ' '
               }}
             >
-              <div className="Profile-Carousel-container">
-                <div className="text-center w-full">
-                    <p className="text-[#fff6f5] text-xl font-bold mb-2">{image.title}</p>
-                    <p className="text-[#fff6f5] text-[13px] font-medium mb-5">{image.text}</p>
-                    <span className="flex justify-center items-center"><ProfilePlayIcon1 /></span>
+              <Link to={`/games/${image.game_url}`}>
+                <div className="Profile-Carousel-container">
+                  <div className="text-center w-full">
+                      <p className="text-[#fff6f5] text-xl font-bold mb-2">{image.name}</p>
+                      {/* <p className="text-[#fff6f5] text-[13px] font-medium mb-5">{image.text}</p> */}
+                      <span className="flex justify-center items-center"><ProfilePlayIcon1 /></span>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           );
         })}

@@ -4,10 +4,13 @@ import Notificationcard from "./components/NotificationCard/notificationcardComp
 import { Api } from "../../api/apiUrl";
 import axios from "axios";
 import useTokenStore from "../../store/token";
+import { spiral } from 'ldrs'
+spiral.register()
 
 export default function Notification(){
     const {token } = useTokenStore();
     const [items , setitems]=useState([]);
+    const [loading , setloading]=useState(true)
     const notificationHandler = async()=>{
         try{
             const response = await axios.get(Api[2].notification, {
@@ -16,7 +19,9 @@ export default function Notification(){
                 }
             });
             setitems(response.data)
+            setloading(false)
         }catch(err){
+            setloading(false)
             console.log(err)
         }
     }
@@ -26,7 +31,7 @@ export default function Notification(){
     },[])
 
     return(
-        <div className="px-4 pt-10">
+        <div className="px-4 pt-14">
             <div>
                 <BackButton title={'Back'}/>
             </div>
@@ -34,6 +39,15 @@ export default function Notification(){
                 <p className="text-[#1ae5a1] text-center text-[20px] font-bold">Notifications</p>
                 <div>
                     {
+                        loading ? 
+                        <div className="w-full h-[60vh] flex justify-center items-center">
+                            <l-spiral
+                              size="100"
+                              speed="0.9" 
+                              color="#1ae5a1" 
+                            ></l-spiral>
+                        </div> 
+                        : 
                         items.map(data =>  <Notificationcard key={data.title} {...data}/>)
                     }
 

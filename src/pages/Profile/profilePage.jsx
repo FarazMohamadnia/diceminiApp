@@ -10,43 +10,20 @@ import ProfileBox from './components/profileBox'
 import Carousel from './components/profilecarosel'
 import ProfileNav from './components/profileNavbar/profileNav'
 import './profilePage.css'
-import img from '../../asset/img/HomeImg/carouselImage/image1.png'
-import fakeimg from '../../asset/img/HomeImg/carouselImage/image2.png'
 import axios from 'axios'
 import { Api } from '../../api/apiUrl'
 import { useEffect, useState } from 'react'
 import useTokenStore from '../../store/token'
+import { spiral } from 'ldrs'
+import { bouncy } from 'ldrs'
+bouncy.register()
+spiral.register()
 
-const images = [
-    {
-        title : 'Dice Game1',
-        text : 'UP TO 1000x',
-        images : fakeimg
-    },
-    {
-        title : 'Dice Game2',
-        text : 'UP TO 1000x',
-        images : img
-    },
-    {
-        title : 'New Dice Game',
-        text : 'Dice game',
-        images : fakeimg
-    },
-    {
-        title : 'best Dice Game',
-        text : 'UP TO 200x',
-        images : img
-    },
-    {
-        title : 'Dice Game',
-        text : 'UP TO 1000x',
-        images : fakeimg
-    }
-]
 
 export default function ProfilePage(){
     const {token } = useTokenStore();
+    const [gameData,setgameData]=useState([])
+    const [Loading , setLoading]=useState(true)
     const [data , setdata]=useState([
         {
             Icon : <ProfileBoxIcon1 /> ,
@@ -95,7 +72,24 @@ export default function ProfilePage(){
         }
     }
 
+    const getGames = async()=>{
+        try{
+            const response = await axios.get(Api[3].GamePage , 
+            {
+              headers:{
+                 "Authorization" : `token ${token}`
+              }
+            })
+            setgameData(response.data.categorized_games[1])
+            setLoading(false)
+        }catch(err){
+            setLoading(false)
+            console.log(err)
+        }
+    }
+
     useEffect(()=>{
+        getGames()
         profileDataHandller();
     },[])
     return(
@@ -120,7 +114,17 @@ export default function ProfilePage(){
                         <p className='flex items-center text-[#1ae5a1] text-[22px] font-bold'><span className='mr-2'><GameIcon1 /></span>Most Played Games</p>
                     </div>
                     <div className='flex flex-nowrap items-center justify-start overflow-x-scroll pt-5 pb-5 pl-5'>
-                        <Imagebox /> <Imagebox /> <Imagebox /> <Imagebox /> <Imagebox /> <Imagebox /> <Imagebox />
+                        {
+                            Loading ? 
+                            <div className='w-full h-full flex justify-center items-center'>
+                                <l-bouncy
+                                  size="60"
+                                  speed="1.2" 
+                                  color="#1ae5a1" 
+                                ></l-bouncy>
+                            </div> :
+                            gameData.map((data)=> <Imagebox {...data}/>)
+                        }
                     </div>
                 </div>
                 <div>
@@ -129,7 +133,16 @@ export default function ProfilePage(){
                     </div>
                 </div>
                 <div>
-                    <Carousel images={images} />
+                    {
+                        Loading ? 
+                        <div className='flex justify-center items-center h-52'>
+                            <l-spiral
+                              size="80"
+                              speed="1" 
+                              color="#1ae5a1" 
+                            ></l-spiral>
+                        </div> : <Carousel gameData={gameData} />
+                    }
                 </div>
             </div>
             <Bottonlink />
