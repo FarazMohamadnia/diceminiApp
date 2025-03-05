@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import './index.css'
 import ProfilePlayIcon1 from "../../../../components/icons/change/profileNavbar/profiePlayIcon";
 import { Link } from "react-router-dom";
-const Carousel = ({gameData , images}) => {
-  console.log('dddddd ::::: '+gameData)
+const Carousel = ({gameHistoryData , images}) => {
+  console.log('dddddd ::::: '+gameHistoryData)
   const [currentIndex, setCurrentIndex] = useState(0);
  
   const handleDragEnd = (event, info) => {
@@ -14,7 +14,7 @@ const Carousel = ({gameData , images}) => {
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % gameData.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % gameHistoryData.length);
   };
 
   const positions = [
@@ -50,9 +50,9 @@ const Carousel = ({gameData , images}) => {
           height: "100%",
         }}
       >
-        {gameData.map((image, index) => {
+        {gameHistoryData.map((image, index) => {
           const positionIndex =
-            (index - currentIndex + gameData.length) % gameData.length;
+            (index - currentIndex + gameHistoryData.length) % gameHistoryData.length;
           const position = positions[positionIndex] || {
             translateX: 500,
             translateY: 200,

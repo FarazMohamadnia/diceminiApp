@@ -23,6 +23,7 @@ spiral.register()
 export default function ProfilePage(){
     const {token } = useTokenStore();
     const [gameData,setgameData]=useState([])
+    const [gameHistoryData , setgameHistoryData]=useState([])
     const [Loading , setLoading]=useState(true)
     const [data , setdata]=useState([
         {
@@ -67,21 +68,9 @@ export default function ProfilePage(){
                     DTS : `${response.data.statistics.total_win_this_week} DTS`
                 },
               ])
-        }catch(err){
-            console.log(err)
-        }
-    }
-
-    const getGames = async()=>{
-        try{
-            const response = await axios.get(Api[3].GamePage , 
-            {
-              headers:{
-                 "Authorization" : `token ${token}`
-              }
-            })
-            setgameData(response.data.categorized_games[1])
-            setLoading(false)
+              setgameData(response.data.most_played_games)
+              setgameHistoryData(response.data.game_history)
+              setLoading(false)
         }catch(err){
             setLoading(false)
             console.log(err)
@@ -89,7 +78,6 @@ export default function ProfilePage(){
     }
 
     useEffect(()=>{
-        getGames()
         profileDataHandller();
     },[])
     return(
@@ -141,7 +129,7 @@ export default function ProfilePage(){
                               speed="1" 
                               color="#1ae5a1" 
                             ></l-spiral>
-                        </div> : <Carousel gameData={gameData} />
+                        </div> : <Carousel gameHistoryData={gameHistoryData} />
                     }
                 </div>
             </div>
