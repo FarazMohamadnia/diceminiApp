@@ -77,10 +77,11 @@ export default function DiceGame1() {
     }catch(err){
       setTimeout(() => {
         setloading(false);
+        console.log(err)
         setTimeout(() => {
           Swal.fire({
             icon:'error',
-            title : 'Error'
+            title : err.response.data.error
           })
         }, 700);
       }, 4000);
