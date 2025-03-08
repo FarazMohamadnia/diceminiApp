@@ -66,7 +66,7 @@ export default function HomeLayout(){
                     toggleUpgrade(prv => prv ? false : true)
                     Swal.fire({
                         icon:"success",
-                        text : "Win"
+                        text : "You won! Yaaaaaay!!!"
                     })
                 }
                 vibratePhone();

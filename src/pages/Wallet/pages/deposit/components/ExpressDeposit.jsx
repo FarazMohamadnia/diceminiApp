@@ -28,7 +28,7 @@ const ExpressDeposit = () => {
         if(!user?.address){
             Swal.fire({
                 title: "Error",
-                text: "Connect Youre Wallet !",
+                text: "Connect your wallet!",
                 icon: "error"
             });
             return console.log('Connect Youre Wallet !')
@@ -62,7 +62,7 @@ const ExpressDeposit = () => {
             }
           })
           Swal.fire({
-            title: `send transition successfull `,
+            title: `Transaction successful`,
             icon: 'success'
         });
           toggleUpgrade(prv => prv ? false : true)

@@ -32,19 +32,19 @@ const WithdrawPage = () => {
             if(response.status === 200){
                 Swal.fire({
                     icon: 'success',
-                    title : 'transaction confirmed '
+                    title : 'Transaction confirmed'
                 })
             }else{
                 Swal.fire({
                     icon: 'error',
-                    title : 'transaction failed '
+                    title : 'Transaction failed'
                 })
             }
             
         }catch(err){
             Swal.fire({
                 icon: 'error',
-                title : 'transaction failed '
+                title : 'Transaction failed'
             })
             console.log(err)
         }

@@ -55,7 +55,7 @@ export default function Dicesellpages() {
       })
       Swal.fire({
         icon:'success',
-        title:'Dice sold successfully!'
+        title:'Dice sold successfully'
       })
       toggleUpgrade(prv => prv ? false : true)
       console.log(response)
@@ -63,7 +63,7 @@ export default function Dicesellpages() {
       setdice(0)
       Swal.fire({
         icon:'error',
-        title:err.response.data.error
+        title: err.response.data.error
       })
     }
   }

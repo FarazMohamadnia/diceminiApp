@@ -103,7 +103,7 @@ export default function GameLayout2(){
         if(dtsAmount > amount){
             Swal.fire({
                 title: "Error",
-                text: "you should buy at least 1 DTS",
+                text: "At least 1 DTS needs to be purchased",
                 icon: "error"
             });
             return console.log('you should buy 1 DTS')
@@ -119,7 +119,7 @@ export default function GameLayout2(){
               })
 
               Swal.fire({
-                title: `The transaction was successful`,
+                title: `Transaction was successful`,
                 icon: "successful"
                 });
                 toggleUpgrade(prv => prv ? false : true)

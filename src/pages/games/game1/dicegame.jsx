@@ -60,12 +60,12 @@ export default function DiceGame1() {
           if(response.data.is_win){
             Swal.fire({
               icon:'success',
-              title : 'You Win'
+              title : 'The Dice have spoken; You won!'
             })
           }else{
             Swal.fire({
               icon:'error',
-              title : 'You Lost'
+              title : 'The Dice have spoken; You lost!'
             })
           }
           toggleUpgrade(prv => prv ? false : true)

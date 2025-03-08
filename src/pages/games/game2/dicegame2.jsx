@@ -111,7 +111,7 @@ export default function DiceGame2() {
             console.log(err)
             Swal.fire({
                 icon : 'error',
-                title : 'Try Again !!'
+                title : err.response.data.error
             })
             setrollTime(false);
             setdisableBtn(false);

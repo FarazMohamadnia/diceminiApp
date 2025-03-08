@@ -68,13 +68,13 @@ export default function Dicesellcard({Title , Img , Color , id , DTS , Price , c
                 toggleUpgrade(prv => prv ? false : true)
                 Swal.fire({
                   icon: 'success',
-                  title : 'Buy dts successfull'
+                  title : 'DTS purchased successfully'
                 })
                 setdisabled(false)
             }else{
                 Swal.fire({
                     icon: 'error',
-                    text : 'You have registered a purchase. Please wait...'
+                    text : 'We are processing your purchase. Please wait...'
                 })
             }
         }catch(err){
