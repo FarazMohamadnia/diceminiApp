@@ -24,7 +24,7 @@ export default function ModalExample({data, isOpen, onClose}) {
                   <CloseModal onClick={onClose}/>
                 </span>
                 </div>
-                <div className="text-start mt-7">
+                <div className="text-justify mt-7">
                     {
                         Data.text.map(newdata =>
                             <p className="text-white text-xl font-bold my-[6px]">{newdata}</p>

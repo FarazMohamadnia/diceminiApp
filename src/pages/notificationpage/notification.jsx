@@ -31,7 +31,7 @@ export default function Notification(){
     },[])
 
     return(
-        <div className="px-4 pt-14">
+        <div className="px-4 pt-20">
             <div>
                 <BackButton title={'Back'}/>
             </div>

@@ -49,7 +49,6 @@ const HistoryTable = () => {
             const year = date.getFullYear();
             const month = date.getMonth() + 1
             const day = date.getDate()
-            setrenderHandler(false)
             console.log(data)
             const obg={
               status :statusMap[data.status] ,
@@ -60,6 +59,7 @@ const HistoryTable = () => {
               date : `${year}/${month}/${day}`
             }
             transitionData.push(obg)
+            setrenderHandler(false)
           })   
         }
         setloading(false)

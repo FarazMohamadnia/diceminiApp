@@ -14,12 +14,12 @@ import useUserStore from '../../../../store/user';
 
 const modalfakedata = [
     {
-        title: 'WHAT IS DTS ? ',
-        text: ['1- dgsdfkdskdl', '2- lksd;kfdslfk', '3- jl;ask;sksakl']
+        title: ' What is DTS? ',
+        text: ['In the United playgrounds of Dice Maniacs, DTS is the official currency! 💰🎲 The name DTS comes from the dots on a die, representing every roll, every move, and every chance taken in this world of dice games. Whether you’re playing, predicting, or strategizing—DTS powers the UPD experience! 🚀🔥']
     },
     {
-        title: 'WHAT IS DICE ? ',
-        text: ['iiiodoifodi', 'k;lkl;sdf', 'sssssodp']
+        title: 'What is Dice Maniacs? ',
+        text: ['Dice Maniacs is a vast land where all dice games come to life! 🎲✨ It’s a world of endless rolls, strategies, and thrilling moments, where every citizen has a chance to play, predict, and win. Whether you’re here to test your luck, master the odds, or just enjoy the excitement—Dice Maniacs is where the real dice action happens! ']
     }
 ]
 export default function GameLayout1() {
@@ -51,9 +51,9 @@ export default function GameLayout1() {
                             <span className='w-[75%]'>WHAT IS DTS ?</span>
                         </button>
                         <ModalExample data={modalfakedata[0]} isOpen={IsModalOpen}
-                                      onClose={() => setIsModalOpen(false)}/>
+                        onClose={() => setIsModalOpen(false)}/>
                     </div>    
-                        <button className='GameLayout1-section2-BTN'><span className='w-[25%]'><BuyCrypto /></span><span className='w-[75%]'>BUY DTS</span></button>
+                        <button onClick={()=>{ window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });}} className='GameLayout1-section2-BTN'><span className='w-[25%]'><BuyCrypto /></span><span className='w-[75%]'>BUY DTS</span></button>
                     <Link to={'/dice-detail'}>
                         <button className='GameLayout1-section2-BTN'><span className='w-[25%]'><AddIcon /></span><span className='w-[75%]'>EARN DTS</span></button>
                     </Link>

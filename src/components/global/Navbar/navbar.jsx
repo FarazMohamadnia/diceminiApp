@@ -43,7 +43,7 @@ export default function Navbar(){
                 </Link>
             </div>
             <div className='navbar-botton-section'>
-                <div className='text-center relative'>
+                <Link to={'/wallet/sell'} className='text-center relative'>
                     <div><p className='text-white text-[14px] font-normal'>READY TO SELL </p></div>
                     <div className='Navbar-left-polygon'>
                         <div className='absolute'>
@@ -55,12 +55,12 @@ export default function Navbar(){
                     <div className='absolute left-2 w-[120px] bottom-[-19px] h-4 flex justify-center items-center'>
                         <NavbarProgressbar />
                     </div>
-                </div>
+                </Link>
                 <div className='text-center'>
                     <div><p className='text-white text-[13px] font-medium mt-4'>{user.telegram_username}</p></div>
                     <div><p className=' mt-4 text-center text-white text-[12px] font-light'>Level {user.level}</p></div>
                 </div>
-                <div className='text-center'>
+                <Link to={'/games'} className='text-center'>
                     <div><p className='text-white text-[14px] font-normal'>READY TO PLAY</p></div>
                     <div className='Navbar-right-polygon'>
                         <div className='absolute top-[-4px]'>
@@ -69,7 +69,7 @@ export default function Navbar(){
                         <p className='text-white text-[14px] pt-[3px] font-semibold'>{(user.inactive_dots_balance + user.active_dots_balance)+user.dice_balance * 21}  <span className='text-[#00efff] font-semibold'>DTS</span></p>
                         <span className='Navbar-right-polygon-Icon'><img className='Navbar-left-polygon-Icon-img' alt='' src={DTScoin}/></span>
                     </div>
-                </div>
+                </Link>
             </div>
         </div>
     )

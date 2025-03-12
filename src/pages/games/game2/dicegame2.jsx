@@ -34,7 +34,7 @@ export default function DiceGame2() {
     ]);
     const [winer, setwiner] = useState(true);
     const [rollTime, setrollTime] = useState(false);
-    const [dts, setdts] = useState(null);
+    const [dts, setdts] = useState(1);
     const [userData1, setuserData1] = useState({
         username: "",
         img: "",

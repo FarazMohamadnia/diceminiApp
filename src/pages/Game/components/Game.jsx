@@ -22,13 +22,13 @@ const Game = () => {
         <div className="flex items-center gap-5 mt-3">
           <BackButton title="Back to Games" />
         </div>
-        <div className="flex justify-center items-center">
-            <BoardTitle title="Leader Board" icon={<LeaderIcon />} />
-          </div>
-        <div className="flex justify-center items-center gap-3">
-          <DropdownMenu title="All Game" />
-          <DropdownMenu title="All Time" />
-        </div>
+        {/* <div className="flex justify-center items-center"> */}
+            {/* <BoardTitle title="Leader Board" icon={<LeaderIcon />} /> */}
+        {/* </div> */}
+        {/* <div className="flex justify-center items-center gap-3"> */}
+          {/* <DropdownMenu title="All Game" /> */}
+          {/* <DropdownMenu title="All Time" /> */}
+        {/* </div> */}
 
         <div className="flex justify-center mt-2">
           <BoardTitle icon={<RankingIcon />} title="Your Rank" />

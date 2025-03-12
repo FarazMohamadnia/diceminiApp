@@ -172,7 +172,7 @@ export default function GameLayout2(){
                 </div>
             </div>
             {!Select ?
-            <div className='block mt-4 w-[95%] h-6 mx-auto'>
+            <div className='block mt-4 w-[95%] h-[350px] mx-auto'>
                 <div className='flex justify-around items-center'>
                     <div className='w-[45%] h-[70px] flex'>
                         <div className='w-[35%] h-full'>
@@ -182,7 +182,7 @@ export default function GameLayout2(){
                         </div>
                         <div className='w-[65%] h-full'>
                             <p className='text-white text-[13px] font-bold'>Cash Balance :</p>
-                            <p className='text-white text-[5.5vw] font-bold text-end'>{user.ton_balance !== 0 ?user.ton_balance.toFixed(4) : 0} <span className='text-[#1ae5a1]'>TON</span></p>
+                            <p className='text-white text-[5.5vw] font-bold text-end'>{user.ton_balance !== 0 ? user.ton_balance : 0} <span className='text-[#1ae5a1]'>TON</span></p>
                         </div>
                     </div>
                     <div className='w-[45%] h-[70px] flex'>
@@ -191,7 +191,7 @@ export default function GameLayout2(){
                         </div>
                         <div className='w-[65%]'>
                             <p className='text-white text-[13px] font-bold'>DTS Balance :</p>
-                            <p className='text-white text-[5.5vw] w-full font-bold text-end'>{(user.inactive_dots_balance + user.active_dots_balance)+user.dice_balance * 21 }<span className='text-[#00ffa9] ms-1'>DTS</span> </p>
+                            <p className='text-white text-[5.5vw] w-full font-bold text-end'>{(((user.inactive_dots_balance + user.active_dots_balance)+user.dice_balance * 21))}<span className='text-[#00ffa9] ms-1'>DTS</span> </p>
                         </div>
                     </div>
                 </div>

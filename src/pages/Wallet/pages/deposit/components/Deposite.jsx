@@ -22,11 +22,12 @@ const Deposite = () => {
           <div className="pt-1">
             <Wallet3 />
           </div>
-          <span className="text-[#3BFFFF] text-lg font-extrabold">
-            {activeTab === "manual" ? 'Manual Deposit ' : 'Express Deposit'}
+          <span className="text-[#3BFFFF] text-xl font-extrabold">
+            {/* {activeTab === "manual" ? 'Manual Deposit ' : 'Express Deposit'} */}
+            Deposit
           </span>
         </div>
-        <div className="flex w-full items-center gap-4 mt-5">
+        {/* <div className="flex w-full items-center gap-4 mt-5">
           <CustomButton
             title="Manual Deposit"
             value="manual"
@@ -39,13 +40,13 @@ const Deposite = () => {
             active={activeTab === "express" ? true : false}
             setActiveTab={setActiveTab}
           />
-        </div>
+        </div> */}
         <div className="mt-4 flex w-full gap-4">
           <DropDownMenu />
           <DropDownMenu title="Network" options={["TON"]} />
         </div>
         <div className="w-full mt-6">
-          {activeTab === "manual" ? <ManualDeposit /> : <ExpressDeposit />}
+           <ExpressDeposit />
         </div>
       </main>
       <Bottonlink />

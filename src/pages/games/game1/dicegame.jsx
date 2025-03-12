@@ -16,7 +16,7 @@ import useUpgradeData from "../../../store/updateData";
 export default function DiceGame1() {
   const {toggleUpgrade } = useUpgradeData();
   const {token}=useTokenStore()
-  const [dts, setdts] = useState(null);
+  const [dts, setdts] = useState(1);
   const [history ,sethistory]=useState([]);
   const [multiplier , setmultiplier]=useState({});
   const [userDts , setuserDts]=useState({})
