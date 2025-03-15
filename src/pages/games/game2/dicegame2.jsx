@@ -146,8 +146,8 @@ export default function DiceGame2() {
         {
             loading ?  <Loading />
             :
-        <div className=" min-h-[100vh] w-full flex justify-center items-center">
-            <div className="dicegame2-container relative">
+        <div className=" min-h-[100vh] w-full flex justify-center items-center dicegame2-container">
+            <div className="h-[650px] w-full relative">
                 <div className="mt-4 mx-7 flex justify-between items-center">
                     <BackButton title={"back to home"} color={true}/>
                     <div className="flex ">

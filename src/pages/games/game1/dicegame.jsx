@@ -108,8 +108,8 @@ export default function DiceGame1() {
     if(token)LoadedData()
   },[token ,refresh ])
   return (
-    <div className="min-h-[100vh] w-full flex justify-center items-center">
-      <div className="DiceGame1-container">
+    <div className="min-h-[100vh] w-full flex justify-center items-center DiceGame1-container">
+      <div className="">
         <div className="mx-7 my-5">
           <BackButton color={true} title={"Back To Home"} />
         </div>
