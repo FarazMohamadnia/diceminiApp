@@ -7,6 +7,7 @@ const ProfileSelectIcon = (props) => (
     height="27"
     fill="none"
     viewBox="0 0 27 27"
+    className="pb-1"
     {...props}
   >
     <rect width="25" height="25" x="1" y="1" fill="#1AE5A1" rx="12.5"></rect>

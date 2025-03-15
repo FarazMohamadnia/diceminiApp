@@ -44,6 +44,25 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --background-gradiant: linear-gradient(180deg, #121724 0%, #012842 100%);
+  --green-gradiant: linear-gradient(0deg, #8ff7d0 12.5%, #5ed6a9 100%);
+  --blue-gradiant: linear-gradient(180deg, #44b7ff 0%, #76e4ff 100%);
+  --green-gradiant2: linear-gradient(180deg, #5ed6a9 0%, #8ff7d0 100%);
+  --boarder-gradiant: linear-gradient(180deg, #003a64 0%, rgba(0, 58, 100, 0) 100%);
+
+  --primary: #44b7ff;
+  --secondary: #212534;
+  --white: #fff;
+  --my-green: #8ff7d0;
+  --my-yellow: #e1bf5e;
+  --my-yellow2: #ffc800;
+  --my-red: #fb0137;
+  --my-green2: #5ed6a9;
+  --my-blue: #44b7ff;
+  --dark-blue: #2d2c4d;
+}
+
 body {
   font-family: "BarlowCondensed", sans-serif !important;
   background-color: rgba(18, 23, 36, 1);

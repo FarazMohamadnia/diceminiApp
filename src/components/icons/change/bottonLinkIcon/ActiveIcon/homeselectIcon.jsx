@@ -8,6 +8,7 @@ const HomeSelectIcon = (props) => (
     fill="none"
     viewBox="0 0 25 27"
     {...props}
+    className="pb-1"
   >
     <g id="home-01">
       <g id="Group 4" strokeWidth="2">

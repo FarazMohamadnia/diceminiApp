@@ -1,0 +1,1 @@
+export const hiddenList = ["/games/rocket-dice","/games/dice-clash","/notification"]

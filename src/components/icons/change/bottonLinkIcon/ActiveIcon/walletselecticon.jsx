@@ -7,6 +7,7 @@ const WalletSelectIcon = (props) => (
     height="26"
     fill="none"
     viewBox="0 0 26 26"
+    className="pb-0.5"
   >
     <g id="vuesax/linear/wallet">
       <g

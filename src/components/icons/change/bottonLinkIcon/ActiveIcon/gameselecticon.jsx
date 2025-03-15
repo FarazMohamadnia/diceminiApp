@@ -7,6 +7,7 @@ const GameSelectIcon = (props) => (
     height="18"
     fill="none"
     viewBox="0 0 33 18"
+    className="pb-1"
   >
     <g id="Group">
       <g id="Group 3">

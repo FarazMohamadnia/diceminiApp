@@ -3,11 +3,12 @@ import * as React from "react";
 const DiceSelectIcon = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="32"
-    height="36"
+    width="35"
+    height="39"
     fill="none"
     viewBox="0 0 32 36"
     {...props}
+    className="pt-0.5"
   >
     <g id="Vector" filter="url(#filter0_d_958_13161)">
       <path
