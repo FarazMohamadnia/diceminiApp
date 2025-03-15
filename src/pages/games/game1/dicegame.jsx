@@ -12,7 +12,11 @@ import { Api } from "../../../api/apiUrl";
 import useTokenStore from "../../../store/token";
 import Swal from "sweetalert2";
 import useUpgradeData from "../../../store/updateData";
+import MuteSound from "../game2/asset/muteSound";
+import Question from "../game2/asset/question";
+import ModalComponent from "../global/Qmodal";
 
+const questionData = {}
 export default function DiceGame1() {
   const {toggleUpgrade } = useUpgradeData();
   const {token}=useTokenStore()
@@ -31,7 +35,8 @@ export default function DiceGame1() {
     dts:0,
     multiplier :0
   })
-  const [refresh , setrefresh]=useState(true)
+  const [refresh , setrefresh]=useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const rollHnadler = async() => {
     setdata({
       ...data ,
@@ -110,8 +115,17 @@ export default function DiceGame1() {
   return (
     <div className="min-h-[100vh] w-full flex justify-center items-center DiceGame1-container">
       <div className="">
-        <div className="mx-7 my-5">
+        <div className="mx-3 mb-7 flex justify-between">
           <BackButton color={true} title={"Back To Home"} />
+          <div className="flex">
+              <div>
+                  {/* <MuteSound/> */}
+              </div>
+              <div onClick={()=>setIsOpen(true)}>
+                  <Question/>
+                  <ModalComponent isOpen={isOpen} setIsOpen={setIsOpen} />
+              </div>
+          </div>
         </div>
         <div>
           <Table history={history}/>

@@ -18,8 +18,10 @@ import Modal from "./components/modal";
 import Swal from "sweetalert2";
 import Loading  from '../../../pages/loading'
 import useUpgradeData from "../../../store/updateData";
+import ModalComponent from "../global/Qmodal";
 export default function DiceGame2() {
     const [disableBtn, setdisableBtn] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const {toggleUpgrade } = useUpgradeData();
     const {token} = useTokenStore();
     const [resultDice, setresultDice] = useState([
@@ -152,10 +154,11 @@ export default function DiceGame2() {
                     <BackButton title={"back to home"} color={true}/>
                     <div className="flex ">
                         <div>
-                            <MuteSound/>
+                            {/* <MuteSound/> */}
                         </div>
-                        <div>
+                        <div onClick={()=>setIsOpen(true)}>
                             <Question/>
+                            <ModalComponent isOpen={isOpen} setIsOpen={setIsOpen} />
                         </div>
                     </div>
                 </div>
