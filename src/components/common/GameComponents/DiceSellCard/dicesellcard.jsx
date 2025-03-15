@@ -51,39 +51,45 @@ export default function Dicesellcard({Title , Img , Color , id , DTS , Price , c
         }
     }
 
-    const buyCombo = async()=>{
+    const buyCombo =()=>{
         const dots_amount = DTS
-        try{
-            if(!disabled){
-                setdisabled(true)
-                Swal.fire({
-                    icon: 'success',
-                    title : 'Your purchase request has been registered'
-                })
-                const response = await axios.post(Api[3].PostBuyDts , {dots_amount : dots_amount} ,             {
-                  headers:{
-                     "Authorization" : `token ${token}`
-                  }
-                })
-                toggleUpgrade(prv => prv ? false : true)
-                Swal.fire({
-                  icon: 'success',
-                  title : 'DTS purchased successfully'
-                })
-                setdisabled(false)
-            }else{
-                Swal.fire({
-                    icon: 'error',
-                    text : 'We are processing your purchase. Please wait...'
-                })
-            }
-        }catch(err){
+        if(!disabled){
+            setdisabled(true)
+            Swal.fire({
+                title: "Are you sure?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, Buy it!"
+              }).then((result) => {
+                try{
+                    if (result.isConfirmed) {
+                    axios.post(Api[3].PostBuyDts , {dots_amount : dots_amount} ,{
+                        headers:{
+                           "Authorization" : `token ${token}`
+                        }
+                      }).catch(err => {
+                        Swal.fire({
+                            icon: 'error',
+                            title : err.response.data.error
+                        })
+                      })
+                    toggleUpgrade(prv => prv ? false : true)
+                    }
+                }catch(err){
+                    Swal.fire({
+                        icon: 'error',
+                        title : err.response.data.error
+                    })
+                }
+              });
             setdisabled(false)
-            console.log(err)
+        }else{
             Swal.fire({
                 icon: 'error',
-                title : err.response.data.error
-              })
+                text : 'We are processing your purchase. Please wait...'
+            })
         }
 
     }

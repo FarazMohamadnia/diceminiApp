@@ -84,7 +84,7 @@ export function LeaderboardList() {
             <div className={`flex items-center ${item.rankColor || ""}`}>
               <span className="text-2xl">{item.icon}</span>
             </div>
-            <span className="text-white text-[16px] font-medium">{item.name}</span>
+            <span className="text-white text-[16px] font-medium w-16 h-6 overflow-x-scroll">{item.name}sssss</span>
             <div className="flex items-center space-x-1 text-white">
                 <span>
                   <DiceIcon />
@@ -108,7 +108,7 @@ export function LeaderboardList() {
             <div className={`flex items-center ${item.rankColor || ""}`}>
               <span className="text-2xl text-[#1AE5A1]">#{item.rank}</span>
             </div>
-            <span className="text-white text-[16px] font-medium">{item.first_name}</span>
+            <span className="text-white text-[16px] font-medium w-16 h-6 overflow-hidden">{item.first_name}</span>
             <div className="flex items-center space-x-1 text-white">
                 <span>
                   <DiceIcon />
