@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export default function ModalComponent({isOpen , setIsOpen}) {
+export default function ModalComponent({isOpen , setIsOpen , questionData}) {
 
   // Close modal on ESC key
   useEffect(() => {
@@ -28,8 +28,9 @@ export default function ModalComponent({isOpen , setIsOpen}) {
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 className="text-xl font-bold mb-4">title</h2>
-            <p className="text-gray-600">text</p>
+            <p>{questionData[0]}</p>
+            <p className="text-gray-600">{questionData[1]}</p>
+            <p className="text-gray-600">{questionData[2]}</p>
             <div className="mt-4 flex justify-end">
               <button
                 onClick={() => setIsOpen(false)}

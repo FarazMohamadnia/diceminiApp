@@ -16,7 +16,11 @@ import MuteSound from "../game2/asset/muteSound";
 import Question from "../game2/asset/question";
 import ModalComponent from "../global/Qmodal";
 import diceAudio from '../../../asset/sound/dice-142528.mp3'
-const questionData = {}
+const questionData = [
+  'Pick a number, choose whether the result will be higher or lower, then roll the dice.' ,
+  'Two dice decide the outcome — if your guess is correct, your DTS is multiplied by the odds.',
+  'For example, if you choose the over 8 and the multiplier is 3.53, betting 1 DTS would win you 3.53 DTS.'
+]
 export default function DiceGame1() {
     let audio = new Audio(diceAudio);
   const {toggleUpgrade } = useUpgradeData();
@@ -136,7 +140,7 @@ export default function DiceGame1() {
               </div>
               <div onClick={()=>setIsOpen(true)}>
                   <Question/>
-                  <ModalComponent isOpen={isOpen} setIsOpen={setIsOpen} />
+                  <ModalComponent isOpen={isOpen} setIsOpen={setIsOpen} questionData={questionData}/>
               </div>
           </div>
         </div>

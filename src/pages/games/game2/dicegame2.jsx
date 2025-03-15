@@ -19,7 +19,13 @@ import Swal from "sweetalert2";
 import Loading  from '../../../pages/loading'
 import useUpgradeData from "../../../store/updateData";
 import ModalComponent from "../global/Qmodal";
-import diceAudio from '../../../asset/sound/dice-142528.mp3'
+import diceAudio from '../../../asset/sound/dice-142528.mp3';
+
+const questionData = [
+    'Dice Clash – Beat the House, Take the Win!' ,
+    'Enter your DTS, roll the dice, and face off against the House! You get two dice, the House also gets two. Whoever has the higher total wins.',
+    'If you win, your DTS gets multiplied by 1.8. If it`s a draw, your DTS is returned.But if the House wins—you lose your stake.'
+  ]
 export default function DiceGame2() {
     let audio = new Audio(diceAudio);
     const [disableBtn, setdisableBtn] = useState(false);
@@ -171,7 +177,7 @@ export default function DiceGame2() {
                         </div>
                         <div onClick={()=>setIsOpen(true)}>
                             <Question/>
-                            <ModalComponent isOpen={isOpen} setIsOpen={setIsOpen} />
+                            <ModalComponent isOpen={isOpen} setIsOpen={setIsOpen} questionData={questionData}/>
                         </div>
                     </div>
                 </div>
