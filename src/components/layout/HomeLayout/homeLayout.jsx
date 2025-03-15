@@ -14,9 +14,7 @@ import Swal from 'sweetalert2'
 import useUserStore from '../../../store/user'
 import useTokenStore from '../../../store/token'
 import diceAudio from '../../../asset/sound/dice-142528.mp3'
-import useLoadingStore from '../../../store/loading'
 import useUpgradeData from '../../../store/updateData'
-import ApiLoader from '../../../providers/LoadingProvider'
 export default function HomeLayout(){
     let audio = new Audio(diceAudio);
     const {toggleUpgrade } = useUpgradeData();

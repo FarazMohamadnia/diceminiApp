@@ -15,9 +15,10 @@ import useUpgradeData from "../../../store/updateData";
 import MuteSound from "../game2/asset/muteSound";
 import Question from "../game2/asset/question";
 import ModalComponent from "../global/Qmodal";
-
+import diceAudio from '../../../asset/sound/dice-142528.mp3'
 const questionData = {}
 export default function DiceGame1() {
+    let audio = new Audio(diceAudio);
   const {toggleUpgrade } = useUpgradeData();
   const {token}=useTokenStore()
   const [dts, setdts] = useState(1);
@@ -37,6 +38,17 @@ export default function DiceGame1() {
   })
   const [refresh , setrefresh]=useState(true);
   const [isOpen, setIsOpen] = useState(false);
+
+  function vibratePhone() {
+    setTimeout(() => {
+        audio.play()
+        if ("vibrate" in navigator) {
+            navigator.vibrate(50)
+        } else {
+            console.log("Device does not support vibration.");
+        }
+    }, 700);
+}
   const rollHnadler = async() => {
     setdata({
       ...data ,
@@ -76,6 +88,7 @@ export default function DiceGame1() {
           toggleUpgrade(prv => prv ? false : true)
           setrefresh(refresh ? false : true)
         }, 700);
+        vibratePhone()
       }, 4000);
 
       console.log(response)

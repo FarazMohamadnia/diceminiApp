@@ -19,7 +19,9 @@ import Swal from "sweetalert2";
 import Loading  from '../../../pages/loading'
 import useUpgradeData from "../../../store/updateData";
 import ModalComponent from "../global/Qmodal";
+import diceAudio from '../../../asset/sound/dice-142528.mp3'
 export default function DiceGame2() {
+    let audio = new Audio(diceAudio);
     const [disableBtn, setdisableBtn] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const {toggleUpgrade } = useUpgradeData();
@@ -66,6 +68,16 @@ export default function DiceGame2() {
     const [openModal , setopenModal]=useState(null)
     const [amount , setamount]=useState(0)
     const [loading , setloading]=useState(true)
+    function vibratePhone() {
+        setTimeout(() => {
+            audio.play()
+            if ("vibrate" in navigator) {
+                navigator.vibrate(50)
+            } else {
+                console.log("Device does not support vibration.");
+            }
+        }, 700);
+    }
     const rollHandler = async() => {
         try{
             setdisableBtn(true);
@@ -106,6 +118,7 @@ export default function DiceGame2() {
                 setrollTime(false);
                 setdisableBtn(false);
                 toggleUpgrade(prv => prv ? false : true)
+                vibratePhone()
             }, 4000);
 
             console.log(response)
