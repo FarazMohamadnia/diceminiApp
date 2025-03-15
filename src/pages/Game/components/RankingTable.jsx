@@ -84,7 +84,7 @@ export function LeaderboardList() {
             <div className={`flex items-center ${item.rankColor || ""}`}>
               <span className="text-2xl">{item.icon}</span>
             </div>
-            <span className="text-white text-[16px] font-medium w-16 h-6 overflow-x-scroll">{item.name}sssss</span>
+            <span className="text-white text-[16px] font-medium w-16 h-6 overflow-x-scroll">{item.name}</span>
             <div className="flex items-center space-x-1 text-white">
                 <span>
                   <DiceIcon />
