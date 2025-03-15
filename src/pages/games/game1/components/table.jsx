@@ -5,7 +5,7 @@ const TableWithDiv = (history) => {
       {/* Header */}
       <div className="relative">
         <div className="grid grid-cols-5 text-center  ">
-            <div className="">Bet(DTS)</div>
+            <div className="">Play(DTS)</div>
             <div className="">Multiplier</div>
             <div className="">Game</div>
             <div className="">Roll</div>

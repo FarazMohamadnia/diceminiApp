@@ -16,7 +16,7 @@ export default function InfoTable({ history, isTableOpen, onClose }) {
                 <div className="font-light text-[10px] leading-[13.62px] text-white font-sans">
                     <div className="mt-4 mb-4 flex items-center justify-center">
                         <div className="grid grid-cols-3 text-center w-full">
-                            <div className="flex justify-center items-center">Bet(DTS)</div>
+                            <div className="flex justify-center items-center">Play(DTS)</div>
                             <div className="flex justify-center items-center">Roll</div>
                             <div className="flex justify-center items-center">Profit(DTS)</div>
                         </div>

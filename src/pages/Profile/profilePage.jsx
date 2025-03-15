@@ -64,7 +64,7 @@ export default function ProfilePage(){
             
                 {
                     Icon : <ProfileBoxIcon3 /> ,
-                    title : 'Total bets this week',
+                    title : 'Total Play this week',
                     DTS : `${response.data.statistics.total_win_this_week} DTS`
                 },
               ])
