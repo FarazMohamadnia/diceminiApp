@@ -134,7 +134,7 @@ export default function Bottonlink() {
             </p>
           </div>
         </Link>
-        <Link ref={elementRef4} to={"/Wallet"} onClick={RouteHandler}>
+        {/* <Link ref={elementRef4} to={"/Wallet"} onClick={RouteHandler}>
           <div className={`flex justify-center items-center flex-col`}>
               <WalletBtnIcon />
             <p
@@ -147,7 +147,7 @@ export default function Bottonlink() {
               Wallet
             </p>
           </div>
-        </Link>
+        </Link> */}
         <Link ref={elementRef5} to={"/Profile"} onClick={RouteHandler}>
           <div className={`flex justify-center items-center flex-col`}>
               <ProfileIcon />

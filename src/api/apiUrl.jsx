@@ -40,5 +40,10 @@ export const Api = [
     {
         RocketGame : url+'rocket-dice/',
         DiceClash : url+'dice-clash/'
+    },
+    {
+        luckydiceCountdown : url+'luckydice/countdown',
+        luckydiceWinners : url+'luckydice/winners/',
+        predict : url+'luckydice/predict/'
     }
 ]

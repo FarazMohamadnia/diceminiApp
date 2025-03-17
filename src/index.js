@@ -34,6 +34,7 @@ import GameIcon from "./components/icons/change/bottonLinkIcon/GameIcon";
 import WalletBtnIcon from "./components/icons/change/bottonLinkIcon/wallet";
 import ProfileIcon from "./components/icons/change/bottonLinkIcon/ProfileIcon";
 import DtsHistory from "./pages/dtsHistory/DtsHistory";
+import DiceGame3 from "./pages/games/game3/diceGame3";
 
 const ImageSelected = [
   <HomeSelectIcon/>,
@@ -74,6 +75,7 @@ root.render(
             <Route path="/notification" element={<Notification />} />
             <Route path="/games/rocket-dice" element={<DiceGame1 />} />
             <Route path="/games/dice-clash" element={<DiceGame2 />} />
+            <Route path="/games/lucky-dice" element={<DiceGame3 />} />
             <Route path="/dtshistory" element={<DtsHistory />} />
           </Routes>
           {/* <ButtonLinkV2 menu={menus}/> */}
