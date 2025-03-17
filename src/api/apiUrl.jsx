@@ -1,5 +1,5 @@
 // const url = 'https://main.dicemaniacs.com/api/'
-const url = 'http://192.168.40.20:8000/api/'
+const url = "http://192.168.40.20:8000/api/";
 
 export const Api = [
     {
@@ -44,6 +44,7 @@ export const Api = [
     {
         luckydiceCountdown : url+'luckydice/countdown',
         luckydiceWinners : url+'luckydice/winners/',
-        predict : url+'luckydice/predict/'
+        predict : url+'luckydice/predict/',
+        getCoinDts: url + "dts-coin/",
     }
 ]
