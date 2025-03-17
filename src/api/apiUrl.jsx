@@ -1,5 +1,5 @@
-const url = 'https://main.dicemaniacs.com/api/'
-// const url = 'http://192.168.40.20:8000/api/'
+// const url = 'https://main.dicemaniacs.com/api/'
+const url = 'http://192.168.40.20:8000/api/'
 
 export const Api = [
     {
@@ -33,7 +33,9 @@ export const Api = [
         withdrawsTable : url+'withdraws-table/',
         depositsTable : url+'deposits-table/',
         transactions : url+'transactions/',
-        PostWithdraw : url+'withdraw/'
+        PostWithdraw : url+'withdraw/',
+        buyDtsTable : url+'buy-dts-table/',
+        sellDtsTable : url+'sell-dice-table/'
     },
     {
         RocketGame : url+'rocket-dice/',

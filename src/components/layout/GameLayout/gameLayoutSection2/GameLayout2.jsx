@@ -176,17 +176,6 @@ export default function GameLayout2(){
                 <div className='flex justify-around items-center'>
                     <div className='w-[45%] h-[70px] flex'>
                         <div className='w-[35%] h-full'>
-                            <div>
-                                <DollerCoin />
-                            </div>
-                        </div>
-                        <div className='w-[65%] h-full'>
-                            <p className='text-white text-[13px] font-bold'>Cash Balance :</p>
-                            <p className='text-white text-[5.5vw] font-bold text-end'>{user.ton_balance !== 0 ? user.ton_balance : 0} <span className='text-[#1ae5a1]'>TON</span></p>
-                        </div>
-                    </div>
-                    <div className='w-[45%] h-[70px] flex'>
-                        <div className='w-[35%] h-full'>
                             <div className='GameLayout2-DtsCoin'></div>
                         </div>
                         <div className='w-[65%]'>
@@ -217,7 +206,7 @@ export default function GameLayout2(){
                 
             </div>
             :
-            <div className='flex justify-center items-center flex-wrap'>
+            <div className='flex justify-center items-center flex-wrap min-h-60'>
                 {
                     loading ? 
                     <div className='my-10'>

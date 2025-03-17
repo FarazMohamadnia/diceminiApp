@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { spiral } from 'ldrs'
-import useTokenStore from "../../../../../store/token";
-import { SucessFullIcon } from "../../../../../components/icons/successfull";
-import { PendingIcon } from "../../../../../components/icons/pending";
-import { Api } from "../../../../../api/apiUrl";
-import CancelledIcon from "../../../../../components/icons/cancelled";
-import CalenderIcon from "../../../../../components/icons/calender";
+import { SucessFullIcon } from "../../../components/icons/successfull";
+import { PendingIcon } from "../../../components/icons/pending";
+import CancelledIcon from "../../../components/icons/cancelled";
+import useTokenStore from "../../../store/token";
+import { Api } from "../../../api/apiUrl";
+import CalenderIcon from "../../../components/icons/calender";
 spiral.register()
 
 
-const SellDtsHistory = () => {
+const BuyDtsHistory = () => {
     const [transitionData ,settransitionData]=useState([]);
-    const [renderHandler , setrenderHandler]=useState(true); 
+    const [renderHandler , setrenderHandler]=useState(true);
     const [loading , setloading]=useState(true)
     const{token}=useTokenStore();
     const iconMap = {
@@ -37,7 +37,7 @@ const SellDtsHistory = () => {
   
     const tabledata = async()=>{
       try{
-        const response = await axios.get(Api[4].sellDtsTable ,{
+        const response = await axios.get(Api[4].buyDtsTable ,{
           headers:{
              "Authorization" : `token ${token}`
           }
@@ -161,4 +161,4 @@ const SellDtsHistory = () => {
   );
 };
 
-export default SellDtsHistory;
+export default BuyDtsHistory;
