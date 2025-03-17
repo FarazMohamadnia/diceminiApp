@@ -31,7 +31,7 @@ export const ButtonLinkV2 = ({ menu }) => {
     return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 flex items-center justify-between text-center text-xs w-full overflow-x-clip max-w-md mx-auto z-20">
+    <div className="fixed bottom-0 left-0 right-0 flex items-center justify-between text-center text-xs w-full overflow-x-clip max-w-md mx-auto z-50">
       <div
         className="flex items-center justify-center rounded-full w-20 h-20 absolute -top-[13px] transition-all duration-500 z-0"
         style={{

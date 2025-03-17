@@ -81,7 +81,7 @@ export default function HomeLayout(){
             <div className='flex justify-center items-center mr-3 pt-16'>
                 <p className='flex items-center'><span><img className='w-[60px] h-[60px]' src={img} alt=''/></span>
                     <span>
-                        <span className='text-white text-[32px] font-bold'>{(user.dice_balance * 21)+(user.inactive_dots_balance + user.active_dots_balance)}</span>
+                        <span className='text-white text-[32px] font-bold'>{((user.dice_balance * 21)+(user.inactive_dots_balance + user.active_dots_balance)).toFixed(2)}</span>
                         {/* <span className='text-white text-2xl font-normal'>25</span> */}
                     </span>
                     <span className='text-[32px] font-bold text-[#00ffa9] ml-1'>DTS</span>

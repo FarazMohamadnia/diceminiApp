@@ -74,7 +74,7 @@ root.render(
             <Route path="/games/rocket-dice" element={<DiceGame1 />} />
             <Route path="/games/dice-clash" element={<DiceGame2 />} />
           </Routes>
-          <ButtonLinkV2 menu={menus}/>
+          {/* <ButtonLinkV2 menu={menus}/> */}
         </TonConnectUIProvider>
       </RouteProvider>
     </BrowserRouter>
