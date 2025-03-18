@@ -63,6 +63,7 @@ export default function GameLayout2() {
           DTS: response.data[0].dts_amount,
           className: " top-[-50px] ",
           Price: response.data[0].amount.toFixed(3),
+          discount_value : response.data[0].discount_value
         },
         {
           id: 2,
@@ -73,6 +74,7 @@ export default function GameLayout2() {
           DTS: response.data[1].dts_amount,
           className: "top-[-35px]",
           Price: response.data[1].amount.toFixed(3),
+          discount_value : response.data[1].discount_value
         },
         {
           id: 3,
@@ -83,6 +85,7 @@ export default function GameLayout2() {
           DTS: response.data[2].dts_amount,
           className: "top-[6px]",
           Price: response.data[2].amount.toFixed(3),
+          discount_value : response.data[2].discount_value
         },
         {
           id: 4,
@@ -93,8 +96,10 @@ export default function GameLayout2() {
           DTS: response.data[3].dts_amount,
           className: "top-[-50px]",
           Price: response.data[3].amount.toFixed(3),
+          discount_value : response.data[3].discount_value
         },
       ]);
+      console.log(response.data)
       setloading(false);
     } catch (err) {
       setloading(false);

@@ -17,6 +17,7 @@ export default function Dicesellcard({
   DTS,
   Price,
   className,
+  discount_value
 }) {
   const [tonConnectUI] = useTonConnectUI();
   const TonWeb = new window.TonWeb(new window.TonWeb.HttpProvider("https://toncenter.com/api/v2/jsonRPC"));
@@ -118,7 +119,7 @@ export default function Dicesellcard({
       <span className="absolute -top-2 -right-2 z-20">
         <img src={discount} alt="" className="relative z-0" />
         <span className="absolute left-[2.6rem] top-[1.8rem] -translate-x-1/2 -translate-y-1/2 rotate-45 z-10 text-white text-sm">
-          40%
+          {discount_value}%
         </span>
       </span>
       <span
