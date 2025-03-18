@@ -295,7 +295,7 @@ export default function DiceGame2() {
                             </span>
                         </button>
                         <button
-                            onClick={() =>setdts((prv) => (prv >= 1 ? Number(prv)-1 : prv))}
+                            onClick={() =>setdts((prv) => (prv > 1 ? Number(prv)-1 : prv))}
                             className="flex justify-center items-center relative"
                         >
                             <BTN/>

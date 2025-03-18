@@ -1,6 +1,6 @@
 {
     "url" : "https://mainapp.dicemaniacs.com/",
     "name" : "connect to Dice",
-    "iconUrl": "",
+    "iconUrl": "https://mini.dicemaniacs.com/asset/iDicecon.png",
     "network":"mainnet"
 } 

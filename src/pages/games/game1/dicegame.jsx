@@ -37,7 +37,7 @@ export default function DiceGame1() {
   const [data , setdata]=useState({
     roll : 2,
     guess : 'Over',
-    dts:0,
+    dts:1,
     multiplier :0
   })
   const [refresh , setrefresh]=useState(true);
