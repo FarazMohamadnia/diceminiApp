@@ -130,30 +130,12 @@
   font-style: italic;
 }
 
-* {
-  padding: 0px;
-  margin: 0px;
-  box-sizing: border-box;
-  font-family: "Barlow Condensed";
-}
 
 .text-BalooBhai {
   font-family: "BalooBhai2" !important;
 }
 
-html,
-body {
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
-}
 
-@media (max-width: 400px) {
-  html,
-  body {
-    overflow-y: auto;
-  }
-}
 
 .home-layout {
   min-height: 100svh;
@@ -161,7 +143,6 @@ body {
   background: url("./components/asset/img/background.png");
   background-size: cover;
   background-position: center;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
