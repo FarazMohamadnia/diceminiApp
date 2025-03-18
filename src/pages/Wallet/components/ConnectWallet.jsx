@@ -12,12 +12,12 @@ const ConnectWalletButton =() => {
   const [tonConnectUI ] = useTonConnectUI();
   const { user, setUser } = useUserStore();
 
-  const connectWallet =()=>{
+  const connectWallet =async()=>{
     try{
       if(wallet?.account?.address){
         setUser({...user , address : toUserFriendlyAddress(wallet?.account?.address) , connected : true});
       }else{
-          tonConnectUI.openModal();
+        tonConnectUI.openModal();
       }
     }catch(err){
       console.log(err.message)
@@ -30,7 +30,17 @@ const ConnectWalletButton =() => {
 
   useEffect(()=>{
     setUser({...user , address :wallet?.account?.address? toUserFriendlyAddress(wallet?.account?.address) : '', connected : true});
-  },[ wallet?.account?.address])
+    if(user.address){
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'wallet-connected',
+        'userName' : user.telegram_username,
+        'userId': user.telegram_id ,  
+        'walletAddress': user.address
+      });
+      console.log(window.dataLayer);
+    }
+  },[ wallet?.account?.address , user.address])
   return (
     <>
     {!wallet?.account.address ?

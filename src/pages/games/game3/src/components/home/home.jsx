@@ -13,6 +13,7 @@ import CupIcon from '../asset/icon/cup'
 import WinerPage from "../../../components/winerpage";
 import { Api } from "../../../../../../api/apiUrl";
 import useTokenStore from "../../../../../../store/token";
+import BackButton from "../../../../../../components/common/shared/BackButton";
 const color = [
   {
     text: "SUBMIT",
@@ -262,6 +263,9 @@ export default function Game3() {
       {openModal ? <WinerPage modalHandler={modalHandler} countdown={newDate} /> :
         <div className="home-layout">
             <div>
+              <div className="mb-5 mx-6">
+              <BackButton title="Back to Game" />
+              </div>
               <div className="text-center text-white text-xl font-medium">
                 <p>
                   Predict The Dice, <span className="text-[#FFDE7B]">100$</span>{" "}

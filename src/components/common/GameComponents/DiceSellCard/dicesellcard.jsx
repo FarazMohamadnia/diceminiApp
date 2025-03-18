@@ -5,8 +5,8 @@ import { Api } from "../../../../api/apiUrl";
 import discount from "../../../../asset/img/GameImg/layout2/discount.svg";
 import useTokenStore from "../../../../store/token";
 import useUpgradeData from "../../../../store/updateData";
-import { Modal } from "../../../layout/GameLayout/gameLayoutSection2/GameLayout2";
-
+import { Modal, OwnerAddress } from "../../../layout/GameLayout/gameLayoutSection2/GameLayout2";
+import { useTonConnectUI } from "@tonconnect/ui-react";
 import "./dicesellcard.css";
 
 export default function Dicesellcard({
@@ -18,6 +18,8 @@ export default function Dicesellcard({
   Price,
   className,
 }) {
+  const [tonConnectUI] = useTonConnectUI();
+  const TonWeb = new window.TonWeb(new window.TonWeb.HttpProvider("https://toncenter.com/api/v2/jsonRPC"));
   const { token } = useTokenStore();
   const { toggleUpgrade } = useUpgradeData();
   const [disabled, setdisabled] = useState(false);
@@ -64,55 +66,42 @@ export default function Dicesellcard({
     }
   };
 
-  const buyCombo = (options) => {
-    const dots_amount = DTS;
-    if (!disabled) {
-      setdisabled(true);
-      Swal.fire({
-        title: "Are you sure?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, Buy it!",
-      }).then((result) => {
-        try {
-          if (result.isConfirmed) {
-            axios
-              .post(
-                Api[3].PostBuyDts,
-                {
-                  dts_amount: DTS,
-                  currency: options.selectedCoin.toLocaleLowerCase(),
-                },
-                {
-                  headers: {
-                    Authorization: `token ${token}`,
-                  },
-                }
-              )
-              .catch((err) => {
-                Swal.fire({
-                  icon: "error",
-                  title: err.response.data.error,
-                });
-              });
-            toggleUpgrade((prv) => (prv ? false : true));
-          }
-        } catch (err) {
-          Swal.fire({
-            icon: "error",
-            title: err.response.data.error,
-          });
+  const buyCombo =async (options) => {
+    try{
+    const response1 = await axios.post(Api[6].PostBuyDts,{
+      currency:options.selectedCoin.toLocaleLowerCase(),
+      dts_amount :DTS,
+    },{
+      headers: {
+        Authorization: `token ${token}`,
+      },
+    });
+   const newid =response1.data.id
+  const myTransaction = {
+      validUntil: Math.floor(Date.now() / 1000) + 120, // 120 sec
+      messages: [
+        {
+          address: OwnerAddress,
+          amount: options*1000000000,
         }
-      });
-      setdisabled(false);
-    } else {
-      Swal.fire({
-        icon: "error",
-        text: "We are processing your purchase. Please wait...",
-      });
+      ]
     }
+  const validate = await tonConnectUI.sendTransaction(myTransaction);
+  const bocCellBytes = await TonWeb.boc.Cell.oneFromBoc(TonWeb.utils.base64ToBytes(validate.boc)).hash();
+  const hashBase64 = TonWeb.utils.bytesToBase64(bocCellBytes);
+  console.log(hashBase64)
+  const response = await axios.post(Api[6].PostValidation,{
+      id:newid,
+      transaction_hash : hashBase64
+  },{
+      headers: {
+        Authorization: `token ${token}`,
+      },
+    });
+    console.log(response) 
+  }catch(err){
+    console.log(err)
+  }
   };
 
   useEffect(() => {
@@ -128,7 +117,7 @@ export default function Dicesellcard({
       }}
       className="Dicesellcard-container"
     >
-      <span className="absolute -top-2 -right-2 z-50">
+      <span className="absolute -top-2 -right-2 z-20">
         <img src={discount} alt="" className="relative z-0" />
         <span className="absolute left-[2.6rem] top-[1.8rem] -translate-x-1/2 -translate-y-1/2 rotate-45 z-10 text-white text-sm">
           40%

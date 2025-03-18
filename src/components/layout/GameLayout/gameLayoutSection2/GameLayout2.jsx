@@ -26,6 +26,8 @@ import TwoWhiteDice from "../../../icons/change/game/twowhiteDice";
 import WalletMoney from "../../../icons/walletmoney";
 
 import "./GameLayout2.css";
+import { useTonConnectUI } from "@tonconnect/ui-react";
+export const OwnerAddress = 'UQD6G1Ek7PQsXAyRBMTdxfmdsAk2kysNDj6VfeKAk-aSS4cM'
 
 spiral.register();
 
@@ -220,21 +222,6 @@ export default function GameLayout2() {
           </div>
           <div className="pb-28 w-[95%] mx-auto mt-5">
             <Amount type={"dts"} />
-            {/* <div className="w-full h-[1px] bg-slate-500 my-6 relative flex justify-center items-center">
-              <div className="bg-[#121724]">
-                <SwapIcon />
-              </div>
-            </div> */}
-            {/* <div className="GameLayout2-input-style">
-              <div className="flex items-center">
-                <p className="text-[#3bffff] text-[15px] font-light">
-                  AMOUNT OF DTS :{" "}
-                </p>
-                <p className="text-neutral-50 text-[15px] font-light ml-1">
-                  {(amount / dtsAmount).toFixed(3)}
-                </p>
-              </div>
-            </div> */}
             <div className="flex justify-center items-center mt-10">
               <button
                 onClick={() => {
@@ -294,8 +281,11 @@ const icons = {
 
 export const Modal = ({ isOpen, setIsOpen, onConfirm, amount }) => {
   const [selectedCoin, setSelectedCoin] = useState();
-  const [coinAmount, setCoinAmount] = useState();
+  const [coinAmount, setCoinAmount] = useState('');
+  const [Currency , setCurrency]=useState('')
   const { token } = useTokenStore();
+  const [tonConnectUI] = useTonConnectUI();
+  const TonWeb = new window.TonWeb(new window.TonWeb.HttpProvider("https://toncenter.com/api/v2/jsonRPC"));
 
   const getCoinAmount = async (coin) => {
     try {
@@ -312,6 +302,7 @@ export const Modal = ({ isOpen, setIsOpen, onConfirm, amount }) => {
         }
       );
       setCoinAmount(result.data?.amount);
+      setCurrency(coin.toLocaleLowerCase())
     } catch (error) {
       console.error(error);
     }
@@ -376,10 +367,44 @@ export const Modal = ({ isOpen, setIsOpen, onConfirm, amount }) => {
             <button
               className="relative w-[130px] h-9"
               disabled={coinAmount === undefined}
-              onClick={() => {
+              onClick={async() => {
                 setIsOpen(false);
                 onConfirm({ coinAmount, amount, selectedCoin });
-              }}
+                console.log(amount)
+                try{
+                const response1 = await axios.post(Api[6].PostBuyDts,{
+                    currency:Currency,
+                    dts_amount : amount
+                },{
+                    headers: {
+                      Authorization: `token ${token}`,
+                    },
+                  });
+                 const newid =response1.data.id
+                const myTransaction = {
+                    validUntil: Math.floor(Date.now() / 1000) + 120, // 120 sec
+                    messages: [
+                      {
+                        address: OwnerAddress,
+                        amount: coinAmount*1000000000,
+                      }
+                    ]
+                  }
+                const validate = await tonConnectUI.sendTransaction(myTransaction);
+                const bocCellBytes = await TonWeb.boc.Cell.oneFromBoc(TonWeb.utils.base64ToBytes(validate.boc)).hash();
+                const hashBase64 = TonWeb.utils.bytesToBase64(bocCellBytes);
+                console.log(hashBase64)
+                const response = await axios.post(Api[6].PostValidation,{
+                    id:newid,
+                    transaction_hash : hashBase64
+                },{
+                    headers: {
+                      Authorization: `token ${token}`,
+                    },
+                  });
+                  console.log(response) 
+              }catch(err){console.log(err)}}
+            }
             >
               <span className="relative z-10">Confirm</span>
               <img

@@ -46,5 +46,7 @@ export const Api = [
         luckydiceWinners : url+'luckydice/winners/',
         predict : url+'luckydice/predict/',
         getCoinDts: url + "dts-coin/",
+        PostValidation : url+'validate-buy/',
+        PostBuyDts : url+'buy-dts/'
     }
 ]

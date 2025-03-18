@@ -29,7 +29,7 @@ export default function GameLayout1() {
     return (
         <div>
             <div className='flex items-center justify-center mt-7'>
-                <Link className='GameLayout1-Btn-style ' to={'/Wallet'}>
+                <Link className='GameLayout1-Btn-style ' to={'/dtshistory'}>
                     <button className='text-base font-bold flex items-center'><span
                         className='mr-2'><OpenWalletIcon/></span>OPEN YOUR WALLET
                     </button>
