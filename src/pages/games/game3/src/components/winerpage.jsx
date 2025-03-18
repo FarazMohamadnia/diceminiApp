@@ -38,7 +38,7 @@ export default function WinerPage({modalHandler , countdown }){
           }
           );
           setplayers(response.data.players);
-          console.log(response.data.players)
+         
           setoading(false)
         }catch(err){
           console.log(err)

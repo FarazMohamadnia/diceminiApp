@@ -4,7 +4,7 @@ import './index.css'
 import ProfilePlayIcon1 from "../../../../components/icons/change/profileNavbar/profiePlayIcon";
 import { Link } from "react-router-dom";
 const Carousel = ({gameHistoryData , images}) => {
-  console.log('dddddd ::::: '+gameHistoryData)
+  
   const [currentIndex, setCurrentIndex] = useState(0);
  
   const handleDragEnd = (event, info) => {

@@ -95,7 +95,7 @@ export default function DiceGame1() {
         vibratePhone()
       }, 4000);
 
-      console.log(response)
+      
     }catch(err){
       setTimeout(() => {
         setloading(false);

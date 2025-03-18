@@ -58,7 +58,7 @@ export default function Dicesellpages() {
         title:'Dice sold successfully'
       })
       toggleUpgrade(prv => prv ? false : true)
-      console.log(response)
+      
     }catch(err){
       setdice(0)
       Swal.fire({

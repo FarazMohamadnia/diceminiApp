@@ -127,7 +127,7 @@ export default function DiceGame2() {
                 vibratePhone()
             }, 4000);
 
-            console.log(response)
+           
         }catch(err){
             console.log(err)
             Swal.fire({

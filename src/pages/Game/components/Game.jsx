@@ -64,7 +64,7 @@ function LeaderboardCard() {
             }
         });
         setplayer(response.data.player)
-        console.log(response)
+        
     }catch(err){
         console.log(err)
     }

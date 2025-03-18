@@ -72,16 +72,16 @@ const MissionDialog = ({ handleCloseDialog }) => {
     try {
       const isTelegramAvailable = /Telegram/i.test(navigator.userAgent); // Check if Telegram is installed
       if (isTelegramAvailable) {
-        console.log("if");
+        
         window.location.href = telegramShareUrl;
       } else {
-        console.log("else");
+        
 
         // If Telegram isn't installed, open the fallback URL
         window.location.href = fallbackUrl;
       }
     } catch (error) {
-      console.log("catch");
+    
 
       window.location.href = fallbackUrl;
     }

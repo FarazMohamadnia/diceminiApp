@@ -4,8 +4,6 @@ import { useTonConnectUI, useTonWallet} from "@tonconnect/ui-react";
 import { toUserFriendlyAddress } from "@tonconnect/sdk";
 import useUserStore from "../../../store/user";
 import AddressDisplay from "../pages/deposit/components/HashCode";
-import axios from "axios";
-import { Api } from "../../../api/apiUrl";
 
 const ConnectWalletButton =() => {
   const wallet = useTonWallet();
@@ -38,7 +36,7 @@ const ConnectWalletButton =() => {
         'userId': user.telegram_id ,  
         'walletAddress': user.address
       });
-      console.log(window.dataLayer);
+      
     }
   },[ wallet?.account?.address , user.address])
   return (

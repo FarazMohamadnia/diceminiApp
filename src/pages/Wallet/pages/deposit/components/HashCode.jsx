@@ -22,7 +22,7 @@ const AddressDisplay = ({ address, onCopy ,disconnectWallet}) => {
       <span className="text-[#919191] px-4 whitespace-nowrap overflow-hidden text-sm overflow-ellipsis">
         {address}
       </span>
-      <button className="text-[#3BFFFF] hover:underline" onClick={disconnectWallet}>
+      <button className="text-[#3BFFFF] hover:underline disconnect" onClick={disconnectWallet}>
         <Disconnect  />
       </button>
     </div>

@@ -25,7 +25,7 @@ const Detail = () => {
       })
       setloading(false)
       setdata(response.data.referral)
-      console.log(response.data.referral)
+      
     }catch(err){
       console.log(err)
       setloading(false)
@@ -104,14 +104,9 @@ function Tabs() {
 
   const tabs = [
     {
-      title: "Daily",
-      key: "daily",
-      href : '/dice-detail'
-    },
-    {
       title: "General",
       key: "general",
-      href : ''
+      href : '/dice-detail'
     },
     {
       title: "Referral",

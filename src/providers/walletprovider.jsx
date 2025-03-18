@@ -16,7 +16,6 @@ export default function WalletProvider(){
                      "Authorization" : `token ${token}`
                   }
                 })
-                console.log(response)
             }
         }catch(err){
           console.log(err)
@@ -27,7 +26,6 @@ export default function WalletProvider(){
             setUser({...user , address :wallet?.account?.address ? toUserFriendlyAddress(wallet?.account?.address) : '', connected : true});
             walletAddressHandler()
         }
-        console.log(user)
     },[wallet?.account?.address])
     return null
 }

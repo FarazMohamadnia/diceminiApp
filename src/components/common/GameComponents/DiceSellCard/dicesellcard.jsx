@@ -89,7 +89,6 @@ export default function Dicesellcard({
   const validate = await tonConnectUI.sendTransaction(myTransaction);
   const bocCellBytes = await TonWeb.boc.Cell.oneFromBoc(TonWeb.utils.base64ToBytes(validate.boc)).hash();
   const hashBase64 = TonWeb.utils.bytesToBase64(bocCellBytes);
-  console.log(hashBase64)
   const response = await axios.post(Api[6].PostValidation,{
       id:newid,
       transaction_hash : hashBase64
@@ -98,7 +97,6 @@ export default function Dicesellcard({
         Authorization: `token ${token}`,
       },
     });
-    console.log(response) 
   }catch(err){
     console.log(err)
   }

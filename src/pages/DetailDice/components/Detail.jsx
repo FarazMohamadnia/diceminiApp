@@ -26,8 +26,8 @@ const Detail = () => {
           <Tabs />
         </div>
         <div className="mt-8 flex flex-col gap-4 min-h-[50vh] overflow-y-scroll">
-          <RewardCard type="error" />
-          <RewardCard type="success" />
+          {/* <RewardCard type="error" /> */}
+          {/* <RewardCard type="success" /> */}
         </div>
       </main>
       <div>
@@ -40,18 +40,13 @@ const Detail = () => {
 export default Detail;
 
 function Tabs() {
-  const [activeTab, setActiveTab] = useState("daily");
+  const [activeTab, setActiveTab] = useState("general");
 
   const tabs = [
     {
-      title: "Daily",
-      key: "daily",
-      href: '/dice-detail'
-    },
-    {
       title: "General",
       key: "general",
-      href: ''
+      href: '/dice-detail'
     },
     {
       title: "Referral",

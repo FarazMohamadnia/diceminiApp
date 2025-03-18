@@ -20,7 +20,6 @@ const ApiLoader = () => {
       setLoading(false)
     }
     try {
-        console.log('start')
         // telegram Auth
         const tg =window.Telegram.WebApp.initDataUnsafe.user;
         const response1  = await axios.post(Api[2].PostAuth , {
@@ -57,7 +56,7 @@ const ApiLoader = () => {
            picture : picture,
            ton_balance : ton_balance
          }) 
-         console.log(user)
+
         }catch(err){
             console.log(err)
         }

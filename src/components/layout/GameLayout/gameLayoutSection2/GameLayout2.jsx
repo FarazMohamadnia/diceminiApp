@@ -53,7 +53,6 @@ export default function GameLayout2() {
           Authorization: `token ${token}`,
         },
       });
-      console.log(response.data[0].name);
       setdata([
         {
           id: 1,
@@ -261,7 +260,7 @@ export default function GameLayout2() {
       <Modal
         isOpen={isOpenConfirm}
         onConfirm={(options) => {
-          console.log("confirmed", options);
+         
         }}
         setIsOpen={setIsOpenConfirm}
         amount={amount}
@@ -370,7 +369,7 @@ export const Modal = ({ isOpen, setIsOpen, onConfirm, amount }) => {
               onClick={async() => {
                 setIsOpen(false);
                 onConfirm({ coinAmount, amount, selectedCoin });
-                console.log(amount)
+    
                 try{
                 const response1 = await axios.post(Api[6].PostBuyDts,{
                     currency:Currency,
@@ -393,7 +392,7 @@ export const Modal = ({ isOpen, setIsOpen, onConfirm, amount }) => {
                 const validate = await tonConnectUI.sendTransaction(myTransaction);
                 const bocCellBytes = await TonWeb.boc.Cell.oneFromBoc(TonWeb.utils.base64ToBytes(validate.boc)).hash();
                 const hashBase64 = TonWeb.utils.bytesToBase64(bocCellBytes);
-                console.log(hashBase64)
+            
                 const response = await axios.post(Api[6].PostValidation,{
                     id:newid,
                     transaction_hash : hashBase64
@@ -402,7 +401,7 @@ export const Modal = ({ isOpen, setIsOpen, onConfirm, amount }) => {
                       Authorization: `token ${token}`,
                     },
                   });
-                  console.log(response) 
+                 
               }catch(err){console.log(err)}}
             }
             >

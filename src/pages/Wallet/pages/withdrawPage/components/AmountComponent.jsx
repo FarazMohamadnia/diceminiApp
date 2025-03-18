@@ -23,7 +23,7 @@ export default function Amount({ type }) {
             setamount(balanceInTON);
           }
         } else {
-          console.log("Wallet not found or balance unavailable.");
+         
           return null;
         }
       } catch (error) {

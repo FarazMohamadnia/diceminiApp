@@ -18,7 +18,6 @@ export default function Navbar(){
     const { user } = useUserStore();
     const NotificationCheckHandler =()=>{
         setFalse()
-        console.log(isToggled);
     }
     return(
         <div>

@@ -49,7 +49,7 @@ const TransactionHistory = () => {
           const year = date.getFullYear();
           const month = date.getMonth() + 1
           const day = date.getDate()
-          console.log(data)
+        
           const obg={
             status :statusMap[data.status] ,
             icon: iconMap[data.status],
@@ -63,7 +63,7 @@ const TransactionHistory = () => {
         })   
       }
       setloading(false)
-      console.log(transitionData)   
+      
     }catch(err){
       setloading(false)
       console.log(err)

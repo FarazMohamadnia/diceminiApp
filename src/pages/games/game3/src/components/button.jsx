@@ -52,7 +52,7 @@ export default function Button({
         });
         setloadin(false);
       } catch (err) {
-        console.log(err);
+      
         setloadin(false);
         Swal.fire({
           icon:'error',

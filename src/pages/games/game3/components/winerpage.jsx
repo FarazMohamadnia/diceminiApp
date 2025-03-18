@@ -24,7 +24,7 @@ export default function WinerPage({modalHandler , countdown }){
                 }
             });
             setData(response.data.winners);
-            console.log(response)
+            
         }catch(err){
             console.log(err)
         }

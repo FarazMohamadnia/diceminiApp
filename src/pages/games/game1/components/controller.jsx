@@ -11,7 +11,7 @@ export default function Controller({multiplier,setdata , data}){
     const numberHandler = (e)=>{
         const id = e.target.id
         if(active){
-            console.log(number)
+            
             if(id == 1 && number < 11){
                 setnumber((prev)=> prev+1)
                 setdata({

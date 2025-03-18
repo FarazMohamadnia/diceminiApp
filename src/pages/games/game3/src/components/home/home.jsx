@@ -137,7 +137,7 @@ export default function Game3() {
           Authorization: `token ${token}`,
         },
       });
-      console.log(response.data);
+      
       if (response.data.slots) {
         setPredicts(response.data);
         setlastPredict({
@@ -146,25 +146,25 @@ export default function Game3() {
         });
       }
 
-      console.log({ finish, wallet, response: response.data });
+      
 
       const number1 = response.data?.predictions?.[0]?.dice_number1 || null;
 
       if (finish) {
         setcontroller("disable");
-        console.log("disable");
+        
       } else if (
         !finish &&
         number1 === null
       ) {
         setcontroller("submit");
-        console.log("submit");
+        
       } else if (
         !finish &&
         number1 !== null
       ) {
         setcontroller("change");
-        console.log("change");
+        
       }
     } catch (err) {
       console.log(err.message);
@@ -181,7 +181,7 @@ export default function Game3() {
       setnewDate(getFormattedDate(date1))
       setcountdown(getFormattedDate(date));
       setfinish(response.data.is_finished);
-      console.log(response.data.is_finished)
+    
       startCountdown();
       const calculateRemainingTime = () => {
         const now = new Date();

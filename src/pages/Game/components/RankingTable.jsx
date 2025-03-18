@@ -59,7 +59,7 @@ export function LeaderboardList() {
           }
           ])
           setitems(response.data.lucky_board.slice(3));
-          console.log(response.data.lucky_board[1].first_name)
+          
       }catch(err){
           console.log(err)
       }

@@ -42,14 +42,14 @@ const BuyDtsHistory = () => {
              "Authorization" : `token ${token}`
           }
         })
-        console.log(response)
+        
         if(renderHandler){ 
           response.data.map(data =>{
             const date = new Date(data.insert_dt);
             const year = date.getFullYear();
             const month = date.getMonth() + 1
             const day = date.getDate()
-            console.log(data)
+            
             const obg={
               status :statusMap[data.status] ,
               icon: iconMap[data.status],
