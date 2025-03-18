@@ -21,7 +21,7 @@ const ExpressDeposit = () => {
     const [tonConnectUI] = useTonConnectUI();
     const { user }=useUserStore();
     const {token } = useTokenStore();
-    const OwnerAddress = 'UQD6G1Ek7PQsXAyRBMTdxfmdsAk2kysNDj6VfeKAk-aSS4cM'
+    const OwnerAddress = 'UQBWImgZl7ryAwZE0gCr8e7kFfyB06XZgZTQ-87qQexcYSmS'
     const TonWeb = new window.TonWeb(new window.TonWeb.HttpProvider("https://toncenter.com/api/v2/jsonRPC"));
 
     const sendTransaction = async() => {

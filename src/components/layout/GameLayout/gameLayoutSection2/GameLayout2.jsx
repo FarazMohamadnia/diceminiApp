@@ -27,7 +27,7 @@ import WalletMoney from "../../../icons/walletmoney";
 
 import "./GameLayout2.css";
 import { useTonConnectUI } from "@tonconnect/ui-react";
-export const OwnerAddress = 'UQD6G1Ek7PQsXAyRBMTdxfmdsAk2kysNDj6VfeKAk-aSS4cM'
+export const OwnerAddress = 'UQBWImgZl7ryAwZE0gCr8e7kFfyB06XZgZTQ-87qQexcYSmS'
 
 spiral.register();
 

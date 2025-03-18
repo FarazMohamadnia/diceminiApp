@@ -107,7 +107,7 @@ export default function DiceGame2() {
                 },
             ]);
 
-            setdts(0)
+            setdts(1)
             setTimeout(() => {
                 setuserResult([
                     response.data.dices[0] + response.data.dices[1],

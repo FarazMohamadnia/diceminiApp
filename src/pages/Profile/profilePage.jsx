@@ -59,7 +59,7 @@ export default function ProfilePage(){
                 {
                     Icon : <ProfileBoxIcon2 /> ,
                     title : 'Total Profit',
-                    DTS : `${response.data.statistics.total_bet_this_week} DTS`
+                    DTS : `${response.data.statistics.total_play_this_week} DTS`
                 },
             
                 {
