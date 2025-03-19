@@ -91,7 +91,7 @@ export default function DiceGame1() {
           }
           toggleUpgrade(prv => prv ? false : true)
           setrefresh(refresh ? false : true)
-        }, 700);
+        }, 1500);
         vibratePhone()
       }, 4000);
 

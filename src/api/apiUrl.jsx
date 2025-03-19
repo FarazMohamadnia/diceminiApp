@@ -17,7 +17,7 @@ export const Api = [
     {
         PostConnectWallet : url+'connect-wallet/',
         notification : url+'notification/',
-        PostAuth : url+'auth/'
+        PostAuth : url+'auth/' 
     },
     {
         GamePage : url+'games/',

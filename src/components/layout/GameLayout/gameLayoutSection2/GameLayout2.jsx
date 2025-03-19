@@ -316,7 +316,7 @@ export const Modal = ({ isOpen, setIsOpen, onConfirm, amount }) => {
     if (isOpen) {
       window.document.body.style.overflow = "hidden";
       if (selectedCoin) {
-        getCoinAmount(selectedCoin);
+        // getCoinAmount(selectedCoin);
       }
     } else {
       window.document.body.style.overflow = "auto";

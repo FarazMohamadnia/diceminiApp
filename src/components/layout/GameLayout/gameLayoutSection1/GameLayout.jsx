@@ -15,7 +15,7 @@ import useUserStore from '../../../../store/user';
 const modalfakedata = [
     {
         title: ' What is DTS? ',
-        text: ['In the United playgrounds of Dice Maniacs, DTS is the official currency! 💰🎲 The name DTS comes from the dots on a die, representing every roll, every move, and every chance taken in this world of dice games. Whether you’re playing, predicting, or strategizing—DTS powers the UPD experience! 🚀🔥']
+        text: ['In the United playgrounds of Dice Maniacs, DTS is the official currency! 💰🎲 The name DTS comes from the dots on a dice, representing every roll, every move, and every chance taken in this world of dice games. Whether you’re playing, predicting, or strategizing—DTS powers the UPD experience! 🚀🔥']
     },
     {
         title: 'What is Dice Maniacs? ',

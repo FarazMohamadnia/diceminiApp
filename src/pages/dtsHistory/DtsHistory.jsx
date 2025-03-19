@@ -6,6 +6,7 @@ import useTokenStore from "../../store/token";
 import useUpgradeData from "../../store/updateData";
 import ConnectWalletButton from "../Wallet/components/ConnectWallet";
 import BuyDtsHistory from "./components/buyDtsHistory";
+import BackButton from "../../components/common/shared/BackButton";
 
 export default function DtsHistory(){
     const {token}=useTokenStore()
@@ -16,6 +17,9 @@ export default function DtsHistory(){
     return(
         <div>
             <Navbar />
+            <div className="mx-4 my-4">
+                <BackButton title={'Back To Dice'}/>
+            </div>
             <div>
                 <div className="my-6 px-4">
                     <ConnectWalletButton />
