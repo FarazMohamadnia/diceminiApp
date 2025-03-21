@@ -15,11 +15,11 @@ import useUserStore from '../../../../store/user';
 const modalfakedata = [
     {
         title: ' What is DTS? ',
-        text: ['In the United playgrounds of Dice Maniacs, DTS is the official currency! 💰🎲 The name DTS comes from the dots on a dice, representing every roll, every move, and every chance taken in this world of dice games. Whether you’re playing, predicting, or strategizing—DTS powers the UPD experience! 🚀🔥']
+        text: ['In the United Playgrounds of Dice Maniacs, everything revolves around DTS—the official in-game currency! DTS stands for “Dots,” representing the dots on a die. Every game, every move, and every strategy you make in this world requires DTS.' , 'However, not all DTS are immediately active! When you first earn DTS, they are inactive, meaning they can’t be withdrawn or traded. To activate them, you must play! Each time you roll the dice and win, your DTS transforms from inactive to active, unlocking its full potential.' , 'With DTS, you don’t just play—you grow, strategize, and win! The more you play, the more DTS you activate, leading you one step closer to the ultimate goal.']
     },
     {
         title: 'What is Dice Maniacs? ',
-        text: ['Dice Maniacs is a vast land where all dice games come to life! 🎲✨ It’s a world of endless rolls, strategies, and thrilling moments, where every citizen has a chance to play, predict, and win. Whether you’re here to test your luck, master the odds, or just enjoy the excitement—Dice Maniacs is where the real dice action happens! ']
+        text: ['Dice are the ultimate reward in the world of Dice Maniacs!', 'As you play, win, and activate your DTS, you progress toward a major milestone: collecting 21 DTS—a symbolic number representing the 21 dots on dice.' , 'Once you’ve successfully played and won with 21 DTS, you can convert them into a die. This die becomes a valuable asset that you can sell, trade (not yet), or hold as part of your journey in the game.' , 'So, the path is clear: Earn DTS, activate them by playing, and when you reach 21 DTS, transform them into a die! The more dice you collect, the greater your opportunities in the Dice Maniacs universe.']
     }
 ]
 export default function GameLayout1() {

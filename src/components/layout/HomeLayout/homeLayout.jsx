@@ -64,7 +64,15 @@ export default function HomeLayout(){
                     toggleUpgrade(prv => prv ? false : true)
                     Swal.fire({
                         icon:"success",
-                        text : "You won! Yaaaaaay!!!"
+                        title :"🎉 Congratulations! " ,
+                        text : 'You hit the right number! 0.21 DTS has been added to your account. Keep rolling to reach 21 DTS and get your dice! 🎲🔥'
+                    })
+                }else{
+                    toggleUpgrade(prv => prv ? false : true)
+                    Swal.fire({
+                        icon:"error",
+                        title :"❌ Not this time!" ,
+                        text : 'But your effort counts—0.001 DTS has been added to your account. Try again and keep rolling! 🎲💪'
                     })
                 }
                 vibratePhone();

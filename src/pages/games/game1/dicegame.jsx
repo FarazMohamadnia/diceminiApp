@@ -74,7 +74,7 @@ export default function DiceGame1() {
         number1: response.data.dices[0],
         number2: response.data.dices[1],
       });
-      setdts(1)
+      // setdts(1)
       setTimeout(() => {
         setloading(false);
         setTimeout(() => {
