@@ -428,7 +428,7 @@ export const Modal = ({ isOpen, setIsOpen, onConfirm, amount }) => {
                 Swal.fire({
                   icon : 'error',
                   title : 'Error',
-                  text : ''
+                  text : err.response.data.error
                 })
                 console.log(err)
               }}
