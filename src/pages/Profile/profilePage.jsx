@@ -78,8 +78,8 @@ export default function ProfilePage(){
     }
 
     useEffect(()=>{
-        profileDataHandller();
-    },[])
+        if(token)profileDataHandller();
+    },[token])
     return(
         <div>
             <div>

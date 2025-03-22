@@ -70,8 +70,8 @@ function LeaderboardCard() {
     }
 }
 useEffect(()=>{
-    playerRankhandler()
-},[])
+    if(token)playerRankhandler()
+},[token])
 
   return (
     <div

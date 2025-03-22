@@ -67,41 +67,7 @@ export default function Dicesellcard({
     }
   };
 
-  const buyCombo =async (options) => {
-    try{
-    const response1 = await axios.post(Api[6].PostBuyDts,{
-      currency:options.selectedCoin.toLocaleLowerCase(),
-      dts_amount :DTS,
-    },{
-      headers: {
-        Authorization: `token ${token}`,
-      },
-    });
-   const newid =response1.data.id
-  const myTransaction = {
-      validUntil: Math.floor(Date.now() / 1000) + 120, // 120 sec
-      messages: [
-        {
-          address: OwnerAddress,
-          amount: options*1000000000,
-        }
-      ]
-    }
-  const validate = await tonConnectUI.sendTransaction(myTransaction);
-  const bocCellBytes = await TonWeb.boc.Cell.oneFromBoc(TonWeb.utils.base64ToBytes(validate.boc)).hash();
-  const hashBase64 = TonWeb.utils.bytesToBase64(bocCellBytes);
-  const response = await axios.post(Api[6].PostValidation,{
-      id:newid,
-      transaction_hash : hashBase64
-  },{
-      headers: {
-        Authorization: `token ${token}`,
-      },
-    });
-  }catch(err){
-    console.log(err)
-  }
-  };
+  
 
   useEffect(() => {
     ColorHandller();
@@ -191,7 +157,7 @@ export default function Dicesellcard({
       <Modal
         isOpen={isOpenConfirm}
         onConfirm={(options) => {
-          buyCombo(options);
+
         }}
         setIsOpen={setIsOpenConfirm}
         amount={DTS}

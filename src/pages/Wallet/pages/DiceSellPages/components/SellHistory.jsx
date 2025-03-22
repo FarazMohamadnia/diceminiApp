@@ -36,42 +36,41 @@ const SellDtsHistory = () => {
   };
   
     const tabledata = async()=>{
-      try{
-        const response = await axios.get(Api[4].sellDtsTable ,{
-          headers:{
-             "Authorization" : `token ${token}`
+      try {
+        const response = await axios.get(Api[4].sellDtsTable, {
+          headers: {
+            "Authorization": `token ${token}`
           }
-        })
-        
-        if(renderHandler){ 
-          response.data.map(data =>{
-            const date = new Date(data.insert_dt);
-            const year = date.getFullYear();
-            const month = date.getMonth() + 1
-            const day = date.getDate()
-            
-            const obg={
-              status :statusMap[data.status] ,
-              icon: iconMap[data.status],
-              statusColor: statusColorMap[data.status],
-              amount: `${signMap[data.transaction_type]}${data.amount} USD`,
-              amountColor : statusColorMap[data.status] ,
-              date : `${year}/${month}/${day}`
-            }
-            transitionData.push(obg)
-            setrenderHandler(false)
-          })   
-        }
-        setloading(false)
-      }catch(err){
-        console.log(err)
-        setloading(false)
+        });
+    
+        settransitionData([]); // پاک کردن مقادیر قبلی
+    
+        const newData = response.data.map(data => {
+          const date = new Date(data.insert_dt);
+          return {
+            status: statusMap[data.status],
+            icon: iconMap[data.status],
+            statusColor: statusColorMap[data.status],
+            amount: `${signMap[data.transaction_type]}${data.amount} USD`,
+            amountColor: statusColorMap[data.status],
+            date: `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`
+          };
+        });
+    
+        settransitionData(newData);
+        setrenderHandler(false); // مقدار آن را false کن تا دوباره صدا زده نشود
+        setloading(false);
+      } catch (err) {
+        console.error(err);
+        setloading(false);
       }
     }
   
-    useEffect(()=>{
-      tabledata()
-    },[])
+    useEffect(() => {
+      if (token && renderHandler) {
+        tabledata();
+      }
+    }, [token, renderHandler]);
   return (
     <div
       className="
@@ -90,7 +89,7 @@ const SellDtsHistory = () => {
       <div className="flex justify-center items-center table-blue-shadow">
         <div className="deposite_shadow">
           <span className="absolute right-0 left-0 w-full text-[15px] font-extrabold text-center top-1">
-            Deposit History
+            Sell Dice History
           </span>
         </div>
       </div>

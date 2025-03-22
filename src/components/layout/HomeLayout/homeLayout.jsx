@@ -68,7 +68,6 @@ export default function HomeLayout(){
                         text : 'You hit the right number! 0.21 DTS has been added to your account. Keep rolling to reach 21 DTS and get your dice! 🎲🔥'
                     })
                 }else{
-                    toggleUpgrade(prv => prv ? false : true)
                     Swal.fire({
                         icon:"error",
                         title :"❌ Not this time!" ,

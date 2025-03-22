@@ -26,7 +26,7 @@ import TwoWhiteDice from "../../../icons/change/game/twowhiteDice";
 import WalletMoney from "../../../icons/walletmoney";
 
 import "./GameLayout2.css";
-import { useTonConnectUI } from "@tonconnect/ui-react";
+import { useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
 export const OwnerAddress = 'UQBWImgZl7ryAwZE0gCr8e7kFfyB06XZgZTQ-87qQexcYSmS'
 
 spiral.register();
@@ -284,6 +284,7 @@ const icons = {
 };
 
 export const Modal = ({ isOpen, setIsOpen, onConfirm, amount }) => {
+  const wallet = useTonWallet();
   const [selectedCoin, setSelectedCoin] = useState();
   const [coinAmount, setCoinAmount] = useState('');
   const [Currency , setCurrency]=useState('')
@@ -293,6 +294,7 @@ export const Modal = ({ isOpen, setIsOpen, onConfirm, amount }) => {
 
   const getCoinAmount = async (coin) => {
     try {
+      console.log('post getcoindts 1')
       const result = await axios.post(
         Api[6].getCoinDts,
         {
@@ -316,7 +318,7 @@ export const Modal = ({ isOpen, setIsOpen, onConfirm, amount }) => {
     if (isOpen) {
       window.document.body.style.overflow = "hidden";
       if (selectedCoin) {
-        // getCoinAmount(selectedCoin);
+        getCoinAmount(selectedCoin);
       }
     } else {
       window.document.body.style.overflow = "auto";
@@ -376,6 +378,15 @@ export const Modal = ({ isOpen, setIsOpen, onConfirm, amount }) => {
                 onConfirm({ coinAmount, amount, selectedCoin });
     
                 try{
+                  console.log('coinAmount' , coinAmount);
+                  console.log('amount' , amount)
+                if(!wallet?.account?.address){
+                  return Swal.fire({
+                    icon:'error',
+                    title : 'Please Connect Your Wallet'
+                  })
+                }
+                
                 const response1 = await axios.post(Api[6].PostBuyDts,{
                     currency:Currency,
                     dts_amount : amount
@@ -406,8 +417,21 @@ export const Modal = ({ isOpen, setIsOpen, onConfirm, amount }) => {
                       Authorization: `token ${token}`,
                     },
                   });
-                 
-              }catch(err){console.log(err)}}
+                  console.log(response)
+                 if(response.status){
+                  Swal.fire({
+                    icon:'success',
+                    title : 'Transaction Successful'
+                  })
+                 }
+              }catch(err){
+                Swal.fire({
+                  icon : 'error',
+                  title : 'Error',
+                  text : ''
+                })
+                console.log(err)
+              }}
             }
             >
               <span className="relative z-10">Confirm</span>

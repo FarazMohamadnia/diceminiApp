@@ -42,7 +42,7 @@ const BuyDtsHistory = () => {
              "Authorization" : `token ${token}`
           }
         })
-        
+        console.log(response.data)
         if(renderHandler){ 
           response.data.map(data =>{
             const date = new Date(data.insert_dt);
@@ -54,7 +54,7 @@ const BuyDtsHistory = () => {
               status :statusMap[data.status] ,
               icon: iconMap[data.status],
               statusColor: statusColorMap[data.status],
-              amount: `${signMap[data.transaction_type]}${data.amount} USD`,
+              amount: `${signMap[data.transaction_type]}${data.amount} ${data.currency.toUpperCase()}`,
               amountColor : statusColorMap[data.status] ,
               date : `${year}/${month}/${day}`
             }
@@ -70,8 +70,8 @@ const BuyDtsHistory = () => {
     }
   
     useEffect(()=>{
-      tabledata()
-    },[transitionData])
+      if(token){tabledata()}
+    },[ transitionData , token])
   return (
     <div
       className="
@@ -90,7 +90,7 @@ const BuyDtsHistory = () => {
       <div className="flex justify-center items-center table-blue-shadow">
         <div className="deposite_shadow">
           <span className="absolute right-0 left-0 w-full text-[15px] font-extrabold text-center top-1">
-            Deposit History
+            Buy Dts History
           </span>
         </div>
       </div>
