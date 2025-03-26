@@ -65,8 +65,8 @@ export function LeaderboardList() {
       }
   }
   useEffect(()=>{
-      playerRankhandler()
-  },[])
+      if(token){playerRankhandler()}
+  },[token])
 
   return (
     <div

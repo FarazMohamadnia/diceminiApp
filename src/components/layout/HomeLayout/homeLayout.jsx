@@ -61,18 +61,22 @@ export default function HomeLayout(){
                 setBtnDisabled(false)
                 setloading(false)
                 if(response.data.is_win){
-                    toggleUpgrade(prv => prv ? false : true)
-                    Swal.fire({
-                        icon:"success",
-                        title :"🎉 Congratulations! " ,
-                        text : 'You hit the right number! 0.21 DTS has been added to your account. Keep rolling to reach 21 DTS and get your dice! 🎲🔥'
-                    })
+                    // toggleUpgrade(prv => prv ? false : true)
+                    setTimeout(() => {
+                        Swal.fire({
+                            icon:"success",
+                            title :"🎉 Congratulations! " ,
+                            text : 'You hit the right number! 0.21 DTS has been added to your account. Keep rolling to reach 21 DTS and get your dice! 🎲🔥'
+                        })
+                    }, 1400);
                 }else{
-                    Swal.fire({
-                        icon:"error",
-                        title :"❌ Not this time!" ,
-                        text : 'But your effort counts—0.001 DTS has been added to your account. Try again and keep rolling! 🎲💪'
-                    })
+                    setTimeout(() => {
+                        Swal.fire({
+                            icon:"error",
+                            title :"❌ Not this time!" ,
+                            text : 'But your effort counts—0.001 DTS has been added to your account. Try again and keep rolling! 🎲💪'
+                        })
+                    }, 1400);
                 }
                 vibratePhone();
             }, 4000);

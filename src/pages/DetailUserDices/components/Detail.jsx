@@ -54,9 +54,11 @@ const Detail = () => {
   )}`;
 
   useEffect(()=>{
-    referralHandler()
-    referralCodeHandler()
-  },[])
+    if(token){
+      referralHandler()
+      referralCodeHandler()
+    }
+  },[token])
   return (
     <>
       <div>
