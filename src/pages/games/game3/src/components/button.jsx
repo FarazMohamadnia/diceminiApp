@@ -56,7 +56,7 @@ export default function Button({
         setloadin(false);
         Swal.fire({
           icon:'error',
-          title : 'error'
+          title : err.response.data.error
         })
       }
     }

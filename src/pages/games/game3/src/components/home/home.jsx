@@ -141,14 +141,14 @@ export default function Game3() {
       if (response.data.slots) {
         setPredicts(response.data);
         setlastPredict({
-          diceNumber1: response.data.predictions?.[0]?.dice_number1,
-          diceNumber2: response.data.predictions?.[0]?.dice_number2,
+          diceNumber1: response.data.dice_number1,
+          diceNumber2: response.data.dice_number2,
         });
       }
 
       
 
-      const number1 = response.data?.predictions?.[0]?.dice_number1 || null;
+      const number1 = response.data?.dice_number1 || null;
 
       if (finish) {
         setcontroller("disable");
@@ -215,7 +215,7 @@ export default function Game3() {
   }
 
   const startCountdown = () => {
-    clearInterval(window.countdownInterval); // اطمینان از پاک شدن تایمر قبلی
+    clearInterval(window.countdownInterval);
   
     window.countdownInterval = setInterval(() => {
       settime((prevTime) => {
@@ -252,7 +252,7 @@ export default function Game3() {
 
   useEffect(() => {
     timeHandler(); 
-    BTNhandler();
+    // BTNhandler();
     startCountdown();
   
     return () => clearInterval(window.countdownInterval); // پاک کردن تایمر هنگام خروج از صفحه
