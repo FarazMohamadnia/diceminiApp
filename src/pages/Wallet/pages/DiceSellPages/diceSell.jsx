@@ -98,7 +98,7 @@ export default function Dicesellpages() {
               </p>
               <div className="flex justify-center text-[11px] mt-3 text-white">
                 <p className="mr-3">CURRENT DICE PRIZE :</p>
-                <p>{dicePrice ? dicePrice.toFixed(2) : 0}<span className="text-[#1ae5a1]">TON</span></p>
+                <p>{dicePrice ? dicePrice.toFixed(2) : 0}<span className="text-[#1ae5a1]">USDT</span></p>
               </div>
             </div>
           </div>
@@ -114,7 +114,7 @@ export default function Dicesellpages() {
               <p className="ml-1 mr-4">you will receive </p>
             </div>
             <p className="">
-              {(dice*dicePrice).toFixed(3)} <span className="text-[#1AE5A1] text-[18px] font-bold">TON</span>
+              {(dice*dicePrice).toFixed(3)} <span className="text-[#1AE5A1] text-[18px] font-bold">USDT</span>
             </p>
           </div>
           <button onClick={sendTransaction} className="diceSell-Btn-Bgcolor mt-6 flex items-center justify-center w-40 h-[43px] bg-white/0 rounded-[15px] border border-[#3bffff] mx-auto">

@@ -15,6 +15,7 @@ const Detail = () => {
   const [data , setdata]=useState([]);
   const [loading , setloading]= useState(true);
   const[code , setcode]=useState('')
+  const [reffrealCount , setreffrealCount]=useState(0)
   const {token} = useTokenStore()
   const referralHandler = async()=>{
     try{
@@ -23,6 +24,7 @@ const Detail = () => {
            "Authorization" : `token ${token}`
         }
       })
+      setreffrealCount(response.data.count)
       setloading(false)
       setdata(response.data.referral)
       
@@ -76,13 +78,18 @@ const Detail = () => {
         <div className="flex">
           <Tabs />
         </div>
+        <div className="text-center my-3">
+        <p class="font-bold bg-gradient-to-b from-[#FF3D00] to-[#c9fd7b9a] bg-clip-text text-transparent">
+          {reffrealCount}/100 referrals this month. 
+        </p>
+        </div>
         <div className="flex flex-col gap-4 mt-8 max-h-[23rem] overflow-y-scroll">
           {
             data.map((item , index) => <UserRewardCard key={index} {...item}/>)
           }
         </div>
       </main>
-      <div className="w-[272px] h-[51px] flex justify-center items-center mx-auto my-6 bg-white/10 rounded-[10px] shadow-[0px_0px_8.899999618530273px_0px_rgba(26,229,161,1.00)] border border-[#00efff] px-4 py-2">
+      <div className="mb-20 w-[272px] h-[51px] flex justify-center items-center mx-auto my-6 bg-white/10 rounded-[10px] shadow-[0px_0px_8.899999618530273px_0px_rgba(26,229,161,1.00)] border border-[#00efff] px-4 py-2">
         <p className="mr-3">
           <Networking />
         </p>

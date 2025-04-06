@@ -3,7 +3,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "../../index.css";
 import { useStore } from "../../store";
-import AddIcon from "../asset/icon/add";
 import DisableIcon from "../asset/icon/disable";
 import JetIcon from "../asset/icon/jet";
 import RepeatIcon from "../asset/icon/repeat";
@@ -14,6 +13,15 @@ import WinerPage from "../../../components/winerpage";
 import { Api } from "../../../../../../api/apiUrl";
 import useTokenStore from "../../../../../../store/token";
 import BackButton from "../../../../../../components/common/shared/BackButton";
+import Dice1 from "../asset/icon/dice/dice1";
+import Dice2 from "../asset/icon/dice/dice2";
+import Dice3 from "../asset/icon/dice/dice3";
+import Dice4 from "../asset/icon/dice/dice4";
+import Dice5 from "../asset/icon/dice/dice5";
+import Dice6 from "../asset/icon/dice/dice6";
+import JoinImage from '../asset/img/joinIcon.png'
+import { Link } from "react-router-dom";
+const Dices = [<Dice1 /> , <Dice2 />,<Dice3 />,<Dice4 />,<Dice5 />,<Dice6 />]
 const color = [
   {
     text: "SUBMIT",
@@ -117,6 +125,10 @@ export default function Game3() {
     number2: 1,
   });
   const [countdown, setcountdown] = useState("");
+  const [result , setresult]=useState({
+    num1 : 0 ,
+    num2 : 0
+  })
   const [newDate , setnewDate ]=useState("")
   const [lastPredict, setlastPredict] = useState({
     diceNumber1: null,
@@ -138,13 +150,12 @@ export default function Game3() {
         },
       });
       
-      if (response.data.slots) {
-        setPredicts(response.data);
-        setlastPredict({
-          diceNumber1: response.data.dice_number1,
-          diceNumber2: response.data.dice_number2,
-        });
-      }
+      setPredicts(response.data);
+      setlastPredict({
+        diceNumber1: response.data.dice_number1,
+        diceNumber2: response.data.dice_number2,
+      });
+      
 
       
 
@@ -175,13 +186,17 @@ export default function Game3() {
   const timeHandler = async () => {
     try {
       const response = await axios.get(Api[6].luckydiceCountdown);
-      const date = new Date(response.data.expire_dt);
-      const date1 = new Date(response.data.expire_dt);
+      console.log(response.data.prev_countdown.dice_number1)
+      const date = new Date(response.data.countdown.expire_dt);
+      const date1 = new Date(response.data.countdown.expire_dt);
       date1.setDate(date.getDate() - 1);
       setnewDate(getFormattedDate(date1))
       setcountdown(getFormattedDate(date));
-      setfinish(response.data.is_finished);
-    
+      setfinish(response.data.countdown.is_finished);
+      setresult({
+        num1 : response.data.prev_countdown.dice_number1,
+        num2 : response.data.prev_countdown.dice_number2
+      })
       startCountdown();
       const calculateRemainingTime = () => {
         const now = new Date();
@@ -255,7 +270,7 @@ export default function Game3() {
     // BTNhandler();
     startCountdown();
   
-    return () => clearInterval(window.countdownInterval); // پاک کردن تایمر هنگام خروج از صفحه
+    return () => clearInterval(window.countdownInterval);
   }, []);
 
   return (
@@ -274,24 +289,13 @@ export default function Game3() {
                 </p>
               </div>
               <div className="mt-6">
-                <div className="w-[90%] h-[60px] flex items-center justify-between px-3 mx-auto rounded-2xl shadow-[inset_0px_4px_26.600000381469727px_-7px_rgba(26,229,161,1.00)] border border-[#1ae5a1] ">
-                  <div className="">
-                    <AddIcon />
-                  </div>
-                  <span>
-                    <p className="text-[#1ae5a1] text-xs font-semibold px-1">
-                      JOIN DICE MANIACS CHANNEL TO WATCH
-                      <br />
-                      LATEST COMBINATIONS
-                    </p>
-                  </span>
-                  <div className="flex justify-center items-center rounded-xl border border-[#1AE5A1] shadow-custom-inset">
-                    <a
-                      href="https://t.me/dicemaniacs"
-                      className="text-white p-2"
-                    >
-                      JOIN NOW
-                    </a>
+                <div className="flex justify-between items-center mx-6">
+                  <p className='text-white text-[15px]'>
+                    The results are in! <br/> This is last night’s  winning combo.
+                  </p>
+                  <div className="flex text-white">
+                    <div className="w-10 h-10 me-2">{Dices[result.num1-1]}</div>
+                    <div className="w-10 h-10">{Dices[result.num2-1]}</div>
                   </div>
                 </div>
                 <div
@@ -349,7 +353,14 @@ export default function Game3() {
                 />
               </div>
               <div className="flex w-[90%] mx-auto justify-between items-center relative my-6">
-                <div className="w-24"></div>
+                <Link to={'https://t.me/dicemaniacs'}
+                  className="relative flex items-start justify-start w-[90px] text-white py-[2px] rounded-[85px] border border-[#FFDE7B] bg-black/11 shadow-[0px_0px_8px_0px_#FFDE7B]"
+                >
+                  <span className="absolute left-0 -top-[14px]">
+                    <img className="w-10" src={JoinImage}/>
+                  </span>
+                  <span className="pl-11">JOIN</span>
+                </Link>
                 {controller === "disable" && (
                   <Button
                     auth={player_id}
@@ -380,7 +391,7 @@ export default function Game3() {
                   className="relative flex items-start justify-start w-[100px] text-white py-[2px] rounded-[85px] border border-[#FFDE7B] bg-black/11 shadow-[0px_0px_8px_0px_#FFDE7B]"
                 >
                   <span className="pl-4">WINNER</span>
-                  <span className="absolute right-2 -top-3">
+                  <span className="absolute right-1 -top-3">
                     <CupIcon />
                   </span>
                 </div>
