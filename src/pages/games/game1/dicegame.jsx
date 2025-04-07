@@ -19,7 +19,7 @@ import diceAudio from '../../../asset/sound/dice-142528.mp3'
 const questionData = [
   'Pick a number, choose whether the result will be higher or lower, then roll the dice.' ,
   'Two dice decide the outcome — if your guess is correct, your DTS is multiplied by the odds.',
-  'For example, if you choose the over 8 and the multiplier is 3.53, betting 1 DTS would win you 3.53 DTS.'
+  'For example, if you choose the over 8 and the multiplier is 3.42, betting 1 DTS would win you 3.42 DTS.'
 ]
 export default function DiceGame1() {
     let audio = new Audio(diceAudio);
