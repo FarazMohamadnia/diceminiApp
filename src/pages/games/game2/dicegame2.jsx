@@ -320,12 +320,21 @@ export default function DiceGame2() {
                         </button>
                     </div>
                     <div>
-                        <input onChange={(e)=>{setdts(e.target.value)}} className="text-[20px] font-bold w-[100%] text-center text-white bg-white/0" type="number" value={dts} placeholder="100 DTS"/>
+                        <input onChange={(e)=>{
+                            let value = parseInt(e.target.value);
+                            if (value > 377) value = 377;
+                            setdts(value);
+                        }} className="text-[20px] font-bold w-[100%] text-center text-white bg-white/0" type="number" value={dts} placeholder="100 DTS" />
                     </div>
                     <div className="flex">
                         <button
-                            onClick={() =>
-                                setdts((prv) => (prv < dtsAmount.max_dts ? Number(prv)+1 : prv))
+                            onClick={() =>{
+                                if(dts <=377){
+                                    setdts((prv) => (prv < 377 ? Number(prv)+1 : prv))
+                                }else{
+                                    setdts(377)
+                                }
+                            }
                             }
                             className="flex justify-center items-center relative"
                         >
@@ -357,7 +366,13 @@ export default function DiceGame2() {
                         </span>
                         </button>
                         <button
-                            onClick={() => setdts(dtsAmount.max_dts)}
+                            onClick={() => {
+                                if (!dts || dts <= 377) {
+                                    setdts(Math.min(dtsAmount.max_dts, 377));
+                                  } else {
+                                    setdts(377);
+                                  }
+                            }}
                             className="flex justify-center items-center relative"
                         >
                             <BTN/>

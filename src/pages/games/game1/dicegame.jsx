@@ -205,12 +205,21 @@ export default function DiceGame1() {
             </button>
           </div>
           <div>
-            <input placeholder="100 DTS" className="bg-white/0 text-white text-[20px] font-bold text-center max-w-[100px]" type="number" value={dts} onChange={(e)=>{setdts(e.target.value)}}/>
+            <input placeholder="100 DTS" className="bg-white/0 text-white text-[20px] font-bold text-center max-w-[100px]" type="number" value={dts} onChange={(e)=>{
+              let value = parseInt(e.target.value);
+              if (value > 377) value = 377;
+              setdts(value);
+            }}/>
           </div>
           <div className="flex">
             <button
-              onClick={() =>
-                dts < userDts.max_dts ? setdts((prev) => Number(prev) + 1) : userDts.max_dts
+              onClick={() =>{
+                if(dts <= 377){
+                  setdts((prv) => (prv < 377 ? Number(prv)+1 : prv))
+                }else{
+                    setdts(377)
+                }
+              }
               }
               className="flex justify-center items-center relative mx-1"
             >
@@ -242,7 +251,13 @@ export default function DiceGame1() {
               </p>
             </button>
             <button
-              onClick={() => setdts(userDts.max_dts)}
+              onClick={() => {
+                if (!dts || dts <= 377) {
+                  setdts(Math.min(userDts.max_dts, 377));
+                } else {
+                  setdts(377);
+                }
+              }}
               className="flex justify-center items-center relative"
             >
               <WhiteBtn />

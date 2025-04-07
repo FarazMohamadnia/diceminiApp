@@ -1,12 +1,14 @@
-import { toUserFriendlyAddress, useTonWallet } from "@tonconnect/ui-react";
+import { toUserFriendlyAddress, useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
 import useUserStore from "../store/user";
 import { useEffect } from "react";
 import axios from "axios";
 import { Api } from "../api/apiUrl";
 import useTokenStore from "../store/token";
+import Swal from "sweetalert2";
 export default function WalletProvider(){
     const {token } = useTokenStore();
     const wallet = useTonWallet();
+    const [tonConnectUI ] = useTonConnectUI();
     const { user, setUser } = useUserStore();
     const walletAddressHandler =async()=>{
         try{
@@ -18,6 +20,15 @@ export default function WalletProvider(){
                 })
             }
         }catch(err){
+          try{
+            tonConnectUI.disconnect();
+          }catch(err){
+            console.log(err)
+          }
+          Swal.fire({
+            icon : 'error',
+            title : err.response.data.error
+          })
           console.log(err)
         }
       }
