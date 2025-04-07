@@ -89,7 +89,7 @@ const Detail = () => {
           }
         </div>
       </main>
-      <div className="mb-20 w-[272px] h-[51px] flex justify-center items-center mx-auto my-6 bg-white/10 rounded-[10px] shadow-[0px_0px_8.899999618530273px_0px_rgba(26,229,161,1.00)] border border-[#00efff] px-4 py-2">
+      <div className="mb-28 w-[272px] h-[51px] flex justify-center items-center mx-auto my-6 bg-white/10 rounded-[10px] shadow-[0px_0px_8.899999618530273px_0px_rgba(26,229,161,1.00)] border border-[#00efff] px-4 py-2">
         <p className="mr-3">
           <Networking />
         </p>

@@ -53,35 +53,37 @@ const menus = [
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-  <div className="overflow-x-hidden max-w-lg">
-    <BrowserRouter>
-      <RouteProvider>
-        <TonConnectUIProvider manifestUrl="https://mainapp.dicemaniacs.com/maniest-example.json">
-        <ApiLoader />
-        <WalletProvider />   
-          <Routes>
-            <Route path="/" element={<App />} />
-            <Route path="/dice" element={<DicePage />} />
-            <Route path="/dice/histori" element={<DiceHistoriPage />} />
-            <Route path="/dice-detail" element={<DetailDice />} />
-            <Route path="/dice-detail-user" element={<DetailDiceUser />} />
-            <Route path="/wallet/sell" element={<Dicesellpages />} />
-            <Route path="/games" element={<GamePage />} />
-            <Route path="/games/leaderboard" element={<LeaderBoard />} />
-            <Route path="/wallet" element={<Wallet />} />
-            <Route path="/wallet/withdraw" element={<WithdrawPage />} />
-            <Route path="/wallet/deposite" element={<Deposite />} />
-            <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/notification" element={<Notification />} />
-            <Route path="/games/rocket-dice" element={<DiceGame1 />} />
-            <Route path="/games/dice-clash" element={<DiceGame2 />} />
-            <Route path="/games/lucky-dice" element={<DiceGame3 />} />
-            <Route path="/dtshistory" element={<DtsHistory />} />
-          </Routes>
-          {/* <ButtonLinkV2 menu={menus}/> */}
-        </TonConnectUIProvider>
-      </RouteProvider>
-    </BrowserRouter>
+  {/* <div className="flex justify-center"> */}
+    <div className="overflow-x-hidden max-w-lg">
+      <BrowserRouter>
+        <RouteProvider>
+          <TonConnectUIProvider manifestUrl="https://mainapp.dicemaniacs.com/maniest-example.json">
+          <ApiLoader />
+          <WalletProvider />   
+            <Routes>
+              <Route path="/" element={<App />} />
+              <Route path="/dice" element={<DicePage />} />
+              <Route path="/dice/histori" element={<DiceHistoriPage />} />
+              <Route path="/dice-detail" element={<DetailDice />} />
+              <Route path="/dice-detail-user" element={<DetailDiceUser />} />
+              <Route path="/wallet/sell" element={<Dicesellpages />} />
+              <Route path="/games" element={<GamePage />} />
+              <Route path="/games/leaderboard" element={<LeaderBoard />} />
+              <Route path="/wallet" element={<Wallet />} />
+              <Route path="/wallet/withdraw" element={<WithdrawPage />} />
+              <Route path="/wallet/deposite" element={<Deposite />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/notification" element={<Notification />} />
+              <Route path="/games/rocket-dice" element={<DiceGame1 />} />
+              <Route path="/games/dice-clash" element={<DiceGame2 />} />
+              <Route path="/games/lucky-dice" element={<DiceGame3 />} />
+              <Route path="/dtshistory" element={<DtsHistory />} />
+            </Routes>
+            {/* <ButtonLinkV2 menu={menus}/> */}
+          </TonConnectUIProvider>
+        </RouteProvider>
+      </BrowserRouter>
     </div>
+  {/* </div> */}
   </React.StrictMode>
 );
