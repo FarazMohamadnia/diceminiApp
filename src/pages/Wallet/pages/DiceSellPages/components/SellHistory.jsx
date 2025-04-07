@@ -51,7 +51,7 @@ const SellDtsHistory = () => {
             status: statusMap[data.status],
             icon: iconMap[data.status],
             statusColor: statusColorMap[data.status],
-            amount: `${signMap[data.transaction_type]}${data.amount} USD`,
+            amount: `${signMap[data.transaction_type]}${data.amount} TON`,
             amountColor: statusColorMap[data.status],
             date: `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`
           };
