@@ -57,8 +57,8 @@ root.render(
     <BrowserRouter>
       <RouteProvider>
         <TonConnectUIProvider manifestUrl="https://mainapp.dicemaniacs.com/maniest-example.json">
-        <WalletProvider />   
         <ApiLoader />
+        <WalletProvider />   
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="/dice" element={<DicePage />} />

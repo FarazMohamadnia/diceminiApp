@@ -18,6 +18,7 @@ export default function WalletProvider(){
                      "Authorization" : `token ${token}`
                   }
                 })
+                console.log(response)
             }
         }catch(err){
           try{
@@ -33,10 +34,10 @@ export default function WalletProvider(){
         }
       }
     useEffect(()=>{
-        if(wallet?.account?.address){
+        if(wallet?.account?.address && token){
             setUser({...user , address :wallet?.account?.address ? toUserFriendlyAddress(wallet?.account?.address) : '', connected : true});
             walletAddressHandler()
         }
-    },[wallet?.account?.address])
+    },[wallet?.account?.address , token])
     return null
 }

@@ -43,7 +43,7 @@ const SellDtsHistory = () => {
           }
         });
     
-        settransitionData([]); // پاک کردن مقادیر قبلی
+        settransitionData([]); 
     
         const newData = response.data.map(data => {
           const date = new Date(data.insert_dt);
@@ -58,7 +58,7 @@ const SellDtsHistory = () => {
         });
     
         settransitionData(newData);
-        setrenderHandler(false); // مقدار آن را false کن تا دوباره صدا زده نشود
+        setrenderHandler(false); 
         setloading(false);
       } catch (err) {
         console.error(err);
