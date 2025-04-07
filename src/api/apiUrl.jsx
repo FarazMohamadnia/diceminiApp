@@ -48,5 +48,9 @@ export const Api = [
         getCoinDts: url + "dts-coin/",
         PostValidation : url+'validate-buy/',
         PostBuyDts : url+'buy-dts/'
+    },
+    {
+        GetTasks : url+'tasks/',
+        PostTask : url+'tasks/claim'
     }
 ]

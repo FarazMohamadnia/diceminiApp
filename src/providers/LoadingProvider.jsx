@@ -23,14 +23,14 @@ const ApiLoader = () => {
         // telegram Auth
         const tg =window.Telegram.WebApp.initDataUnsafe.user;
         const response1  = await axios.post(Api[2].PostAuth , {
-            telegram_data : tg
+            // telegram_data : tg
             // For test 
-            // telegram_data : {
-                // id : 2,
-                // first_name : 'nnnnn',
-                // last_name : 'marcho',
-                // username : 'dmdmdmdks'
-            // }
+            telegram_data : {
+                id : 2,
+                first_name : 'nnnnn',
+                last_name : 'marcho',
+                username : 'dmdmdmdks'
+            }
         });
         settoken(response1.data.player_id);
         // USER API !

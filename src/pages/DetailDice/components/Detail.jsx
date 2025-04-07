@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../../components/global/Navbar/navbar";
 import Bottonlink from "../../../components/global/BottonLink/bottonlink";
 import BackButton from "../../../components/common/shared/BackButton";
@@ -6,8 +6,31 @@ import Button from "../../../components/common/shared/Button";
 import PlusIcon from "../../../components/icons/plus";
 import RewardCard from "../components/DetailCard";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { Api } from "../../../api/apiUrl";
+import useTokenStore from "../../../store/token";
 
 const Detail = () => {
+  const {token}=useTokenStore()
+  const[Tasks , setTasks]=useState([]);
+
+  const getTasks = async ()=>{
+    try{
+      const response = await axios.get(Api[7].GetTasks , {
+        headers:{
+           "Authorization" : `token ${token}`
+        }
+    })
+    setTasks(response.data.tasks);
+    console.log(response)
+    }catch(err){
+      console.log(err)
+    }
+  }
+
+  useEffect(()=>{
+    if(token)getTasks();
+  },[token])
   return (
     <div>
       <div>
@@ -26,8 +49,9 @@ const Detail = () => {
           <Tabs />
         </div>
         <div className="mt-8 flex flex-col gap-4 min-h-[50vh] overflow-y-scroll">
-          {/* <RewardCard type="error" /> */}
-          {/* <RewardCard type="success" /> */}
+          {
+            Tasks.map((data , index) => <RewardCard type={index % 2 === 0 ? 'success' : 'error'} data={data} />)
+          }
         </div>
       </main>
       <div>
