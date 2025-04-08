@@ -6,9 +6,9 @@ import { Api } from "../../../api/apiUrl";
 import useTokenStore from "../../../store/token";
 import axios from "axios";
 import Swal from "sweetalert2";
-
+import Accepted from '../../../components/icons/accept'
 const RewardCard = ({ type , data}) => {
-  const{dts_amount , task , xp} =data
+  const{dts_amount , task , xp ,is_claimed} =data
   const {token}=useTokenStore()
   const claim = async()=>{
     try{
@@ -113,14 +113,21 @@ const RewardCard = ({ type , data}) => {
       </div>
 
       {/* Claim Button */}
-      <button
+      {
+        is_claimed ? 
+        <div className ="">
+            <Accepted />
+        </div> 
+        :
+        <button
         onClick={claim}
         className={`w-[63px] font-bold cursor-pointer ml-4 px-3 py-1 bg-transparent border ${
           type === "error" ? "border-[#F55059]" : "border-[#3BFFFF]"
         } text-white rounded-xl text-sm`}
-      >
-        CLAIM
-      </button>
+        >
+          CLAIM
+        </button>
+      }
     </div>
   );
 };
