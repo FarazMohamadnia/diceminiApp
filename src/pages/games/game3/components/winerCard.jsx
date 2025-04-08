@@ -1,5 +1,6 @@
 // import DollerIcon from "./asset/icon/doller";
 import DollerIcon from '../src/components/asset/icon/doller'
+import DtsImg from '../../../../asset/img/NavbarImg/DTScoin.png'
 export function maskFirstThree(str) {
   if (str.length < 3) {
     return "***".slice(0, str.length);
@@ -22,9 +23,10 @@ export default function WinerCard({ amount, index, username }) {
       </div>
       <div className="">
         <p className="text-white text-xs font-light flex items-center">
-          {amount}{" "}
+          {amount}
           <span className="text-[#3bffff] ml-1">
-            <DollerIcon />
+            {/* <DollerIcon /> */}
+            <img className='w-6 h-6' src={DtsImg}/>
           </span>
         </p>
       </div>

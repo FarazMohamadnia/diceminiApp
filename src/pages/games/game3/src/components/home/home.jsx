@@ -283,7 +283,7 @@ export default function Game3() {
               </div>
               <div className="text-center text-white text-xl font-medium">
                 <p>
-                  Predict The Dice, <span className="text-[#FFDE7B]">100$</span>{" "}
+                  Predict The Dice, <span className="text-[#FFDE7B]">5000 DTS</span>{" "}
                   For The Prize!
                   <br /> <span className=""> Cash in Your Wallet</span>
                 </p>
