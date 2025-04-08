@@ -7,7 +7,7 @@ import useTokenStore from "../../../store/token";
 import axios from "axios";
 import Swal from "sweetalert2";
 import Accepted from '../../../components/icons/accept'
-const RewardCard = ({ type , data}) => {
+const RewardCard = ({ type , data , setpreload}) => {
   const{dts_amount , task , xp ,is_claimed} =data
   const {token}=useTokenStore()
   const claim = async()=>{
@@ -19,6 +19,7 @@ const RewardCard = ({ type , data}) => {
            "Authorization" : `token ${token}`
         }
     })
+    setpreload(pre => pre ? false : true)
 
     Swal.fire({
       icon : 'success',

@@ -14,6 +14,7 @@ const Detail = () => {
   const {token}=useTokenStore()
   const [Tasks , setTasks]=useState([]);
   const [loading , setloading]=useState(true);
+  const [preload , setpreload]=useState(true)
   const getTasks = async ()=>{
     try{
       const response = await axios.get(Api[7].GetTasks , {
@@ -32,13 +33,13 @@ const Detail = () => {
 
   useEffect(()=>{
     if(token)getTasks();
-  },[token])
+  },[token , preload])
   return (
     <div>
       <div>
         <Navbar />
       </div>
-      <main className="mx-4 mt-6 ">
+      <main className="mx-4 mt-6 pb-28">
         <div className="flex items-center gap-6">
           <BackButton title="Back to Dice" />
         </div>
@@ -57,7 +58,7 @@ const Detail = () => {
               <l-spiral size="100" speed="0.9" color="#1AE5A1"></l-spiral>
             </div>
             :
-            Tasks.map((data , index) => <RewardCard type={index % 2 === 0 ? 'success' : 'error'} data={data} />)
+            Tasks.map((data , index) => <RewardCard type={index % 2 === 0 ? 'success' : 'error'} data={data} setpreload={setpreload}/>)
           }
         </div>
       </main>
