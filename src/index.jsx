@@ -35,6 +35,7 @@ import WalletBtnIcon from "./components/icons/change/bottonLinkIcon/wallet";
 import ProfileIcon from "./components/icons/change/bottonLinkIcon/ProfileIcon";
 import DtsHistory from "./pages/dtsHistory/DtsHistory";
 import DiceGame3 from "./pages/games/game3/diceGame3";
+import { beginCell } from '@ton/ton'
 
 const ImageSelected = [
   <HomeSelectIcon/>,
