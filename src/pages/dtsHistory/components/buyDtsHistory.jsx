@@ -14,6 +14,7 @@ const BuyDtsHistory = () => {
     const [transitionData ,settransitionData]=useState([]);
     const [renderHandler , setrenderHandler]=useState(true);
     const [loading , setloading]=useState(true)
+    const [table , settable]=useState(true)
     const{token}=useTokenStore();
     const iconMap = {
       1: <SucessFullIcon />,
@@ -61,6 +62,7 @@ const BuyDtsHistory = () => {
             transitionData.push(obg)
             setrenderHandler(false)
           })   
+          if(transitionData.length != 0)settable(false)
         }
         setloading(false)
       }catch(err){
@@ -105,6 +107,9 @@ const BuyDtsHistory = () => {
       </div> 
       :
       <div className="mt-8 flex flex-col divide-y divide-[#cafd7b3b]">
+        {table && <div className="w-full h-32 flex justify-center items-center">
+          <p className="text-[#00f0ff] font-bold">No Transaction History</p>
+        </div>}
         {transitionData.map((tx, index) => (
           <div
             key={index}
