@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { ProjectApi } from "../api/Api";
 import { useStore } from "../store";
 import ArrowBottom from "./asset/icon/arrowbotton";
 import ArrowTop from "./asset/icon/arrowtop";

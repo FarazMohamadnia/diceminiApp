@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
-import { ProjectApi } from "../api/Api";
 import { useStore } from "../store";
 import Cross from "./asset/icon/cross";
 import PeopleIcon from "./asset/icon/people";
@@ -27,32 +26,7 @@ const RefferalDialog = ({ handleCloseDialog }) => {
     };
   }, [handleCloseDialog]);
 
-  const getReferralsList = async () => {
-    try {
-      const response = await axios.get(ProjectApi[3].referrals, {
-        headers: {
-          Authorization: player_id,
-        },
-      });
-      if (response.data?.referral) {
-        const halfway = Math.ceil(response.data.referral.length / 2);
-        const firstHalf = response.data.referral.slice(0, halfway);
-        const secondHalf = response.data.referral.slice(halfway);
-        setLeftList(firstHalf);
-        setRightList(secondHalf);
-        setCount(response.data.count);
-      }
-    } catch (error) {
-      console.error(error);
-      // TODO: remove mock data
-      // const halfway = Math.ceil(exampleData.get.referrals.referral.length / 2); // To handle odd number of elements
-      // const firstHalf = exampleData.get.referrals.referral.slice(0, halfway);
-      // const secondHalf = exampleData.get.referrals.referral.slice(halfway);
-      // setLeftList(firstHalf);
-      // setRightList(secondHalf);
-      // setCount(exampleData.get.referrals.count);
-    }
-  };
+  const getReferralsList = async () => {}
 
   useEffect(() => {
     getReferralsList();

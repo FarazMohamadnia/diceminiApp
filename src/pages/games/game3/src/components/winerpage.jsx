@@ -1,7 +1,6 @@
 import axios from "axios";
 import LeaveIcon from "./asset/icon/leave";
 import WinerCard from "./winerCard";
-import { ProjectApi } from "../api/Api";
 import { useEffect, useState } from "react";
 import {useStore} from "../store";
 import LeaderBoardCard from "./leaderboardCard";
@@ -16,34 +15,11 @@ export default function WinerPage({modalHandler , countdown }){
     const [players,setplayers]=useState([]);
     const [loading , setoading]=useState(false)
     const winner =async()=>{
-        try{
-            const response = await axios.get(ProjectApi[0].winners,{
-                headers:{
-                    Authorization: player_id
-                }
-            });
-            setData(response.data);
-        }catch(err){
-            console.log(err)
-        }
+
     }
 
     const leaderBoardHandler = async()=>{
-        try{
-            setoading(true)
-            const response = await axios.get(ProjectApi[2].leaderBoard, {
-            headers: {
-              Authorization: player_id,
-            },
-          }
-          );
-          setplayers(response.data.players);
-         
-          setoading(false)
-        }catch(err){
-          console.log(err)
-          setoading(false)
-        }
+
       }
     
 

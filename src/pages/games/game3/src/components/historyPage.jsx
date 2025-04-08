@@ -1,6 +1,6 @@
 import axios from "axios";
 import LeaveIcon from "./asset/icon/leave";
-import { ProjectApi } from "../api/Api";
+
 import { useEffect, useState } from "react";
 import {useStore} from "../store";
 import HistoryCard from "./historyCard";
@@ -11,17 +11,7 @@ export default function HistoryPage({sethistoryModal , countdown}){
     const {player_id} = useStore()
 
     const winner =async()=>{
-        try{
-            const response = await axios.get(ProjectApi[2].predict,{
-                headers:{
-                    Authorization: player_id
-                }
-            });
-            
-            setData(response.data?.predictions);
-        }catch(err){
-            console.log(err)
-        }
+
     }
 
     useEffect(()=>{
