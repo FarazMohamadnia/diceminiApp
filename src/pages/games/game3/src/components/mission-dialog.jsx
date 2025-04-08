@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
-import { ProjectApi } from "../api/Api";
 import { useStore } from "../store";
 import BigShield from "./asset/icon/big-shield";
 import Cross from "./asset/icon/cross";
@@ -40,18 +39,7 @@ const MissionDialog = ({ handleCloseDialog }) => {
   }, [handleCloseDialog, isRefferalDialogOpen]);
 
   const getCheckboxStatus = async () => {
-    try {
-      const response = await axios.get(ProjectApi[3].missions, {
-        headers: {
-          Authorization: player_id,
-        },
-      });
-      if (response.data) setCheckboxes(response.data);
-    } catch (error) {
-      console.error(error);
-      // TODO: remove mock data
-      // setCheckboxes(exampleData.get.missions);
-    }
+
   };
 
   useEffect(() => {

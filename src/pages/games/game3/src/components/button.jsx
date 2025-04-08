@@ -2,7 +2,6 @@ import { useTonWallet } from "@tonconnect/ui-react";
 import axios from "axios";
 import { useState } from "react";
 import Swal from "sweetalert2";
-import { ProjectApi } from "../api/Api";
 import { useStore } from "../store";
 import useTokenStore from "../../../../../store/token";
 import { Api } from "../../../../../api/apiUrl";

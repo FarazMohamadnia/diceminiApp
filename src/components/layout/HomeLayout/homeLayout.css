@@ -1,6 +1,6 @@
 .HomeLayout-container{
     position: relative;
-    background-image:linear-gradient(to bottom , rgb(18, 24, 37), rgba(255, 255, 255, 0)20%, rgba(255, 255, 255, 0),rgba(255, 255, 255, 0),rgb(18, 24, 37)) , url('../../../asset/img/HomeImg/bgHome.png');
+    background: linear-gradient(to bottom, rgb(18, 24, 37), rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgb(18, 24, 37)), url('../../../asset/img/HomeImg/bgHome.png');
     background-position: top;
     background-size: cover;
     margin-top: 10px;
