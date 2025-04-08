@@ -22,14 +22,7 @@ const Game = () => {
         <div className="flex items-center gap-5 mt-3">
           <BackButton title="Back to Games" />
         </div>
-        {/* <div className="flex justify-center items-center"> */}
-            {/* <BoardTitle title="Leader Board" icon={<LeaderIcon />} /> */}
-        {/* </div> */}
-        {/* <div className="flex justify-center items-center gap-3"> */}
-          {/* <DropdownMenu title="All Game" /> */}
-          {/* <DropdownMenu title="All Time" /> */}
-        {/* </div> */}
-
+  
         <div className="flex justify-center mt-2">
           <BoardTitle icon={<RankingIcon />} title="Your Rank" />
         </div>
@@ -54,6 +47,7 @@ const Game = () => {
 export default Game;
 
 function LeaderboardCard() {
+  const [loading , setloading]=useState(true)
   const {token } = useTokenStore();
   const[player , setplayer]=useState({})
   const playerRankhandler = async()=>{
@@ -64,8 +58,9 @@ function LeaderboardCard() {
             }
         });
         setplayer(response.data.player)
-        
+        setloading(false)
     }catch(err){
+        setloading(false)
         console.log(err)
     }
 }
@@ -80,28 +75,40 @@ useEffect(()=>{
         boxShadow: `${"inset 0 0 20px #CAFD7B"}`,
       }}
     >
+      {loading ?
+      <div className="flex justify-center items-center w-full mx-auto">
+      <l-bouncy
+        size="60"
+        speed="1" 
+        color="#CAFD7B" 
+      ></l-bouncy>
+    </div>
+    : 
+    <div className="flex items-center justify-between w-full">
       <div className="flex items-center">
-        <span className="text-[#CAFD7B] font-bold text-2xl">#{player.rank}</span>
-      </div>
-      <div>
-        <span className="text-white font-semibold">{player.first_name}</span>
-      </div>
-      <div>
-        <div className="flex items-center text-white space-x-1">
-          <span className="text-white text-lg">
-            <DiceIcon />
-          </span>
-          <span className="text-white">{player.dice_balance} Dice</span>
+          <span className="text-[#CAFD7B] font-bold text-2xl">#{player.rank}</span>
         </div>
-      </div>
-      <div className="flex items-center space-x-6">
-        <div className="flex items-center text-white space-x-1">
-          <span className="text-white text-lg">
-            <FlashIcon />
-          </span>
-          <span className="text-white">Level {player.level}</span>
+        <div>
+          <span className="text-white font-semibold">{player.first_name}</span>
         </div>
-      </div>
+        <div>
+          <div className="flex items-center text-white space-x-1">
+            <span className="text-white text-lg">
+              <DiceIcon />
+            </span>
+            <span className="text-white">{player.dice_balance} Dice</span>
+          </div>
+        </div>
+        <div className="flex items-center space-x-6">
+          <div className="flex items-center text-white space-x-1">
+            <span className="text-white text-lg">
+              <FlashIcon />
+            </span>
+            <span className="text-white">Level {player.level}</span>
+          </div>
+      </div> 
+    </div>
+    }
     </div>
   );
 }

@@ -11,6 +11,7 @@ import useTokenStore from "../../../store/token";
 
 export function LeaderboardList() {
   const {token } = useTokenStore();
+  const [loading , setloading]=useState(true);
   const [item , setitem]=useState([{
     icon: <GoldCoin />,
     name: "",
@@ -59,9 +60,10 @@ export function LeaderboardList() {
           }
           ])
           setitems(response.data.lucky_board.slice(3));
-          
+          setloading(false)
       }catch(err){
           console.log(err)
+          setloading(false)
       }
   }
   useEffect(()=>{
@@ -69,6 +71,16 @@ export function LeaderboardList() {
   },[token])
 
   return (
+    <>
+    {loading ? 
+    <div className="flex justify-center items-center w-full mx-auto">
+      <l-spiral
+        size="100"
+        speed="0.9"
+        color="#1AE5A1" 
+      ></l-spiral>
+    </div>
+    :
     <div
       className="bg-[#1D222E] border border-[#1AE5A1] rounded-xl  w-full"
       style={{
@@ -124,5 +136,7 @@ export function LeaderboardList() {
           </div>
         ))}
     </div>
+  }
+    </>
   );
 }
