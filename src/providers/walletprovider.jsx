@@ -12,14 +12,13 @@ export default function WalletProvider(){
     const { user, setUser } = useUserStore();
     const walletAddressHandler =async()=>{
         try{
-            if(wallet?.account?.address){
-                const response = await axios.post(Api[2].PostConnectWallet ,{ "wallet_address" :  toUserFriendlyAddress(wallet?.account?.address)} , {
-                  headers:{
-                     "Authorization" : `token ${token}`
-                  }
-                })
-                console.log(response)
+          console.log('wallet : ' , wallet?.account?.address)
+          const response = await axios.post(Api[2].PostConnectWallet ,{ "wallet_address" :  toUserFriendlyAddress(wallet?.account?.address)} , {
+            headers:{
+               "Authorization" : `token ${token}`
             }
+          })
+          console.log(response)
         }catch(err){
           try{
             tonConnectUI.disconnect();
