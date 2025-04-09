@@ -4,8 +4,6 @@ import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
 // https://vite.dev/config/
 export default defineConfig({
-  server:{
-    host : true
-  },
   plugins: [react(), nodePolyfills()],
+  base : 'https://mainapp.dicemaniacs.com/test/'
 })

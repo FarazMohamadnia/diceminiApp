@@ -16,19 +16,19 @@ const Detail = () => {
   const [loading , setloading]=useState(true);
   const [preload , setpreload]=useState(true)
   const getTasks = async ()=>{
-    try{
-      const response = await axios.get(Api[7].GetTasks , {
-        headers:{
-           "Authorization" : `token ${token}`
-        }
-    })
-    setTasks(response.data.tasks);
-    setloading(false)
-    console.log(response)
-    }catch(err){
-      setloading(false)
-      console.log(err)
-    }
+    // try{
+    //   const response = await axios.get(Api[7].GetTasks , {
+    //     headers:{
+    //        "Authorization" : `token ${token}`
+    //     }
+    // })
+    // setTasks(response.data.tasks);
+    // setloading(false)
+    // console.log(response)
+    // }catch(err){
+    //   setloading(false)
+    //   console.log(err)
+    // }
   }
 
   useEffect(()=>{
@@ -52,14 +52,14 @@ const Detail = () => {
           <Tabs />
         </div>
         <div className="mt-8 flex flex-col gap-4 min-h-[50vh] overflow-y-scroll">
-          {
+          {/* {
             loading ? 
             <div className="flex justify-center items-center">
               <l-spiral size="100" speed="0.9" color="#1AE5A1"></l-spiral>
             </div>
             :
             Tasks.map((data , index) => <RewardCard type={index % 2 === 0 ? 'success' : 'error'} data={data} setpreload={setpreload}/>)
-          }
+          } */}
         </div>
       </main>
       <div>
