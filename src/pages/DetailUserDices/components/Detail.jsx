@@ -81,7 +81,7 @@ const Detail = () => {
         </div>
         <div className="text-center my-3">
         <p class="font-bold bg-gradient-to-b from-[#FF3D00] to-[#c9fd7b9a] bg-clip-text text-transparent">
-          {reffrealCount}/10 referrals this month. 
+          {reffrealCount}/10 referrals today. 
         </p>
         </div>
         <div className="flex flex-col gap-4 mt-8 max-h-[23rem] overflow-y-scroll">

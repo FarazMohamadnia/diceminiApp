@@ -29,6 +29,7 @@ export default function Button({
           {
             dice_number1: values.number1,
             dice_number2: values.number2,
+            slot : 1
           },
           {
             headers: {
